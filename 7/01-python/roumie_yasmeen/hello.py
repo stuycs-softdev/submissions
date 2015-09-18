@@ -1,1 +1,1 @@
-print HELLO
+print "hi"
