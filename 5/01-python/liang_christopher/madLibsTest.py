@@ -12,6 +12,7 @@ presentVerbList = []
 presentProgressiveVerbList = []
 adverbList = []
 jobList = []
+placeholders = [ "<NOUN-SINGULAR>" , "<NOUN-PLURAL>", "<ADJECTIVE>", "<NAME>", "<VERB-PAST>", "<VERB-PRESENT>", "<VERB-PRESENT-PROGRESSIVE>", "<ADVERB>", "<JOB>"]
 
 def madlibify(story):
     words = story.split(" ")
