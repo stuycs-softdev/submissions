@@ -26,7 +26,6 @@ def loadConfig():
         CHANNEL = d[CHANNEL]
         return 0
     except:
-        raise
         print "It looks like this is the first time you're using photonBot"
         print "Here are some simple setup instructions:"
         setup()
@@ -42,8 +41,7 @@ def setup():
         exit()
     NICK = raw_input("Please enter the nickname of the bot: ")
     CHANNEL = raw_input("And the channel to which the bot will be connected to: ")
-    configs = "HOST %s\nPORT %d\nNICK %s\nINDENT %s\nCHANNEL %s\n" % (HOST,
-            PORT, NICK, INDENT, CHANNEL)
+    configs = "HOST %s\nPORT %d\nNICK %s\nCHANNEL %s\n" % (HOST, PORT, NICK, CHANNEL)
     f = open("config.pbc", 'w')
     f.write(configs)
     f.close()
@@ -63,7 +61,9 @@ def parse(line):
     result = ""
     if line.find("JOIN") != -1:
         username = line.split(":")[1].split("!")[0]
-        result = "hi, %s" % username
+        if username != NICK:
+            result = "hi, %s" % username
+    # TODO add more commands lol
     return result
 
 def main():
