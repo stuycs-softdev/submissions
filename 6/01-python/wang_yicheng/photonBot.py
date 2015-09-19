@@ -1,3 +1,10 @@
+# This is an upgrade of an irc chat bot I wrote a while ago.
+# I pretty much scrapped the entire thing and started from the
+# beginning except for the 'how irc commands work' part.
+
+# The major difference is the config file to make configring the
+# bot easier.
+
 import socket
 import random
 
