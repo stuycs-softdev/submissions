@@ -32,7 +32,6 @@ def generate(n):
     return output;
 
     
-
 print abc("abc")
 print abc("defg")
 
