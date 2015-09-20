@@ -14,5 +14,5 @@ for i in range(len(a)):
         c.append(i)
     a[i] = c
 
-for i in a:
+for i in a: 
     print i
