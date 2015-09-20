@@ -40,17 +40,6 @@ def play():
         print("\nWhoever destroys all their opponents boats first wins.")
         time.sleep(2)
     while game:
-        for v in playerShips:
-            print("[ ")
-            for kappa in v:
-                print(str(kappa)+ " ")
-            print("]\n")
-        print("----------\n")
-        for v in compShips:
-            print("[ ")
-            for kappa in v:
-                print(str(kappa)+ " ")
-            print("]\n")
         time.sleep(1)
         print("\n\n\nTURN " + str(turn)+"\n")
         print("COMPUTER BOARD\n----------------------")
