@@ -20,6 +20,7 @@ def pun():
     restart = ""
     wrong = False
     score = 0
+    print "Welcome to Guess the Bad Pun!\nRules are simple: Guess the answer to the pun, and get a point! \n*Note: Answers are one word and can contain letters and numbers.\nFirst Question:"
     while len(punDict) > 0:
         response = ""
         ans = ""
