@@ -1,0 +1,4 @@
+HOST irc.freenode.com
+PORT 6667
+NICK photonBot
+CHANNEL #hiWorld

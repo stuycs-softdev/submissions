@@ -1,12 +1,13 @@
 # This is an upgrade of an irc chat bot I wrote a while ago.
 # I pretty much scrapped the entire thing and started from the
-# beginning except for the 'how irc commands work' part.
+# beginning.
 
 # The major difference is the config file to make configring the
 # bot easier.
 
 import socket
 import random
+import sys
 
 HOST = "HOST"
 PORT = "PORT"
@@ -14,25 +15,17 @@ NICK = "NICK"
 CHANNEL = "CHANNEL"
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-def loadConfig():
-    global HOST, PORT, NICK, CHANNEL
-    try:
-        print "Loading config files..."
-        with open('config.pbc') as f:
-            d = dict(line.strip().split(None, 1) for line in f)
-        HOST = d[HOST]
-        PORT = int(d[PORT])
-        NICK = d[NICK]
-        CHANNEL = d[CHANNEL]
-        return 0
-    except:
-        print "It looks like this is the first time you're using photonBot"
-        print "Here are some simple setup instructions:"
-        setup()
-        return 1
-
-def setup():
-    global HOST, PORT, NICK, CHANNEL
+try:
+    print "Loading config.pbc..."
+    with open('config.pbc') as f:
+        d = dict(line.strip().split(None, 1) for line in f)
+    HOST = d[HOST]
+    PORT = int(d[PORT])
+    NICK = d[NICK]
+    CHANNEL = d[CHANNEL]
+except:
+    print "It looks like this is the first time you're using photonBot"
+    print "Here are some simple setup instructions:"
     HOST = raw_input("Please enter the hostname of the irc service you want to connect to: ")
     try:
         PORT = int(raw_input("And the port number: "))
@@ -47,15 +40,15 @@ def setup():
     f.close()
     print "These configs are saved at \'config.pbc\'"
 
-def connect():
-    global HOST, PORT, NICK, CHANNEL, s
-    s.connect((HOST, PORT))
-    s.send("NICK %s\r\n" % NICK)
-    s.send("USER %s 8 * :%s\r\n" % (NICK, NICK))
-    pingPong = s.recv(512)
-    pingPong = pingPong[5:]
-    s.send('PONG %s\r\n' % pingPong)
-    s.send("JOIN %s\r\n" % CHANNEL)
+s.connect((HOST, PORT))
+#print "recv 1", s.recv(512)
+s.send("NICK %s\r\n" % NICK)
+s.send("USER %s 8 * :%s\r\n" % (NICK, NICK))
+pingPong = s.recv(512)
+#print "recv 2", pingPong
+pingPong = pingPong[5:]
+s.send('PONG %s\r\n' % pingPong)
+s.send("JOIN %s\r\n" % CHANNEL)
 
 def parse(line):
     result = ""
@@ -64,21 +57,33 @@ def parse(line):
         if username != NICK:
             result = "hi, %s" % username
     # TODO add more commands lol
+    if len(line.split(":")) == 3:
+        username = line.split(":")[1].split("!")[0]
+        message = line.split(":")[2]
+        #print username
+        #print message
+
+        if message.find("`") == 0:
+            actual = message[1:].split(" ")
+            commands = ['help', 'roll', 'md5', 'hex', 'ascii']
+            command = actual[0]
+            #print command
+            if command.find('help') != -1: # help
+                result = "Commands: "
+                for i in commands:
+                    result = result + i + ", "
+                result = result[:-2]
     return result
 
-def main():
-    global CHANNEL, s
-    retVal = loadConfig()
-    if retVal == 0:
-        choice = raw_input("Do you want to change the values in your config file? [y/n] " )
-        if choice == 'y':
-            setup()
-    connect()
-    while True:
-        line = s.recv(1024)
-        if line.find("PRIVMSG %s" % CHANNEL) != 1:
-            s.send("PRIVMSG %s :%s\r\n" % (CHANNEL, parse(line)))
-        if line.find("PING :") != -1:
-            s.send("PONG :Pong\r\n")
 
-main()
+while True:
+    line = s.recv(1024)
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "-d":
+            print line
+    if line.find("PRIVMSG %s" % CHANNEL) != 1:
+        answer = parse(line)
+        if answer != "":
+            s.send("PRIVMSG %s :%s\r\n" % (CHANNEL, answer))
+    if line.find("PING :") != -1:
+        s.send("PONG :Pong\r\n")
