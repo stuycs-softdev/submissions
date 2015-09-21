@@ -8,7 +8,7 @@ def issorted():
     return randlist == sorted(randlist)
 
 print("Welcome to Bogosort!")
-print("Creating a list of 10 random numbers between 1 and 100...")
+print("Creating a list of 8 random numbers between 1 and 100...")
       
 for i in range(8):
     randlist.append(random.randrange(100))
