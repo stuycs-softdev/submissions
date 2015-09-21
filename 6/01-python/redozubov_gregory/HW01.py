@@ -18,5 +18,6 @@ squirrel_play(95, True) > True
 Problem credit goes to codingbat!
 """
 
-squirrel_play(70, True)
+if squirrel_play(70, True):
+    print "good to go"
 
