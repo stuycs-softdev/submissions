@@ -12,11 +12,13 @@ rSuit = random.randint(0, 3)
 rNum = random.randint(1, 13)
 s = ""
 
-if(rNum > 10):
+if(rNum > 10 or rNum == 1):
     if(rNum == 11):
       s = "Jack"
     elif(rNum == 12):
         s = "Queen"
+    elif(rNum == 1):
+        s = "Ace"
     else:
         s = "King"
     print s,
