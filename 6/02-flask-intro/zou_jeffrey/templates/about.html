@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<title> Feeling lucky? </title>
+<head>
+<style>
+body {text-align: center}
+</style>
+<script>
+function number() {
+document.getElementById("thisP").innerHTML = Math.round(100*Math.random())
+}
+</script>
+</head>
+<body>
+Click the button for your lucky number
+<br>
+<button type="button" onclick="number()">Click!</button>
+<p id="thisP"> </p>
+</body>
+</html>
