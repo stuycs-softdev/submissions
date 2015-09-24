@@ -1,0 +1,24 @@
+body{
+    background-color: black;
+}
+
+h1{
+    font-size: 40px;
+    color: white;
+}
+
+h2{
+    font-size:32px;
+    color: white;
+}
+
+h3{
+    font-size:20px;
+    color:white;
+    margin-left: 200px;
+}
+
+ol{
+    font-size:32px;
+    color:white;
+}
