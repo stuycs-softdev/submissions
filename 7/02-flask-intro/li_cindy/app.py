@@ -11,6 +11,7 @@ def home():
 def puppies():
     return render_template("aboutpuppies.html")
 
+@app.rout("/aboutanna")
 def anna():
     return render_template("aboutanna.html")
 
