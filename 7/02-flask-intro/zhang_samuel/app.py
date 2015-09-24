@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/home")
 def home():
     page = "<h1> Home Sweet Home </h1>"
-    page += "<button><a href="/about"> About </a> </button>"
+    page += '''<button><a href="/about"> About </a> </button>'''
     return page
 
 @app.route("/about")
