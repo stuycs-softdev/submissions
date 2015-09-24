@@ -7,8 +7,8 @@ def makeFile(question, text0, text1, text2, text3, text4, text5, text6, text7, t
     addQ = open("questionList","a")
     addQ.write(question + "\n")
     addQ.close()
-    f = open("questions/"+ question,"w")
-    os.chmod("questions/"+ question,0666)
+    f = open(question,"w")
+    os.chmod( question,0666)
     f.write(question + "\n")
     if (text0 != ""):
         f.write(text0 + "\n")
@@ -34,7 +34,7 @@ def makeFile(question, text0, text1, text2, text3, text4, text5, text6, text7, t
     return
 
 def htmlify(question):
-    f = open("questions/" + question,"r")
+    f = open(question,"r")
     text = f.readline()
     html = "\t<table>\n\t\t<tr>\n\t\t\t" + question + "\n\t\t</tr>\n\t\t<br>\n\t\t</tr>\n"
     for i in range(0,10):
