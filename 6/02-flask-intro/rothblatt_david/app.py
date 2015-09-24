@@ -12,8 +12,8 @@ def home():
 def funny():
     return render_template("funny.html")
 
-if __name__ == "__main__":
-    app.debug = True
-    app.run(host = '0.0.0.0', port = 8000)
+
+app.debug = True
+app.run(host = '0.0.0.0', port = 8000)
 
 
