@@ -1,0 +1,36 @@
+body {
+     padding: 10px 20px 10px;
+     font-family: Quicksand;
+     color: white;
+     background-image: url("stardust.png");
+}
+
+h1 {
+   text-align: center;
+   font-size: 40px;
+}
+
+#nav {
+     background: rgba(255,255,255,0.5);
+     color: black;
+     width: 150px;
+     height: 70vh;
+     float: left;
+     border-radius: 15px;
+}
+
+#nav ul {
+     list-style: none;
+     padding: 0px 20px 0px;
+     line-height: 200%;
+}
+
+#nav a {
+     text-decoration: none;
+     color: black;
+     font-size: 20px;
+}
+
+#nav a:hover {
+     text-decoration: underline;
+}
