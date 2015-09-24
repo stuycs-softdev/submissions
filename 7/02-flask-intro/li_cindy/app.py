@@ -11,7 +11,11 @@ def home():
 def puppies():
     return render_template("aboutpuppies.html")
 
+<<<<<<< HEAD
 @app.route("aboutanna")
+=======
+@app.rout("/aboutanna")
+>>>>>>> 8c37cd0f35745d42444446f467f7b908e137cbb8
 def anna():
     return render_template("aboutanna.html")
 
