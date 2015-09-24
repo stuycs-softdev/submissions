@@ -3,7 +3,7 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route("/")
-def defaultPage:
+def defaultPage():
     page = """
     <h1> Hi! </h1>
 This will talk about my feelings regarding school
@@ -12,15 +12,15 @@ This will talk about my feelings regarding school
     return page
 
 @app.route("/homework")
-def hwPage:
+def hwPage():
     page = """
 I hate <b>homework</b>. I find it a large waste of time. I would prefer staying class time to be doubled over having homework. In my defense, that is about how long I spend <i>at home</i> doing homework.
 <a href="/test">Test Opinions</a>
 """
     return page
 
-@app.route<"/test">
-def testPage:
+@app.route("/test")
+def testPage():
     page = """
 Test are useless:
 <ol>
