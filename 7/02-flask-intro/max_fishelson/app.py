@@ -21,7 +21,6 @@ def primes():
         if a[i]:
             s+="<li>"+str(i)+"</li>"
     s+="</ol>"
-    print s
     return s
 
 
