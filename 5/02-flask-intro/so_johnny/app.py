@@ -7,18 +7,6 @@ app = Flask(__name__)
 def about():
     return render_template("about.html")
 
-@app.route("/oldabout")
-def oldaboutpage():
-    page = """
-    <h1> About</h1>
-    <br>
-    <ol>
-    <li> About 1 </li>
-    <li> About 2 </li>
-    <li> About 3 </li>
-    """
-    return page
-
 @app.route("/lucky")
 def lucky_number():
     import random
@@ -27,6 +15,7 @@ def lucky_number():
     <a href="https://www.youtube.com/watch?v=5NV6Rdv1a3I"> Get Lucky </a>
     """
     display = "Not lucky enough?"
+
     return """
     <center>
     <h1>Your Lucky Number : %d </h1>
