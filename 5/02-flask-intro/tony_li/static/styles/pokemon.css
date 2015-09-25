@@ -22,3 +22,11 @@ ol{
     font-size:32px;
     color:white;
 }
+
+table{
+    width:400px;
+}
+
+th{
+    height:400px;
+}
