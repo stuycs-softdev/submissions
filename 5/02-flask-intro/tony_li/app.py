@@ -19,7 +19,9 @@ def about():
     Pokemon are very lazy creatures. They are so lazy that they don't bother with css or <br>
     any styling at all. Does that mean that I am a pokemon?<br>
 
-  
+    <br>
+
+    <marquee behavior="scroll" direction="left"><img src="static/slaking.png" alt="slaking"></marquee>
     </body>
     '''
     return aboutpage
