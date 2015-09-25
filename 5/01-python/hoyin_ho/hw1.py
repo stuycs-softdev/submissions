@@ -12,6 +12,7 @@ def binarySearch(nums, target):
     return -1
 
 test = [1,2,3,4,5,6,7,8]
+print "test".len()
 print test
 print binarySearch(test,4)
 print binarySearch(test,9)
