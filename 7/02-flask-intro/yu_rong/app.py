@@ -1,0 +1,41 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def defaultPage():
+    page = """
+    <h1> Hi! </h1>
+This will talk about my feelings regarding school
+<a href="/homework">Homework opinion</a>
+"""
+    return page
+
+@app.route("/homework")
+def hwPage():
+    page = """
+I hate <b>homework</b>. I find it a large waste of time. I would prefer staying class time to be doubled over having homework. In my defense, that is about how long I spend <i>at home</i> doing homework.
+<a href="/test">Test Opinions</a>
+"""
+    return page
+
+@app.route("/test")
+def testPage():
+    page = """
+Test are useless:
+<ol>
+<li>We are not numbers!</li>
+<li>What if I'm sick that day?</li>
+<li>What if that is the only thing I don't get?</li>
+<li>Tests kill trees, and children's brain cells.</li>
+<li>They are <marquee direction="up"><b>EVIL!</b></marquee>
+</ol>
+<a href="/"> Back</a>
+"""
+    return page
+
+
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run(host='0.0.0.0', port = 8000)
