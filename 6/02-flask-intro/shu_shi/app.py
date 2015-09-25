@@ -1,6 +1,6 @@
 from flask import Flask,render_template
 
-app = flask(__name__)
+app = Flask(__name__)
 @app.route("/")
 
 @app.route("/homepage")
@@ -13,4 +13,4 @@ def testpage():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host = '0.0.0.0', port = 8000)
+    app.run(host = '0.0.0.0', port = 2000)
