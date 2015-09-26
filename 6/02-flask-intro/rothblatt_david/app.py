@@ -15,6 +15,10 @@ def funny():
 def cronut():
     return render_template("cronut.html")
 
+@app.route("/madlib")
+def madlibify():
+    return render_template("madlib.html")
+
 if __name__ == "__main__":
     app.debug = True
     app.run(host = '0.0.0.0', port = 8000)
