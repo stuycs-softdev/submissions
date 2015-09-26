@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Expected age range</title>
+<style>
+td {border-style:solid; border-width:1;}
+</style>
+</head>
+
+<body>
+<center>
+<table>
+<tr><th>Age Range</th><th>Probability</th></tr>
+<tr><td>Less than {{72 - (step*3)}}</td><td>0.1%</td></tr>
+<tr><td>Between {{72 - (step*3)}} and {{72 - (step*2)}}</td><td>2.1%</td></tr>
+<tr><td>Between {{72 - (step*2)}} and {{72 - step}}</td><td>13.6%</td></tr>
+<tr><td>Between {{72 - step}} and 72</td><td>34.1%</td></tr>
+<tr><td>Between 72 and {{72 + step}}</td><td>34.1%</td></tr>
+<tr><td>Between {{72 + step}} and {{72 + (step * 2)}}</td><td>13.6%</td></tr>
+<tr><td>Between {{72 + (step * 2)}} and {{72 + (step * 3)}}</td><td>2.1%</td></tr>
+<tr><td>Greater than {{72 + (step*3)}}</td><td>0.1%</td></tr>
+</table>
+</center>
+</body>
+</html>
