@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import random
 
 app = Flask(__name__)
 
@@ -15,6 +16,11 @@ def pattern():
 def about():
     return render_template("about.html")
 
+@app.route("/age")
+def age():
+    r = random.randrange(1,10)
+    return render_template("age.html",step=r)
+    
 if __name__ == "__main__":
     app.debug = True
     app.run(host="0.0.0.0",port=8000)
