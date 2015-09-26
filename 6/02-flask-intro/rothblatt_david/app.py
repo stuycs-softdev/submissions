@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+from random import randrange
+
 
 app = Flask(__name__)
 
@@ -17,7 +19,14 @@ def cronut():
 
 @app.route("/madlib")
 def madlibify():
-    return render_template("madlib.html")
+    adjs = ["RED","YELLOW","BLUE","SAD","HAPPY","BRAVE",\
+        "FAT","HAIRY","GRUMPY","FLYING"]
+    animals = ["DOG","CAT","LION","TIGER","BEAR","GIRAFFE"]
+    verbs = ["WALK","TALK","PLAY","YELL","EAT","FIGHT"]
+    d = {'adj': adjs[randrange(len(adjs))], 
+    'animal': animals[randrange(len(animals))], 
+    'verb': verbs[randrange(len(verbs))] }
+    return render_template("madlib.html", d=d)
 
 if __name__ == "__main__":
     app.debug = True
