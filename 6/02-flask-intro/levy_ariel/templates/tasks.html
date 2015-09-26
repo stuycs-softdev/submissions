@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <title>Home</title>
+  <title>Tasks</title>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Quicksand">
 	<style>
 	body {
@@ -70,29 +70,45 @@
 	color: white;
 	}
 
+	#todo {
+	white-space: pre-line;
+	width: 50%;
+	float: left;
+	}
+	
+	#done {
+	white-space: pre-line;
+	color: #CCC;
+	width: 50%;
+	float: left;
+	}
+
 	</style>
 </head>
 
 <body>
   
-  <h1>Home</h1>
+  <h1>Tasks</h1>
   <hr>
 
   <div id="nav">
     <ul>
-      <li id="cur"><a href="http://localhost:8000/home">Home</a></li>
+      <li><a href="http://localhost:8000/home">Home</a></li>
       <li><a href="http://localhost:8000/calendar">Calendar</a></li>
-      <li><a href="http://localhost:8000/tasks">Tasks</a></li>
+      <li id="cur"><a href="http://localhost:8000/tasks">Tasks</a></li>
       <li><a href="http://localhost:8000/countdown">Countdown</a></li>
     </ul>
   </div>
 
   <div id="content">
-    <h2>{{dict.greeting}}, {{dict.name}}!</h2>
-    <h3><a href="https://mail.google.com/mail/u/0/#inbox">Gmail</a></h3>
-    <h3><a href="https://facebook.com">Facebook</a></h3>
-    <h3><a href="https://github.com">GitHub</a></h3>
-    <h3><a href="http://stuy.enschool.org/">Stuy</a></h3>
+    <div id="todo">
+      <h2>Todo</h2>
+      {{dict.todo}}
+    </div>
+    <div id="done">
+      <h2>Done</h2>
+      {{dict.done}}
+    </div>
   </div>
 
 </body>

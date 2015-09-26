@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <title>Home</title>
+  <title>Countdown</title>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Quicksand">
 	<style>
 	body {
@@ -70,29 +70,48 @@
 	color: white;
 	}
 
+	table {
+	text-align: center;
+	border: 1px solid #CCC;
+	padding: 5px 10px 5px 0px;
+	}
+
+	th {
+	color: red;
+	font-size: 28px;
+	padding: 0px 10px 0px;
+	}
+
+	tr {
+	font-size: 20px;
+	}
+
+	#mini {
+	font-size: 12px;
+	}
+
 	</style>
 </head>
 
 <body>
   
-  <h1>Home</h1>
+  <h1>Countdown</h1>
   <hr>
 
   <div id="nav">
     <ul>
-      <li id="cur"><a href="http://localhost:8000/home">Home</a></li>
+      <li><a href="http://localhost:8000/home">Home</a></li>
       <li><a href="http://localhost:8000/calendar">Calendar</a></li>
       <li><a href="http://localhost:8000/tasks">Tasks</a></li>
-      <li><a href="http://localhost:8000/countdown">Countdown</a></li>
+      <li id="cur"><a href="http://localhost:8000/countdown">Countdown</a></li>
     </ul>
   </div>
 
   <div id="content">
-    <h2>{{dict.greeting}}, {{dict.name}}!</h2>
-    <h3><a href="https://mail.google.com/mail/u/0/#inbox">Gmail</a></h3>
-    <h3><a href="https://facebook.com">Facebook</a></h3>
-    <h3><a href="https://github.com">GitHub</a></h3>
-    <h3><a href="http://stuy.enschool.org/">Stuy</a></h3>
+    <h2>Second Term</h2>
+    <table>
+      <tr><th>{{dict.days}}</th><td>{{dict.hours}}</td><td>:</td><td>{{dict.mins}}</td><td>:</td><td>{{dict.secs}}</td></tr>
+      <tr id="mini"><td>D</td><td>H</td><td></td><td>M</td><td></td><td>S</td></tr>
   </div>
 
 </body>
