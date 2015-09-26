@@ -20,7 +20,14 @@ def about():
 def age():
     r = random.randrange(1,10)
     return render_template("age.html",step=r)
-    
+
+@app.route("/daily")
+def daily():
+    r = random.randrange(0,9)
+    l = ["Favorable","Not sure","Favorable","Favorable","Unfavorable","Not sure","Not sure","Not sure","Favorable","Favorable"]
+    return render_template("daily.html",mes = l[r])
+
+
 if __name__ == "__main__":
     app.debug = True
     app.run(host="0.0.0.0",port=8000)
