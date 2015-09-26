@@ -2,7 +2,7 @@
 
 <head>
 	<title>About</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" type="text/css" href="style.css{{ url_for('static', filename='stylesheets/style.css') ">
 </head>
 
 <body>
