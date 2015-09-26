@@ -24,7 +24,7 @@ def age():
 @app.route("/daily")
 def daily():
     r = random.randrange(0,9)
-    l = ["Favorable","Not sure","Favorable","Favorable","Unfavorable","Not sure","Not sure","Not sure","Favorable","Favorable"]
+    l = ["Favorable","Not sure","Favorable","Favorable","Unfavorable","Not sure","Unfavorable","Not sure","Favorable","Unfavorable"]
     return render_template("daily.html",mes = l[r])
 
 
