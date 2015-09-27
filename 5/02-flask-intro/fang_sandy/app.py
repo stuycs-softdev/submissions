@@ -8,12 +8,14 @@ def index():
 	return render_template("index.html")
 
 @app.route('/breadcats')
-def breadcats():
-	return render_template("breadcats.html")
+@app.route('/breadcats/<catID>')
+def breadcats(catID="no cats"):
+	return render_template("breadcats.html",catID=catID)
 
 @app.route('/donutcats')
-def donutcats():
-	return render_template("donutcats.html")
+@app.route('/donutcats/<catID>')
+def donutcats(catID="no cats"):
+	return render_template("donutcats.html",catID=catID)
 
 if __name__ == '__main__':
 	app.run(debug=True)

@@ -1,10 +1,4 @@
-body {
-    background-color: #d0e4fe;
-}
 
-h1 {
-    color: orange;
-}
 
 p {
     font-family: "Times New Roman";
@@ -13,4 +7,6 @@ p {
 
 ul {
 		list-style-type: upper-roman;
+	list-style-position: inside;
+
 }
