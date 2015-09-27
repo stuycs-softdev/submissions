@@ -7,15 +7,23 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
+
+@app.route("/profile")
+@app.route("/profile/")
+@app.route("/profile/<lastname>")
+@app.route("/profile/<lastname>/<firstname>")
+@app.route("/profile/<lastname>/<firstname>/<annaorpuppy>")
+def profile(lastname="", firstname="", annaorpuppy=""):
+    dict = {'last':lastname, 'first':firstname, 'AorP':annaorpuppy}
+    return render_template("profile.html", d = dict)
+
+
 @app.route("/aboutpuppies")
 def puppies():
     return render_template("aboutpuppies.html")
 
-<<<<<<< HEAD
-@app.route("aboutanna")
-=======
-@app.rout("/aboutanna")
->>>>>>> 8c37cd0f35745d42444446f467f7b908e137cbb8
+
+@app.route("/aboutanna")
 def anna():
     return render_template("aboutanna.html")
 
