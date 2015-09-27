@@ -31,7 +31,7 @@
                   </ul>
               </div>
           </nav>
-          <h1>{{ Encryption }}</h1>
+          <h1>{{ Encryption|capitalize }}</h1>
           <form action="/encryption/{{ mechanism }}" method="POST">
               <input type="text" name="text" value="{{ text }}">
               <input type="submit" name="Submit" value="Encrypt">
