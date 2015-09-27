@@ -22,6 +22,7 @@ def about():
     <br>
 
     <marquee behavior="scroll" direction="left"><img src="static/slaking.png" alt="slaking"></marquee>
+    <button><a href="/home"> Home</a></button>
     </body>
     '''
     return aboutpage
@@ -32,32 +33,14 @@ def about():
 def listPKMNimg(list):
     html='''<table>'''
     for pkmn in list:
-        html+='<tr><td><img src="static/'+pkmn+'.jpg"> </td></tr>'
-    return html+'</table'
+        html+="<tr><td><img src=static/"+pkmn+"> </td></tr>"
+    return html+'</table>'
  
 @app.route("/grass")
 @app.route("/grass/")
 def grass():
     grasspkmn=['bulbasaur']
-   
-    grass='''
-    <!DOCTYPE HTML>
-    
-    <title>Grass </title>
-
-
-    <head>
-    <center><h1>Grass Pokemon</h1>
-    <link rel="stylesheet" type="text/css" href="static/styles/grass.css">
-    </head>
-    
-    <body>
-    <ol>
-    '''+ listPKMNimg(grasspkmn)+'''
-    </ol>
-    </body>
-    '''
-    return grass
+    return render_template("grass.html", grasspkmn=grasspkmn)
 
 dex={'bulbasaur':1}
 moves=[['bulbasaur',[1,'Tackle'],[3,'Growl'],[7,'Leech Seed'],[9,'Vine Whip']]]
