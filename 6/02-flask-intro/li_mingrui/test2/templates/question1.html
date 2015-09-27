@@ -1,0 +1,38 @@
+<style>
+  #style1{
+  background-color: black;
+  color: white;
+  text-align: left;
+  padding: 0px;
+  }
+  #style2{
+  background-color: black;
+  color: white;
+  }
+  #style3{
+    text-align: center;
+  padding: 100px;
+  }
+</style>
+
+<div id = "style1">
+  Coins: {{coins}}
+  <br>
+  Betting: {{betting}}
+</div>
+<body id = "style2">
+  <div id = "style3">
+    <h3> You are betting {{betting}} coins on this question</h3>
+    <h1>Question {{question}}: Where does Ferdinand Magellan get killed?</h1>
+    <form action = "questionpost" method = "POST">
+      <input type = "radio" name = "q1" value = "0">Philippines</input><br>
+      <input type = "radio" name = "q1" value = "1">Indonesia</input><br>
+      <input type = "radio" name = "q1" value = "2">Malaysia</input><br>
+      <input type = "radio" name = "q1" value = "3">Guam</input><br>
+      <input type = "hidden" name = "questionnum" value = "1">
+      <input type = "hidden" name = "betting" value = {{betting}}>
+      <input type = "hidden" name = "coins" value = {{coins}}>
+      <input type = "submit" value = "Submit">
+    </form>
+  </div>
+</body>
