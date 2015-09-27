@@ -6,10 +6,10 @@ rightAssOperators = {'^'}
 # operators that are right-associative (as opposed to left-associative)
 unOperators = {'!'}
 # allowed unary operators
-leftParens = {'(', '[', '{'}
-# allowed variations of the '(' character
-rightParens = {')', ']', '}'}
-# allowed variations of the ')' character
+leftParens = {'(':1, '[':2, '{':3}
+# allowed variations of the '(' character and their id's
+rightParens = {')':1, ']':2, '}':3}
+# allowed variations of the ')' character and their id's
 
 def updateNegatives(e):
 	# Replace all instances of "-x" with "0-x"
@@ -17,7 +17,7 @@ def updateNegatives(e):
 		e = '0' + e
 	pos = 0
 	while pos < len(e) - 1:
-		if e[pos] == '(' and e[pos+1] == '-':
+		if e[pos] in leftParens and e[pos+1] == '-':
 			e = e[:pos+1] + '0' + e[pos+1:]
 			pos = pos + 1
 		pos = pos + 1
@@ -37,10 +37,17 @@ def operate(operator, operand1, operand2 = None):
 	elif operator == '%':
 		return operand1 % operand2
 	elif operator == '^':
-		return pow(operand1, operand2)
+		if operand1 < 0 and operand2 % 1 != 0:
+			return 'Error: Raising negaitve number to a fractional power'
+		try:
+			return pow(operand1, operand2)
+		except OverflowError:
+			return 'Error: Result too large'
 	elif operator == '!':
 		if operand1 < 0 or operand1 % 1 != 0:
 			return 'Error: Invalid use of factorial'
+		if operand1 > 100000:
+			return 'Error: Result too large'
 		result = 1
 		while operand1 > 1:
 			result = result * operand1
@@ -153,7 +160,11 @@ def parse(e):
 				if error != None:
 					return error
 			if len(operatorStack) == 0:
-				return 'Error: Missing opening parenthesis for the one at position %d' % pos
+				return ('Error: Missing opening symbol for the %s at position %d' %
+					(e[pos], pos))
+			if rightParens[e[pos]] != leftParens[operatorStack[-1]]:
+				return ('Error: Closing %s does not match the opening %s' %
+					(e[pos], operatorStack[-1]))
 			operatorStack.pop()
 			pos = pos + 1
 			continue
