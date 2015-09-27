@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+
+<title>{{pokemon}} </title>
+
+
+<head>
+  <center><h1>{{pokemon}}</h1>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/grasspkmn.css')}}">
+</head>
+
+<body>
+  <h2>National Dex No. {{dgrass[pokemon]}}</h2>
+
+  <hr>
+
+  <tr><td><img src="{{url_for('static', filename=pokemon+'.jpg')}}"></td></tr>
+  {% for pkmn in moves%}
+  {% if pkmn[0]==pokemon%}
+  {% for set in pkmn[1:] %}
+  <h2>{{set[0]}} : {{set[1]}} </h2>
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+</body>
