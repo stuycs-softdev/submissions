@@ -1,0 +1,16 @@
+body {
+	background-image:url("images/back.jpg");
+}
+
+div.ex {
+	width:700px;
+	height:760px;
+	padding:30px;
+	margin:4px;
+	background-color:white;
+	opacity:0.90;
+}
+
+ul {
+    text-align: left;
+}
