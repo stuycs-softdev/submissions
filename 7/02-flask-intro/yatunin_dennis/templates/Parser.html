@@ -1,0 +1,23 @@
+<script>
+	function magic() {
+		var expression = document.getElementById("user_input").value;
+		document.getElementById("link").href = "/query=" +
+		expression.replace("/", "z").replace("%", "q");
+	}
+</script>
+
+<h1>Math Parser</h1>
+
+<hr>
+
+Please enter a mathematical expression:
+<input type="text" id="user_input" value="{{expression}}" onchange="magic()">
+<button>
+	<a id="link" href="/query={{expression|replace('/', 'z')|replace('%', 'q')}}">
+		Evaluate
+	</a>
+</button>
+
+{% if answer != None %}
+<h2>{{answer}}</h2>
+{% endif %}

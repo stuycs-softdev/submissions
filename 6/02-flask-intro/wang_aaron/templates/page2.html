@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<title> this is the second page </title>
+
+<body>
+
+<h1> HELLO WORLD </h1>
+
+<p> my name is {{d['first']}} {{d['last']}} </p>
+
+{{d}}
+
+<ol>
+  {% for key in d %}
+  <li>d[{{key}}] = {{d[key]}}</li>
+  {% endfor %}
+</ol>
+
+</body>
+</html>
