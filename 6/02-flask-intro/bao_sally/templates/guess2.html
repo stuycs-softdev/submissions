@@ -60,6 +60,27 @@
       but it sure is fun to watch it run </p>
     <img src = "http://i.imgur.com/Zv6cJDQ.gif">
 
+    <h2>So what is it?</h2>
+    <p>Type your answer into the url to let it be revealed</p>
+
+    <p>Guess: {{d.guess}}</p>
+
+    <p>Result: {{d.result}}
+
+      {% if d.result == "Correct!" %}
+      
+      <br><br><br>
+      It was indeed the mimic octpus!
+      <br>
+      <img src = "https://media.giphy.com/media/doTlVg8NFtvsQ/giphy.gif">
+      
+      <br><br>
+      <a href = '/'>Return</a>
+
+      {% endif %}
+
+    </p>
+
   </body>
 
 </html>
