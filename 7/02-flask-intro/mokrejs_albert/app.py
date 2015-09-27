@@ -12,17 +12,20 @@ def DT():
 @app.route("/home/<a>/<b>/<c>")
 def home(a = "x", b = 1, c = 3):
     if a == "x":
-        a = "times"
+        a = " times "
         d = b*c
     if a == "d":
-        a = "divided by"
+        a = " divided by "
         d = b/c
     if a == "p":
-        a = "plus"
+        a = " plus "
         d = b+c
     if a == "m":
-        a = "minus"
+        a = " minus "
         d = b-c
+    if a == "n":
+        a = " to the power of "
+        d = b**c
     return render_template("about.html", a=a,b=b,c=c,d=d)
 
 @app.route("/xkcd")
