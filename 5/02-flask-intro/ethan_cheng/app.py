@@ -15,6 +15,7 @@ def home():
 @app.route("/inspire")
 @app.route("/inspire/")
 @app.route("/inspire/<num>")
+@app.route("/inspire/<num>/")
 def inspire(num=-1):
     if int(num) == -1:
         num = randint(1000,10000)
@@ -34,6 +35,7 @@ def get_random_youtube_hash():
 @app.route("/youtube")
 @app.route("/youtube/")
 @app.route("/youtube/<hash>")
+@app.route("/youtube/<hash>/")
 def youtube(hash=""):
     if hash == "":
         hash = get_random_youtube_hash()
@@ -42,6 +44,7 @@ def youtube(hash=""):
 @app.route("/sao")
 @app.route("/sao/")
 @app.route("/sao/<episode>")
+@app.route("/sao/<episode>/")
 def sao(episode=0):
     try:
         if int(episode) < 0 or int(episode) >= 7:
