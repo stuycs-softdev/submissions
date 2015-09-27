@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+   
+    <title> PUPSGO11: About Puppies </title> 
+    <style>
+    body {
+    background: url(cream_dust/cream_dust.png) repeat 0 0;
+    }
+    </style>
+
+  </head>
+
+  <body> 
+
+    <h1><center><i>PUPSGO11</i></center></h1>
+      
+    <center>Love puppies? Love Anna Mei? PERFECT. </center>
+    <br><hr>
+<center>
+<a href="/">HOME</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="/aboutpuppies">ABOUT PUPPIES</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="/aboutanna">ABOUT ANNA MEI</a>
+</center>
+<hr><br>
+
+<center><h2>Profile</h2>
+<table>
+  <tr>
+    <td>Last:</td><td> {{d['last']}}</td>
+    </tr>
+  <tr>
+    <td>First:</td><td> {{d['first']}}</td>
+    </tr>
+  <tr>
+    <td>You are more like:</td><td>{{d['AorP']}}</td>
+    </tr>
+</table>
+
+<br>
+{% if d['AorP'] == "anna" %}
+<img src="annasit.jpg" width="500">
+
+{% elif d['AorP'] == "puppies" %}
+<img src="danglingpups.jpg" width="500">
+</body>
