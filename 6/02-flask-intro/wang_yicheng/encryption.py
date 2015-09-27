@@ -12,9 +12,6 @@ def encrypt(mechanism, message):
 app = Flask(__name__)
 
 @app.route('/')
-def root():
-    return '<a href="rot13">Rot-13</a>'
-
 @app.route('/encryption')
 @app.route('/encryption/')
 @app.route('/encryption/<mechanism>')
