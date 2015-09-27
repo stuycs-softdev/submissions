@@ -50,6 +50,8 @@ def sao(episode=0):
         # Clearly the episode param is not an int
         episode = randint(0,7)
     d = {} # Create new dictionary
+    # sao.txt generated with the following command:
+    # youtube-dl --yes-playlist --get-id https://www.youtube.com/playlist\?list\=PLvTFVgN7IAZ5i28K75ocPWALV0_Gpv0Q1 > sao.txt
     eps = list(open('sao.txt'))
     # For the sake of using a dictionary... this is greatly redundant
     for i in range(1,len(eps) + 1):
