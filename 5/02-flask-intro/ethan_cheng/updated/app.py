@@ -29,7 +29,7 @@ def get_random_youtube_hash():
     # I didn't want to leave this on for infinity hours, so here:
     # A nice bash one liner to grab PewDiePie video hashes from YouTube
     # youtube-dl --yes-playlist --get-id https://www.youtube.com/watch\?v\=Hurz0ZQbbMU\&list\=UU-lHJZR3Gqxm24_Vd_AJ5Yw > valid_hashes.txt
-    return str(choice(list(open('valid_hashes.txt'))))
+    return str(choice(list(open('valid_hashes.txt')))).strip()
 
 @app.route("/youtube")
 @app.route("/youtube/")
@@ -38,6 +38,24 @@ def youtube(hash=""):
     if hash == "":
         hash = get_random_youtube_hash()
     return render_template("youtube.html", RANDOM_HASH=str(hash))
+
+@app.route("/sao")
+@app.route("/sao/")
+@app.route("/sao/<episode>")
+def sao(episode=0):
+    try:
+        if int(episode) < 0 or int(episode) >= 7:
+            episode = randint(0,7)
+    except:
+        # Clearly the episode param is not an int
+        episode = randint(0,7)
+    d = {} # Create new dictionary
+    eps = list(open('sao.txt'))
+    # For the sake of using a dictionary... this is greatly redundant
+    for i in range(1,len(eps) + 1):
+        d[str(i)] = eps[i - 1].strip()
+    return render_template("sao.html", DICT=d, EP=eps[int(episode)].strip(), NUM=int(episode))
+
 
 if __name__ == "__main__":
     app.debug = True
