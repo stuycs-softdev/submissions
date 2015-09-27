@@ -1,0 +1,37 @@
+h1{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	color: white;
+}
+
+div.transbox{
+	margin-top: 100px;
+	margin-left: 300px;
+	margin-right: 300px;
+	background-color: black;
+	opacity:0.6;
+}
+
+div.transbox p{
+	font-size: 20;
+	margin-left: 200px;
+	margin-right: 200px;
+	margin-top: 10px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-weight: bold;
+	color: white;
+}
+body{
+	background-image: url("mainBack.jpg") ;
+	background-position: center;
+}
+
+a:link {
+	color: white;
+}
+
+a:hover {
+	color: red;
+}
+a:visited {
+	color: cyan;
+}
