@@ -4,14 +4,14 @@ app = Flask(__name__)
 @app.route("/randomnum")
 def randomnum():
     import random
-    number = random.randrange(1,1000)
-    page = """
-    <link type="text/css" rel="stylesheet" href="/static/main.css"/>
-    <h1>Random number!<h1>
-    <hr>
-    <h2>Here you are: %d <h2>
-    """%(number)
-    return page
+    r = random.randrange(1,1000)
+    #page = """
+    #<link type="text/css" rel="stylesheet" href="/static/main.css"/>
+    #<h1>Random number!<h1>
+    #<hr>
+    #<h2>Here you are: %d <h2>
+    #"""%(number)
+    return render_template("randomnum.html",number=r)
 
 @app.route("/about")
 def about():
