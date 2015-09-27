@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <title>Keyless Encryption</title>
+      <style>
+        td {border-style:solid; border-width:1;}
+      </style>
+  </head>
+
+  <body>
+      <h1>{{ Encryption }}</h1>
+      <form action="/encryption/{{ mechanism }}" method="POST">
+          <input type="text" name="text" value="{{ text }}">
+          <input type="submit" name="Submit" value="Encrypt">
+      </form>
+      <table>
+      {% for mechanism, res in results %}
+        <tr>
+            <td>{{ mechanism }}</td>
+            <td>{{ res }}</td>
+        </tr>
+      {% endfor %}
+      </table>
+  </body>
+
+</html>
