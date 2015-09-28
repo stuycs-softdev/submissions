@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Countdown</title>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Quicksand">
+	<style>
+	body {
+	     padding: 10px 20px 10px;
+	     font-family: Quicksand;
+		 color: black;
+	}
+	h1 {
+	   /*text-align: center;*/
+	text-align: right;   
+	font-size: 40px;
+	}
+	#nav {
+	     /*background: rgba(255,0,0,0.5);*/
+	     color: black;
+	     width: 150px;
+	     height: 70vh;
+	     float: left;
+	     /*border-radius: 15px;*/
+		 border-right: 1px solid #CCC;
+	}
+	#nav ul {
+	     list-style: none;
+	     padding: 0px 20px 0px;
+	     line-height: 200%;
+	}
+	#nav a {
+	     text-decoration: none;
+	     color: black;
+	     font-size: 18px;
+	}
+	#nav a:hover {
+	     color: #CCC;
+	}
+	#cur a {
+	    /*text-decoration: underline;*/
+	    border-left: solid 2px red;
+	    padding-left: 5px;
+	}
+
+	#content {
+	/*width: 100%;*/
+	margin-left: 150px;
+	padding: 20px 50px 30px;
+	}
+
+	h2 {
+	font-size: 30px;
+	color: #444;
+	}
+
+	h3 {
+	float: left;
+	padding: 5px;
+	}
+
+	h3 a {
+	text-decoration: none;
+	color: #444;
+	padding: 5px;
+	border: 2px solid red;
+	}
+
+	h3 a:hover {
+	background-color: #444;
+	color: white;
+	}
+
+	table {
+	text-align: center;
+	border: 1px solid #CCC;
+	padding: 5px 10px 5px 0px;
+	}
+
+	table:hover {
+	background-color: #444;
+	color: white;
+	}
+
+	th {
+	color: red;
+	font-size: 28px;
+	padding: 0px 10px 0px;
+	}
+
+	tr {
+	font-size: 20px;
+	}
+
+	#mini {
+	font-size: 12px;
+	}
+
+	</style>
+</head>
+
+<body>
+  
+  <h1>Countdown</h1>
+  <hr>
+
+  <div id="nav">
+    <ul>
+      <li><a href="http://localhost:8000/home">Home</a></li>
+      <li><a href="http://localhost:8000/calendar">Calendar</a></li>
+      <li><a href="http://localhost:8000/tasks">Tasks</a></li>
+      <li id="cur"><a href="http://localhost:8000/countdown">Countdown</a></li>
+    </ul>
+  </div>
+
+  <div id="content">
+    <h2>Second Term</h2>
+    <table>
+      <tr><th>{{dict.days}}</th><td>{{dict.hours}}</td><td>:</td><td>{{dict.mins}}</td><td>:</td><td>{{dict.secs}}</td></tr>
+      <tr id="mini"><td>D</td><td>H</td><td></td><td>M</td><td></td><td>S</td></tr>
+  </div>
+
+</body>
+

@@ -1,26 +1,84 @@
 <!DOCTYPE html>
 <html>
+
 <title> Hi guys :) </title>
+
 <header> 
 <style>
-body {background: linear-gradient(0deg, gray}
-h1 {color:green, font-family:serifs}
+<!--
+grad1 {
+background: -webkit-linear-gradient(red, blue);
+background: -moz-linear-gradient(red, blue);
+background: -o-linear-gradient(red, blue);
+background: -ms-linear-gradient(red, blue);
+background: linear-gradient(red, blue);
+}
+-->
+
+h1 {color:green; font-family:serifs; text-align:center}
+
 p {color:cyan}
-table {}
-tr:nth-child(even) {background: #0000FF}
-tr:nth-child(odd) {background:#FF0000}
+
+tr:nth-child(even) {background: #00FFFF}
+tr:nth-child(odd) {background:#00FF00}
+
+div {text-align:center}
+a.button {
+-webkit-appearance: button;
+-moz-appearance: button;
+appearance: button;
+text-decoration:none;
+color:#FF00FF
+}
 </style>
+<h1>
 <b>Welcome to this webpage!</b>
+</h1>
 </header>
-<body style="background-color:">
+
+<!-- <div id="grad1"> --> 
+
+<body>
 <hr>
-<table>
+<table align="center">
   <tr>
-    <td> </td> <td> </td>
+    <td>Quote </td> <td>Person </td>
   </tr>
   <tr>
-    <td> </td> <td> </td>
+    <td>"You must do the things you think you cannot do." </td> 
+    <td>Eleanor Roosevelt </td>
   </tr>
-</table> 
+  <tr>
+    <td>"Nothing is impossible, the word itself says 'I'm possible'!" </td>
+    <td>Audrey Hepburn </td>
+  </tr>
+  <tr>
+    <td>"A man may die, nations may rise and fall, but an idea lives on." </td>
+    <td>JFK</td>
+  </tr>
+</table>
+
+<div id="div1">
+<hr>
+<a href="/about" class="button">Just a button</a>
+</div>
+
+<!-- <form method="post" action="/person">
+  First name:<br>
+  <input type="text" name="first" value="">
+  <br>
+  Last name:<br>
+  <input type="text" name="last" value="">
+  <br>
+  Favorite number:<br>
+  <input type="text" name="favNum" value="">
+  <br><br>
+  <button type="submit"> Take me to a page! </button>
+</form>
+-->
+
 </body>
+
+<!-- </div> -->
+
 </html>

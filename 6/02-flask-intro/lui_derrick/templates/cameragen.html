@@ -1,0 +1,9 @@
+<h3>Title: {{d['title']}}</h3>
+<hr>
+{{d}}
+<ol>
+  {% for key in d %}
+  <li>d[{{key}}] = {{d[key]}}</li>
+  {% endfor %}
+</ol>
+<hr>

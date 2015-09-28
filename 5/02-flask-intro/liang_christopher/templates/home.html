@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html>
+    <link rel="stylesheet" class="text/css" href="/static/style.css">
     <head>
         <title>Home</title>
     </head>
-    <link rel="stylesheet" class="text/css" href="/static/style.css">
     <body>
         <nav>
-            <center><font size="30" color="white">Home</font></center>
+            <center>
+                <h1><font size="30" color="white">Home</font></h1>
+            </center>
             <ul>
                 <li><a href='/portraits'>Portraits</a></li>
                 <li><a href='/creative'>Creative</a></li>
                 <li><a href='/about'>About</a></li> 
             </ul>
         </nav>
-        <center><p><br><br><br><br><br><br><br><font size="100" color ="white"> WELCOME </font></p></center>
+        <center><p><br><br>
+            <font size="100" color ="white"> {{d.welcome}} </font>
+                </p>
+        </center>
+        {% if d.nameForm %}
+            <form action="/name" method="POST">
+                <center>
+                    <font color="white"> Enter your name: </font>
+                    <input type="text" name="nameform" value=""></input>
+                    <br><br>
+                    <input type='submit' value='Submit!'></input>
+                </center>
+            </form>
+        {% else %}
+        <br>
+        <center>
+            <form action="/cname" method="POST">
+                <input type='text' name="cname" value=''></input>
+                <input type='submit' value='Change name'></input>
+            </form>
+        </center>
+        {% endif %}   
+        <div class="footer"> 
+            <footer>
+                <font color="white"> © Chris Liang 2015-2016 All Rights Reserved </font>
+            </footer>
+        </div>
     </body>
 </html>

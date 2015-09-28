@@ -3,8 +3,19 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route("/about")
-def about():
-    return render_template("about.html")
+@app.route("/about/<pokemon>")
+def about(pokemon="pikACHIU"):
+    d = {'p':pokemon}
+    return render_template("about.html", d=d)
+
+@app.route("/madLib/<noun>")
+@app.route("/madLib/<noun>/<verb>")
+@app.route("/madLib/<noun>/<verb>/<adj>")
+def madLib(noun="cat", verb="run", adj="red"):
+    d = {'n':noun,
+         'v':verb,
+         'a':adj}
+    return render_template("madLib.html", d=d)
 
 @app.route("/css")
 def css():

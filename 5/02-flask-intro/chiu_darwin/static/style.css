@@ -1,0 +1,14 @@
+h1 {
+	color: blue;
+}
+
+p {
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+
+ul {
+		list-style-type: upper-roman;
+	list-style-position: inside;
+
+}

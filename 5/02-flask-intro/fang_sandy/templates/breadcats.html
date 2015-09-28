@@ -34,22 +34,39 @@ left:-25%;}
 </head>
 <body>
 <p><b>bread cats</b>, or <b>"inbread cats"</b> - the result of a <i>pan</i>demic that caused cats to merge with bread. Not contagious, although highly adorable.</p>
+<hr>
+<p>catID = {{catID}}</p>
 <table border="0"><tr>
+	{% if catID == "1" %}
 <td><div>
 <img id="image1" src="http://fc02.deviantart.net/fs71/f/2014/054/0/7/large_by_frangasm-d77q8mz.jpg"></div></td>
+	{% endif %}
+	{% if catID == "2" %}
 <td><div>
 <img id="image2"
 src="http://25.media.tumblr.com/68d819c6c59d3108a650fb7d644de078/tumblr_mfyquqAw5t1r5ub99o1_1280.jpg"></div></td>
+	{% endif %}
+	{% if catID == "3" %}
 <td><div>
-<img id="image3" src="http://www.wall321.com/thumbnails/detail/20120610/cats%20bread%201280x853%20wallpaper_www.wall321.com_48.jpg"></div></td></tr>
-<tr><td><div>
+<img id="image3" src="http://www.wall321.com/thumbnails/detail/20120610/cats%20bread%201280x853%20wallpaper_www.wall321.com_48.jpg"></div></td>
+</tr>
+<tr>
+	{% endif %}
+	{% if catID == "4" %}
+<td><div>
 <img id="image4" src="http://i.telegraph.co.uk/multimedia/archive/02126/cat8_2126998i.jpg">
 </div></td>
+	{% endif %}
+	{% if catID == "5" %}
 <td><div>
 <img id="image5" src="http://puu.sh/kmUbu/28d26e4bc0.jpg">
 </div></td>
+	{% endif %}
+	{% if catID == "6" %}
 <td><div>
 <img id="image6" src="http://lotteskinnerdigitalpublishing.files.wordpress.com/2013/03/tumblr_m4m1tpg4p21rs7t9wo1_1280.jpg">
-</div></td></tr></table>
+</div></td>
+	{% endif %}
+</tr></table>
 <br><a href=http://www.google.com/images?q=inbread+cat><p>I want more cats! -></p></a>
 </body></html>

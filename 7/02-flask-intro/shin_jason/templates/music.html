@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<center>
+  <h1>Artist: {{ djDict[djName]['realname'] }}</h1>
+  <p>Description: {{ djDict[djName]['descript'] }}</p>
+  <p>Some of {{ djDict[djName]['realname'] }}'s popular songs:<br>
+    <ul>
+      <li>{{ djDict[djName]['songs'][0] }}</li>
+      <li>{{ djDict[djName]['songs'][1] }}</li>
+      <li>{{ djDict[djName]['songs'][2] }}</li>
+      <li>{{ djDict[djName]['songs'][3] }}</li>
+      <li>{{ djDict[djName]['songs'][4] }}</li>
+    </ul>
+  <p><b>Images of {{ djDict[djName]['realname'] }}<b><br>
+    <img height="100" src={{ djDict[djName]['pics'][0] }}>
+    <img height="100" src={{ djDict[djName]['pics'][1] }}>
+    <img height="100" src={{ djDict[djName]['pics'][2] }}>
+  </p>
+  <hr>
+  <a href="/">Return back to Home</a><br>
+  <a href="/music">Return to Music Page</a>
+</center>
+</html>
