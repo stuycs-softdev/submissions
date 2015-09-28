@@ -1,3 +1,8 @@
+## DAVID ROTHBLATT
+## SOFT DEV
+## Mr Zamansky
+## Fall 2015
+
 from flask import Flask, render_template
 from random import randrange
 
