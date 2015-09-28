@@ -1,0 +1,39 @@
+<style>
+  #style1{
+  background-color: black;
+  color: white;
+  text-align: left;
+  padding: 0px;
+  }
+  #style2{
+  background-color: black;
+  color: white;
+  }
+  #style3{
+    text-align: center;
+  padding: 100px;
+  }
+</style>
+
+<div id = "style1">
+  Coins: {{coins}}
+  <br>
+  Betting: {{betting}}
+</div>
+<body id = "style2">
+  <div id = "style3">
+    <h3> You are betting {{betting}} coins on this question</h3>
+    <h1>Question {{questionnum}}: Which country is first on the 2014 Democracy Index?</h1>
+    <form action = "questionpost" method = "POST">
+      <input type = "radio" name = "q4" value = "0">United States</input><br>
+      <input type = "radio" name = "q4" value = "1">Sweden</input><br>
+      <input type = "radio" name = "q4" value = "2">Iceland</input><br>
+      <input type = "radio" name = "q4" value = "3">Norway</input><br>
+      <input type = "radio" name = "q4" value = "4">Finland</input><br>
+      <input type = "hidden" name = "questionnum" value = "4">
+      <input type = "hidden" name = "betting" value = {{betting}}>
+      <input type = "hidden" name = "coins" value = {{coins}}>
+      <input type = "submit" value = "Submit">
+    </form>
+  </div>
+</body>

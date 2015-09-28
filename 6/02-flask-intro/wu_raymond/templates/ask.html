@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>Ask Shaco</title>
+	<link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+<center>
+	<div class="transbox">
+        {% if word in d.keys() %}
+		<p>{{d[word]}}</p>
+        {% else %}
+        <p>Zzz...</p>
+        {% endif %}
+		<p><a href="/home">Home</a></p>
+		<p><a href="/advice">Words of Wisdom</a></p>
+	</div>
+</center>
+</body>
+</html>

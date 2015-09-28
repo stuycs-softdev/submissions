@@ -1,0 +1,30 @@
+<style>
+  #style2{
+  background-color: black;
+  color: white;
+  text-align: left;
+  padding: 0px;
+  }
+  #style1{
+  background-color: black;
+  color: white;
+  }
+  #style3{
+    text-align: center;
+  padding: 100px;
+  }
+</style>
+
+<div id = "style2">
+  Coins: {{coins}}
+</div>
+<body id = "style1">
+  <div id = "style3">
+    <h1> How many coins would you like to bet on the {{questionword}} question?</h1>
+    <form action = "question{{questionnum}}" method = "POST">
+      <input type = "number" name = "amount1"><br>
+      <input type = "hidden" name = "coins" value = {{coins}}>
+      <input type = "submit" value = "Submit">
+    </form>
+  </div>
+</body>

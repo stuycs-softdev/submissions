@@ -5,6 +5,52 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+@app.route("/calculator")
+@app.route("/calculator/<number1>")
+@app.route("/calculator/<number1>/<number2>")
+def calculator(number1="1",number2="1"):
+    num1 = number1;
+    num2 = number2;
+    add = float(num1) + float(num2)
+    subtract = float(num1) - float(num2)
+    multiply = float(num1) * float(num2)
+    divide = float(num1)  / float(num2)
+    d = {"addition":add,
+         "subtraction":subtract,
+         "multiplication":multiply,
+         "division":divide
+         }
+    return render_template("calculator.html",d=d)
+
+
+@app.route("/funnystory")
+def funnystory():
+    names = ["Mr.T", "Bobby", "Bob"]
+    verbs = ["shop", "eat", "sleep"]
+    verbs2 = ["yelling", "choking", "crying"]
+    import random
+    r1 = random.randrange(len(names))
+    r2 = random.randrange(len(verbs))
+    r3 = random.randrange(len(verbs2))
+    return render_template("funnystory.html",names=names,verbs=verbs,verbs2=verbs2,r1=r1,r2=r2,r3=r3)
+
+@app.route("/person")
+@app.route("/person/<lastname>")
+@app.route("/person/<lastname>/<firstname>")
+def person(lastname="last",firstname="first"):
+    d = {'last':lastname,
+         'first':firstname,
+         'title':"Fool Pitier"}
+#'error':error}
+    l = [1, 2, 3, 4, 'hello', 'world']
+    return render_template("person.html",d=d,lst=l)
+
+@app.route("/luckynumber")
+def luckynum():
+    import random
+    r = random.randrange(1,100)
+    return render_template("luckynumber.html",number=r)
+
 @app.route("/marquee")
 def floating():
     return render_template("test.html")

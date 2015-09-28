@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<head>
+  <title>{{ name }}'s Interests</title>
+</head>
+<body>
+  <h1><center>{{ name }}'s Interests</center></h1>
+  <br>
+  <hr>
+  <br>
+  <center>
+    <table>
+      <tr>
+	<th>Things I like<br>(In no order):</th>
+	<th>Things I dislike<br>(First 3 that I thought of)</th>
+      </tr>
+      <tr>
+	<td>
+	  <ul>
+	    { % for listItem in likes % }
+	    <li>listItem</li>
+	    { % endfor % }
+	  </ul>
+	</td>
+	<td>
+	  <ol>
+	    { % for item in dislikes % }
+	    <li>item</li>
+	    { % endfor % }
+	  </ol>
+	</td>
+      </tr>
+    </table>
+  </center>
+</body>
+</HTML>

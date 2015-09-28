@@ -1,0 +1,12 @@
+<html>
+	<title>Data</title>
+	{% if code in codes %}
+	<p>First name: {{d['fname' + code]}}</p>
+	<p>Last name: {{d['lname' + code]}}</p>
+	<p>DOB: {{d['dob' + code]}}</p>
+	<p>Occupation: {{d['occ' + code]}}</p>
+	<p>Status: {{d['status' + code]}}</p>
+	{% else %}
+	<p>No information found</p>
+	{% endif %}
+</html>
