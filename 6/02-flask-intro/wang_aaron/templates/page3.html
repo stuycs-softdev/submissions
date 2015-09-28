@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<title> form </title>
+
+<body>
+  {% for key in args %}
+  <li>args[{{key}}] = {{args[key]}}</li>
+  {% endfor %}
+  
+  <form>
+    username :  <input type = "text" name = "username">
+    password : <input type = "text" name = "password">
+    <input type = "submit" >
+  </form>
+</body>
