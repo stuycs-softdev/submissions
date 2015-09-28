@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+
 
 app = Flask(__name__)
 
@@ -20,6 +21,10 @@ def page2(lastname = "", firstname=""):
     d = {'first':firstname,'last':lastname}
     return render_template("page2.html",d = d)
 
+    @app.route("/form", methods=["GET","POST"])
+def page3():
+    print dir(request)
+    return render_template("page3.html", args = request.args)
 
 if __name__=="__main__":
     app.debug = True
