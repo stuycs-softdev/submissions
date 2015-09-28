@@ -18,4 +18,4 @@ def post():
     return render_template('post.html', data=request.form)
 
 if __name__ == '__main__':
-  app.run()
+  app.run(debug=True)
