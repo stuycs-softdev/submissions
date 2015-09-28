@@ -38,25 +38,40 @@ left:-25%;}
 </head>
 <body>
 <p>donut cats! - donuts that are decorated to look like cats. Not as exciting as bread cats, but still very cute.</p>
+<hr>
+<p>catID = {{catID}}</p>
 <table border="0"><tr>
+	{% if catID == "1" %}
 <td><div>
 <img id="image1" src="http://fc04.deviantart.net/fs70/f/2014/055/f/0/tumblr_miqsrnbdmq1rq2g6so1_500_by_frangasm-d77w34t.jpg">
 </div></td>
+	{% endif %}
+	{% if catID == "2" %}
 <td><div>
 <img id="image2" src="http://2.bp.blogspot.com/-yEjwpGCC4DA/UWOZuyWElsI/AAAAAAAAA5I/mTJtCEeppPA/s1600/tumblr_miqt85VyQr1rq2g6so1_500.jpg">
 </div></td>
+	{% endif %}
+	{% if catID == "3" %}
 <td><div>
 <img id="image3" src="http://kawaiicase.com/blog/wp-content/uploads/2013/02/e85dff012aaf5ebc68573d0489bcb8c1.jpg">
 </div></td>
+	{% endif %}
 </tr><tr>
+	{% if catID == "4" %}
 <td><div>
 <img id="image4" src="http://31.media.tumblr.com/tumblr_lps7jcjUfP1qbpmvho1_500.jpg">
 </div></td>
+	{% endif %}
+	{% if catID == "5" %}
 <td><div>
 <img id="image5" src="http://1.bp.blogspot.com/-Z39CJ7H-PwU/UWOaQqUjSlI/AAAAAAAAA5Q/JR59YmbqAR8/s1600/cat_donut.jpg">
 </div></td>
+	{% endif %}
+	{% if catID == "6" %}
 <td><div>
 <img id="image6" src="http://1.bp.blogspot.com/-bwcEz6OX0kM/UuTQ23aqm-I/AAAAAAAADe4/0mFtW8Uwp1M/s1600/Ikumimama-cat-donut.jpg">
-</div></td></tr></table>
+</div></td>
+	{% endif %}
+</tr></table>
 <br><a href=http://www.google.com/images?q=cat+donuts><p>I want more cats! -></p></a>
 </body></html>

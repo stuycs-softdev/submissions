@@ -1,0 +1,890 @@
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+/* animate-item-size-item
+------------------------- */
+
+.animate-item-size-item {
+  float: left;
+}
+
+/* animate-item-size-item is invisible, but used for layout */
+.animate-item-size-item,
+.animate-item-size-item__content {
+  width: 60px;
+  height: 60px;
+}
+
+/* animate-item-size-item__content is visible, and transitions size */
+.animate-item-size-item__content {
+  background: #D26;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.7);
+  border-radius: 5px;
+  -webkit-transition: width 0.4s, height 0.4s;
+          transition: width 0.4s, height 0.4s;
+}
+
+.animate-item-size-item:hover .animate-item-size-item__content {
+  border-color: white;
+  background: #A2C;
+  cursor: pointer;
+}
+
+/* both animate-item-size-item and animate-item-size-item content change size */
+.animate-item-size-item.is-expanded,
+.animate-item-size-item.is-expanded .animate-item-size-item__content {
+  width: 180px;
+  height: 120px;
+}
+
+.animate-item-size-item.is-expanded {
+  z-index: 2;
+}
+
+.animate-item-size-item.is-expanded .animate-item-size-item__content {
+  background: #F90;
+}
+
+/* ---- responsive ---- */
+
+.grid--animate-item-size-responsive .animate-item-size-item,
+.grid--animate-item-size-responsive .grid-sizer {
+  width: 40%;
+}
+
+.grid--animate-item-size-responsive .animate-item-size-item__content,
+.grid--animate-item-size-responsive .animate-item-size-item.is-expanded .animate-item-size-item__content {
+  width: 100%;
+  height: 100%;
+}
+
+/* item has expanded size */
+.grid--animate-item-size-responsive .animate-item-size-item.is-expanded {
+  width: 60%;
+}
+
+/* button
+------------------------- */
+
+.button {
+  display: inline-block;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  background: #A2C;
+  border: none;
+  border-radius: 7px;
+  background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #C2E;
+}
+
+.button:active,
+.button.is-checked,
+.button.is-selected {
+  background-color: #D26;
+}
+
+.button:active {
+  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
+}
+
+/* hide radio inputs */
+.button input[type="radio"] { display: none; }
+
+/* ---- button-group ---- */
+
+.button-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.button-group .button {
+  float: left;
+  border-radius: 0;
+  margin-right: 1px;
+}
+
+.button-group .button:first-child { border-radius: 0.5em 0 0 0.5em; }
+.button-group .button:last-child { border-radius: 0 0.5em 0.5em 0; }
+
+/* call out
+------------------------- */
+
+.call-out {
+  border-top: 2px solid #F90;
+  border-bottom: 2px solid #F90;
+  padding-left: 40px;
+  position: relative;
+  margin: 20px 0;
+}
+
+/* (i) */
+.call-out:before {
+  content: 'i';
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 5px;
+  top: 20px;
+  background: #F90;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  font-family: Consolas, Georgia, serif;
+  font-style: italic;
+}
+
+.call-out h2 {
+  margin-top: 0;
+  padding-top: 10px;
+  border-top: none;
+}
+
+.call-out--chill { border-color: #1FB; }
+.call-out--chill:before { background: #1FB; }
+
+@media screen and (min-width: 768px) {
+
+  .call-out {
+    border: 2px solid #F90;
+    padding: 10px 20px 10px 80px;
+    border-radius: 6px;
+    position: relative;
+    margin: 20px 0;
+  }
+
+  .call-out--chill { border-color: #1FB; }
+
+  .call-out:before {
+    width: 40px;
+    height: 40px;
+    left: 20px;
+    top: 30px;
+    font-size: 1.9em;
+    line-height: 46px;
+  }
+
+}
+
+/* container
+------------------------- */
+
+.container {
+  margin-left: 10px;
+  margin-right: 10px;
+  max-width: 1200px;
+}
+
+@media screen and ( min-width: 1100px ) {
+  
+  .container {
+    margin-left: 6%;
+    margin-right: 200px;
+  }
+
+}
+
+/* duo
+two columns for large devices
+------------------------- */
+
+/* clearfix */
+.duo:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.duo__cell {
+  margin-bottom: 10px;
+}
+
+@media screen and ( min-width: 768px ) {
+
+  .duo__cell {
+    float: left;
+    width: 48.5%;
+  }
+
+  .duo__cell:first-child {
+    margin-right: 3%;
+  }
+
+}
+
+/* edit-demo
+------------------------- */
+
+.edit-demo {
+  clear: both;
+  font-size: 0.92em;
+}
+
+/* example
+------------------------- */
+
+.example pre {
+  margin-top: 0;
+}
+
+.example__demo--fit-width {
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+/* grid
+------------------------- */
+
+*, *:before, *:after {box-sizing:  border-box !important;}
+
+
+.post-row {
+ -moz-column-width: 18em;
+ -webkit-column-width: 18em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap:1em; 
+  margin:2%;
+}
+
+.item {
+	display: inline-block;
+	position:relative;
+	padding:  .25rem; 
+	/* border: 1px solid #dcdcdc;
+	border-radius:10px; */
+	margin:2%;
+}
+
+.well {
+	position:relative;
+	display: block;
+}
+
+.time-tag {
+	top:0;
+	z-index:9;
+	right:0;
+	position:absolute;
+	border: 1px solid #fff;
+    border-radius: 300px;
+	padding:4px;
+	background-color:#f05f40;
+	color:#fff;
+}
+
+.img-container {
+	position:relative;
+	border:none;
+}
+
+.img-container img {
+	display:block;
+	width:100%;
+	height:auto;
+	border:1px solid #fff;
+}
+
+.info {
+	width:100%;
+	height:auto;
+	text-align:left;
+	font-size:125%;
+	display: block;
+	margin:0 auto;
+	background-color:#dcdcdc;
+	overflow:hidden;
+	padding-left:10px;
+	padding-bottom:10px;
+	border:1px solid #fff;
+}
+
+.info a {
+	display: block;
+	margin: 2px 0 0 0;
+	line-height: 20px;
+	font-weight: bold;
+}
+
+.grid {
+  border-radius: 5px;
+  width:100%;
+  margin:0 auto;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- banner ---- */
+
+.grid--has-banner {
+  position: relative;
+}
+
+.static-banner {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 5px 15px;
+  color: white;
+  background: #A2C;
+  z-index: 2; /* above items */
+}
+
+/* ---- centered ---- */
+
+.grid--centered {
+  margin: 10px auto;
+}
+
+/* ---- counting ---- */
+
+.grid--counting {
+  counter-reset: grid-item;
+}
+
+.grid--counting .grid-item:before {
+  counter-increment: grid-item;
+  content: counter(grid-item);
+  display: block;
+  color: white;
+  padding-top: 0.2em;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* ---- stamp ---- */
+
+.grid--has-stamp { position: relative; }
+
+/* ---- grid--fixed-width ---- */
+
+.grid--fixed-width {
+  width: 320px;
+}
+
+/* grid-image-item
+------------------------- */
+
+.grid-image-item,
+.grid--images .grid-sizer { width: 33.33%; }
+
+.grid-image-item {
+  float: left;
+}
+
+.grid-image-item img {
+  display: block;
+  max-width: 100%;
+}
+
+/* grid-item
+------------------------- */
+
+.grid-item {
+  width: 25%;
+    height: auto;
+    float: left;
+    border: 2px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.5);
+    border-radius: 5px;
+    padding: 3%;
+    margin: 1%;
+}
+
+.grid-item--width2 { width:  160px; }
+.grid-item--width3 { width:  240px; }
+
+.grid-item--height2 { height: 100px; }
+.grid-item--height3 { height: 140px; }
+.grid-item--height4 { height: 180px; }
+
+.grid-item--gigante {
+  width: 240px;
+  height: 180px;
+  background: #F90;
+  z-index: 2; /* keep it above other items */
+}
+
+
+/* ---- clickable ---- */
+
+.grid--clickable .grid-item:hover {
+  border-color: white;
+  background: #A2C;
+  cursor: pointer;
+}
+
+/* ---- fluid-5-col ---- */
+
+.grid--fluid-5-col .grid-sizer,
+.grid--fluid-5-col .grid-item { width: 20%; }
+
+.grid--fluid-5-col .grid-item--width2,
+.grid--fluid-5-col .grid-item--width3 {
+  width: 40%;
+}
+
+/* ---- gutter ---- */
+
+.grid--gutter .grid-item--width2 { width: 170px; }
+.grid--gutter .grid-item--width3 { width: 260px; }
+
+.grid--gutter-bottom .grid-item { margin-bottom: 10px; }
+
+/* ---- grid--fluid-gutter ---- */
+
+.grid--fluid-gutter .grid-item,
+.grid--fluid-gutter .grid-sizer {
+  width: 22%;
+}
+
+.grid--fluid-gutter .gutter-sizer {
+  width: 4%;
+}
+
+.grid--fluid-gutter .grid-item--width2,
+.grid--fluid-gutter .grid-item--width3 {
+  width: 48%;
+}
+
+/* hero
+------------------------- */
+
+.hero-grid {
+  padding: 10px 1%;
+  margin: 20px 0;
+  background: white;
+  border-radius: 10px;
+}
+
+/* necessary for proper sizing with margins */
+.hero-grid__grid-sizer {
+  position: absolute;
+}
+
+.hero-grid__item,
+.hero-grid__grid-sizer {
+  width: 47%;
+  margin: 0 1% 20px 1%;
+}
+
+.hero-grid__gutter-sizer {
+  width: 2%;
+}
+
+.hero-grid__item {
+  float: left;
+  border-radius: 8px;
+  background: #D8D6D2;
+  margin-bottom: 20px;
+}
+
+/* ----  ---- */
+
+.hero__title {
+  margin: 0;
+  line-height: 1.2;
+  font-size: 3rem;
+  color: #D26;
+}
+
+.hero__tagline {
+  font-size: 1.4rem;
+  margin: 0 0 10px;
+}
+
+/* ---- texty ---- */
+
+.hero-grid__item--texty {
+  padding: 10px;
+}
+
+/* ---- ---- */
+
+.hero-grid__big-button {
+  position: relative;
+  display: block;
+  padding: 10px;
+  background: #D26;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.hero-grid__big-button:hover {
+  background: #A2C;
+  color: white;
+}
+
+/* ----  ---- */
+
+.hero__what-is-title {
+  margin: 0 0 10px;
+}
+
+.hero__what-is-description {
+  margin: 0;
+}
+
+/* ---- .hero-grid__example-link ---- */
+
+.hero__example-link {
+  display: block;
+  background: #D26;
+  border-radius: 8px;
+  color: white;
+}
+
+.hero__example-link:hover {
+  background: #A2C;
+  color: white;
+}
+
+.hero__example-link__img {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.hero__example-link__title {
+  margin: 0;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+/* enough width for 4 columns */
+@media screen and ( min-width: 768px ) {
+
+  .hero-grid__grid-sizer,
+  .hero-grid__item {
+    width: 22.5%;
+  }
+
+  .hero-grid__item--width2 {
+    width: 47%;
+  }
+
+
+  .hero-grid__item--width3 {
+    width: 71.5%;
+  }
+
+  .hero__title {
+    font-size: 6rem;
+  }
+
+  .hero__tagline {
+    font-size: 2rem;
+  }
+
+  .hero__what-is-title {
+    font-size: 2rem;
+  }
+
+  .hero__what-is-description {
+    font-size: 1.1rem;
+  }
+
+  .hero-grid__big-button {
+    padding-left: 60px;
+    min-height: 60px;
+  }
+
+  .hero-grid__big-button .icon {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 2.0rem;
+  }
+
+}
+
+/* other-products
+------------------------- */
+
+.other-product {
+  margin-bottom: 10px;
+}
+
+.other-product__link {
+  position: relative; /* gonna abs */
+  display: block;
+  padding: 0px;
+  background: #E8E5E2;
+  border-radius: 5px;
+  color: #D26;
+}
+
+.other-product__link:hover {
+  background: white;
+  color: #A2C;
+}
+
+.other-product__link:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.other-product__image {
+  float: left;
+  display: block;
+  width: 100%;
+  max-width: 140px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.other-product__title {
+  margin: 10px 0;
+  padding-top: 10px;
+  line-height: 1.2;
+  font-weight: bold;
+  font-size: 2.0em;
+}
+
+.other-product__description {
+  line-height: 1.2;
+  margin: 0;
+}
+
+@charset "UTF-8";
+
+/* page-nav
+------------------------- */
+
+.page-nav {
+  padding: 1.0em 0;
+  font-size: 0.8rem;
+  z-index: 2; /* above packeries */
+}
+
+.page-nav__item {
+  display: inline-block;
+}
+
+.page-nav__item:after {
+  content: ' •';
+  margin: 0 10px;
+  opacity: 0.5;
+}
+
+.page-nav__item:last-child:after {
+  content: none;
+}
+
+/* desktop */
+@media screen and ( min-width: 1100px ) {
+
+  .page-nav {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 200px;
+    list-style: none;
+    padding: 0;
+    padding: 10px;
+  }
+
+  .page-nav__item {
+    display: block;
+    margin-bottom: 4px;
+    margin-left: 0;
+  }
+
+  .page-nav__item:after {
+    content: none;
+  }
+
+  .page-nav__item a {
+    display: block;
+  }
+
+  .page-nav__item--h3 a {
+    padding-left: 10px;
+  }
+
+}
+
+/* fix .page-nav only if we have enough height */
+@media screen and ( min-width: 1100px ) and ( min-height: 540px ) {
+  .page-nav {
+    position: fixed;
+  }
+}
+
+/* site-footer
+------------------------- */
+
+.site-footer {
+  color: #888;
+  background: #F8F5F2;
+  padding: 40px 0;
+  position: relative;
+  z-index: 10; /* above page-nav */
+}
+
+/* site nav
+------------------------- */
+
+.site-nav .container {
+  border-bottom: 2px solid white;
+}
+
+/* bottom nav */
+.content ~ .site-nav .container {
+  position: relative;
+  margin-top: 80px;
+  border-top: 2px solid white;
+  border-bottom: none;
+}
+
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__list:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.site-nav__item {
+  width: 33.333%;
+  float: left;
+  line-height: 28px;
+}
+
+.site-nav__item a {
+  display: block;
+  padding: 5px
+}
+
+.site-nav__item--homepage {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.site-nav__item--homepage a {
+  color: #D26;
+}
+
+.site-nav__item a:hover {
+  background: #D26;
+  color: white;
+}
+
+.site-nav__item a:active {
+  background: white;
+  color: #D26;
+}
+
+/* selected */
+.page--options .site-nav__item--options a,
+.page--methods .site-nav__item--methods a,
+.page--events .site-nav__item--events a,
+.page--appendix .site-nav__item--appendix a,
+.page--faq .site-nav__item--faq a {
+  color: white;
+}
+
+.page--index .site-nav__item--homepage {
+  visibility: hidden;
+}
+
+/* size at which it can fit */
+@media screen and ( min-width: 768px ) {
+
+  .site-nav__item {
+    width: auto;
+    font-size: 1.15rem;
+    line-height: 70px;
+  }
+
+  .site-nav__item a {
+    padding: 0px 25px;
+  }
+
+  .site-nav__item--homepage {
+    font-size: 1.5rem;
+  }
+
+}
+
+/* stamp
+------------------------- */
+
+.stamp {
+  position: absolute;
+  width: 30%;
+  height: 60px;
+  background: orange;
+  border: 4px dotted black;
+}
+
+.stamp--static-stamp1 {
+  left: 30%;
+  top: 10px;
+  width: 20%;
+  height: 100px;
+}
+
+.stamp--static-stamp2 {
+  right: 10%;
+  top: 20px;
+  width: 70%;
+  height: 30px;
+}
+
+/* stamp-methods-demo
+------------------------- */
+
+.grid--stamp-methods-demo .grid-item {
+  opacity: 0.8;
+}
+
+.stamp--stamp-methods-demo {
+  left: 10px;
+  top: 10px;
+}
+@charset "UTF-8";
+/* variable
+------------------------- */
+
+.variable {
+  margin: 0.5em 0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: hsla(0, 0%, 0%, 0.075);
+}
+
+.variable__type {
+  color: #27C;
+}
+
+.variable__type,
+.variable__description {
+  margin-left: 10px;
+}
+
+.variable__type:before,
+.variable__description:before {
+  content: '·';
+  padding-right: 0.4em;
+  display: inline-block;
+}

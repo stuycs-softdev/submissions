@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- bootstrap stuff -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <title>Keyless Encryption</title>
+  </head>
+
+  <body>
+      <div class="container">
+          <nav class="navbar navbar-default">
+              <div class="navbar-header">
+                  <a class="navbar-brand" href="/encryption/">Keyless Encryptions</a>
+              </div>
+              <div>
+                  <ul class="nav navbar-nav">
+                      <li><a href="/encryption/rot13">Rot-13</a></li>
+                      <li><a href="/encryption/base64">Base-64</a></li>
+                      <li><a href="/encryption/hex">Hex</a></li>
+                      <li><a href="/encryption/md5">md5</a></li>
+                  </ul>
+              </div>
+          </nav>
+          <h1>{{ Encryption|capitalize }}</h1>
+          <form action="/encryption/{{ mechanism }}" method="POST">
+              <input type="text" name="text" value="{{ text }}">
+              <input type="submit" name="Submit" value="Encrypt">
+          </form>
+          <br>
+          {% if text is sameas '' %}
+          {% else %}
+              <div class="alert alert-success fade in">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Success!</strong> Your message has been encrypted!
+              </div>
+          {% endif %}
+
+          <h2>Results:</h2>
+          <table class="table table-striped">
+          {% for mechanism, res in results %}
+            <tr>
+                <td>{{ mechanism }}</td>
+                <td>{{ res }}</td>
+            </tr>
+          {% endfor %}
+          </table>
+      </div>
+  </body>
+
+</html>

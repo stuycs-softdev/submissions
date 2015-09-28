@@ -1,0 +1,17 @@
+ <!DOCTYPE HTML>
+    
+ <title>Grass </title>
+
+
+<head>
+  <center><h1>Grass Pokemon</h1>
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/grass.css')}}")>
+</head>
+    
+<body>
+  <ol>
+    {% for pkmn in grasspkmn %}
+    <li><a href="/grass/{{pkmn}}"><img src="{{url_for('static', filename=pkmn+'.jpg')}}"></a></li>
+    {% endfor %}
+  </ol>
+</body>
