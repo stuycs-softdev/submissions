@@ -1,9 +1,32 @@
 <!DOCTYPE html>
-<h1>Home</h1>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-<button><a href = "/p1"> Page 1 </a></button>
-<button><a href = "/p2"> Page 2 </a></button>
-<br>
-<br>
-<br>
-<center><a href = "/hidden"> :)</a></center>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Home Page</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-5">
+      <h3>Column 1</h3>
+      <p><button><a href = "/p1"> Page 1 </a></button></p>
+      <p>description of page 1 here</p>
+    </div>
+    <div class="col-sm-5">
+      <h3>Column 2</h3>
+      <p><button><a href = "/p2"> Page 2 </a></button></p>
+      <p>description here</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
