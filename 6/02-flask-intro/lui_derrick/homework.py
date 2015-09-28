@@ -18,6 +18,8 @@ def about():
     return render_template("about.html")
 
 @app.route("/cameragen")
+@app.route("/cameragen/<brandname>")
+@app.route("/cameragen/<brandname>/<modelname>")
 def cameragenerator(brandname="",modelname=""):
     d = {"brand":brandname,
          'model':modelname}
