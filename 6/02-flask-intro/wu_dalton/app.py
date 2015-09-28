@@ -6,6 +6,10 @@ app = Flask(__name__)
 def default():
 	return '<a href="/about">about</a>'
 
+@app.route('/<foo>')
+@app.route('/<foo>/<bar>')
+def foo(foo=':/', bar=42):
+	return render_template('foo.html', foo=foo, bar=int(bar))
 
 @app.route('/about')
 def about():
