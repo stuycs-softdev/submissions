@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<h1>Profile Page</h1>
+<h2>Your Profile</h2>
+<table>
+	<tr>
+		<td>Last:</td><td> {{d['last']}}</td>
+	</tr>
+	<tr>
+		<td>First:</td><td> {{d['first']}}</td>
+	</tr>
+	<tr>
+		<td>Number:</td><td> {{d['number']}}</td>
+	</tr>
+	<tr>
+		<td>Team:</td><td> {{d['team']}}</td>
+	</tr>
+</table>
+<h3>Title: {{d.title}}</h3>
+<hr>
+<p> Dictionary:</p>
+{{d}}
+<ol>
+	{% for key in d %}
+	<li>d[{{key}}] = {{d[key]}}</li>
+	{% endfor %}
+</ol>

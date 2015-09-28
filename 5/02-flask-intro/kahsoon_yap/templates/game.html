@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<title>
+  Guessing Game
+</title>
+
+<center>
+  <h1>Guessing Game</h1>
+</center>
+<hr>
+<h2>Guess: {{d.guess}}</h2>
+<h2>{{d['rez']}}</h2>
+<br>
+<img src="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/9/24/1411574454561/03085543-87de-47ab-a4eb-58e7e39d022e-620x372.jpeg">
+
+<hr>
+
+<ol>
+  {% for stuffz in d%}
+  <li>{{stuffz}} : {{d[stuffz]}}</li>
+  {% endfor %}
+</ol>
+
+<table>
+  <tr>
+    <th>Item</th>
+  </tr>
+  {% for items in l %}
+  <tr>
+    <td>{{items}}</td>
+  </tr>
+  {% endfor %}
+</table>
