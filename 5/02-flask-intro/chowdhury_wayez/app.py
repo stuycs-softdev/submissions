@@ -7,7 +7,7 @@ likes = ["Pizza", "Tigers", "Babies", "Basketball", "Spongebob", "Movies",
          "Whales", "Baseball", "Anime", "Football", "Riddles", "Apples",
          "Sour Candy"]
 
-dislikes = [1 : "fish", 2 : "Drafting", 3 : "Donald Trump"]
+dislikes = {1 : "fish", 2 : "Drafting", 3 : "Donald Trump"}
   
 @app.route("/")
 def page1():
