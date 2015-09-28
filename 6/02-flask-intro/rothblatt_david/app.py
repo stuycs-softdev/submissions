@@ -17,6 +17,15 @@ def funny():
 def cronut():
     return render_template("cronut.html")
 
+@app.route("/lotto")
+def lotto():
+    x = 0
+    nums = []
+    while x < 5:
+        nums.append(randrange(100))
+        x+=1
+    return render_template("lotto.html", nums=nums)
+
 @app.route("/madlibify")
 def madlibify():
     adjs = ["RED","YELLOW","BLUE","SAD","HAPPY","BRAVE",\
