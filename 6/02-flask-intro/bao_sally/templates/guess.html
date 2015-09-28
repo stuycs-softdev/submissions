@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+  <style>
+    body {text-align: center}
+  </style>
+
+  <head>
+  </head>
+
+  <body>
+    <h1>Who's That Pokemon?</h1>
+   
+
+    <a href = "/home">Home is just around the corner</a>
+    <br><br><br><br>
+
+    <p>Now that you've had your taste of mimicry in action, <br>
+      it's time to put your observational skills to the test!</p>
+
+
+    <p><b>Case One</b></p>
+
+
+    <p>Is this an insect disguised as a bird...<br>Or a bird disguised as an insect?</p>
+    <img src = "http://www.sudburyvalleytrustees.org/sites/default/files/20070729_Hummingbird%20Clearwing%20Moth_Garry%20Kessler.jpg">
+
+    <p>Type your answer into the url to let it be revealed</p>
+
+    <p>Guess: {{d.guess}}</p>
+
+    <p>Result: {{d.result}}
+
+      {% if d.result == "Correct!" %}
+
+      <a href = '/guess2'>You may proceed</a>
+
+      {% endif %}
+
+    </p>
+  </body>
+
+</html>

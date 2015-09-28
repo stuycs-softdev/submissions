@@ -1,0 +1,6 @@
+<!DOCTYPE HTML>
+
+ <link type="text/css" rel="stylesheet" href="/static/main.css"/>
+    <h1>Random number!<h1>
+    <hr>
+    <h2>Here you are: {{number}} <h2>

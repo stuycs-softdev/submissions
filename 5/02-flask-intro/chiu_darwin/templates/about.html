@@ -2,7 +2,7 @@
 
 <head>
 	<title>About</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -12,14 +12,15 @@
 		<a href="http://localhost:8000/home"> Home Page! </a>
 		
 		<h2>Stuffs I likes to do</h2>
-		
-		<ul>
-			<li> Dance, dance, dance </li>
-			<li> Dance like a crazy man on the train, streets, in my seat </li>
-			<li> Sneakers </li>
-			<li> Clothes </li>
-			<li> FOOOOOOD </li>
-		</ul>
+		<div>
+			<ul>
+				<li> Dance, dance, dance </li>
+				<li> Dance like a crazy man on the train, streets, in my seat </li>
+				<li> Sneakers </li>
+				<li> Clothes </li>
+				<li >FOOOOOOD</li>
+			</ul>
+		</div>
 		
 		<table border="1">
 			<tr>

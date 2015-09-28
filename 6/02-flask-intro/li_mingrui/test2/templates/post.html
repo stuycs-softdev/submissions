@@ -1,0 +1,34 @@
+<style>
+  #style1{
+  background-color: black;
+  color: white;
+  text-align: left;
+  padding: 0px;
+  }
+  #style2{
+  background-color: black;
+  color: white;
+  }
+  #style3{
+    text-align: center;
+  padding: 100px;
+  }
+</style>
+
+<div id = "style1">
+  Coins: {{coins}}
+</div>
+<body id = "style2">
+  <div id = "style3">
+    <h1> You have {{status}} {{betting}} coins!</h1>
+    <br>
+    <br>
+    <h2>Would you like to go on to question {{questionnum}}? </h2>
+    <form action = "questionpre" method = "POST">
+      <input type = "hidden" name = "coins" value = {{coins}}>
+      <input type = "hidden" name = "questionnum" value = {{questionnum}}>
+      <input type = "submit" name = "submitting" value = "Yes">
+      <input type = "submit" name = "submitting"  value = "No">
+    </form>
+  </div>
+</body>
