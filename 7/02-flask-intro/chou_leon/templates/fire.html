@@ -1,4 +1,7 @@
-<!DOCTYPE HTML>
-<html>
-<img src="%s">
-</html>
+{% extends "master.html" %}
+
+{% block title %} Fire {% endblock %}
+
+{% block body %}
+<img src="{{ url_for('static', filename='fire.jpg') }}">
+{% endblock %}
