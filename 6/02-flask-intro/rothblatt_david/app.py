@@ -17,7 +17,7 @@ def funny():
 def cronut():
     return render_template("cronut.html")
 
-@app.route("/madlib")
+@app.route("/madlibify")
 def madlibify():
     adjs = ["RED","YELLOW","BLUE","SAD","HAPPY","BRAVE",\
         "FAT","HAIRY","GRUMPY","FLYING"]
@@ -27,6 +27,21 @@ def madlibify():
     'animal': animals[randrange(len(animals))], 
     'verb': verbs[randrange(len(verbs))] }
     return render_template("madlib.html", d=d)
+
+@app.route("/bondify")
+@app.route("/bondify/")
+@app.route("/bondify/<last>/<first>/")
+@app.route("/bondify/<last>/<first>")
+def bondify(last="", first=""):
+    d = {"last": last, "first": first}
+    jobs = ["Teacher", "Doctor", "Lawyer", "CEO", "Web Designer", "Dancer", \
+            "Accountant", "Politician", "Special Agent", "Cop", "Firefighter", \
+            "Athlete", "Actor", "Pilot", "Engineer"]
+    d['job'] = jobs[randrange(len(jobs))]
+    agent_id = randrange(100, 10000)
+
+    return render_template("bond.html", d=d, agent_id = agent_id)
+    
 
 if __name__ == "__main__":
     app.debug = True
