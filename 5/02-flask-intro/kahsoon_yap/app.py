@@ -18,6 +18,24 @@ def tables():
 def css():
     return render_template("css.html")
 
+@app.route("/game")
+@app.route("/game/")
+@app.route("/game/<guess>")
+def game(guess=""):
+    if guess!="potato":
+        result="YOU GUESSED WRONG! TRY AGAIN!"
+    else:
+        result="YOU GUESSED RIGHT!"
+    dic = {'guess': guess,
+           'rez': result,
+           '1': 1,
+           '2': 2,
+           'zxcvbnm': "asdfghjkl"
+           }
+    lst = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 'end']
+    return render_template("game.html", d=dic, l=lst)
+           
+
 if __name__ == "__main__":
     app.debug = True
     app.run(host='0.0.0.0', port=8000)

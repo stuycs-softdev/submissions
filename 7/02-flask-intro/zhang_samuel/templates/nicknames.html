@@ -1,0 +1,21 @@
+<!DOCTYPE: html>
+
+  <style>
+    td {border-style:solid; border-width:1}
+  </style>
+
+  <h1> Biden's Nicknames! </h1>
+  
+  <table>
+    <tr>
+      <td> <b> Top Ten Nicknames </b> </td>
+      <td> <b> Origin </b> </td>
+    </tr>
+    {% for nickname in n %}
+    <tr>
+      <td> {{ nickname }} </td>
+      <td> {{ o[loop.index0] }} </td> <!-- nickname list n and origin list o should be equal in size -->
+    </tr>
+    {% endfor %}
+  </table>
+

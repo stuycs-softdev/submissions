@@ -1,0 +1,19 @@
+h1{
+    font-size:32px;
+    color: white;
+}
+
+h2{
+    font-size:28px;
+}
+
+img{
+    height:350px;
+    width:350px;
+    margin-right: 1200px;
+}
+
+body{
+    background-color: #088A29;
+    color: white;
+}

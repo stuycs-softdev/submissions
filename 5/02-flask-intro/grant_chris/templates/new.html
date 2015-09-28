@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Post - Chris Grant HW2: Kinda Blog</title>
+
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+  <link rel="stylesheet" href="http://purecss.io/combo/1.18.13?/css/layouts/blog.css">
+</head>
+
+<body>
+  <div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+      <div class="header">
+        <h1 class="brand-title">Chris Grant HW 2</h1>
+        <h2 class="brand-tagline">New Post</h2>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a class="pure-button" href="/">Home</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <div>
+        <div class="posts">
+          <form class="pure-form pure-form-aligned" method="POST" action="/new">
+            <fieldset>
+              <div class="pure-control-group">
+                <label for="name">Title</label>
+                <input id="title" type="text" placeholder="Title" name="title" required>
+              </div>
+
+              <div class="pure-control-group">
+                <label for="topic">Topic</label>
+                <input id="topic" type="text" placeholder="Topic" name="topic" required>
+              </div>
+
+              <div class="pure-control-group">
+                <label for="text">Text</label>
+                <textarea class="pure-input-1-2" placeholder="Write here..." name="text" required></textarea>
+              </div>
+
+              <div class="pure-control-group">
+                <label for="author">Author</label>
+                <input id="author" type="text" placeholder="Author" name="author" required>
+              </div>
+
+              <div class="pure-controls">
+                <label for="cb" class="pure-checkbox">
+                  <input id="cb" type="checkbox">There are no terms or conditions
+                </label>
+
+                <button type="submit" class="pure-button pure-button-primary">Post</button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+
+        <div class="footer">
+          <div class="pure-menu pure-menu-horizontal">
+            <ul>
+              <li class="pure-menu-item"><a href="http://twitter.com/chrisgco/" class="pure-menu-link">Twitter</a></li>
+              <li class="pure-menu-item"><a href="http://github.com/chrisgco/" class="pure-menu-link">GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

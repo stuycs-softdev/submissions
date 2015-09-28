@@ -1,12 +1,8 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <title>Hello!</title>
-</head>
+{% extends "master.html" %}
 
-<body>
-  <h1> Hello!!!! </h1>
-  Random Number??? %d
-</body>
+{% block title %}Hello!{% endblock %}
 
-</html>
+{% block body %}
+<h1> Hello!! </h1>
+Random Number?? {{number}}
+{% endblock %}
