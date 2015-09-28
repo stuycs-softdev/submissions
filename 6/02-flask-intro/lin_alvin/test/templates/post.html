@@ -8,6 +8,7 @@
   </head>
 
   <body>
+
     <table border='1'>
       {% for value in data.keys() %}
       <tr>
@@ -20,5 +21,11 @@
       </tr>
       {% endfor %}
     </table>
+
+    <form method='POST'>
+      a: <input type='text' name='a' />
+      <br />
+      <input type='submit' value='submit' />
+    </form>
   </body>
 </html>
