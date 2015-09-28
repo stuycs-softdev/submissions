@@ -11,26 +11,38 @@ def about():
 def lucky_number():
     import random
     r = random.randrange(1,100)
-    s = """
-    <a href="https://www.youtube.com/watch?v=5NV6Rdv1a3I"> Get Lucky </a>
-    """
-    display = "Not lucky enough?"
+    return render_template("lucky.html",random=r)
 
-    return """
-    <center>
-    <h1>Your Lucky Number : %d </h1>
-    <br>
-    <br>
-    <br>
-    <h2> Not Lucky Enough? </h2>
-    <h3> Well then... You should %s </h3>
-    <br>
-    <h4> Disclaimer: You may not necessarily "get lucky" if you're that unlucky :( </h4>
-    <br>
-    <br>
-    <a href=".."> Back to Home! </a>
-    </center> 
-    """ % (r,s)
+@app.route("/artist/")
+@app.route("/artist/<name>")
+def artist(name=""):
+    neyosongs = ["Beautiful Monster","Closer","Let Me Love You","Mad",
+                 "Miss Independent","One in a Million","So Sick"]
+    linkinparksongs = ["Breaking The Habit","Crawling","Faint","From the Inside",
+                       "In The End","Numb","What I've Done"]
+    greendaysongs = ["American Idiot","Boulevard of Broken Dreams",
+                     "Holiday","Wake Me Up When September Ends"]
+    brunomarssongs = ["Grenade","Just The Way You Are"]
+    backstreetboyssongs = ["I Want It That Way"]
+    coldplaysongs = ["Paradise","Viva la Vida"]
+    nsyncsongs = ["Bye Bye Bye"]
+    nellysongs = ["Just A Dream","Over and Over"]
+    onerepublicsongs = ["Counting Stars","If I Lose Myself"]
+    seankingstonsongs = ["Fire Burning"]
+    tinietempahsongs = ["Written in the Stars"]
+    secondsofsummersongs = ["Amnesia"]
+    d = {"ne-yo":neyosongs,"linkin_park":linkinparksongs,
+            "green_day":greendaysongs,"bruno_mars":brunomarssongs,
+            "backstreet_boys":backstreetboyssongs,"coldplay":coldplaysongs,
+            "nsync":nsyncsongs,"nelly":nellysongs,"onerepublic":onerepublicsongs,
+            "sean_kingston":seankingstonsongs,"tinie_tempah":tinietempahsongs,
+            "5_seconds_of_summer":secondsofsummersongs}
+    d2 = {"artists":d.keys()}
+    if d.has_key(name):
+        person=name
+        return render_template("artist.html",dic=d,stagename=person)
+    else:
+        return render_template("artist.html",dic=d2,stagename="artists")
 
 @app.route("/home")
 @app.route("/")
