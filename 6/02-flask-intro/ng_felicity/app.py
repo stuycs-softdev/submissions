@@ -15,7 +15,10 @@ def about():
 def random():
     import random
     number = random.randrange(1,100)
-    page = "<h1>Your chance of getting home is %d percent.</h1>" %(number)
+    page = """
+    <h1>Your chance of getting home is %d percent.</h1>
+    <button><a href="/">Home</a></button>
+    """ %(number)
     return page
 
 if __name__ == "__main__":
