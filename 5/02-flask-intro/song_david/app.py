@@ -20,9 +20,9 @@ def home():
 @app.route("/name")
 @app.route("/name/<lastname>/<firstname>")
 def name(lastname = "", firstname = ""):
-    d = {'lastname' = lastname,
-         'firstname' = firstname}
-    return render_template("name.html", dic = d)
+    d = {'lastname':lastname,
+         'firstname': firstname}
+    return render_te:ate("name.html", dic = d)
 
 if __name__ == "__main__":
     app.debug = True
