@@ -17,6 +17,21 @@ def funny():
 def cronut():
     return render_template("cronut.html")
 
+@app.route("/student")
+@app.route("/student/")
+@app.route("/student/<last>")
+@app.route("/student/<last>/")
+@app.route("/student/<last>/<first>")
+@app.route("/student/<last>/<first>/")
+@app.route("/student/<last>/<first>/<id_num>")
+@app.route("/student/<last>/<first>/<id_num>/")
+@app.route("/student/<last>/<first>/<id_num>/<gpa>")
+@app.route("/student/<last>/<first>/<id_num>/<gpa>/")
+
+def person(last="", first="", id_num="", gpa=""):
+    d = { "last": last, "first": first, "id_num": id_num, "gpa": gpa }
+    return render_template("student.html", d=d)
+
 @app.route("/lotto")
 def lotto():
     x = 0
