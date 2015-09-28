@@ -10,7 +10,7 @@ def home():
 @app.route('/name', methods=["GET","POST"])
 @app.route('/name/<name>')
 def name():    
-  return render_template('name.html',request.args)
+  return render_template('name.html',args=request.args)
 
 @app.route('/madlibs/')
 @app.route('/madlibs/<firstname>/<lastname>/<title>')
