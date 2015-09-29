@@ -21,7 +21,7 @@ def login():
         if utils.authenticate(uname,pword):
             return '<center><h1>Logged in</h1><br><img src = "http://i.imgur.com/LccckWB.gif"></center>'
         else:
-            error = "Bad username or password"
+            error = "Invalid Identification, adandon site."
             return render_template("login.html",err=error)
 
     
