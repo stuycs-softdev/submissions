@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import util
 
 app = Flask(__name__)
 
@@ -9,7 +10,7 @@ def home():
     <button><a href="/about">To the About Page!</a></button>
     <button><a href="/pictures">Free Pictures!</a></button>
     <br> <br>
-    <button><a href="/profile">Visit Your Profile</a></button>
+    <button><a href="/login">Visit Your Profile</a></button>
     """
     return page
 
@@ -30,6 +31,32 @@ def profile(fname="",lname="",animal=""):
             "lname" : lname,
             "animal" : animal}
     return render_template("profile.html",d=prof)
+
+@app.route("/login", methods=["GET","POST"])
+def login():
+    if request.method=="GET":
+        return render_template("login.html")
+    else:
+        fname = request.form["fname"]
+        lname = request.form["lname"]
+        password = request.form["password"]
+        sub = request.form["sub"]
+        if sub=="Cancel":
+            return render_template("login.html")
+        if util.check(password)!=0:
+            page = "<h1>Logged in</h1>\n"
+            page += '<button><a href="/profile/'
+            page += fname
+            page += "/" + lname
+            if util.check(password)==1:
+                page += "/Cats"
+            else:
+                page += "/Dogs"
+            page += '">View Your Profile</a></button>'
+            return page
+        else:
+            error = "Your password did not contain 'cat' or 'dog'."
+            return render_template("login.html",error=error)
     
 if __name__ == "__main__":
     app.debug = True

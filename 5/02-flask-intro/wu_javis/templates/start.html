@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+<title>Fortune Telling</title>
+</head>
+<body>
+<br><br><br><br>
+<h1 style="text-align:center;font-size:300%">
+{% if blank %}
+<b>{{blank}}</b>
+<br>
+{% endif %}
+Greetings, please input your name for a fortune.
+<br>
+<form method="POST">
+NAME: <input type="text" name="person">
+<input type="submit" name="button" value="go">
+</h1>
+</body>
