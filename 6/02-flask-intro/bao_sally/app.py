@@ -1,21 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 ans = {"ans1": "hummingbird moth", "ans2": "mimic octopus"}
-d = {"guess": "", "result": "" }
-
 
 
 def checkans(guess, ans):
-    result = ""
-    if guess == ans:
-        result = "Correct!"
-    elif guess != "":
-        result = "Incorrect. Please try again"
-    d["guess"] = guess
-    d["result"] = result
-
+    return guess == ans
+    
 
 @app.route("/")
 @app.route("/home")
@@ -28,21 +20,34 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/guess")
-@app.route("/guess/")
-@app.route("/guess/<answer>")
-def guess(answer = ""):
-    checkans(answer, ans["ans1"])
-    return render_template("guess.html", d = d)
+
+@app.route("/guess", methods = ["GET", "POST"])
+@app.route("/guess/", methods = ["GET", "POST"])
+def guess():
+    if request.method == "GET":
+        return render_template("guess.html")
+    else:
+        answer = request.form['answer']
+        if checkans(answer, ans["ans1"]):
+            return "<h1>Correct! <a href = '/guess2'>You may proceed</a></h2>"
+        else:
+            error = "Try again"
+            return render_template("guess.html", error = error)
 
 
-@app.route("/guess2")
-@app.route("/guess2/")
-@app.route("/guess2/<answer>")
-def guess2(answer = ""):
-    checkans(answer, ans["ans2"])
-    return render_template("guess2.html", d = d)
 
+@app.route("/guess2", methods = ["GET", "POST"])
+@app.route("/guess2/", methods = ["GET", "POST"])
+def guess2():
+    if request.method == "GET":
+        return render_template("guess2.html")
+    else:
+        answer = request.form['answer']
+        if checkans(answer, ans["ans2"]):
+            return "<h1>Wonderful! <a href = '/home'>Return</a></h2>"
+        else:
+            error = "Try again"
+            return render_template("guess2.html", error = error)
 
 
 if __name__ == "__main__":

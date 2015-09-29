@@ -17,17 +17,17 @@ def dancers():
     f = {'name':"Franklin Yu",
          'team':"ACA",
          'piece':"Tennis Court",
-         'pic':"{{ url_for('static', filename='fy.jpg')}}"}
+         'pic':"/static/fy.jpg"}
 
     b = {'name':"Bam Martin",
          'team':"GRV",
          'piece':"OOH KILL'EM",
-         'pic':"{{ url_for('static', filename='Bam.jpg')}}"}
+         'pic':"/static/Bam.jpg"}
 
     m = {'name':"Markus Pe Benito",
          'team':"GRV",
          'piece':"Powerful",
-         'pic':"{{ url_for('static', filename='markus.png')}}"}
+         'pic':"/static/markus.png"}
 
     if r==1:
         return render_template("dancers.html",d=f)

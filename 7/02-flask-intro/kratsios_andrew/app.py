@@ -1,5 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from random import randrange
+import util
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -8,6 +10,7 @@ def home():
     page= "<h1>Welcome To Swaglandia</h1>"
     page = page + '<button><a href="/disneyNames">Disney Names</a></button>'
     page = page + '<button><a href="/playerProfile">Player Profile</a></button>'
+    page = page + '<button><a href="/index">Index</a></button>'
     return page
 
 @app.route("/disneyNames")
@@ -29,6 +32,12 @@ def playerProfile(lastname="",firstname="",number="00", team=""):
     dict['title']="Hockey Player"
     
     return render_template("person.html", d =dict)
+
+@app.route("/index")
+def index():
+    print request.args
+    print request.args.get("size")
+    return render_template("index.html",args=request.args)
 
 if __name__ == "__main__":
     app.debug = True

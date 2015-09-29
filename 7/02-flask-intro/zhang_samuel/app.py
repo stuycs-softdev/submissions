@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from random import randrange
+from authenticate import authenticate #Lol, woops. same name, bad choice
 
 app = Flask(__name__)
 
@@ -8,6 +9,7 @@ aboutBut = '''<p> <button><a href="/about"> About </a> </button> </p>'''
 wisdomBut = '''<p> <button><a href="/biden"> Biden's Wisdom </a> </button> </p>'''
 newQuoteBut = '''<p> <button><a href="/biden"> New Quote </a></button> </p>'''
 nicknameBut = '''<p> <button><a href="/nicknames"> Biden's Nicknames </a> </button> </p>'''
+fanclubBut = '''<p> <button><a href="/login"> Biden Super Secret Fanclub </a> </button> </p>'''
 
 #buttons = {'homeButton' : homeBut,
  #          'aboutButton' : aboutBut,
@@ -23,6 +25,7 @@ def home():
     page += aboutBut
     page += wisdomBut
     page += nicknameBut
+    page += fanclubBut
     return page
 
 @app.route("/about")
@@ -51,6 +54,32 @@ def nicknames():
     origin = ["Press secretory Robert Gibbs", "AmTrak executives", "Obama", "St. Patrick's Day", "Farm subsidies", "Big Mac", "Secret Service", "Personal staff", "Uninformed checkers player", "Favorite snack"]
 
     return render_template("nicknames.html", n = nicknames, o = origin) + homeBut
+
+#to test GET
+@app.route("/fanclub")
+def fanclub(): #insecure login test, returns password on url
+    print request.args
+    print request.args.get("size")
+    return render_template("fanclub.html", args = request.args) #args = request.args adds form inputs to end of url
+
+#Using login instead of fanclub: login uses POST ==> more secure, doesn't reveal password in url 
+
+#mainly to test POST
+@app.route("/login", methods = ["POST", "GET"])
+def login():
+    if (request.method == "GET"): #default
+        return render_template("login.html") + homeBut
+    else:
+        username = request.form["username"]
+        password = request.form["password"]
+        button = request.form["button"]
+        if button == "cancel":
+            return render_template("login.html") + homeBut
+        if authenticate(username, password):
+            return "<h1> Logged In! </h1>" + homeBut
+        else:
+            error = "Wrong username or password, BIDEN UP!"
+            return render_template("login.html", err=error) + homeBut
 
 if (__name__ == "__main__"):
     app.debug == True

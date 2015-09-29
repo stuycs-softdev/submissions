@@ -1,18 +1,24 @@
 <html>
 <head>
-	<title>Ask Shaco</title>
+	<title>Containment Cell</title>
 	<link rel="stylesheet" href="../static/styles.css">
 </head>
-<body>
+<body class="shaco">
 <center>
 	<div class="transbox">
+		<p>You decide to ask him a few questions of your own. However, he will only answer on the subjects he deems interesting. Be sure to keep his interest and learn as much as possible.</p>
         {% if word in d.keys() %}
 		<p>{{d[word]}}</p>
         {% else %}
-        <p>Zzz...</p>
+        <p>Zzz</p>
         {% endif %}
-		<p><a href="/home">Home</a></p>
-		<p><a href="/advice">Words of Wisdom</a></p>
+        <p><form method="POST">
+	        	<input type="text" name="ask"></input>
+	        	<input type="submit" value ="Ask"></input>
+	        </form>
+	    </p>
+		<p><a href="/home">Prisoner Profile</a></p>
+		<p><a href="/advice">Words of Advice</a></p>
 	</div>
 </center>
 </body>

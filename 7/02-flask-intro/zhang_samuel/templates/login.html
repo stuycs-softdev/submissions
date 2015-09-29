@@ -1,0 +1,21 @@
+<!doctype html>
+
+<h1> Login to Biden's Fanclub! </h1>
+
+{% if err %}
+<h3> {{err}} </h3>
+{% endif %}
+
+<p>
+  <form method = "POST" >
+    Username: <br>
+    <input type="text" name="username"> <br>
+    Password: <br>
+    <input type="password" name="password"> <br>
+
+    <input type="submit" name="button" value="submit">
+    <input type="submit" name="button" value="cancel">
+  </form>
+</p>
+
+

@@ -2,9 +2,10 @@
 
 <html>
   <head>
+    <link rel='stylesheet'
+          href="/static/styles.css" />
   </head>
   <body>
-
     <a href='/test'>Hi</a>
     <br />
     <b>Method:</b> {{ request.method }}
@@ -13,6 +14,14 @@
     <br />
     <b>Data:</b> {{ request.data }}
     <br />
+
+    <form action='/test' method='GET'>
+      name: <input type='text' name='name' />
+      <br />
+      b: <input type='text' name='b' />
+      <br />
+      <input type='submit' value='submit' />
+    </form>
   </body>
 
 </html>
