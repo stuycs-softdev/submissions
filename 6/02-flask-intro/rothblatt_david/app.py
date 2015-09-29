@@ -5,7 +5,7 @@
 
 from flask import Flask, render_template, request
 from random import randrange
-
+import auth
 
 app = Flask(__name__)
 
@@ -81,14 +81,13 @@ def login():
         uname = request.form['username']
         pword = request.form['password']
         button = request.form['button']
-        if button == "submit":
-            if auth.authenicate(uname, pword):
-                return "<h1> Hello, " + uname + ". You are logged in"
+        if button == "cancel":
+	    return render_template("login.html")
+	else:
+            if auth.authenticate(uname, pword):
+                return "<h1> Hello, " + uname + ". You are logged in</h1>"
             else:
-                return "Invalid Username And/Or Password"
-        else:
-            return render_template("login.html")
-
+                return "<h1>Invalid Username And/Or Password</h1>"
 
 if __name__ == "__main__":
     app.debug = True
