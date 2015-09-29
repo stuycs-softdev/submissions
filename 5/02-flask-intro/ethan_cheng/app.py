@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from random import randint, choice
 import string
 
@@ -61,6 +61,19 @@ def sao(episode=0):
         d[str(i)] = eps[i - 1].strip()
     return render_template("sao.html", DICT=d, EP=eps[int(episode)].strip(), NUM=int(episode))
 
+@app.route("/login", methods=["GET" , "POST"])
+@app.route("/login/", methods=["GET" , "POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        assert(request.method == "POST")
+        print(request.method)
+        print(request.form)
+        print(request.form['username_in'])
+        print(request.form['password_in'])
+        print(request.form['submit'])
+        return render_template("login.html")
 
 if __name__ == "__main__":
     app.debug = True
