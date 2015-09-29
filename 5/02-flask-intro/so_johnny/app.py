@@ -1,5 +1,5 @@
-from flask import Flask, render_template
-
+from flask import Flask, render_template, request
+import utils
 app = Flask(__name__)
 
 # define the directory for the app
@@ -13,36 +13,19 @@ def lucky_number():
     r = random.randrange(1,100)
     return render_template("lucky.html",random=r)
 
-@app.route("/artist/")
-@app.route("/artist/<name>")
+@app.route("/artist/",methods=["GET","POST"])
+#@app.route("/artist/<name>",methods=["GET","POST"])
 def artist(name=""):
-    neyosongs = ["Beautiful Monster","Closer","Let Me Love You","Mad",
-                 "Miss Independent","One in a Million","So Sick"]
-    linkinparksongs = ["Breaking The Habit","Crawling","Faint","From the Inside",
-                       "In The End","Numb","What I've Done"]
-    greendaysongs = ["American Idiot","Boulevard of Broken Dreams",
-                     "Holiday","Wake Me Up When September Ends"]
-    brunomarssongs = ["Grenade","Just The Way You Are"]
-    backstreetboyssongs = ["I Want It That Way"]
-    coldplaysongs = ["Paradise","Viva la Vida"]
-    nsyncsongs = ["Bye Bye Bye"]
-    nellysongs = ["Just A Dream","Over and Over"]
-    onerepublicsongs = ["Counting Stars","If I Lose Myself"]
-    seankingstonsongs = ["Fire Burning"]
-    tinietempahsongs = ["Written in the Stars"]
-    secondsofsummersongs = ["Amnesia"]
-    d = {"ne-yo":neyosongs,"linkin_park":linkinparksongs,
-            "green_day":greendaysongs,"bruno_mars":brunomarssongs,
-            "backstreet_boys":backstreetboyssongs,"coldplay":coldplaysongs,
-            "nsync":nsyncsongs,"nelly":nellysongs,"onerepublic":onerepublicsongs,
-            "sean_kingston":seankingstonsongs,"tinie_tempah":tinietempahsongs,
-            "5_seconds_of_summer":secondsofsummersongs}
-    d2 = {"artists":d.keys()}
-    if d.has_key(name):
-        person=name
-        return render_template("artist.html",dic=d,stagename=person)
-    else:
+    d = utils.returnd()
+    d2 = utils.returnartists()
+    if request.method=="GET":
         return render_template("artist.html",dic=d2,stagename="artists")
+    else:
+        person = request.form["button"]
+        if utils.validate(person):
+            return render_template("artist.html",dic=d,stagename=person)
+        else:
+            return render_template("artist.html",dic=d2,stagename="artists")
 
 @app.route("/home")
 @app.route("/")
