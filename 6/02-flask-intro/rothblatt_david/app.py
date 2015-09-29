@@ -3,7 +3,7 @@
 ## Mr Zamansky
 ## Fall 2015
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from random import randrange
 
 
@@ -71,6 +71,24 @@ def bondify(last="", first=""):
 
     return render_template("bond.html", d=d, agent_id = agent_id)
     
+
+
+@app.route("/login")
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        uname = request.form['username']
+        pword = request.form['password']
+        button = request.form['button']
+        if button == "submit":
+            if auth.authenicate(uname, pword):
+                return "<h1> Hello, " + uname + ". You are logged in"
+            else:
+                return "Invalid Username And/Or Password"
+        else:
+            return render_template("login.html")
+
 
 if __name__ == "__main__":
     app.debug = True
