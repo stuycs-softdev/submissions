@@ -1,8 +1,15 @@
 <!DOCTYPE HTML>
 <head>
   <title>{{ name }}'s Interests</title>
+  <style> 
+    body {
+    background: url({{ u }});
+    background-size: 1400px 875px;
+    }
+</style>
 </head>
 <body>
+  <font color = {{ c }}>
   <h1><center>{{ name }}'s Interests</center></h1>
   <br>
   <hr>
@@ -16,20 +23,25 @@
       <tr>
 	<td>
 	  <ul>
-	    { % for listItem in likes % }
-	    <li>listItem</li>
-	    { % endfor % }
+	    {% for item in interests %}
+	      {% if item == interests[r] %}
+	        <li><b>{{item}}</b></li>
+	      {% else %}
+	        <li>{{item}}</li>
+	      {% endif %}
+	    {% endfor %}
 	  </ul>
 	</td>
 	<td>
 	  <ol>
-	    { % for item in dislikes % }
-	    <li>item</li>
-	    { % endfor % }
+	    {% for item in dislikes %}
+	    <li>{{dislikes[item]}}</li>
+	    {% endfor %}
 	  </ol>
 	</td>
       </tr>
     </table>
   </center>
+  </font>
 </body>
 </HTML>
