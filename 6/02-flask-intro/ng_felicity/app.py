@@ -7,15 +7,20 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
+@app.route("/about/<name>")
+def about(name=""):
+    d={"name":name}
+    return render_template("about.html",d=d)
 
-@app.route("/random")
-def random():
+@app.route("/random/<ally>")
+def random(ally=""):
     import random
     number = random.randrange(1,100)
-    page = "<h1>Your chance of getting home is %d percent.</h1>" %(number)
+    ally = ally
+    page = """
+    <h1>The chance of your ally being able to help you get home is %d percent.</h1>
+    <button><a href="/">Home</a></button>
+    """%(number)
     return page
 
 if __name__ == "__main__":

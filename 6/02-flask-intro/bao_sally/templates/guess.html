@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+  <style>
+    body {text-align: center}
+  </style>
+
+  <head>
+  </head>
+
+  <body>
+    <h1>Who's That Pokemon?</h1>
+   
+
+    <a href = "/home">Home is just around the corner</a>
+    <br><br><br><br>
+
+    <p>Now that you've had your taste of mimicry in action, <br>
+      it's time to put your observational skills to the test!</p>
+
+
+    <p><b>Case One</b></p>
+
+
+    <p>Is this an insect disguised as a bird...<br>Or a bird disguised as an insect?</p>
+    <img src = "http://www.sudburyvalleytrustees.org/sites/default/files/20070729_Hummingbird%20Clearwing%20Moth_Garry%20Kessler.jpg">
+
+    <h2>What am I?</h2>
+
+    <form method = "POST">
+      Answer: <input type = "text" name = "answer">
+
+      <br><br>
+
+      <input type = "submit" name = "button" value = "check">
+
+      <br>
+    </form>
+
+    {% if error %}
+
+    <h2>{{error}}</h2>
+
+    {% endif %} 
+
+  </body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<h1>Welcome to your Profile</h1>
+<table>
+  <tr>
+    <td>First Name:</td><td>{{d["fname"]}}</td>
+  </tr>
+  <tr>
+    <td>Last Name:</td><td>{{d["lname"]}}</td>
+  </tr>
+  <tr>
+    <td>Interested in:</td><td>{{d["animal"]}}</td>
+  </tr>
+</table>
+<h3>If the above profile is not filled out correctly, please put your
+  information into the url in the form of firstname/lastname/animalofinterest
+</h3>
+If your interest says "Cats", you will see cats. If it says "Dogs", you will see
+dogs.
+<br>
+{% if d["animal"] == "Cats" %}
+<table style="width:75%">
+  <tr>
+    <td><img src="/static/Oliver.jpg" alt="Oliver" height="300" width="400"></td>
+    <td>This is Oliver. Click here to see his adoption profile.</td>
+    <td><button><a href="http://www.unwantednycpets.org/#!oliver/cmvx">Oliver
+    </a></button></td>
+  </tr>
+  <tr>
+    <td><img src="/static/CoronaLime.jpg" alt="kittens" height="300" width="400"></td>
+    <td>These two kittens were abandoned and renamed Corona and Lime. They are
+      not yet up for adoption but will be as soon as they are nursed back to
+      health. They do not have a profile yet. You may instead, if you wish,
+      fill out a pre-adoption form.</td>
+    <td><button><a href="http://www.unwantednycpets.org/#!how-to-adopt-from-unwanted-pets/cm4j">Form</a></button></td>
+  </tr>
+</table>
+{% elif d["animal"] == "Dogs" %}
+<table style="width:75%">
+  <tr>
+    <td><img src="/static/Walt.jpg" height="350" width="400"></td>
+    <td>This is a before and after picture of Walt. He is ready for a new home!
+      Sadly, he does not have a profile set up yet. You may instead, if you
+      wish, fill out a pre-adoption form.</td>
+    <td><button><a href="http://www.unwantednycpets.org/#!how-to-adopt-from-unwanted-pets/cm4j">Form</a></button></td>
+  </tr>
+</table>
+{% elif d["animal"] == "" %}
+<br>
+You haven't yet filled out your animal of preference yet! Please fill it out to
+see some suitable companions.
+<br>
+{% else %}
+<br>
+Sorry! It seems we don't have this animal for adoption. Please fill out either
+"Cats" or "Dogs".
+<br>
+{% endif %}
+<br>
+<button><a href="/home">Return to the Home Page</a></button>
+<button><a href="/login">Log Out</a></button>

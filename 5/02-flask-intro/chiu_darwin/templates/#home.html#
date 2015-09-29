@@ -2,7 +2,7 @@
 
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -14,11 +14,11 @@
 		<h2>Check out these cool dancers!</h2>
 		
 		<a href="https://www.youtube.com/watch?v=MtJS9N2Zp-c">
-			<img src="fy.jpg" alt="Franklin Yu" style="width:200;height:200;">
+			<img src="{{ url_for('static', filename='fy.jpg')}}" alt="Franklin Yu"">
 		</a>
 		
 		<a href="https://www.youtube.com/watch?v=PNVr1LpLJSQ">
-			<img src="Bam.png" alt="Bam Martin" style="width:200;height:200;">
+			<img src="{{url_for('static', filename='Bam.png')}}" alt="Bam Martin" ">
 		</a>
 		
 	</center>

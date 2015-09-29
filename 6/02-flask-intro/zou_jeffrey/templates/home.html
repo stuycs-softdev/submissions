@@ -1,26 +1,73 @@
 <!DOCTYPE html>
 <html>
+
+<head> 
 <title> Hi guys :) </title>
-<header> 
+
 <style>
-body {background: linear-gradient(0deg, gray}
-h1 {color:green, font-family:serifs}
+<!--
+grad1 {
+background: -webkit-linear-gradient(red, blue);
+background: -moz-linear-gradient(red, blue);
+background: -o-linear-gradient(red, blue);
+background: -ms-linear-gradient(red, blue);
+background: linear-gradient(red, blue);
+}
+-->
+
+h1 {color:green; font-family:serifs; text-align:center}
+
 p {color:cyan}
-table {}
-tr:nth-child(even) {background: #0000FF}
-tr:nth-child(odd) {background:#FF0000}
+
+tr:nth-child(even) {background: #00FFFF}
+tr:nth-child(odd) {background:#00FF00}
+
+div {text-align:center}
+a.button {
+-webkit-appearance: button;
+-moz-appearance: button;
+appearance: button;
+text-decoration:none;
+color:#FF00FF
+}
 </style>
+<h1>
 <b>Welcome to this webpage!</b>
-</header>
-<body style="background-color:">
+</h1>
+</head>
+
+<!-- <div id="grad1"> --> 
+
+<body>
+<form action="/login" align="center">
+<input type="submit" name="TakeMeAway" value="Login"></input> 
+</form>
 <hr>
-<table>
+<table align="center">
   <tr>
-    <td> </td> <td> </td>
+    <td>Quote </td> <td>Person </td>
   </tr>
   <tr>
-    <td> </td> <td> </td>
+    <td>"You must do the things you think you cannot do." </td> 
+    <td>Eleanor Roosevelt </td>
   </tr>
-</table> 
+  <tr>
+    <td>"Nothing is impossible, the word itself says 'I'm possible'!" </td>
+    <td>Audrey Hepburn </td>
+  </tr>
+  <tr>
+    <td>"A man may die, nations may rise and fall, but an idea lives on." </td>
+    <td>JFK</td>
+  </tr>
+</table>
+
+<div id="div1">
+<hr>
+<a href="/about" class="button">Just a button</a>
+</div>
+
 </body>
+
+<!-- </div> -->
+
 </html>

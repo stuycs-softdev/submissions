@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, render_template
+from random import randrange
 
 app = Flask(__name__)
 
@@ -6,33 +7,34 @@ app = Flask(__name__)
 def defaultPage():
     page = """
     <h1> Hi! </h1>
-This will talk about my feelings regarding school
-<a href="/homework">Homework opinion</a>
+This will talk about my feelings regarding certain aspects of school
+<\n> <a href="/homework">Homework opinion</a>
+<\n> <a href="/test">Test Opinions</a>
 """
     return page
 
 @app.route("/homework")
 def hwPage():
-    page = """
-I hate <b>homework</b>. I find it a large waste of time. I would prefer staying class time to be doubled over having homework. In my defense, that is about how long I spend <i>at home</i> doing homework.
-<a href="/test">Test Opinions</a>
-"""
-    return page
+    quotes = []
+    quotes.append("I hate <b>homework</b>.")
+    quotes.append("I find homework a large waste of time.")
+    quotes.append("I prefer staying in class overtime over having homework.")
+    quotes.append("Instead of doing homework, I could be doing something fun.")
+
+    #<a href="/test">Test Opinions</a>
+
+    return render_template("response.html", subject = "Homework", quote = quotes[randrange(len(quotes))])
 
 @app.route("/test")
 def testPage():
-    page = """
-Test are useless:
-<ol>
-<li>We are not numbers!</li>
-<li>What if I'm sick that day?</li>
-<li>What if that is the only thing I don't get?</li>
-<li>Tests kill trees, and children's brain cells.</li>
-<li>They are <marquee direction="up"><b>EVIL!</b></marquee>
-</ol>
-<a href="/"> Back</a>
-"""
-    return page
+    quotes = []
+    quotes.append("We are <i>not numbers</i>!")
+    quotes.append("Tests kill trees and children's brain cells!")
+    quotes.append("Tests are <b>EVIL</b>!")
+    quotes.append("Teachers should not waste their time.")
+    #<a href="/"> Back</a>
+
+    return render_template("response.html", subject = "Tests", quote = quotes[randrange(len(quotes))])
 
 
 

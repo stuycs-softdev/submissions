@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+<title>{{person}}'s Fortunes</title>
+</head>
+<body>
+<br><br><br><br>
+<h1 style="text-align:center;font-size:300%">
+{% if person=='teller' %}
+<u>Stuff you can say</u>
+<br>
+{% for stuff in fortunes %}
+<li>{{stuff}}</li>
+{% endfor %}
+{% else %}
+{{person}}, {{fortunes[chance]}}
+{% endif %}
+</h1>
+</body>
