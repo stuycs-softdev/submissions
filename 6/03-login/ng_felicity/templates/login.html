@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<h1>Login to the account</h1>
+
+{% if err %}
+<hr>
+<p>{{err}}</p>
+<hr>
+{% endif %}
+
+<form method="POST">
+	Username: <input type="text" name="username">
+	<p/>
+	Password: <input type="text" name="password">
+	<p/>
+	<input type="submit" name="button" value="login">
+</form>
