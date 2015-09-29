@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from authenticate import authenticate
 
 app = Flask(__name__)
 
@@ -11,10 +12,17 @@ def home():
 def about():
     return render_template("about.html")
 
-@app.route("/person")
-@app.route("/person/<first><last><number>")
-def person(first="Bob",last="TheBuilder",number=9000):
-    return render_template("person.html", last=last,first=first, favNum=number)
+@app.route("/login", methods=["GET","POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        user = request.form['user']
+        password = request.form['pass']
+        favNum = request.form['favNum']
+        if authenticate(user, password,favNum):
+            return render_template("game.html")
+
 
 if __name__ == '__main__':
     app.debug = True
