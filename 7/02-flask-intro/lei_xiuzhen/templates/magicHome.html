@@ -6,19 +6,19 @@
 
 <body style="background-color:skyblue">
   <center>
-  <h1>Hello {{d['name']}}! :)</h1>
+  <h1>Hey! :)</h1>
   <h2>You've reached the magic 8 ball!</h2>
   <br><a href="/..">Return to Homepage</a>
   <br><br>
   <img src="http://www.clker.com/cliparts/a/4/4/9/12370998112143206469nicubunu_Eight_ball.svg.med.png">
   <br><br>
-  <b>
-    Your question was: {{d['question']}}
-  </b>
-  <br><br>
-  The answer is: {{c}}
-  <br><br>
-  <a href="/magic8ball"> Ask Again </a>
+  <form method="POST">
+    Firstname: <input type="text" name="firstname">
+    <p/>
+    Question:  <input type="text" name="question">
+    <p/>
+    <input type="submit" name="button" value="enter">
+  </form>
   </center>
 </body>
 </html>

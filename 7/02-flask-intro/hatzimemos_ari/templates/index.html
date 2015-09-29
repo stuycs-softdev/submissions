@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+
+<h1>Hey! Welcome</h1>
+<img src="static/welcome-sign.jpg" height="300" width="500">
+<hr>
+{% for a in args %}
+<h2>{{a}} : {{args[a]}}</h2>
+{% endfor %}
+<hr>

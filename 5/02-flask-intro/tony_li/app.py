@@ -1,13 +1,33 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 
 app=Flask(__name__)
 
-@app.route("/home")
+dex={
+    'bulbasaur':1,
+    'ivysaur':2,
+    'venusaur':3,
+    'charmander':4,
+    'charmeleon':5,
+    'charizard':6,
+    'squirtle':7,
+    'wartortle':8,
+    'blastoise':9
+}
+
+@app.route("/home", methods=['GET', 'POST'])
 @app.route("/")
 
-def home():
-    return render_template("home.html")
 
+
+def home():
+    if request.method=='GET':
+        return render_template("home.html")
+    else:
+        ID=int(request.form['id'])
+        button=request.form['button']
+        return render_template("home.html", ID=ID, dex=dex )
+       
+        
 
 @app.route("/about")
 def about():
@@ -42,7 +62,7 @@ def grass():
     grasspkmn=['bulbasaur']
     return render_template("grass.html", grasspkmn=grasspkmn)
 
-dex={'bulbasaur':1}
+
 moves=[['bulbasaur',[1,'Tackle'],[3,'Growl'],[7,'Leech Seed'],[9,'Vine Whip']]]
 def pkdex(pocketmonster):
     return dex[pocketmonster]
