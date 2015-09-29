@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 
-<html>
-
-<title>Sup</title>
-
+<head>
+    <title>Sup</title>
+</head>
 <body>
-
-    <h1>This is a webpage</h1>
-
-    <ol>
-        <b>Things</b>
-        <li>chairs</li>
-        <li>ducks</li>
-        <li>buildings</li>
-    </ol>
-    
-    <a href = "/rabbit">Rabbit</a>
-
+<h1>Candidate Endorsement for {{names['full']}}</h1>
+<p>&nbsp&nbsp&nbsp&nbspI want to go on record as endorsing {{names['full']}} for the office of President. {{names['last']}} has worked effectively in the County Clerk's office for five years, during which time the county population has almost doubled. S/he brings excellent credentials to this position, with an MA degree from Springfield University in information management and four years experience in the law office of Johnson and Johnson. Since joining the County Clerk's office, s/he has worked under {{names['boss']}}'s direction and has been acting clerk since her untimely death earlier this year.
+<br>
+&nbsp&nbsp&nbsp&nbspThe clerk's duties require filing accurate court records, overseeing the court clerk's duties, organizing voter registration, {{names['last']}} and scheduling elections.  understands the importance of keeping good records and of dealing congenially with the public. S/he is honest, reliable, and willing to work the long hours needed for the position. I believe {{names['full']}} is the person best qualified to be our next County Clerk.
+</p>
+<br>
+	<h4>No way the best County Clerk was clearly:</h4>
+	<ul>
+		{% for item in candidates %}
+		<li><a href="/home/{{item}}">{{item}}</a></li>
+		{% endfor %}
+	</ul>
+        <a href = "/rabbit/red">red</a> or <a href = "/rabbit/blue">blue</a>
+        <br>
+        <button><a href = "/rabbit">either!</a></button> 
 </body>
-</html>
+

@@ -3,26 +3,51 @@
 <body>
 <h1><span style="color:#0000FF;">Fun Facts About Manta Rays </span>
 </h1>
-
-<ul>
-  <li>Manta Rays are fish that can FLY</li>
-  <li>It is not known why mantas leap from the water. Theories include: to impress females, to help control parasites, to escape predators, or as a means of intraspecific communication</li>
-  <li>The bigger of the two species of Manta Rays, M. birotis, can reach up to 23 feet in width</li>
-  <li>The smaller species can reach 18 feet</li>
-  <li>Like most reef fishes, mantas regularly attend cleaning stations where certain species of fishes pick parasites from their hovering bodies</li>
-  <li>Mantas give birth every other year to a single pup, or a pair of four-foot pups that arrive rolled up like burritos</li>
-  <li>Mantas have about 300 rows of nonfunctioning and useless skin-covered teeth</li>
-  <li> Mantas and their smaller kin, mobulas, were once tagged with the unflattering name “devilfish” because the cephalic lobes attached to each side of their mouths resemble horns. When extended, the flattened lobes help direct food into their mouths</li>
-
-</ul>
-</span>
+<h2>Fact #{{fact}}</h2>
+<div>
+    {% if fact == 1 %}
+        Manta Rays are fish that can FLY
+    {% endif %}
+</div>
+<div>
+    {% if fact == 2 %}
+        It is not known why mantas leap from the water. Theories include: to impress females, to help control parasites, to escape predators, or as a means of intraspecific communication
+    {% endif %}
+</div>
+<div>
+    {% if fact == 3 %}
+        The bigger of the two species of Manta Rays, M. birotis, can reach up to 23 feet in width
+    {% endif %}
+</div>
+<div>
+    {% if fact == 4 %}
+        The smaller species can reach 18 feet
+    {% endif %}
+</div>
+<div>
+    {% if fact == 5 %}
+        Like most reef fishes, mantas regularly attend cleaning stations where certain species of fishes pick parasites from their hovering bodies
+    {% endif %}
+</div>
+<div>
+    {% if fact == 6 %}
+        Mantas give birth every other year to a single pup, or a pair of four-foot pups that arrive rolled up like burritos
+    {% endif %}
+</div>
+<div>
+    {% if fact == 7 %}
+       Mantas have about 300 rows of nonfunctioning and useless skin-covered teeth
+    {% endif %}
+</div>
+<div>
+    {% if fact == 8 %}
+        Mantas and their smaller kin, mobulas, were once tagged with the unflattering name “devilfish” because the cephalic lobes attached to each side of their mouths resemble horns. When extended, the flattened lobes help direct food into their mouths
+    {% endif %}
+</div>
+<p> reload for a new fact! </p>
 <p>
-source cited:
+<a href="http://localhost:8000/facts">See all of the facts</a>
 </p>
-<ul>
-  <li>wikipedia</li>
-  <li>http://www.sportdiver.com/keywords/marine-life/species-8-amazing-facts-about-manta-ray</li>
-</ul>
-
+<button><a href="/">Home</a></button>
 </body>
 </html>

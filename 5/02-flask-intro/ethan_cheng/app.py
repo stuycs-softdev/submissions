@@ -1,5 +1,6 @@
-from flask import Flask, render_template
-from random import randint
+from flask import Flask, render_template, request
+from random import randint, choice
+import string
 
 app = Flask(__name__)
 
@@ -7,26 +8,73 @@ app = Flask(__name__)
 
 @app.route("/")
 @app.route("/home")
+@app.route("/home/")
 def home():
-    return "<hi>Home Page</h1>"
+    return render_template("home.html")
 
-@app.route("/ayy")
-def ayy():
-    return "<p>ayy lmao different routes</p>"
+@app.route("/inspire")
+@app.route("/inspire/")
+@app.route("/inspire/<num>")
+@app.route("/inspire/<num>/")
+def inspire(num=-1):
+    if int(num) == -1:
+        num = randint(1000,10000)
+    try:
+        if int(num) < 1000 or int(num) >= 10000:
+            num = randint(1000,10000)
+    except:
+        num = randint(1000,10000)
+    return render_template("inspiration.html", RANDOM_NUM=str(num))
 
-@app.route("/random_num")
-def vomit_a_number():
-    r = randint(0,100)
-    return "<p>Random number: %d</p>" , (r)
+def get_random_youtube_hash():
+    # I didn't want to leave this on for infinity hours, so here:
+    # A nice bash one liner to grab PewDiePie video hashes from YouTube
+    # youtube-dl --yes-playlist --get-id https://www.youtube.com/watch\?v\=Hurz0ZQbbMU\&list\=UU-lHJZR3Gqxm24_Vd_AJ5Yw > valid_hashes.txt
+    return str(choice(list(open('valid_hashes.txt')))).strip()
 
-@app.route("/render_demo")
-def render_demo():
-    return render_template("an_html_file.html")
+@app.route("/youtube")
+@app.route("/youtube/")
+@app.route("/youtube/<hash>")
+@app.route("/youtube/<hash>/")
+def youtube(hash=""):
+    if hash == "":
+        hash = get_random_youtube_hash()
+    return render_template("youtube.html", RANDOM_HASH=str(hash))
+
+@app.route("/sao")
+@app.route("/sao/")
+@app.route("/sao/<episode>")
+@app.route("/sao/<episode>/")
+def sao(episode=0):
+    try:
+        if int(episode) < 0 or int(episode) >= 7:
+            episode = randint(0,7)
+    except:
+        # Clearly the episode param is not an int
+        episode = randint(0,7)
+    d = {} # Create new dictionary
+    # sao.txt generated with the following command:
+    # youtube-dl --yes-playlist --get-id https://www.youtube.com/playlist\?list\=PLvTFVgN7IAZ5i28K75ocPWALV0_Gpv0Q1 > sao.txt
+    eps = list(open('sao.txt'))
+    # For the sake of using a dictionary... this is greatly redundant
+    for i in range(1,len(eps) + 1):
+        d[str(i)] = eps[i - 1].strip()
+    return render_template("sao.html", DICT=d, EP=eps[int(episode)].strip(), NUM=int(episode))
+
+@app.route("/login", methods=["GET" , "POST"])
+@app.route("/login/", methods=["GET" , "POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        assert(request.method == "POST")
+        print(request.method)
+        print(request.form)
+        print(request.form['username_in'])
+        print(request.form['password_in'])
+        print(request.form['submit'])
+        return render_template("login.html")
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host='0.0.0.0', port=8000)
-    # host='0.0.0.0' means anyone can access this over the net
-    # host='127.0.0.1' means only you can access this over the net
-    # port=8000 because we no want to interfere with other web apps
-
+    app.run(host='127.0.0.1', port=8000)

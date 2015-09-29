@@ -1,0 +1,40 @@
+<style>
+  #style1{
+  background-color: black;
+  color: white;
+  text-align: left;
+  padding: 0px;
+  }
+  #style2{
+  background-color: black;
+  color: white;
+  }
+  #style3{
+    text-align: center;
+  padding: 100px;
+  }
+</style>
+
+<div id = "style1">
+  Coins: {{coins}}
+  <br>
+  Betting: {{betting}}
+</div>
+<body id = "style2">
+  <div id = "style3">
+    <h3> You are betting {{betting}} coins on this question</h3>
+    <h1>Question {{questionnum}}: Which of these is not a beach used by Allied Forces on D-Day?</h1>
+    <form action = "questionpost" method = "POST">
+      <input type = "radio" name = "q2" value = "0">Utah</input><br>
+      <input type = "radio" name = "q2" value = "1">Gold</input><br>
+      <input type = "radio" name = "q2" value = "2">Juno</input><br>
+      <input type = "radio" name = "q2" value = "3">Omaha</input><br>
+      <input type = "radio" name = "q2" value = "4">Sword</input><br>
+      <input type = "radio" name = "q2" value = "5">Shield</input><br>
+      <input type = "hidden" name = "questionnum" value = "2">
+      <input type = "hidden" name = "betting" value = {{betting}}>
+      <input type = "hidden" name = "coins" value = {{coins}}>
+      <input type = "submit" value = "Submit">
+    </form>
+  </div>
+</body>

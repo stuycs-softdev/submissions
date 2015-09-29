@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<h1>Profile Page</h1>
+<h2>Your Profile</h2>
+<table>
+	<tr>
+		<td>Last:</td><td> {{d['last']}}</td>
+	</tr>
+	<tr>
+		<td>First:</td><td> {{d['first']}}</td>
+	</tr>
+	<tr>
+		<td>Number:</td><td> {{d['number']}}</td>
+	</tr>
+	<tr>
+		<td>Team:</td><td> {{d['team']}}</td>
+	</tr>
+</table>
+<hr>
+<hr>
+<form>
+	d['first'] = <input type="text" first="First">
+	Last: <input type="text" last="Last">
+	<input type="submit" name="button" value="Enter">
+	<input type="submit" name="button" value="cancel">
+</form>
+<hr>
+<h3>Title: {{d.title}}</h3>
+<hr>
+<p> Dictionary:</p>
+{{d}}
+<ol>
+	{% for key in d %}
+	<li>d[{{key}}] = {{d[key]}}</li>
+	{% endfor %}
+</ol>

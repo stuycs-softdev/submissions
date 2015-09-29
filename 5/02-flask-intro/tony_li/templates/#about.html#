@@ -1,0 +1,15 @@
+ <!DOCTYPE HTML>
+    
+    <title>Grass </title>
+
+
+    <head>
+    <center><h1>Grass Pokemon</h1>
+    <link rel="stylesheet" type="text/css" href="static/styles/grass.css">
+    </head>
+    
+    <body>
+    <ol>
+    '''+ listPKMNimg(grasspkmn)+'''
+    </ol>
+    </body>

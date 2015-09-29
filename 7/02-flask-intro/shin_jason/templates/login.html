@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<center>
+<h1>Welcome to my website!</h1>
+<h2>Please log in to view content.</h2>
+{% if err %}
+<h3>{{err}}</h3>
+<hr>
+{% endif %}
+<form method="POST">
+  Userame: <input type="text" name = "username"><br>
+  Password: <input type="text" name = "password"><br><br>
+  <input type="submit" name="button" value="Login">
+  <input type="submit" name="button" value="Cancel">
+</form>
+</center>

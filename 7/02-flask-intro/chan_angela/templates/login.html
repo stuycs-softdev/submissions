@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<h1>Please log in to your profile</h1>
+Your password must include either "cat" or "dog".
+<hr>
+{% if error %}
+{{error}}
+{% endif %}
+<form method="POST">
+  First Name: <input type="text" name="fname">
+  <br>
+  Last Name: <input type="text" name="lname">
+  <br>
+  Password: <input type="text" name="password">
+  <br>
+  <input type="submit" name="sub" value="Log In">
+  <br>
+  <input type="submit" name="sub" value="Cancel">
+</form>
+<hr>
+<button><a href="/home">Return to the Home page</a></button>

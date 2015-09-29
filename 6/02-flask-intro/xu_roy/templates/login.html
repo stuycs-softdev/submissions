@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% if err %}
+      <h1 style="color:red;">
+        {{ err }}
+      </h1>
+    {% endif %}
+    <form method="Post">
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <button type="submit" name="login">Login</button>
+    </form>
+  </body>
+</html>
