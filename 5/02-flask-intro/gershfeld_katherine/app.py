@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session, redirect, url_for
 import random
 
 app = Flask(__name__)
@@ -7,14 +7,18 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
-@app.route("/decisions")
-def decisions():
-    return render_template("decisions.html")
+@app.route("/login", methods=['POST'])
+def login():
+    return render_template("login.html")
 
-@app.route("/decisions/")
-@app.route("/decisions/<l>")
-@app.route("/decisions/<l>/")
-@app.route("/decisions/<l>/<f>")
+@app.route("/about")
+def decisions():
+    return render_template("about.html")
+
+@app.route("/decision")
+//@app.route("/decisions/<l>")
+//@app.route("/decisions/<l>/")
+//@app.route("/decisions/<l>/<f>")
 def result(l="",f=""):
     if l != "" and f != "":
         ivy = ['Brown', 'Columbia', 'Cornell', 'Dartmouth', 'Harvard', 'Princeton', 'UPenn', 'Yale']
