@@ -24,4 +24,4 @@ def writer(n):
         file.write(string)
         file.close()
 
-writer(10)##starts at seven because below that it messes up
+writer(30)##starts at seven because below that it messes up
