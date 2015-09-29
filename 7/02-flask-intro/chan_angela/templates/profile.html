@@ -20,13 +20,13 @@ dogs.
 {% if d["animal"] == "Cats" %}
 <table style="width:75%">
   <tr>
-    <td><img src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xft1/v/t1.0-9/12038006_861893030526482_5777188343455166964_n.jpg?oh=1b73ea1dc08987cb596525444f19fbde&oe=56A8635F" alt="Oliver" height="300" width="400"></td>
+    <td><img src="/static/Oliver.jpg" alt="Oliver" height="300" width="400"></td>
     <td>This is Oliver. Click here to see his adoption profile.</td>
     <td><button><a href="http://www.unwantednycpets.org/#!oliver/cmvx">Oliver
     </a></button></td>
   </tr>
   <tr>
-    <td><img src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xfl1/v/t1.0-9/12039581_865723150143470_8893783357462331826_n.jpg?oh=6091958881a68d43c132b320b1843a1f&oe=5698002C" alt="kittens" height="300" width="400"></td>
+    <td><img src="/static/CoronaLime.jpg" alt="kittens" height="300" width="400"></td>
     <td>These two kittens were abandoned and renamed Corona and Lime. They are
       not yet up for adoption but will be as soon as they are nursed back to
       health. They do not have a profile yet. You may instead, if you wish,
@@ -37,7 +37,7 @@ dogs.
 {% elif d["animal"] == "Dogs" %}
 <table style="width:75%">
   <tr>
-    <td><img src="https://scontent-lga3-1.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11990431_864817490234036_4527271497927796719_n.jpg?oh=164a4c354b7c3eb3c9dfed349cf2970f&oe=56A3C30E" height="350" width="400"></td>
+    <td><img src="/static/Walt.jpg" height="350" width="400"></td>
     <td>This is a before and after picture of Walt. He is ready for a new home!
       Sadly, he does not have a profile set up yet. You may instead, if you
       wish, fill out a pre-adoption form.</td>
@@ -57,3 +57,4 @@ Sorry! It seems we don't have this animal for adoption. Please fill out either
 {% endif %}
 <br>
 <button><a href="/home">Return to the Home Page</a></button>
+<button><a href="/login">Log Out</a></button>
