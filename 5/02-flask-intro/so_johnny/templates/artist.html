@@ -19,16 +19,29 @@
 ul { display:table; margin:0 auto;}
 </style>
 
+{% if stagename!="artists" %}
 <ul>
 {% for item in dic[stagename] %}
 <li> {{item}} </li>
 {% endfor %}
 </ul>
+{% endif %}
+
+{% if stagename=="artists" %}
+<form method="POST">
+  <ul>
+    {% for item in dic[stagename] %}
+    <li> <input type="submit" name="button" value={{item}}> </li>
+    {% endfor %}
+  </ul>
+</form>
+{% endif %}
+
 
 <br>
 <br>
 {% if stagename != "artists" %}
-<a href="artists"> Back to Artist List! </a>
+<a href=""> Back to Artist List! </a>
 {% endif %}
 <br>
 <br>
