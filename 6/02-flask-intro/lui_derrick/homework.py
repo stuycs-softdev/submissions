@@ -26,10 +26,32 @@ def cameragenerator(brandname="",modelname=""):
     d['title'] = "Camera Generator"
     return render_template("cameragen.html",d=d)
 
+@app.route("/formstuff")
+def formstuff():
+    return render_template("formstuff.html")
+
+@app.route("/login", methods=["GET","POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        uname = request.form['username']
+        pword = request.form['password']
+        button = request.form['button']
+        if button == "cancel":
+            return render_template("login.html")
+        if utils.authenticate(uname,pword):
+            return "<h1>Logged in</h1>"
+        else:
+            error = "Invalid username or password"
+            return render
+        return "TRYING TO LOG IN!"
+
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    #print request.args.get("name")
+    return render_template("home.html",args=request.args)
 
 
 #def home():

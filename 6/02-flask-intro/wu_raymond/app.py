@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route("/")
@@ -24,15 +24,19 @@ def advice():
 
     return render_template("advice.html", quote = s)
 
-@app.route("/ask")
-@app.route("/ask/")
-@app.route("/ask/<word>")
-def ask(word=""):
+@app.route("/asking", methods=["GET","POST"])
+def ask():
+    if request.method=="GET":
+        word = ""
+    else:
+        word = request.form["ask"]
     d = {};
     d['knife'] = "A useful toy. It can bring suffering... or relief. Have you ever tried juggling several of them at once?"
     d['friend'] = "I have no friends, only acquantances. As soon as you feel like you can call someone a friend, that's when they can stab you in the back."
     d['box'] = "A present? How sweet. I love surprises. But it seems like few others I've met do... I wonder why..."
-    return render_template("ask.html", d = d, word=word)
+    print "WORKS"
+    return render_template("ask.html", d = d, word = word)
+
 if __name__=="__main__":
     app.debug = True
-    app.run(host='127.0.0.1',port=8001)
+    app.run(host='0.0.0.0',port=8000)

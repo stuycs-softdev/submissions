@@ -10,9 +10,6 @@ def home():
     fruits = ['mango', 'papaya', 'strawberry', 'pineapple', 'apple', 'pear',
               'watermelon', 'guava', 'kiwi', 'dragonfruit', 'banana']
     return render_template("home.html")
-<h1><font color="blue">Home</font></h1>
-    <button><a href="page2.html"> Page 2 </a></button>
-    <button.<a href="page3.html"> Page 3 </a></button>
 
 @app.route("/page2")
 def page2():

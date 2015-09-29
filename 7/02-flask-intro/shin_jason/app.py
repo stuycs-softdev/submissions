@@ -1,11 +1,30 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import utils
 
 app = Flask(__name__)
 
-@app.route("/")
+"""
 @app.route("/home")
 def home():
     return render_template("home.html")
+"""
+
+@app.route("/", methods=["GET", "POST"])
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method=="GET":
+        return render_template("login.html")
+    else:
+        uname = request.form['username']
+        pword = request.form['password']
+        button = request.form['button']
+        if button == "Cancel":
+            return render_template("login.html")
+        if utils.authenticate(uname, pword):
+            return render_template("home.html")
+        else:
+            error = "Wrong Username or password"
+            return render_template("login.html", err=error)
 
 @app.route("/interests")
 def interests():

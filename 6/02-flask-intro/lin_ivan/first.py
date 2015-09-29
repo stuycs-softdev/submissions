@@ -37,5 +37,15 @@ def home():
 def about():
     return render_template("about.html", events = events)
 
+@app.route("/login",methods=["GET","POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        print request.args
+        return "TRYING TO LOG IN"
+
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0",port=8000)
+
+    

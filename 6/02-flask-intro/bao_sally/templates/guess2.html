@@ -8,30 +8,18 @@
   </head>
 
   <body>
-    <h1>Who's That Pokemon?</h1>
+    <h1>Extreme Mimicry</h1>
     
 
     <a href = "/home">Home is just around the corner</a>
-    <br><br><br><br>
+    <br><br><br>
 
-    <h2>Mimicry Taken to the Extreme</h2>
-
-    <p>There's always that one student that has to be better than everyone else.
-      <br>
-      When the teacher asks for an essay, he writes a research paper.
-      <br>
-      He's first to volunteer for anything the teacher requests.
-      <br>
-      He's already taking advanced calculus when most people are doing algebra.
-      <br>
-      In other words, he's a tryhard.
+    <p>Some people just have to be <i>so</i> good at everything
       <br><br>
-      Likewise, this creature here mimics not one animal, but at least fifteen.
-      <br>
-      Let's take a look at what it can do.
+      <b><i>This isn't even my final form</i></b>
     </p>
 
-    <br><br>
+    <br>
 
     <h3>Stringray</h3>
     <img src = "http://blog.nus.edu.sg/lsm1303student2013/files/2013/04/A3-1zekqwp.png">
@@ -56,30 +44,27 @@
 
     <h3>Turkey?</h3>
     <img src = "http://2.bp.blogspot.com/_XdP6Lp2ceqY/TUqu5CQxMxI/AAAAAAAAlZM/Cs4slNZNlL8/s1600/o1.PNG">
-    <p>Ok, not really sure what this one is... <br>
-      but it sure is fun to watch it run </p>
+    <p>Even when running, it is majestic </p>
     <img src = "http://i.imgur.com/Zv6cJDQ.gif">
 
-    <h2>So what is it?</h2>
-    <p>Type your answer into the url to let it be revealed</p>
+    <h2>Can thou graspeth my true forme?</h2>
+     
+    <form method = "POST">
+      Answer: <input type = "text" name = "answer">
 
-    <p>Guess: {{d.guess}}</p>
-
-    <p>Result: {{d.result}}
-
-      {% if d.result == "Correct!" %}
-      
-      <br><br><br>
-      It was indeed the mimic octpus!
-      <br>
-      <img src = "https://media.giphy.com/media/doTlVg8NFtvsQ/giphy.gif">
-      
       <br><br>
-      <a href = '/'>Return</a>
 
-      {% endif %}
+      <input type = "submit" name = "button" value = "check">
 
-    </p>
+      <br>
+    </form>
+
+    {% if error %}
+
+    <h2>{{error}}</h2>
+
+    {% endif %} 
+    
 
   </body>
 

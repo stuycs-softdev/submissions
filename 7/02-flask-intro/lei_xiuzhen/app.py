@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -10,9 +10,20 @@ def home():
 def page2():
     return render_template("page2.html")
 
-@app.route("/magic8ball")
-@app.route("/magic8ball/<name>/<question>")
-def magic8ball(name = "",question = ""):
+@app.route("/magic8ball",methods=["GET","POST"])
+def magic8():
+    if request.method=="GET":
+        return render_template("magicHome.html")
+    else:
+        nombre = request.form['firstname']
+        quest = request.form['question']
+        button = request.form['button']
+
+        if button=="enter":
+            return magic8ball(nombre,quest)
+            
+#@app.route("/magic8ball/<name>/<question>")
+def magic8ball(name,question):
     dict = {'name' : name,
             'question' : question}
     list = ["yes","no","maybe","definitely","definitely not","I don't know"]

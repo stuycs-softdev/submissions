@@ -4,25 +4,32 @@ h1{
 }
 
 div.transbox{
-	margin-top: 100px;
-	margin-left: 300px;
-	margin-right: 300px;
+	margin-top: 5%;
+	margin-left: 30%;
+	margin-right: 30%;
 	background-color: black;
-	opacity:0.6;
+	opacity:0.8;
 }
 
 div.transbox p{
 	font-size: 20;
-	margin-left: 200px;
-	margin-right: 200px;
-	margin-top: 10px;
+	margin-left: 10%;
+	margin-right: 10%;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	font-weight: bold;
 	color: white;
 }
-body{
+body.shaco{
 	background-image: url("mainBack.jpg") ;
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+
+body.profile{
+	background-image: url("profile.jpg") ;
 	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 a:link {
@@ -32,6 +39,11 @@ a:link {
 a:hover {
 	color: red;
 }
+
 a:visited {
 	color: cyan;
+}
+
+a:visited:hover{
+	color: red;
 }
