@@ -24,19 +24,24 @@
     <p>Is this an insect disguised as a bird...<br>Or a bird disguised as an insect?</p>
     <img src = "http://www.sudburyvalleytrustees.org/sites/default/files/20070729_Hummingbird%20Clearwing%20Moth_Garry%20Kessler.jpg">
 
-    <p>Type your answer into the url to let it be revealed</p>
+    <h2>What am I?</h2>
 
-    <p>Guess: {{d.guess}}</p>
+    <form method = "POST">
+      Answer: <input type = "text" name = "answer">
 
-    <p>Result: {{d.result}}
+      <br><br>
 
-      {% if d.result == "Correct!" %}
+      <input type = "submit" name = "button" value = "check">
 
-      <a href = '/guess2'>You may proceed</a>
+      <br>
+    </form>
 
-      {% endif %}
+    {% if error %}
 
-    </p>
+    <h2>{{error}}</h2>
+
+    {% endif %} 
+
   </body>
 
 </html>
