@@ -10,7 +10,7 @@ def loginScreen():
     else:
         first = request.form['firstName']
         last = request.form['lastName']
-      #  button = request.form['button']
+        button = request.form['button']
         if utils.authenticate(fn=first,ln=last):
             return render_template("Narnia.html")
         else:

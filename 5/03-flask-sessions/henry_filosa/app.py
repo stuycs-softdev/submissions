@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, redirect
 
 app=Flask(__name__)
 
@@ -6,23 +6,28 @@ app=Flask(__name__)
 @app.route('/about')
 def about():
     if 'logged' not in session:
-        session.logged=False
-    s=session
+        session['logged']=False
     return render_template('about.html',s=session)
 
 @app.route('/login')
-def login():
-    return render_template('login.html',s=session)
+@app.route('/login/<error>')
+def login(error=None):
+    return render_template('login.html',s=session,error=error)
+
+@app.route('/logout')
+def logout():
+    session['logged'] = False
+    return redirect('/about')
 
 @app.route('/secret', methods=["GET","POST"])
 def secret():
     if request.method=="POST":
         if request.form['username']=="henry" and request.form['password']=='12345':
-            session.logged=True
-    if session.logged==True:
+            session['logged']=True
+    if session['logged']==True:
         return render_template('secret.html',s=session)
     else:
-        return render_template('login.html',s=session,error="Invalid Username/password")
+        return redirect('/login/e')
 
 if __name__=="__main__":
     app.debug = True

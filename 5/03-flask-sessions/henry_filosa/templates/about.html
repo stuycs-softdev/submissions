@@ -7,6 +7,10 @@
 <body>
   <p>This is a proof of concept for a login system</p>
   <p> {% if s.logged %} You are logged in!  </p>
+  <form action="/logout">
+    <input type="submit" value="Logout">
+  </form>
+
   <p> {% else %} You are not logged in! :( </p> 
   <a href="/login">Login </a>
 {% endif %}
