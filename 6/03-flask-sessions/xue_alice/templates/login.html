@@ -1,5 +1,10 @@
 <!DOCTYPE HTML>
 <h1>Log into your account</h1>
+
+{% if error %}
+<h1> {{error}} </h1>
+{% endif %}
+
 <form method = "POST">
   username: <input type="text" name="username">
   password: <input type="text" name="password">
