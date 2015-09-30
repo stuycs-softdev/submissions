@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Login</title>
+</head>
+<body>
+    {% if error %}
+    <b>{{error}}</b>
+    {% endif %}
+    <form method = "POST">
+        Username: <input type="text" name="user"><br>
+        Password:  <input type="password" name="pswd"></p>
+        <input type="submit" name="submit" value = "Login">
+    </form>
+    <button><a href = "/about">About</a></button><br>
+    username = stuyvesant | password = 123456789   
+</body>
