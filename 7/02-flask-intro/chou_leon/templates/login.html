@@ -3,6 +3,16 @@
 {% block title %} Login! {% endblock %}
 
 {% block body %}
-<h1> Logging In! </h1>
+<br>
+{% if err %}
+<h1 style="color:red;">
+  {{err}}
+</h1>
+{% endif %}
+
+<form method="POST" style="padding-left:20px;">
+Username:<input type="text" name="uname" placeholder="Username" type="hidden"><br><br>
+Password:<input type="password" name="pword" placeholder="********" type="hidden"><br><br>
+<input type="submit" value="Login!">
 
 {% endblock %}

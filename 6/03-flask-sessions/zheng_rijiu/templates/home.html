@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+  </head>
+  <body>
+    {% if session['Login'] %}
+    Welcome, {{session['username']}}.
+    <br>
+    <input type="submit" name="button" value="logout"></input>
+    {% else %}
+    <button><a href="login">Login</a></button>
+    {% endif %}
+  </body>
+</html>
