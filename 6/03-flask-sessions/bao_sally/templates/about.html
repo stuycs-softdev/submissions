@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-<h1>About page</h1>
 
+  <h1>About page</h1>
 
-{% if s['username'] %}
-<h3>What's up, {{s.username}}?</h3>
+  {% if s['username'] %}
 
-<br>
-<a href = "/logout">Log out</a>
-{% else %}
+  <h3>What's up, {{s.username}}?</h3>
+  <br>
 
-<a href = "/login">Log In</a>
-{% endif %}
+  <a href = "/logout">Log out</a>
 
+  {% else %}
 
-<a href = "/secret">Secret</a>
+  <a href = "/login">Log In</a>
+
+  {% endif %}
+
+  <a href = "/secret">Secret</a>
 
 
 
