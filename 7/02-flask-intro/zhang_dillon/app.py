@@ -9,7 +9,7 @@ def home():
 
 @app.route("/about")
 def about():
-    return "404"
+    return render_template("about.html")
 
 @app.route("/hidden")
 def hidden():
