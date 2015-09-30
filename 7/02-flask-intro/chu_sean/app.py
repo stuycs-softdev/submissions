@@ -31,6 +31,9 @@ def About_Dragons():
 	
 @app.route("/Types_of_Dragons")
 def Types_of_Dragons():
+	if 'status' not in session:
+		return redirect(url_for("home"))
+	else:
 	list = ["Water Dragon", "Fire Dragon", "Ice Dragon", "Celestial Dragon", "Jade Dragon"]
 	return render_template("Types.html", l = list)
 
