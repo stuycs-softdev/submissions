@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+ 
+<html>
+
+  <body>
+    {{ msg }}
+    <br />
+    <h1>
+      {% if user %}
+      You are logged in as  {{ user }}
+      {% endif %}
+    </h1>
+    <br />
+    <form action='/login' method='POST'>
+      Username: <input type='text' name='username' />
+      <br />
+      Password: <input type='password' name='password' />
+      <br/ >
+      <input type='submit' value='submit' />
+    </form>
+
+    <br />
+    <br />
+
+    <a href='/logout'>
+      <button type='button'>Logout</button>
+    </a>
+
+    <br />
+    <br />
+    
+    <a href='/secret'>Click here for a secret</a>
+
+  </body>
+
+</html>

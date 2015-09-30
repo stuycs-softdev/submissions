@@ -4,10 +4,14 @@
     <title>Login</title>
   </head>
   <body>
+    {% if failed %}
+    Sorry, that username/password is incorrect. Please try again.
+    <br>
+    {% endif %}
     <form method="POST">
       username: <input type="text" name="username">
       <br>
-      password: <input type="text" name="password">
+      password: <input type="password" name="password">
       <br>
       <button type="submit" name="login" value="login">login</button>
     </form>

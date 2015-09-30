@@ -1,5 +1,5 @@
 def authenticate(username,password):
     if username == "shi" and password == "shu":
-        return true;
+        return True
     else:
-        return false
+        return False

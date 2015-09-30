@@ -5,6 +5,7 @@
         <title>Portraits</title>
     </head>
     <body>
+        {% if 'n' in session %}
         <nav>
             <center>
                 <h1><font size="30" color="white">Portraits</font></h1>
@@ -22,6 +23,9 @@
                 <p><img src="/static/p3.jpg" style="max-width:100%;"/></p>
             </div> 
         </center>
+        {% else %}
+        <center><h1> nice try </h1></center>
+        {% endif %}
         <div class="footer"> 
             <footer>
                 <font color="white"> © Chris Liang 2015-2016 All Rights Reserved </font>
