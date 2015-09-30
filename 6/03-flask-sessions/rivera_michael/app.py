@@ -14,5 +14,22 @@ def home():
 
 @app.route("/login",methods=["GET","POST"])
 def login():
-    if 'n' not in session:
-        session
+    if ('n' not in session) or (session['n'] == 1):
+        return render_template("login.html")
+    else:
+        return redirect(url_for('secret'))
+
+@app.route("/secret")
+def secret():
+    session['n'] == 1
+    return render_template("secret.html")
+
+@app.route("/out")
+def out():
+    session['n'] == 0
+    return render_template("out.html")
+
+
+if __name == "__main__":
+    app.debug = True
+    app.run(host="0.0.0.0",port=8000)
