@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <style>
+      body {
+      background-color: #180078;
+      color: #FFFFFF;
+      }
+      a:visited{
+      color: #BCDCFF;
+      }
+    </style>
+    <center>
+      <h1> Welcome to my World </h1>
+      <h6> Okay, it's not my world, but Welcome nonetheless! </h6>
+      <img src="http://i.imgur.com/8TT2Q7f.jpg" alt="Laugh a little (or a lot!)" style="width:500px;height:350px;">
+      <p> This is just a <b> test</b>, but think about it, isn't <i> life </i> just that as well?</p>
+      <!-- a href="http://localhost:8000/about"> Learn about me (or not!) </a-->
+      {% for i in r%}
+      <a href={{p[i]}}>{{n[i]}}</a> <br>
+      {% endfor %}
+    </center>
+  </body>
+</html>

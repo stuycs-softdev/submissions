@@ -1,0 +1,28 @@
+<html>
+  <style>
+    body {
+    background-color: #3B70FF;
+    color: #FFFFFF;
+    }
+    a:visited{
+    color: #BCDCFF;
+    }
+  </style>
+  <body>
+      <h1><b>Things I Like:</b> </h1> <h6> (in no particular order) </h6>
+      <ul>
+	{% for el in l%}
+	<li> {{el}} </li>
+	{% endfor %}
+      </ul>
+      <h1><i>Things I Don't Like:</i> </h1> <h6> (in condescending order) </h6>
+      <ol>
+	{% for el in d%}
+	<li> {{el}} </li>
+        {% endfor %}
+      </ol>
+      {% for i in r%}
+      <a href={{p[i]}}>{{n[i]}}</a> <br>
+      {% endfor %}
+  </body>
+</html>
