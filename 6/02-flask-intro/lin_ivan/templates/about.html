@@ -1,56 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css"> 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <style>
-    p, ul{
-/*        margin:20px;
-*/    }
-    .card{
-        padding:5px;
-    }
-    img{
+      h1, h2, p, a {font-family: Roboto, sans-serif; margin-left: 20px; margin-right: 20px}
+      a{
+        text-decoration: none;
+        color:navy;
+      }
+      a:hover{
+        font-size:1.5em;
+      }
+      a:visited {
+        color:black;
+      }
+      nav{
         width:100%;
-        height:auto;
-    }
-    #top{
-      background-color: #CCC;
-      text-align:center;
-    }
-    #top a{
-      margin: 10px;
-    }
-    #top a:hover{
-      font-size:1.5em;
-    }
+        height:1em;
+        background-color:#CCC;
+        text-align: center;
+        padding:1em;
+      }
+      nav a{
+        margin: 10px;
+      }
     </style>
-    <title>Pictures</title>
-</head>
-<body>
-    <div id="top"><a href="/">Home Page</a><a href="/about">Events Page</a><a href="/logout">Logout</a></div>
-    <h1>This are NYC Events</h1>
-    <p>There is no consistency to the styling between different pages. Oh well.</p>
-    <div class="row">
-        {% for event in events %}
-        <div class="card col s6">
-            <div class="card-image waves-effect waves-block waves-light">
-            <a href="{{event.img}}">
-              <img src="{{event.img}}">
-            </a>
-          </div>
-          <div>
-            <span class="card-title grey-text text-darken-4">{{event.name}}</span><br>
-            at {{event.address}}
-          </div>
-      </div>
-      {% endfor %}
-  </div>
-</body>
+    <title>Home Page</title>
+  </head>
+  <body>
+    <nav><a href="/">Home Page</a><a href="/secret">Events Page</a></nav>
+    <h1>This is the Homepage</h1>
 
-<!-- 3rd Party JS Libraries -->
-<script type="text/javascript" src="lib/materialize.min.js"></script>
-</script>
-</body>
+<form>
+  Name:<input type="text" name="wakaka"><input type="submit">
+</form>
+
+    <p style="color:#444">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies ante ex, a fermentum orci varius ullamcorper. Suspendisse vitae tempor lacus. Sed vel facilisis lorem. Phasellus blandit rhoncus dolor, in tempus urna varius nec. Sed consequat tincidunt quam id laoreet. Duis faucibus eget nulla nec laoreet. Fusce blandit tempor nibh, vel pulvinar dui iaculis et. Vivamus varius vehicula blandit. Aenean non gravida nunc. Phasellus sit amet lorem vel orci varius venenatis. Proin pulvinar vel lacus ac finibus. Suspendisse interdum, massa in pharetra malesuada, risus lorem convallis magna, vitae vestibulum ligula est volutpat purus. Nam vitae enim molestie nisi interdum molestie nec quis velit.</p>
+    <p style="color:#777">
+      Integer egestas gravida lorem vitae imperdiet. Etiam posuere tempus turpis vitae vestibulum. Nam finibus, nisi vestibulum porttitor tincidunt, tortor metus condimentum nisl, non iaculis libero leo ut lectus. Curabitur vulputate vestibulum lacus, vitae consectetur dolor laoreet et. Donec finibus diam sit amet posuere egestas. Donec id iaculis elit. Maecenas tincidunt placerat sapien, ac pulvinar erat volutpat vitae. Quisque at elit turpis. Aenean tristique lacus ac sem laoreet suscipit. Aliquam ut tortor sed risus pharetra tempus sed sed ipsum. Maecenas fermentum purus vitae auctor placerat. Proin convallis aliquam urna, id scelerisque est ornare quis. Donec tincidunt nibh diam, sed placerat ante porta vitae.
+    </p>
+    <p style="color:#AAA">
+      Vivamus egestas non odio sed fermentum. Aliquam eu imperdiet lacus. Nullam rutrum egestas felis vel feugiat. Phasellus sodales pulvinar ornare. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean eros enim, consectetur vel metus vel, hendrerit suscipit nibh. Cras posuere aliquam efficitur. Morbi fringilla arcu a tellus porttitor porttitor. Vestibulum bibendum, quam at commodo hendrerit, ligula neque facilisis urna, sit amet egestas elit justo sit amet nulla. Nulla porta in enim et eleifend. Morbi mollis justo justo, id pellentesque sem sollicitudin pretium. Donec eu purus et magna vestibulum pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce sed massa dui. Nunc eu diam nulla.
+    </p>
+    <p style="color:#CCC">
+      Maecenas eget lobortis urna. Ut pharetra convallis lacus in rhoncus. Pellentesque in scelerisque mauris. Curabitur mollis, ex malesuada luctus tincidunt, tortor orci convallis augue, sed maximus mauris sapien a risus. Nulla eros nunc, sagittis at nunc at, finibus interdum risus. Nullam commodo faucibus libero, nec commodo nibh sagittis vel. Nulla iaculis nibh ut luctus tempus.
+    </p>
+    <p style="color:#EEE">
+      Nullam velit quam, aliquam lacinia nibh et, aliquet mollis lorem. Phasellus vel gravida metus. Cras quam nibh, cursus vel tincidunt at, pretium non elit. Nunc in placerat ex. Quisque vel quam lacinia, elementum neque eu, sagittis erat. Nunc in lobortis nunc. Cras molestie elit id massa pretium, ut mollis arcu tempus. Suspendisse potenti. Vestibulum et justo vitae justo tincidunt lobortis. Nullam aliquet eleifend euismod. Proin at nisl libero. Aliquam vitae nunc id odio ultrices consequat in ac nibh. Quisque fringilla mauris sed est aliquam hendrerit. Cras pellentesque nulla sit amet sodales ornare.
+    </p>
+    <p style="color:#FFF">
+      You can't read this, so I'm gonna talk about you behind your back.
+    </p>
+  </body>
 </html>
