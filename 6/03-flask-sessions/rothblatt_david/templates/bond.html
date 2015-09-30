@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+
+  <title> Bondify </title>
+
+    {% if d['last'] and d['first'] %}    
+  <h1> Welcome Agent, {{ agent_id }} !</h1>
+
+  <body> 
+
+    The name's <b>{{d['last']}}, {{d['first']}} {{d['last']}}</b> ...
+    <br><br>
+    For this mission, you will pretend to be a <b>{{d['job']}}</b>
+    <br><br><br>
+    <img src="http://www.drchaos.com/wp-content/uploads/2015/09/Skyfall-007.jpg" width = "650" height = "325">
+    <br><br><br>
+
+
+  </body>
+
+    {% else %}
+  <h2> Maybe you're not in the right place, agent. </h2>
+  <h3> Try again, but add lastname and firstname to the url. :) </h3>
+  <br><br>
+  <img src="http://static.guim.co.uk/sys-images/GUARDIAN/Pix/pictures/2013/9/30/1380551328773/Daniel-Craig-james-bond-008.jpg">
+  <br><br>
+
+    {% endif %}
+  Shortcuts: <br>
+  <button><a href="/home"> Home </a></button><br>
+  <button><a href="/madlibify"> Madlibify </a></button><br>
+  <button><a href="/funny"> Funny Meme </a></button><br>
+  <button><a href="/cronut"> Cronut </a></button><br>
+  <button><a href="/student"> Student </a></button><br>
+  <button><a href="/lotto"> Lotto </a></button><br>
+
+</html>
