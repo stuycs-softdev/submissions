@@ -19,6 +19,12 @@ div.transbox p{
 	font-weight: bold;
 	color: white;
 }
+
+div.transbox p.reg{
+	font-size: 15;
+	font-family: "Times New Roman";
+}
+
 body.shaco{
 	background-image: url("mainBack.jpg") ;
 	background-position: center top;
