@@ -1,28 +1,24 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, session
 
 poke = Flask(__name__)
 
 @poke.route("/")
 @poke.route("/home")
 def home():
-    page = """ 
-    <h1>Pokemon Starters</h1>
-    <h2>Choose a generation!</h2>
-    <br>
-    <button> <a href = "/gen1">Gen I</a> </button>
-    <br> <br>
-    <button> <a href = "/gen2">Gen II</a> </button>
-    <br> <br>
-    <button> <a href = "/gen3">Gen III</a> </button>
-    <br> <br>
-    <button> <a href = "/gen4">Gen IV</a> </button>
-    <br> <br>
-    <button> <a href = "/gen5">Gen V</a> </button>
-    <br> <br>
-    <button> <a href = "/gen6">Gen VI</a> </button>
-    """
-    return page
+    return render_template("home.html")
 
+@poke.route("/about")
+def about():
+    return render_template("about.html")
+
+@poke.route("/login", methods = ["GET", "POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        f = request.form
+        username = f['u']
+        
 @poke.route("/gen1")
 def gen1():
     dict1 = {'gen' : "Generation I" ,
