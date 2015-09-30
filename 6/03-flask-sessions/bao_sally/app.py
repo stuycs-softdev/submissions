@@ -3,8 +3,14 @@ import utils
 
 app = Flask(__name__)
 
+ans = {"ans1": "hummingbird moth", "ans2": "mimic octopus"}
 
 @app.route("/")
+@app.route("/home")
+def home():
+    return render_template("home.html", s = session)
+
+
 @app.route("/about")
 def about():
     return render_template("about.html", s = session)
@@ -21,26 +27,36 @@ def login():
         pword = request.form['password']
         if utils.authenticate(uname, pword):
             session['username'] = uname
-            return redirect(url_for('secret'))
+            return redirect(url_for('guess'))
         else:
             error = "Invalid username or password"
             return render_template("login.html", error = error)
 
 
-@app.route("/secret")
-def secret():
-    if 'username' not in session:
-        return redirect(url_for('login'))
+@app.route("/guess", methods = ["GET", "POST"])
+def guess():
+    if request.method == "GET":
+        if 'username' not in session:
+            return redirect(url_for('login'))
+        else:
+            return render_template("guess.html", s = session)
     else:
-        return render_template("secret.html", s = session)
+        answer = request.form['answer']
+        if utils.checkans(answer, ans["ans1"]):
+            return redirect(url_for('guess2'))
+        else:
+            error = "Try again"
+            return render_template("guess.html", error = error)
 
-@app.route("/logout", methods = ["GET", "POST"])
+
+    
+@app.route("/logout")
 def logout():
     if 'username' in session:
-        return render_template("logout.html")
-    elif request.form['logout'] == "Goodbye":
         del session['username']
-        return redirect(url_for('about'))
+        return redirect(url_for('home'))
+
+    
         
 if __name__ == "__main__":
     app.debug = True
