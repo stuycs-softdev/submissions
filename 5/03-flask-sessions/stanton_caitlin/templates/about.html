@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<head>
+
+  <title>About</title>
+
+</head>
+
+<body>
+
+  <p>This is a website running on Flask.</p>
+  <p>Its purpose is to log users in and out, and deal with that info appropraitely</p>
+  <p>
+    {% if s.logged %}
+    Welcome {{username}}!
+    {% else %}
+    Click <a href="/login">here</a> to log in :)
+    {% endif %}
+  </p>
+
+</body>
