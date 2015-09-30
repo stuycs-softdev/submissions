@@ -5,26 +5,33 @@
         <title>Home</title>
     </head>
     <body>
-        {% if 'n' in session %}
         <nav>
             <center>
                 <h1><font size="30" color="white">Home</font></h1>
             </center>
+            {% if 'n' in session %}
             <ul>
                 <li><a href='/portraits'>Portraits</a></li>
                 <li><a href='/creative'>Creative</a></li>
                 <li><a href='/about'>About</a></li> 
+                <li><a href='/logoff'>Log Off</a></li> 
             </ul>
         </nav>
+
         <center><p><br><br>
             <font size="100" color ="white"> Welcome </font>
-                </p>
+            </p>
         </center>
+
         {% else %}
+        <nav>
+            <ul>
+                <li><a href='/login'>Log In</a></li> 
+            </ul>
+        </nav>
         <center><h1> nice try </h1> <center>
         {% endif %}
-
-
+        
         <div class="footer"> 
             <footer>
                 <font color="white"> © Chris Liang 2015-2016 All Rights Reserved </font>
