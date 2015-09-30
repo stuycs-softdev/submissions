@@ -3,6 +3,7 @@ import utils
 
 app = Flask(__name__)
 
+
 @app.route("/login", methods=["GET","POST"])
 def login():
     if request.method=="GET":
@@ -19,6 +20,12 @@ def login():
             return redirect(url_for('home'))
         else:
             return render_template("login.html",error="INVALID USERNAME OR PASSWORD")
+
+@app.route("/logoff", methods=["GET","POST"])
+def logout():
+    # remove the username from the session if it's there
+    session.pop('n', None)
+    return redirect(url_for('login'))
 
 @app.route("/home")
 @app.route("/home/")

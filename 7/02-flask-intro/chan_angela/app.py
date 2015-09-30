@@ -62,6 +62,7 @@ def login():
 
 @app.route("/slogin", methods=["GET","POST"])
 def slogin():
+    session["logged"] = 0
     if request.method=="GET":
         return render_template("slogin.html")
     else:
@@ -71,6 +72,7 @@ def slogin():
         if log=="Cancel":
             return render_template("slogin.html")
         if util.logins(username,password):
+            session["logged"] = 1
             return redirect(url_for("secret"))
         else:
             error = "Wrong username and password combination"
@@ -78,9 +80,16 @@ def slogin():
 
 @app.route("/secret")
 def secret():
-    session["buckle"] = 0
-    buckled=session["buckle"]
-    return render_template("secret.html", number=buckled)
+    if session["logged"] == 0:
+        page = """<h1>You haven't logged in yet.</h1>
+        <h3>Seriously, this is a secret. Go log in.</h3>
+        <button><a href="/slogin">Log in</a></button>
+        <button><a href="/home">Back to the Home Page</a></button>"""
+        return page
+    else:
+        session["buckle"] = 0
+        buckled=session["buckle"]
+        return render_template("secret.html", number=buckled)
 
 @app.route("/reset")
 def reset():
@@ -101,6 +110,7 @@ def nope():
 
 @app.route("/logout")
 def logout():
+    session["logged"] = 0
     return redirect(url_for("slogin"))
     
 if __name__ == "__main__":
