@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,sessions
 from flask import redirect,url_for
 
 app = Flask(__name__)
@@ -14,12 +14,15 @@ def home():
 
 @app.route("/login", methods = ["GET","POST"])
 def login():
+    if request.method == "GET":
+        return render_template("homepage.html")
+    else:
         username = request.form['username']
         password = request.form['password']
         if utils.autheticate(username,password):
-            return redirect(url_for('secret'))
+            return render_template('secret.html')
         else:
-            return redirect(url_for('login'))
+            return render_template('login.html')
 
 @app.route("/secret")
 def secret():
@@ -29,4 +32,5 @@ def secret():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host = '0.0.0.0', port = 2000)
+    app.secret_key="Don't store this on github"
+    app.run(host = '0.0.0.0', port = 9578)

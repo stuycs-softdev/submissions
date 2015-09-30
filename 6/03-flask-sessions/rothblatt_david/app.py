@@ -3,11 +3,51 @@
 ## Mr Zamansky
 ## Fall 2015
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, session, redirect, url_for
 from random import randrange
 import auth
 
 app = Flask(__name__)
+
+@app.route("/about")
+@app.route("/about/")
+def about():
+    return render_template("about.html")
+
+@app.route("/secret")
+@app.route("/secret/")
+def secret():
+    return render_template("secret.html")
+
+
+@app.route("/login", methods=["GET","POST"])
+@app.route("/login/", methods=["GET","POST"])
+
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        uname = request.form['username']
+        pword = request.form['password']
+        button = request.form['button']
+        if button == "cancel":
+	    return render_template("login.html")
+	else:
+            if auth.authenticate(uname, pword):
+                return "<h1> Hello, " + uname + ". You are logged in</h1>"
+            else:
+                return "<h1>Invalid Username And/Or Password</h1>"
+
+
+@app.route("/logout", methods=["GET","POST"])
+@app.route("/logout/", methods=["GET","POST"])
+def logout():
+    return render_template("logout.html")
+
+
+
+
+
 
 @app.route("/")
 @app.route("/home")
@@ -71,23 +111,6 @@ def bondify(last="", first=""):
 
     return render_template("bond.html", d=d, agent_id = agent_id)
     
-
-
-@app.route("/login", methods=["GET","POST"])
-def login():
-    if request.method == "GET":
-        return render_template("login.html")
-    else:
-        uname = request.form['username']
-        pword = request.form['password']
-        button = request.form['button']
-        if button == "cancel":
-	    return render_template("login.html")
-	else:
-            if auth.authenticate(uname, pword):
-                return "<h1> Hello, " + uname + ". You are logged in</h1>"
-            else:
-                return "<h1>Invalid Username And/Or Password</h1>"
 
 if __name__ == "__main__":
     app.debug = True
