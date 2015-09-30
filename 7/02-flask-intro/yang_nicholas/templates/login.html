@@ -1,0 +1,17 @@
+<!doctype html>
+
+<h1>Login</h1>
+<hr>
+{%if err %}
+<h3>{{err}}</h3>
+	<hr>
+	{% endif %}
+	<form method="POST">
+		username: <input type="text" name="username">
+		<p/>
+		password: <input type="text" name="password">
+		<p/>
+		<input type="submit" name="button" value="login">
+		<input type="submit" name="button" value="cancel">
+	</form>
+<button><a href = "/signup">Sign up</a></button> 
