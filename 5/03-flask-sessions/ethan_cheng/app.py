@@ -87,7 +87,8 @@ def login():
             return redirect(url_for("home"))
         else:
             session['logged_in'] = False
-            return render_template("login.html")
+            return render_template("login.html", ERROR="User not recognized.")
+
 
 @app.route("/logout")
 @app.route("/logout/")
