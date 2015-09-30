@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 from random import randrange
 from authenticate import authenticate #Lol, woops. same name, bad choice
+from flask import redirect, session, url_for
+
 
 app = Flask(__name__)
 
@@ -10,6 +12,7 @@ wisdomBut = '''<p> <button><a href="/biden"> Biden's Wisdom </a> </button> </p>'
 newQuoteBut = '''<p> <button><a href="/biden"> New Quote </a></button> </p>'''
 nicknameBut = '''<p> <button><a href="/nicknames"> Biden's Nicknames </a> </button> </p>'''
 fanclubBut = '''<p> <button><a href="/login"> Biden Super Secret Fanclub </a> </button> </p>'''
+logoutBut = '''<p> <button><a href="/logout"> Logout? </a></button> </p>'''
 
 #buttons = {'homeButton' : homeBut,
  #          'aboutButton' : aboutBut,
@@ -26,6 +29,7 @@ def home():
     page += wisdomBut
     page += nicknameBut
     page += fanclubBut
+
     return page
 
 @app.route("/about")
@@ -67,19 +71,26 @@ def fanclub(): #insecure login test, returns password on url
 #mainly to test POST
 @app.route("/login", methods = ["POST", "GET"])
 def login():
+#still need to figure out how to return data via session, and return "logged out" message
+
     if (request.method == "GET"): #default
         return render_template("login.html") + homeBut
     else:
         username = request.form["username"]
         password = request.form["password"]
         button = request.form["button"]
+
         if button == "cancel":
             return render_template("login.html") + homeBut
         if authenticate(username, password):
-            return "<h1> Logged In! </h1>" + homeBut
+            return render_template("account.html", username = username) + logoutBut
         else:
             error = "Wrong username or password, BIDEN UP!"
             return render_template("login.html", err=error) + homeBut
+        
+@app.route("/logout")
+def logout():
+    return redirect(url_for("login"))
 
 if (__name__ == "__main__"):
     app.debug == True

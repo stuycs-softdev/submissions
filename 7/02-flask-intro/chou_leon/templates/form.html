@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+{% block title %} Form? {% endblock %}
+{% block body %}
+{% if err %}
+<h2 style="color:red;">{{err}}</h2>
+{% endif %}
+
+<form>
+outform: <input type="text" name="outform">
+<input type="submit" name="button" value="out">
+</form>
+<hr>
+<form method="POST">
+username:<input type="text" name="user">
+password:<input type="text" name="pass">
+<input type="submit" name="pressme" value="in">
+</form>
+
+
+{% endblock %}

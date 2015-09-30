@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<h1>Log in to see your Secret Profile</h1>
+{% if error %}
+<hr>{{error}}<hr>
+{% endif %}
+<form method="POST">
+  Username: <input type="text" name="username">
+  <br><br>
+  Password: <input type="text" name="password">
+  <br><br>
+  <input type="submit" name="log" value="Log In">
+  <input type="submit" name="log" value="Cancel">
+</form>
+<br><br>
+<button><a href="/home">Return to the Home Page</a></button>

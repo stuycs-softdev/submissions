@@ -1,12 +1,27 @@
-from flask import Flask, render_template
-
+from flask import Flask, render_template, request, session, redirect, url_for
+import check
 app = Flask(__name__)
 
 @app.route("/")
-@app.route("/home")
+@app.route("/home", methods= ["GET","POST"])
 def home():
-	return render_template("Home.html")
-
+	if request.method=="GET":
+		return render_template("Home.html")
+	else:
+		uname = request.form['Username']
+		pword = request.form['Password']
+		button = request.form['button']
+		if button=="Cancel":
+			return render_template("Home.html")
+		if check.authent(uname,pword):
+			session['status'] = "in"
+			return redirect(url_for("Types_of_Dragons"))
+		
+@app.route("/Logout")
+def logout():
+	session['status'] = "not in"
+	return redirect(url_for("home"))
+	
 @app.route("/About_Dragons")
 def About_Dragons():
 	dict = {"chara1":"Eats Princesses (Western)",
@@ -21,4 +36,5 @@ def Types_of_Dragons():
 
 if __name__=="__main__":
 	app.debug=True
-	app.run(host='0.0.0.0',port=8000)
+	app.secret_key="DRAGON,DRAGON,DRAGON"
+	app.run(host='0.0.0.0',port=7000)
