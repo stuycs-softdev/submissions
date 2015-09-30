@@ -78,6 +78,15 @@ def pokemon(pokemon=""):
     dgrass={pokemon:pkdex(pokemon)}
     return render_template("grasspkmn.html",dgrass=dgrass,pokemon=pokemon,moves=moves)
 
+@app.route("/login",methods=['GET','POST'])
+
+def login():
+    if 'n' not in session:
+    session['n']=0
+    if request.method=='POST':
+        session['n']=1
+        
+    
 if __name__=="__main__":
     app.debug = True
     app.secret_key="Don't upload to github"
