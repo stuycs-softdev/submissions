@@ -5,3 +5,9 @@ def check(password):
         return 2
     else:
         return 0
+
+def logins(username, password):
+    if username=="Vldmr" and password=="Unicorn468":
+        return True
+    else:
+        return False

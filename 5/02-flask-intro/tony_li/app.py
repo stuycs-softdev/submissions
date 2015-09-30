@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,session
 
 app=Flask(__name__)
 
@@ -14,19 +14,25 @@ dex={
     'blastoise':9
 }
 
+
 @app.route("/home", methods=['GET', 'POST'])
 @app.route("/")
 
 
 
 def home():
+    if 'id' not in session:
+        session['id']=0
     if request.method=='GET':
         return render_template("home.html")
-    else:
-        ID=int(request.form['id'])
-        button=request.form['button']
-        return render_template("home.html", ID=ID, dex=dex )
-       
+    
+    ID=session['id']
+    ID=int(request.form['id'])
+    session['id']=ID
+    button=request.form['button']
+    print "SDADDASD  "+str(ID)
+    return render_template("home.html", ID=ID, dex=dex )
+   
         
 
 @app.route("/about")
@@ -74,6 +80,7 @@ def pokemon(pokemon=""):
 
 if __name__=="__main__":
     app.debug = True
+    app.secret_key="Don't upload to github"
     app.run(host='0.0.0.0', port=8000)
     
 

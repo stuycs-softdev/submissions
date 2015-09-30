@@ -6,9 +6,9 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("about.html")
+    return render_template('home.html')
 
-@app.route("/login" methods = ["GET", "POST"])
+@app.route("/login", methods = ["GET", "POST"])
 def login():
     if request.method=="GET":
         return render_template("login.html")
@@ -19,13 +19,11 @@ def login():
         if button=="cancel":
             return render_template("login.html")
         if utils.authenticate(uname,pword):
-            return '<center><h1>Logged in</h1><br><img src = "http://i.imgur.com/LccckWB.gif"></center>'
+            return render_template("success.html")
         else:
-            error = "Invalid Identification, adandon site."
+            error = 'INVALID IDENTIFICATION, ABORT SITE!!!'
             return render_template("login.html",err=error)
 
-    
-    
-
 if __name__ == "__main__":
+    app.debug = True
     app.run(host='0.0.0.0',port=8000)
