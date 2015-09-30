@@ -1,27 +1,25 @@
 from flask import Flask, render_template, request
-
+import utils
 
 app = Flask(__name__)
-
-def authenticate(un,pw):
-    if un == "Felicity" and pw == "Ng":
-        return True
-    else:
-        return False
 
 @app.route("/login")
 def loginScreen():
     if request.method == "GET":
         return render_template("login.html")
     else:
-        un = request.form['username']
-        pw = request.form['password']
+        first = request.form['firstName']
+        last = request.form['lastName']
         button = request.form['button']
-        if authenticate(un,pw):
-            return render_template("loggedIn.html")
+        if authenticate(first,last):
+            return render_template("Narnia.html")
         else:
             error = "Invalid username and/or password"
             return render_template("login.html",err=error)
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
 @app.route("/Narnia")
 def Narnia():

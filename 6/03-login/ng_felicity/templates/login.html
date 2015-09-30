@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<h1>Login to the account</h1>
+<h1>Before you try to enter Narnia, what is your name?</h1>
 
 {% if err %}
 <hr>
@@ -9,9 +9,9 @@
 {% endif %}
 
 <form method="POST">
-	Username: <input type="text" name="username">
+	First Name: <input type="text" name="firstName">
 	<p/>
-	Password: <input type="text" name="password">
+	Last Name: <input type="text" name="lastName">
 	<p/>
-	<input type="submit" name="button" value="login">
+	<input type="submit" name="button" value="Enter">
 </form>
