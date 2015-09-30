@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session, redirect, url_for
 
 app = Flask(__name__)
 
@@ -16,7 +16,6 @@ def home():
     return render_template("home.html")
 
 
-
 @app.route("/name")
 @app.route("/name/<lastname>/<firstname>")
 def name(lastname = "", firstname = ""):
@@ -24,6 +23,8 @@ def name(lastname = "", firstname = ""):
          'firstname': firstname}
     return render_template("name.html", dic = d)
 
+
 if __name__ == "__main__":
     app.debug = True
+    app.secret_key = "ping"
     app.run(port = 8000)
