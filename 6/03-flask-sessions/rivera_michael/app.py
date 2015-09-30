@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, url_for
+from flask import Flask, render_template, session, redirect, url_for, request
 
 app = Flask(__name__)
 
@@ -14,7 +14,8 @@ def home():
 
 @app.route("/login",methods=["GET","POST"])
 def login():
-    if ('n' not in session) or (session['n'] != 1):
+    if (('n' not in session) or (session['n'] != 1)) and (request.method == "GET"):
+        session['n'] = 0;
         return render_template("login.html")
     else:
         return redirect(url_for('secret'))
@@ -32,4 +33,5 @@ def out():
 
 if __name__ == "__main__":
     app.debug = True
+    app.secret_key="hi"
     app.run(host="0.0.0.0",port=8000)
