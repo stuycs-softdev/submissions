@@ -1,32 +1,50 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request
+import utils
 
-app=Flask(__name__)
+app = Flask(__name__)
 
-@app.route('/')
-@app.route('/about')
-@app.route('/about/')
-def about():
-    if 'logged' not in session:
-        session.logged=False
-    s = session
-    return render_template('about.html',s = session)
-
-@app.route('/login')
-@app.route('/login/')
+@app.route("/login", methods=["GET","POST"])
+@app.route("/login/", methods=["GET","POST"])
 def login():
-    return render_template('login.html',s = session)
-
-@app.route('/secret', methods = ["GET","POST"])
-def secret():
-    if request.method == "POST":
-        if request.form['username'] == "coolcait98" and request.form['password'] == 'wootwoot':
-            session.logged = True
-    if session.logged == True:
-        return render_template('secret.html',s = session)
+    if request.method=="GET":
+        return render_template("login.html")
     else:
-        return render_template('login.html',s = session,error = "Invalid Username/password")
+        button = request.form['button']
+        username = request.form['username']
+        password = request.form['password']
+        if button == "Go Back":
+            return render_template("login.html")
+        if utils.authenticate(username,password):
+            return render_template("secret.html")
+        else:
+            return render_template("login.html",error="INVALID USERNAME OR PASSWORD")
 
-if __name__=="__main__":
-    app.debug = True
-    app.secret_key="Keep this a secret! Shshshshshh"
-    app.run('0.0.0.0', port=8000)
+"""
+@app.route("/increase")
+def increase():
+    if 'n' not in session:
+	    session['n'] = 0
+    n = session['n']
+    n = n + 1
+    print n, "years"
+    return redirect("/")			
+			
+@app.route("/subtract")
+def subtract():
+    if 'n' not in session:
+	    session['n'] = 0
+    n = session['n']
+    n = n - 1
+    print n, "years"
+    return redirect("/")
+"""
+	
+@app.route("/")
+def index():
+    return render_template("index.html",args = request.args)
+
+
+
+if __name__ == "__main__":
+   app.debug = True
+   app.run(host="0.0.0.0", port=8000)
