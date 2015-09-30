@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+  <h1>Log in</h1>
+
+  <form method = "POST">
+
+    Username: <input type = "text" name = "username">
+    <br><br>
+    Password: <input type = "text" name = "password">
+    <br>
+
+    <input type = "submit" name = "button" value = "Go">
+
+  </form>
+
+  {% if error %}
+
+  <hr>
+
+  {{error}}
+
+  <hr>
+
+  {% endif %}
+
+
+</html>
