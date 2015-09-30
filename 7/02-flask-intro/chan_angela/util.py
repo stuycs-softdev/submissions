@@ -8,6 +8,8 @@ def check(password):
 
 def logins(username, password):
     if username=="Vldmr" and password=="Unicorn468":
-        return True
+        return 1
+    elif username=="DBarb" and password=="Gr8M8":
+        return 2
     else:
-        return False
+        return 0

@@ -1,2 +1,4 @@
-def checkproduct(item):
-    return not item in ["Pen", "Pencil", "Crayon", "Notebook", "Binder", "Textbook"]
+users = {"dillonzhang":"password"}
+
+def authenticate(username, password):
+    return users[username] == password

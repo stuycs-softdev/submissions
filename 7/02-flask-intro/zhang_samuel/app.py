@@ -30,6 +30,8 @@ def home():
     page += nicknameBut
     page += fanclubBut
 
+    session['message'] = ''
+    
     return page
 
 @app.route("/about")
@@ -72,8 +74,12 @@ def fanclub(): #insecure login test, returns password on url
 @app.route("/login", methods = ["POST", "GET"])
 def login():
 #still need to figure out how to return data via session, and return "logged out" message
-
-    if (request.method == "GET"): #default
+    if session['message'] == "You have logged out":
+        print True
+        message = session['message']
+        session['message'] = ''
+        return render_template("login.html", message = message) + homeBut
+    if (request.method == "GET"): #default 
         return render_template("login.html") + homeBut
     else:
         username = request.form["username"]
@@ -90,9 +96,11 @@ def login():
         
 @app.route("/logout")
 def logout():
-    return redirect(url_for("login"))
+    session['message'] = "You have logged out"
+    return redirect(url_for("login")) #redirect WILL reset HTML to "GET", not "POST", (because form code not run?)
 
 if (__name__ == "__main__"):
-    app.debug == True
+    app.debug = True
+    app.secret_key = "secret"
     app.run(host='0.0.0.0', port=8000)
 
