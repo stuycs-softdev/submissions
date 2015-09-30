@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<h1>Before you try to enter Narnia, what is your name?</h1>
+
+{% if err %}
+<hr>
+<p>{{err}}</p>
+<hr>
+{% endif %}
+
+<form method="POST">
+	First Name: <input type="text" name="firstName">
+	<p/>
+	Last Name: <input type="text" name="lastName">
+	<p/>
+	<input type="submit" name="button" value="Enter">
+</form>

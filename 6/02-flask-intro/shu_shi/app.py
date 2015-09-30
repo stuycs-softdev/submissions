@@ -9,11 +9,11 @@ def home(firstname = "",lastname = ""):
     dictionary = {'firstname':firstname, 'lastname':lastname}
     return render_template("homepage.html", dictionary = dictionary)
 
-@app.route("/testpage")
-def testpage():
+@app.route("/secret")
+def secret():
     import random
     rand = random.randrange(0,100)
-    return render_template("testpage.html", rand = rand)
+    return render_template("secret.html", rand = rand)
 
 if __name__ == "__main__":
     app.debug = True

@@ -14,7 +14,7 @@ def login():
         button = request.form['button']
         if button=="cancel":
             return render_template("login.html")
-        if utils.authenticate(username,passwordword):
+        if authen.authenticate(username,password):
             return "<h1>Logged in</h1>"
         else:
             error = "Bad username or password"

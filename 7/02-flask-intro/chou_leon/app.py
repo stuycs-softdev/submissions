@@ -1,6 +1,7 @@
-from flask import Flask,render_template
+from flask import Flask,render_template, request, session
 import random
 app = Flask(__name__)
+app.secret_key = "bleh"
 
 @app.route("/")
 def hello():
@@ -20,6 +21,30 @@ def fire():
 def what(b="heart",r="wrong"):
     return render_template("what.html",b=b,r=r)
 
+@app.route("/form", methods=["GET","POST"])
+def form():
+    if request.method == "GET":
+        return render_template("form.html")
+    else:
+        form = request.form
+        u = form["user"]
+        p = form["pass"]
+        if p == "bleh":
+            return render_template("login.html")
+        else:
+            return render_template("form.html",err="bleh!")
+
+@app.route("/session")
+def sesh():
+    n = 0
+    if 'n' not in session:
+        session['n'] = 0
+    else:
+        n = session['n']
+        n = n + 1
+        session['n'] = n
+    return render_template("session.html", n=n)
+        
 if __name__ == "__main__":
     app.debug = True
     app.run()
