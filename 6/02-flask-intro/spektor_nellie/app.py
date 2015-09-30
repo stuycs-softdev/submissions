@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import utils
 
 app = Flask(__name__)
 
@@ -7,6 +8,24 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        user = request.form['username']
+        passw = request.form['password']
+        button = request.form['button']
+        if button=="cancel":
+            return render_template('login.html')
+
+            if utils.authenticate(user, passw):
+                return "<h1> Logged In <\h1>"
+            else:
+                error="Invalid username or password"
+                return render_template("login.html", err=error)
+
+    
 @app.route("/team")
 @app.route("/team/")
 @app.route("/team/<cookies>")
