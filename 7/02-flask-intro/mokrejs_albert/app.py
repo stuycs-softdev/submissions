@@ -1,40 +1,57 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session, request
+from flask import redirect, url_for
 
 app = Flask(__name__)
 
-@app.route("/DT")
-def DT():
-    return '<button><a href= "http:dailytechnomancer.com/"> VISIT MY WEBSITE </a></button>'
-
-@app.route("/")
-@app.route("/<a>/<b>/<c>")
 @app.route("/home")
-@app.route("/home/<a>/<b>/<c>")
-def home(a = "x", b = 1, c = 3):
-    if a == "x":
-        a = " times "
-        d = b*c
-    if a == "d":
-        a = " divided by "
-        d = b/c
-    if a == "p":
-        a = " plus "
-        d = b+c
-    if a == "m":
-        a = " minus "
-        d = b-c
-    if a == "n":
-        a = " to the power of "
-        d = b**c
-    return render_template("about.html", a=a,b=b,c=c,d=d)
+@app.route("/")
+def home():
+    if "in" not in session:
+        session["in"] = False
+    if session["in"]:
+        mes = """<button><a href = "/secret"> Visit The Secret </a></button><hr>
+            <button><a href = "/logout"> logout </a></button>"""
+    else:
+        mes = '<button><a href = "/login"> Login to see the secret </a></button>'
+    return render_template("home.html", mes = mes)
+        
 
-@app.route("/xkcd")
-def lucky():
-    import random
-    comic = random.randrange(1,1580)
-    return '<button><a href= "http://xkcd.com/%/"> XKCD </a></button>'%(comic)
+@app.route("/login",methods=["GET","POST"])
+def login():
+    if "in" not in session:
+        session["in"] = False
+    if request.method=="GET":
+        return render_template("login.html")
+    else:
+        uname = request.form['user']
+        pword = request.form['pass']
+        button = request.form['button']
+        if uname=="good" and pword=="egg":
+            session["in"] = True
+            return redirect(url_for("secret"))
+        else:
+            error = "Bad egg."
+            return render_template("login.html",err=error)
 
+@app.route("/secret")
+def secret():
+    if "in" not in session:
+        session["in"] = False
+    if not session["in"]:
+        return redirect(url_for("login"))
+    else:
+        mes = """The secret to a good omelet is the egg. <hr>
+    <img src="http://phdesignshop.com/phScoop/wp-content/uploads/2008/05/good-egg.jpg">
+    <hr>
+            <button><a href = "/logout"> Logout </a></button>"""
+    return render_template("home.html", mes = mes)
+
+@app.route("/logout")
+def out():
+    session["in"] = False
+    return redirect(url_for("home"))
 
 if __name__ == "__main__":
-    app.debug = True
-    app.run(host='0.0.0.0',port=8000)
+   app.debug = True
+   app.secret_key = "Don't store this on github"
+   app.run(host="0.0.0.0", port=8000)
