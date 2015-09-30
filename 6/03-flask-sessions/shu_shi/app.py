@@ -20,7 +20,7 @@ def login():
         password = request.form['password']
         button = request.form['button']
         if button == "return home":
-            return redirect(url_for('homepage'))
+            return render_template('homepage.html')
         if utils.authenticate(username,password):
             return redirect(url_for('secret'))
         else:
@@ -29,7 +29,7 @@ def login():
 @app.route("/secret", methods = ["GET","POST"])
 def secret():
     if request.method == "GET":
-        return redirect(url_for('login'))
+        return redirect('homepage.html')
     else:
         import random
         rand = random.randrange(0,100)
@@ -38,4 +38,4 @@ def secret():
 if __name__ == "__main__":
     app.debug = True
     app.secret_key="Don't store this on github"
-    app.run(host = '0.0.0.0', port = 9578)
+    app.run(host = '0.0.0.0', port = 9878)
