@@ -45,9 +45,10 @@ def login():
         password = request.form['pswd']
         if util.authenticate(username,password):
             session['loggedin'] = True
+            session['extranames'] = ['']
             return redirect(url_for("home"))
         else:
-            return render_template('login.html', error="Username and Password do not match")
+            return render_template('login.html', error="Username and Password do not ma2tch")
     return render_template('login.html')
 
 @app.route("/logout")
