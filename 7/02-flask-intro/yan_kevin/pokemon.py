@@ -1,6 +1,8 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, redirect, url_for
+import util
 
 poke = Flask(__name__)
+poke.secret_key = "Viridian"
 
 @poke.route("/")
 @poke.route("/home")
@@ -13,11 +15,36 @@ def about():
 
 @poke.route("/login", methods = ["GET", "POST"])
 def login():
+    if' message' in session:
+        m = session['message']
+        session['message'] = ""
+    else:
+        m=""
     if request.method == "GET":
-        return render_template("login.html")
+        return render_template("login.html", m = m)
     else:
         f = request.form
         username = f['u']
+        password = f['p']
+        if util.auth(username,password):
+            session["u"] = "logged in"
+            return redirect(url_for("secret"))
+        else:
+            return render_template("login.html", error = "Urine trouble now")
+
+@poke.route("/logout")
+def logout():
+    if "u" in session:
+        session["u"] = "not logged in"
+        session["message"] = "Logged Out!"
+    return redirect(url_for("login"))
+    
+@poke.route("/secret")
+def secret():
+    if "u" in session and session['u'] == "logged in":
+        return render_template("secret.html")
+    else:
+        return redirect(url_for("login"))
         
 @poke.route("/gen1")
 def gen1():

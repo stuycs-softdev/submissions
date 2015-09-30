@@ -11,26 +11,27 @@ def about():
 @app.route("/login",methods=["GET","POST"])
 def login():
     if request.method=="GET":
-        return render_template("login2.html")
+        session["login"]=False
+        return render_template("login.html")
     else:
         username = request.form["username"]
         password = request.form["password"]
         button = request.form["button"]
         if button=="cancel":
-            return render_template("login2.html")
+            return render_template("login.html")
         if authen2.authen(username,password):
             session["login"] = True
             return redirect(url_for("secret"))
         else:
             error = "username and password are incorrect"
-            return render_template("login2.html",error=error)
+            return render_template("login.html",error=error)
 
 @app.route("/secret")
-def loggedIn():
-    if "login" not in session:
+def secret():
+    if ("login" not in session) or session["login"] == False:
         return "<h1>You aren't logged in!!</h1>"
     else:
-        return render_template(secret.html)
+        return render_template("secret.html")
 
 if __name__ == "__main__":
     app.debug = True
