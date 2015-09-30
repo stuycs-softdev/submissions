@@ -1,0 +1,2 @@
+def authenicate():
+    return True
