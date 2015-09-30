@@ -8,4 +8,5 @@
 	password: <input type="text" name="password">
 	<p/>
 	<input type="submit" name="button" value="login">
+	<input type="submit" name="button" value="return home">
 </form>
