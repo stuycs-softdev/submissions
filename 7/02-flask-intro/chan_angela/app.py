@@ -71,9 +71,12 @@ def slogin():
         log = request.form["log"]
         if log=="Cancel":
             return render_template("slogin.html")
-        if util.logins(username,password):
+        if util.logins(username,password)==1:
             session["logged"] = 1
             return redirect(url_for("secret"))
+        elif util.logins(username,password)==2:
+            session["logged"] = 1
+            return redirect(url_for("dsecret"))
         else:
             error = "Wrong username and password combination"
             return render_template("slogin.html", error=error)
@@ -112,6 +115,17 @@ def nope():
 def logout():
     session["logged"] = 0
     return redirect(url_for("slogin"))
+
+@app.route("/dsecret")
+def dsecret():
+    if session["logged"] == 0:
+        page = """<h1>You haven't logged in yet.</h1>
+        <h3>Seriously, this is a secret. Go log in.</h3>
+        <button><a href="/slogin">Log in</a></button>
+        <button><a href="/home">Back to the Home Page</a></button>"""
+        return page
+    else:
+        return render_template("dsecret.html")
     
 if __name__ == "__main__":
     app.debug = True

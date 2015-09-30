@@ -1,11 +1,13 @@
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for
 import utils
 app = Flask(__name__)
 
 @app.route("/home")
 @app.route("/")
 def home():
+    if 'username' in session:
+        return render_template(session['username'] + ".html")
     return render_template("home.html")
 
 @app.route("/about")
@@ -23,11 +25,16 @@ def signup():
     else:
         username = request.form['username']
         password = request.form['password']
+        bio = request.form['bio']
         button = request.form['button']
         if button == "cancel":
             return redirect(url_for("home"))
         if utils.add(username, password):
-            return "<h1> Added user </h1>"
+            f = open(username + ".html", 'w')
+            message = "<html> <h1> " + username + "</h1> " + bio + "</html>"
+            f.write(message)
+            f.flush()
+            return render_template("signedup.html")
         else:
             error = "Bad username or password -> Password must be more than 4 characters"
             return render_template("signup.html", err = error)
@@ -40,17 +47,22 @@ def login():
         password = request.form['password']
         button = request.form['button']
         if button == "cancel":
-            return render_template("login.html")
+            return redirect(url_for('home'))
 
         if utils.authenticate(username, password):
-            return "<h1> Logged in </h1>"
+            session['username'] = username
+            session['password'] = password
+            return redirect(url_for('home'))
         else:
             error = "Bad username or password"
             return render_template("login.html", err = error)
-            
-        
+@app.route("/logout")            
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('home'))
     
 
 if __name__ == "__main__":
     app.debug = True
+    app.secret_key = "Don't store this on github"
     app.run(host = '0.0.0.0', port = 8000)

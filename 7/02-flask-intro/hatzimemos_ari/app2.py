@@ -3,6 +3,7 @@ import authen2
 
 app = Flask(__name__)
 
+@app.route("/")
 @app.route("/about")
 def about():
     return render_template("about.html")
@@ -14,15 +15,24 @@ def login():
     else:
         username = request.form["username"]
         password = request.form["password"]
-        button = request.form["botton"]
+        button = request.form["button"]
         if button=="cancel":
-            return render_template("login.html")
+            return render_template("login2.html")
         if authen2.authen(username,password):
-            return "<h1>Logged in</h1>"
+            session["login"] = True
+            return redirect(url_for("secret"))
         else:
             error = "username and password are incorrect"
             return render_template("login2.html",error=error)
 
+@app.route("/secret")
+def loggedIn():
+    if "login" not in session:
+        return "<h1>You aren't logged in!!</h1>"
+    else:
+        return render_template(secret.html)
+
 if __name__ == "__main__":
     app.debug = True
+    app.secret_key = "Don't store this on github"
     app.run(host="0.0.0.0", port=8000)    
