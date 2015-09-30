@@ -16,8 +16,22 @@
 		<li><a href="/home/{{item}}">{{item}}</a></li>
 		{% endfor %}
 	</ul>
+        <br>
+        <form>
+            Add another candidate:<br>
+            <b> {{error}}</b>
+            <br>
+            First Name: <input type = "text" name="first">
+            Last Name: <input type = "text" name = "last">
+            <input type = "submit" name="button">
+        </form>
+        <br>
+
         <a href = "/rabbit/red">red</a> or <a href = "/rabbit/blue">blue</a>
         <br>
-        <button><a href = "/rabbit">either!</a></button> 
+        <a href = "/rabbit">either!</a> 
+        <p/>
+        <button><a href = "/about">About</a></button><br>
+        <button><a href ="/logout">Logout</a></button>  
 </body>
 

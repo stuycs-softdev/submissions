@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<body style="background-color:lightgrey">
+  <h1 style="text-align:center">Who is Champ?</h1>
+  <hr>
+  {% if error %}
+<h2>{{error}}</h2>
+<hr>
+{%endif%}
+    <form method="POST">
+	Who is Champ?: <input type="text" name="password">
+      <p>
+	<input type="submit" name="button" value="Am I Right">
+      <p>
+	<input type="submit" name="button" value="cancel">
+    </form>
+    <hr>
+    <a href="/home">Go home</a>
+
+</HTML>

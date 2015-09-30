@@ -1,25 +1,40 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, session, redirect, url_for
 import random
 
 app = Flask(__name__)
+
+def authenticate(uname,pword):
+    if uname=="ka" and pword=="gers":
+        return True
+    else:
+        return False
 
 @app.route("/")
 def home():
     return render_template("home.html")
 
-@app.route("/decisions")
-def decisions():
-    return render_template("decisions.html")
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if (request.method == "GET"): #default
+        return render_template("login.html")
+    else:
+        username = request.form["user"]
+        password = request.form["pass"]
+        button = request.form["button"]
+        if authenticate(username, password):
+	    return redirect("/decision")
+        else:
+            return render_template("login.html")
 
-@app.route("/decisions/")
-@app.route("/decisions/<l>")
-@app.route("/decisions/<l>/")
-@app.route("/decisions/<l>/<f>")
-def result(l="",f=""):
-    if l != "" and f != "":
+@app.route("/about")
+def decisions():
+    return render_template("about.html")
+
+@app.route("/decision")
+def result():
+    if 'user' not in session:
         ivy = ['Brown', 'Columbia', 'Cornell', 'Dartmouth', 'Harvard', 'Princeton', 'UPenn', 'Yale']
-        d = {'last':l,
-             'first':f}
+        d = {'user':'ka'}
         numColleges = 0
         for i in ivy:
             r = random.randint(0,1)
@@ -31,7 +46,7 @@ def result(l="",f=""):
         d['num'] = numColleges
         return render_template("result.html",d=d)
     else:
-        return render_template("decisions.html")
+	return redirect("/login")
 
 if __name__ == "__main__":
     app.debug = True

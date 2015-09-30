@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for
 from random import randint, choice
-import string
+import userdb
 
 app = Flask(__name__)
 
@@ -10,13 +10,18 @@ app = Flask(__name__)
 @app.route("/home")
 @app.route("/home/")
 def home():
-    return render_template("home.html")
+    if 'logged_in' in session and session['logged_in']:
+        return render_template("home.html")
+    else:
+        return redirect(url_for("login"))
 
 @app.route("/inspire")
 @app.route("/inspire/")
 @app.route("/inspire/<num>")
 @app.route("/inspire/<num>/")
 def inspire(num=-1):
+    if 'logged_in' not in session or not session['logged_in']:
+        return redirect(url_for("login"))
     if int(num) == -1:
         num = randint(1000,10000)
     try:
@@ -37,6 +42,8 @@ def get_random_youtube_hash():
 @app.route("/youtube/<hash>")
 @app.route("/youtube/<hash>/")
 def youtube(hash=""):
+    if 'logged_in' not in session or not session['logged_in']:
+        return redirect(url_for("login"))
     if hash == "":
         hash = get_random_youtube_hash()
     return render_template("youtube.html", RANDOM_HASH=str(hash))
@@ -46,6 +53,8 @@ def youtube(hash=""):
 @app.route("/sao/<episode>")
 @app.route("/sao/<episode>/")
 def sao(episode=0):
+    if 'logged_in' not in session or not session['logged_in']:
+        return redirect(url_for("login"))
     try:
         if int(episode) < 0 or int(episode) >= 7:
             episode = randint(0,7)
@@ -65,16 +74,28 @@ def sao(episode=0):
 @app.route("/login/", methods=["GET" , "POST"])
 def login():
     if request.method == "GET":
-        return render_template("login.html")
+        if 'logged_in' in session and session['logged_in']:
+            return redirect(url_for("home"))
+        else:
+            return render_template("login.html")
     else:
         assert(request.method == "POST")
-        print(request.method)
-        print(request.form)
-        print(request.form['username_in'])
-        print(request.form['password_in'])
-        print(request.form['submit'])
-        return render_template("login.html")
+        if userdb.verify(request.form['username_in'], request.form['password_in']):
+            session['logged_in'] = True
+            session['username_hash'] = userdb.username_hash(request.form['username_in'])
+            session['password_hash'] = userdb.password_hash(request.form['password_in'])
+            return redirect(url_for("home"))
+        else:
+            session['logged_in'] = False
+            return render_template("login.html")
+
+@app.route("/logout")
+@app.route("/logout/")
+def logout():
+    session['logged_in'] = False
+    return redirect(url_for("login"))
 
 if __name__ == "__main__":
+    app.secret_key = 'dcb61f28eafb8771213f3e0612422b8d'
     app.debug = True
-    app.run(host='127.0.0.1', port=8000)
+    app.run(host='0.0.0.0', port=4567)
