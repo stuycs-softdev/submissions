@@ -16,8 +16,9 @@ def new():
     if request.method == 'GET':
         return render_template('new.html')
     elif request.method == 'POST':
-        with open('data.json', 'r+') as data:
-            post = {}
+        post = {}
+        posts = {}
+        with open('data.json', 'r') as data:
             post['title'] = request.form.get('title')
             post['text'] = request.form.get('text')
             post['author'] = request.form.get('author')
@@ -25,11 +26,10 @@ def new():
             post['topic'] = request.form.get('topic')
             posts = json.loads(data.read())
             posts.append(post)
-
-            #with open('data.json', "w"): pass
-
+        
+        with open('data.json', "w") as data:
             json.dump(posts, data, indent=4)
-            return redirect('/')
+        return redirect('/')
 
 app.debug = True
 app.run()
