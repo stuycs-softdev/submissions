@@ -14,7 +14,7 @@ def home():
 
 @app.route("/login",methods=["GET","POST"])
 def login():
-    if ('n' not in session) or (session['n'] == 1):
+    if ('n' not in session) or (session['n'] != 1):
         return render_template("login.html")
     else:
         return redirect(url_for('secret'))
@@ -27,7 +27,7 @@ def secret():
 @app.route("/out")
 def out():
     session['n'] == 0
-    return render_template("out.html")
+    return redirect(url_for('home'))
 
 
 if __name == "__main__":
