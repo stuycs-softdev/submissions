@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, url_for
+from flask import Flask, render_template, session, redirect, url_for, request
 
 app = Flask(__name__)
 
@@ -23,6 +23,21 @@ def name(lastname = "", firstname = ""):
          'firstname': firstname}
     return render_template("name.html", dic = d)
 
+
+@app.route("/reset")
+def reset():
+    session['n'] = 0
+    return redirect("/home")
+#return redirect(url_for("int))
+
+
+@app.route("/login", methods = ["GET", "POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        return "not GET"
+    
 
 if __name__ == "__main__":
     app.debug = True
