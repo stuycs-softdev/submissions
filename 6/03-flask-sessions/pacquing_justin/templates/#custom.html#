@@ -11,11 +11,8 @@
   <body>
     <center>
       <h1> <b>Hey, {{c}}, here is your message of the day!</b> </h1> <br>
-      <h2><i>{{ m[rd] }}</i></h2>
+      <h3><i>{{ m[rd] }}</i></h3>
       
-      {% for i in rg%}
-      <a href={{p[i]}}>{{n[i]}}</a> <br>
-      {% endfor %}
     </center>
   </body>
 </html>
