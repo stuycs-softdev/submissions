@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
 
@@ -58,9 +58,28 @@ def profile(name="", email=""):
     dict["email"]=email
     return render_template("profile.html", d = dict)
     
+@app.route("/inc")
+def inc():
+    if "n" not in session:
+        session["n"]=0
+    session["n"] = session["n"]+1
+    return render_template("counter.html", n = session["n"])
 
+@app.route("/login3", methods=["GET","POST"])
+def login3():
+    if request.method == "GET":
+        return render_template("login3.html")
+    else:
+        uname = request.form["username"]
+        session["username"] = uname
+        if session["username"] == "leon":
+            return "You are Leon!"
+        else: 
+            return "You have entered an incorrect username"
 
 if __name__ == "__main__":
     app.debug=True
+    app.secret_key = "Don't store this on github" #used for cookies, session
     app.run(host='0.0.0.0',port=8000)
+
     

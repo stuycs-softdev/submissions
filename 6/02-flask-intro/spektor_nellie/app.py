@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 from flask import Flask, render_template, request
 import utils
 
+=======
+from flask import Flask, render_template
+>>>>>>> 04faccfb608543c1f5eeec63743c97ff7cdba1d1
 app = Flask(__name__)
 
 @app.route("/")
