@@ -1,0 +1,43 @@
+<!doctype html>
+
+<style>
+
+body {
+    background-color: #b0c4de;
+}
+
+img {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 50px;
+	border-style: outside;
+    border-width: medium;
+border-color: black;
+}
+
+hr { 
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-style: outset;
+    border-width: 1px;
+}
+
+</style>
+
+
+<h1>Login</h1>
+<hr>
+{%if err %}
+<h3>{{err | safe}}</h3>
+	<hr>
+	{% endif %}
+
+	<form method="POST">
+		username: <input type="text" name="user">
+		<p/>
+		password: <input type="text" name="pass">
+		<p/>
+		<input type="submit" name="button" value="login">
+	</form>
