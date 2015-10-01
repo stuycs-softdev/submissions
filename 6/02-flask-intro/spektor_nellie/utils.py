@@ -1,5 +1,5 @@
-def authenticate(user, passw):
-    if user == "don't" and passw=="panic":
+def authenticate(uname, pword):
+    if uname == "don't" and pword=="panic":
         return True
     else:
         return False

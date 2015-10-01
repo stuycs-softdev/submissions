@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 from flask import Flask, render_template, request
 import utils
 
-=======
-from flask import Flask, render_template
->>>>>>> 04faccfb608543c1f5eeec63743c97ff7cdba1d1
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -17,18 +14,20 @@ def login():
     if request.method == "GET":
         return render_template("login.html")
     else:
-        user = request.form['username']
-        passw = request.form['password']
+        uname = request.form['username']
+        pword = request.form['password']
         button = request.form['button']
         if button=="cancel":
             return render_template('login.html')
 
             if utils.authenticate(user, passw):
-                return "<h1> Logged In <\h1>"
+                return render_template("hidden.html")
             else:
                 error="Invalid username or password"
                 return render_template("login.html", err=error)
-
+@app.route("/hidden")
+def hidden():
+    return render_template("hidden.html")
     
 @app.route("/team")
 @app.route("/team/")
