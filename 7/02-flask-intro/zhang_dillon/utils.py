@@ -1,3 +1,2 @@
-def authenticate(username, password):
-    users = {"dillonzhang":"password"}
-    return username in users and users[username] == password
+def checkproduct(item):
+    return not item in ["Pen", "Pencil", "Crayon", "Notebook", "Binder", "Textbook"]
