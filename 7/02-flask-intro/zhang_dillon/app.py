@@ -1,4 +1,5 @@
-from flask import Flask, render_template, sessions
+from flask import Flask, render_template, request, session, redirect, url_for
+import utils
 
 app = Flask(__name__)
 
@@ -13,15 +14,28 @@ def about():
 
 @app.route("/hidden")
 def hidden():
-    return "404"
+    if 'user' in session and session['user'] == 'master':
+        return render_template("hidden2.html")
+    else:
+        return render_template("hidden1.html")
 
-@app.route("/login")
+@app.route("/login", methods = ["GET","POST"])
 def login():
-    return "404"
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        uname = request.form['username']
+        pword = request.form['password']
+        if utils.authenticate(uname, pword):
+            session['user'] = 'master'
+            return render_template("login.html",status="Login Successful")
+        else:
+            return render_template("login.html",status="Failed Login Attempt")
 
 @app.route("/logout")
 def logout():
-    return "404"
+    session['user'] = ''
+    return redirect(url_for("home"))
 
 if __name__ == "__main__":
    app.debug = True

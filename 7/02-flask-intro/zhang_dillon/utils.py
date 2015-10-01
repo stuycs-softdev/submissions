@@ -1,4 +1,3 @@
-users = {"dillonzhang":"password"}
-
 def authenticate(username, password):
-    return users[username] == password
+    users = {"dillonzhang":"password"}
+    return username in users and users[username] == password
