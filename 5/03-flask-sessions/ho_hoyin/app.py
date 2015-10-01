@@ -19,7 +19,7 @@ def secret():
 
 @app.route("/about")
 def about():
-    return render_template("about.html",s=session)
+    return render_template("about.html")
 
 @app.route("/logout")
 def logout():
