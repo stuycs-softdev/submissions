@@ -12,7 +12,23 @@ def index():
     else: 
         button = request.form['button']
         if button == "logout":
-            return render_template("backEnd.html")
+            return render_template("logout.html")
+        if button == "go!":
+            city=request.form['city']
+            shirt=request.form['shirt']
+            shorts=request.form['shorts']
+            sweater=request.form['sweater']
+            jacket=request.form['jacket']
+            hat=request.form['hat']
+            umbrella=request.form['umbrella']
+            d = {'city':city},
+                 'shirt':shirt,
+                 'shorts':shorts,
+                 'sweater':sweater,
+                 'jacket':jacket,
+                 'hat':hat,
+                 'umbrella':umbrella}
+            return render_template("backEnd.html",d=d)
         else:
             uname=request.form['username']
             pword=request.form['password']
