@@ -8,18 +8,15 @@ def logIn():
     if request.method == "GET":
         return render_template("login.html")
     else:
-        userName = re
+        userName = request.form['username']
+	if userName=='rongisawesome':
+	    return render_template("loginres.html")
+	else:
+	    return render_template("problem.html")
 
-
-@app.route("/")
+@app.route("/home")
 def defaultPage():
-    page = """
-    <h1> Hi! </h1>
-This will talk about my feelings regarding certain aspects of school
-<\n> <a href="/homework">Homework opinion</a>
-<\n> <a href="/test">Test Opinions</a>
-"""
-    return page
+    return render_template("home.html")
 
 @app.route("/homework")
 def hwPage():
@@ -45,5 +42,5 @@ def testPage():
 
 
 if __name__ == "__main__":
-    app.debug = True
+    app.debug = True    
     app.run(host='0.0.0.0', port = 8000)

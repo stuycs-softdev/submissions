@@ -14,14 +14,17 @@ def home(fullname=None):
         d = {}
         candidates = ['Joe Biden', 'Lincoln Chafee', 'Hilary Clinton','Bernie Sanders',
                  'Jeb Bush', 'Ben Carson', 'Chris Christie','Ted Cruz','Carly Fiorina',
-                 'Donald Trump']
+                 'Donald Trump'] 
         error = ""
         if request.args.get("first") != None:
             if request.args.get("first") != '' and request.args.get("last") != '':
                 newCand = request.args.get("first") + ' ' + request.args.get("last")
                 fullname = newCand
+                if newCand not in session['exnames']:
+                    session['exnames']= session ['exnames'] + [newCand]
             else:
                 error = "Error, You must submit both names"
+        candidates += session['exnames']
         if fullname == None:
             fullname = candidates[randint(0,len(candidates))-1]
         boss = candidates[randint(0,len(candidates))-1] 
@@ -45,10 +48,10 @@ def login():
         password = request.form['pswd']
         if util.authenticate(username,password):
             session['loggedin'] = True
-            session['extranames'] = ['']
+            session['exnames'] = []
             return redirect(url_for("home"))
         else:
-            return render_template('login.html', error="Username and Password do not ma2tch")
+            return render_template('login.html', error="Username and Password do not match")
     return render_template('login.html')
 
 @app.route("/logout")

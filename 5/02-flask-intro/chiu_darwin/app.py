@@ -49,30 +49,39 @@ def login():
             return render_template("login.html")
         # if we're here we should have
         # a username and password
+        session['uname'] = uname
+        session['pword'] = pword
         if utils.authenticate(uname,pword):
-            session['uname'] = uname
-            session['pword'] = pword
             return redirect(url_for("hidden"))
         else:
+            session['uname']=''
+            session['pword']=''
             return render_template("login.html",error="INVALID USERNAME OR PASSWORD")
 
 @app.route("/hidden")
 def hidden():
-    if utils.authenticate(session['uname'],session['pword']):
+    if 'uname' and 'pword' not in session:
+        return redirect(url_for("login"))
+    elif utils.authenticate(session['uname'],session['pword']):
+
         return render_template("hidden.html")
     else:
         return redirect(url_for("login"))
 
+
 @app.route("/logout")
 def logout():
-    button = request.form['button']
-    if button=="Logout":
+    if 'uname' and 'pword' not in session:
+        return redirect(url_for("login",error="YOU ARENT EVEN LOGGED IN!"))
+    elif utils.authenticate(session['uname'],session['pword']):
         session['uname']=''
         session['pword']=''
-        return redirect(url_for("home"))
-    else:
         return render_template("logout.html")
+    else:
+        return redirect(url_for("login",error="YOU ARENT EVNE LOGGED IN!"))
+        
     
+
 if __name__ == "__main__":
     app.debug = True
     app.secret_key="hetoihrtjoir"

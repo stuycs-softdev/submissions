@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Log In</title>
+		<link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='style.css')}}">
+	</head>
+	<body>
+		<center><div class="ex">
+			<h2>Log In</h2>
+			{% if error %}
+			<h2>{{error}}</h2>
+			{%endif%}
+			<hr>
+			<form method="POST">
+				<p>
+				Uname: <input type="text" name="user">
+				<p>
+				Pword: <input type="password" name="pass">
+				<p>
+				<input type="submit" name="button" value="login">
+				<input type="reset" name="undo" value="reset">
+			</form>
+		</center></div>
+	</body>
+</html>
