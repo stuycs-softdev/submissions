@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+
+
+  <style>
+    body { background-color:lightgray }
+    p { color:blue }
+    font { face="Arial" }
+  </style>
+
+  <center>
+    
+    <head>
+      {% if un %}
+      <h1> Welcome, {{un}}! </h1>
+      {% else %}
+      <h1> Welcome... </h1>
+      {% endif %}
+      <h2> I hope you like music (popular during the 2000s)! </h2>
+      <h3> Recently got back into it :) </h3>
+      <hr/>
+    </head>
+    
+    <body>
+      This is blue right?
+      <p> Just kidding, this is blue </p>
+      <font color="green"> Wait is this green? </font>
+      Gotem!!
+      <br>
+      <br>
+      
+      {% if error %}
+      <h1> {{error}} </h1>
+      {% endif %}
+      
+      <font> Anyways, here are links to the other pages </font>
+      <br>
+      <br>
+      <button><a href="/login"> Login </a></button>
+      <br>
+      <br>
+      <button><a href="/about"> About </a></button>
+      <br>
+      <br>
+      <button><a href="/lucky"> Lucky </a></button>
+      <br>
+      <br>
+      <h3> Note: You must be logged in to access the Artists page </h3>
+      <br>
+      <br>
+      <button><a href="/artist"> Artists </a></button>
+    </body>
+    
+  </center>
+  
+  
+  
+</html>
