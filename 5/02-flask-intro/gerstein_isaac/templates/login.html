@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+
+<h1>Login Page</h1>
+{% if error %}
+<h3>{{error}}</h3>
+{% endif %}
+{% if loggedIn == "no" %}
+<form method="POST" action="login">
+Username:
+<br>
+<input type="text" name="username">
+<br>
+<br>
+Password:
+<br>
+<input type="text" name="password">
+<br>
+<br>
+<input type="submit" name="button" value="Submit">
+</form>
+{% endif %}
+{% if loggedIn == "yes" %}
+<h3>Already logged in</h3>
+<form method="GET" action="logout">
+<input type="submit" name="button" value="Log Out">
+</form>
+{% endif %}
