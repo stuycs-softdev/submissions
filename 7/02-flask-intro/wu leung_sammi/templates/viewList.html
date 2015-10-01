@@ -1,4 +1,16 @@
 {% extends "page.html" %}
+
+{% block bar %}
+{% if loggedIn == 1 %}
+<li class="bar"><a href="/hidden">Hidden</a></li>
+<li class="bar"><a href="/logout">Log Out</a></li>
+{% endif %}
+
+{% if loggedIn == 0 %}
+<li class="bar"><a href="/login">Log In </a></li>
+{% endif %}
+{% endblock%}
+
 {% block content %}
 <div>
   {% for key in d %}
