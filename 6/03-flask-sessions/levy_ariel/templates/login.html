@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="../static/main.css">
+</head>
+
+<body>
+  <h1>Login</h1>
+  <hr>
+
+  {% if error %}
+  <br><h2>{{err}}</h2><br>
+  {% endif %}
+
+  <form method="POST">
+    Username: <input type="text" name="username">
+    <br>
+    Password: <input type="text" name="password">
+    <br>
+    <input type="submit" name="button" value="Login">
+  </form>
+
+</body>
