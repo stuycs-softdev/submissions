@@ -11,12 +11,15 @@ def index():
         return render_template("index.html")
     else: 
         button = request.form['button']
-        uname=request.form['username']
-        pword=request.form['password']
-        if utils.authenticate(uname,pword):
-            return render_template("weather.html")
+        if button == "logout":
+            return render_template("backEnd.html")
         else:
-            return render_template("index.html")
+            uname=request.form['username']
+            pword=request.form['password']
+            if utils.authenticate(uname,pword):
+                return render_template("weather.html")
+            else:
+                return render_template("index.html")
 
 @app.route("/weather", methods=["GET","POST"])
 def weather():
