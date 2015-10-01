@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>Sudoku</title>
+</head>
+<body bgcolor="#3385ff">
+<br>
+<center><h1>Sudoku Solver</h1></center>
+<br>
+<b>Instructions:</b>
+<br>
+Enter the known boxes of your sudoku into the grid and the website will solve your sudoku!  You can only access the solutions page with a valid sudoku.  Leave the unknown boxes as 0.
+<br>
+{% if error %}
+<center><h3>Invalid sudoku</h3></center>
+<br>
+{% endif %}
+<form method="POST">
+<table align="center" border>
+<colgroup span="3">
+<colgroup span="3">
+<colgroup span="3">
+<tbody>
+<tr>
+<td align="center"><input type="text" name="A1" value="0" style="text-align: center; border-left: solid medium; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="A2" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="A3" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="A4" value="0" style="text-align: center; border-left: solid medium; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="A5" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="A6" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="A7" value="0" style="text-align: center; border-left: solid medium; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="A8" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="A9" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+</tr>
+<tr>
+<td align="center"><input type="text" name="B1" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="B2" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="B3" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="B4" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="B5" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="B6" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="B7" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="B8" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="B9" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+</tr>
+<tr>
+<td align="center"><input type="text" name="C1" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="C2" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="C3" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="C4" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="C5" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="C6" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="C7" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="C8" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="C9" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td align="center"><input type="text" name="D1" value="0" style="text-align: center; border-left: solid medium; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="D2" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="D3" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="D4" value="0" style="text-align: center; border-left: solid medium; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="D5" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="D6" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="D7" value="0" style="text-align: center; border-left: solid medium; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="D8" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="D9" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+</tr>
+<tr>
+<td align="center"><input type="text" name="E1" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="E2" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="E3" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="E4" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="E5" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="E6" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="E7" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="E8" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="E9" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+</tr>
+<tr>
+<td align="center"><input type="text" name="F1" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="F2" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="F3" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="F4" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="F5" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="F6" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="F7" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="F8" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="F9" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td align="center"><input type="text" name="G1" value="0" style="text-align: center; border-left: solid medium; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="G2" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="G3" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="G4" value="0" style="text-align: center; border-left: solid medium; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="G5" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="G6" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="G7" value="0" style="text-align: center; border-left: solid medium; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="G8" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="G9" value="0" style="text-align: center; border-left: 0px; border-top: solid medium; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+</tr>
+<tr>
+<td align="center"><input type="text" name="H1" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="H2" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="H3" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="H4" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="H5" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="H6" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="H7" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="H8" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="H9" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: 0px; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+</tr>
+<tr>
+<td align="center"><input type="text" name="I1" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="I2" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="I3" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="I4" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="I5" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="I6" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="I7" value="0" style="text-align: center; border-left: solid medium; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="I8" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: 0px; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+<td align="center"><input type="text" name="I9" value="0" style="text-align: center; border-left: 0px; border-top: 0px; border-right: solid medium; border-bottom: solid medium; background-color: #3385ff; width: 40px; height: 40px; font-size: 25px"></td>
+</tr>
+</tbody>
+</table>
+<center> <input type="submit" name="submit"> </center>
+</form>
+</body></html>

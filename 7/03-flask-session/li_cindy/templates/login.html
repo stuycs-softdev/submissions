@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <title>Log In</title>
+    <style>
+    body {
+    background: url(static/cream_dust/cream_dust.png) repeat 0 0;
+    }
+    </style>
+
+  </head>
+
+  <body>
+
+    <h1><center><i>WELCOME</i></center></h1>
+    <center>
+      <a href="/">HOME</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <a href="/about">ABOUT</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <a href="/login">LOGIN</a>
+    </center>
+    <hr>
+<center><h3> LOG IN </h3>
+
+{%if err %}
+<h3>{{err}}</h3>
+{% endif %}
+<form method="POST">
+  username: <input type="text" name="username">
+  <p/>
+  password: <input type="password" name="password">
+  <p/>
+  <input type="submit" name="button" value="login">
+  <input type="submit" name="button" value="cancel">
+  </form>
+</center>
+</body>

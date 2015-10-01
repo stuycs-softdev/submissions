@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
 
-@app.route("/")
 @app.route("/home")
 def home():
     return render_template("home.html")
@@ -65,18 +64,32 @@ def inc():
     session["n"] = session["n"]+1
     return render_template("counter.html", n = session["n"])
 
+
+@app.route("/")
+@app.route("/start")
+def start():
+    return render_template("start.html")
+        
+
 @app.route("/login3", methods=["GET","POST"])
 def login3():
     if request.method == "GET":
         return render_template("login3.html")
     else:
         uname = request.form["username"]
-        session["username"] = uname
-        if session["username"] == "leon":
-            return "You are Leon!"
-        else: 
-            return "You have entered an incorrect username"
+        pword = request.form["password"]
+        if uname == "Leon" and pword == "pass":
+            # return "You have logged in!"
+            # return redirect(url_for("user"))
+            return redirect("/userpage")
+        else:
+            return "You have entered an incorrect username or password <br> <br> <a href> Click Here to go back to start page </a>"
 
+@app.route("/userpage")
+def userpage():
+    #TODO: add a way to log out
+    return render_template("userpage.html")
+        
 if __name__ == "__main__":
     app.debug=True
     app.secret_key = "Don't store this on github" #used for cookies, session

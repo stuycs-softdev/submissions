@@ -2,8 +2,10 @@
 
 <head>
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <div>
     {% if error %}
     <b>{{error}}</b>
     {% endif %}
@@ -14,4 +16,5 @@
     </form>
     <button><a href = "/about">About</a></button><br>
     username = stuyvesant | password = 123456789   
+    <div>
 </body>

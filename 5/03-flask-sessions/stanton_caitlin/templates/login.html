@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+	
+	<title>Login</title>
+
+</head>
+
+<body>
+
+	{% if s.logged %}
+		<p>Hello again, friend!</p>
+		<p>Check out the secret page <a href="/secret">here</a></p>
+		<form action="/logout">
+			<input type="submit" value="Logout">
+		</form>
+	{% else %} 
+		<p>Be known to me, stranger</p> 
+		<form action="/secret" method="POST" >
+			<p>Username: </p>
+			<input type="text" name="username">
+			<p>Password: </p>
+			<input type="text" name="password">
+			<p>
+			<input type="submit" name="button" value="login">
+		</form>
+	{% endif %}
+
+</body>

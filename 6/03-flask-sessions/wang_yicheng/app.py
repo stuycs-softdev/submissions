@@ -18,11 +18,13 @@ def loginStatic():
 def login():
     name = request.form['name']
     pwd = request.form['pwd']
-    if (name,pwd) in session:
-        session[name,pwd]
+    if name in session:
+        session[name].append(strftime("%a, %d %b %Y %H:%M:%S"))
         return redirect("/home/%s" % name)
     if name in loginCreds:
         if loginCreds[name] == pwd:
+            session[name] = ["This is your first login!"]
+            session[name].append(strftime("%a, %d %b %Y %H:%M:%S"))
             return redirect("/home/%s" % name)
     return render_template("login.html", error = 1)
 
@@ -32,9 +34,9 @@ def homeRedir():
 
 @app.route('/home/<username>')
 def home(username = ""):
-    if username not in loginCreds:
+    if username not in loginCreds or username not in session:
         return redirect('/home')
-    return "<h1>HELLO</h1>"
+    return render_template("home.html", name = username, time = session[username][-2], logins = session[username][1:])
 
 if __name__ == '__main__':
     app.debug = True

@@ -4,11 +4,12 @@ h1{
 }
 
 div.transbox{
+	text-align: center;
 	margin-top: 5%;
 	margin-left: 30%;
 	margin-right: 30%;
 	background-color: black;
-	opacity:0.8;
+	opacity:0.9;
 }
 
 div.transbox p{
@@ -19,18 +20,35 @@ div.transbox p{
 	font-weight: bold;
 	color: white;
 }
+
+div.transbox p.shaco{
+	color: red;
+	font-size: 21;
+	font-family: Impact, Charcoal, sans-serif;
+}
+
+
 body.shaco{
-	background-image: url("mainBack.jpg") ;
+	background-image: url("shaco.jpg") ;
 	background-position: center top;
 	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 body.profile{
 	background-image: url("profile.jpg") ;
-	background-position: center;
+	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+body.prison{
+	background-image: url("prison.jpg") ;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 
 a:link {
 	color: white;

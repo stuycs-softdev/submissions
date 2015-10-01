@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<head>
+  
+	<title>About</title>
+
+</head>
+
+<body>
+
+	<p>This is a Flask website used to run a login system</p>
+	
+	{% if s.logged %} 
+		<p>Congrats! You are logged in!  </p>
+		<p>Check out the secret page <a href="/secret">here</a></p>
+		<form action="/logout">
+			<input type="submit" value="Logout">
+		</form>
+	{% else %}
+		</p>Log in <a href="/login">here</a></p>
+	{% endif %}
+   
+</body>

@@ -1,14 +1,34 @@
 from flask import Flask, render_template
+import random
 
 app = Flask(__name__)
 
+range = range(4)
+rando = random.randrange(4)
+pages = ["http://localhost:8000/","http://localhost:8000/about","http://localhost:8000/things","http://localhost:8000/custom"]
+names = ["home","about","things","custom"]
+like = ["My Macbook",'My "Totally Legal, I Still Buy CDs and things" Music Collection',"Literature"]
+dislike = ["Overcast Days","Subway Delays","Not Sleeping Enough"]
+message = {1: "The day is ripe for the taking!",3: "TREAT YO SELF",2: "Never not work!",0: "#YOLO"}
+
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", r = range, p = pages, n = names)
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about.html", r = range, p = pages, n = names)
+
+@app.route("/things")
+def things():
+    return render_template("things.html", r = range, p = pages, n = names,  l = like, d = dislike)
+
+@app.route("/custom")
+@app.route("/custom/<name>")
+def custom(name = ""):
+    call = name;
+    return render_template("custom.html", rg = range, rd = rando, p = pages, n= names, m= message, c = name)
+
 
 if __name__ == "__main__":
     app.debug = True

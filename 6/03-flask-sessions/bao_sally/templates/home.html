@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+<style>
+body {text-align: center}
+</style>
+
+    <h1>The Wonders of Mimicry</h1>
+    <hr>
+
+    <a href = "/about">About</a>
+    <a href = "/guess">Let's play a game</a>
+
+    {% if s['uname'] %}
+
+    <h3>What's up, {{s.uname}}?</h3>
+    <br>
+
+    <a href = "/logout">Log out</a>
+
+    {% else %}
+
+    <a href = "/login">Log In</a>
+
+    {% endif %}
+
+
+    <br><br><br>
+
+    <table align = "center">
+
+
+      <tr>
+	<td><a href = "/about">
+	    <img src = "https://thisisnoordinaryworld.files.wordpress.com/2013/06/leaf-tailed-gecko-camo.jpg" width = 600 height = 600>
+	  </a>
+	</td>
+	<td><a href = "/about">
+	    <img src = "https://c1.staticflickr.com/9/8344/8180730639_50ede4836d_b.jpg" width = 600 height = 600>
+	  </a>
+	</td>
+      </tr>
+      <tr>
+	<td><a href = "/about">
+	    <img src = "http://41.media.tumblr.com/tumblr_lyuxlf6OSD1qa9omho1_500.jpg" width = 600 height = 600>
+	  </a>
+	</td>
+	<td><a href = "/about">
+	    <img src = "http://camielfanclub.tk/uploads/mimicry-in-nature-31677.jpg" width = 600 height = 600>
+	  </a>
+	</td>
+      </tr>
+    </table>
+    
+</html>
