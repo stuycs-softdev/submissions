@@ -2,53 +2,57 @@
 
 <html>
 
-<center>
+  <center>
 
-<head>
-<h1> Artist Page </h1>
-{% if stagename != "artists" %}
-<h2> Stage Name: {{stagename}} </h2>
-{% else %}
-<h2> Artists </h2>
-{% endif %}
-<!-- <h3> hello {{dic[stagename]}} </h3> -->
-</head>
+    <head>
+      <h1> Artist Page </h1>
+      {% if un %}
+      <h1> Welcome, {{un}}! </h1>
+      <hr/>
+      {% endif %}
+      {% if stagename != "artists" %}
+      <h2> Stage Name: {{stagename}} </h2>
+      {% else %}
+      <h2> Artists </h2>
+      {% endif %}
+      <!-- <h3> hello {{dic[stagename]}} </h3> -->
+    </head>
 
-<body>
-<style>
-ul { display:table; margin:0 auto;}
-</style>
+    <body>
+      <style>
+	ul { display:table; margin:0 auto;}
+      </style>
 
-{% if stagename!="artists" %}
-<ul>
-{% for item in dic[stagename] %}
-<li> {{item}} </li>
-{% endfor %}
-</ul>
-{% endif %}
+      {% if stagename!="artists" %}
+      <ul>
+	{% for item in dic[stagename] %}
+	<li> {{item}} </li>
+	{% endfor %}
+      </ul>
+      {% endif %}
 
-{% if stagename=="artists" %}
-<form method="POST">
-  <ul>
-    {% for item in dic[stagename] %}
-    <li> <input type="submit" name="button" value={{item}}> </li>
-    {% endfor %}
-  </ul>
-</form>
-{% endif %}
+      {% if stagename=="artists" %}
+      <form method="POST">
+	<ul>
+	  {% for item in dic[stagename] %}
+	  <li> <input type="submit" name="button" value={{item}}> </li>
+	  {% endfor %}
+	</ul>
+      </form>
+      {% endif %}
 
 
-<br>
-<br>
-{% if stagename != "artists" %}
-<a href=""> Back to Artist List! </a>
-{% endif %}
-<br>
-<br>
-<a href=".."> Back to Home! </a>
-
-</body>
-
-</center>
+      <br>
+      <br>
+      {% if stagename != "artists" %}
+      <a href=""> Back to Artist List! </a>
+      {% endif %}
+      <br>
+      <br>
+      <a href=".."> Back to Home! </a>
+      
+    </body>
+    
+  </center>
 
 </html>
