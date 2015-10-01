@@ -19,6 +19,15 @@ div.transbox p{
 	font-weight: bold;
 	color: white;
 }
+
+div.transbox p.reg{
+	font-size: 15;
+	text-align: left;
+	font-family: "Times New Roman";
+}
+
+
+
 body.shaco{
 	background-image: url("mainBack.jpg") ;
 	background-position: center top;
@@ -27,10 +36,11 @@ body.shaco{
 
 body.profile{
 	background-image: url("profile.jpg") ;
-	background-position: center;
+	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
 
 a:link {
 	color: white;

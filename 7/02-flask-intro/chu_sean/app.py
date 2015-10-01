@@ -16,10 +16,12 @@ def home():
 		if check.authent(uname,pword):
 			session['status'] = "in"
 			return redirect(url_for("Types_of_Dragons"))
+		else:
+			return render_template(("Home.html"))
 		
 @app.route("/Logout")
 def logout():
-	session['status'] = "not in"
+	session['status'] = ""
 	return redirect(url_for("home"))
 	
 @app.route("/About_Dragons")
@@ -31,10 +33,13 @@ def About_Dragons():
 	
 @app.route("/Types_of_Dragons")
 def Types_of_Dragons():
-	list = ["Water Dragon", "Fire Dragon", "Ice Dragon", "Celestial Dragon", "Jade Dragon"]
-	return render_template("Types.html", l = list)
+	if session['status'] != "in":
+		return redirect(url_for("home"))
+	else:
+		list = ["Water Dragon", "Fire Dragon", "Ice Dragon", "Celestial Dragon", "Jade Dragon"]
+		return render_template("Types.html", l = list)
 
 if __name__=="__main__":
 	app.debug=True
 	app.secret_key="DRAGON,DRAGON,DRAGON"
-	app.run(host='0.0.0.0',port=7000)
+	app.run(host='0.0.0.0',port=12000)

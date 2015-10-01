@@ -4,8 +4,8 @@ from flask import redirect, url_for
 app = Flask(__name__)
 
 @app.route('/')
-def default():
-	return '<a href="/about">about</a>'
+def about(error=''):
+	return render_template('about.html', error=error)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -14,19 +14,19 @@ def login():
 	else:
 		username = request.form['username']
 		password = request.form['password']
-		button = request.form['button']
 	
 	if utils.authenticate(username, password):
-		return 
+		return render_template(url_for('hidden'))
 
-@app.route('/<foo>')
-@app.route('/<foo>/<bar>')
-def foo(foo=':/', bar=42):
-	return render_template('foo.html', foo=foo, bar=int(bar))
-
-@app.route('/about')
-def about():
-	return render_template('about.html')
+@app.route('/42')
+def hidden():
+	if request_method == 'GET':
+		return render_template('hidden.html')
+	else:
+		button = request.form['button']
+	
+	if button == 'logout':
+		return render_template(url_for('about'), error='Logged out.')
 
 if __name__=="__main__":
 	app.debug = True

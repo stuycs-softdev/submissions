@@ -1,32 +1,43 @@
 {% extends "page.html" %}
 
+{% block bar %}
+{% if loggedIn == 1 %}
+<li class="bar"><a href="/hidden">Hidden</a></li>
+<li class="bar"><a href="/logout">Log Out</a></li>
+{% endif %}
+
+{% if loggedIn == 0 %}
+<li class="bar"><a href="/login">Log In </a></li>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 
 <div>
   
   <form action="/list" method="POST">
     <ul>
-      <li>Question:  <input type="text" class="in" name="question"></li>
+      <li> Name:  <input type="text" class="in" name="question"></li>
       <br>
-      <li>Option 0:  <input type="text" class="in" name="0"></li>
+      <li> 0:  <input type="text" class="in" name="0"></li>
       <br>
-      <li>Option 1:  <input type="text" class="in" name="1"></li>
+      <li> 1:  <input type="text" class="in" name="1"></li>
       <br>
-      <li>Option 2:  <input type="text" class="in" name="2"></li>
+      <li> 2:  <input type="text" class="in" name="2"></li>
       <br>
-      <li>Option 3:  <input type="text" class="in" name="3"></li>
+      <li> 3:  <input type="text" class="in" name="3"></li>
       <br>
-      <li>Option 4:  <input type="text" class="in" name="4"></li>
+      <li> 4:  <input type="text" class="in" name="4"></li>
       <br>
-      <li>Option 5:  <input type="text" class="in" name="5"></li>
+      <li> 5:  <input type="text" class="in" name="5"></li>
       <br>
-      <li>Option 6:  <input type="text" class="in" name="6"></li>
+      <li> 6:  <input type="text" class="in" name="6"></li>
       <br>
-      <li>Option 7:  <input type="text" class="in" name="7"></li>
+      <li> 7:  <input type="text" class="in" name="7"></li>
       <br>
-      <li>Option 8:  <input type="text" class="in" name="8"></li>
+      <li> 8:  <input type="text" class="in" name="8"></li>
       <br>
-      <li>Option 9: <input type="text" class="in" name="9"></li>
+      <li> 9: <input type="text" class="in" name="9"></li>
       <br>
       <li><input type="submit" name="submit"></li>
     </ul>

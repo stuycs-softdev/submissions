@@ -1,21 +1,80 @@
 <!DOCTYPE html>
 <html>
-<h1>About page</h1>
+
+  <style>
+    body {text-align: center}
+  </style>
 
 
-{% if s['username'] %}
-<h3>What's up, {{s.username}}?</h3>
+  <h1>What is Mimicry?</h1>
 
-<br>
-<a href = "/logout">Log out</a>
-{% else %}
+  <a href = "/home">Home</a>
 
-<a href = "/login">Log In</a>
-{% endif %}
+  {% if s['username'] %}
+
+  <h3>What's up, {{s.username}}?</h3>
+  <br>
+
+  <a href = "/logout">Log out</a>
+
+  {% else %}
+
+  <a href = "/login">Log In</a>
+
+  {% endif %}
+
+  <a href = "/guess">Let's play a game</a>
+
+  <p> Sometimes animals are animals. <br>
+    Other times, they are actually ninjas in disguise. 
+
+    <br><br>
+
+    It looks like a duck. It quacks like a duck.
+    <br>
+    <i><b>But it's not a duck!</b></i>
+
+    <br><br>
+
+    These animals are employing mimicry (and camouflage).
+    <br>
+    There are various reasons animals do this.
+    <br><br>
+
+    Take the false cleanerfish for example. 
+
+    <br><br>
+
+    <img src = "http://www.kudalaut.eu/thumb/399/600/categorie-foto/1552.jpg/False-cleaner-wrasse-Aspiontus-taeniatus.jpg">
+
+    <br><br>
+    
+    Like its name implies, it is a terrible, terrible person that exploits its kind for personal gain. 
+    
+    <br><br><br><br>
+
+    <img src = "http://www.aquariumdomain.com/images/fish_marine/cleanerWrasse4.jpg">
+
+    <br><br>
+
+    Here, the cleaner wrasse and its benefactor are engaged in a beautiful act of symbiosis. 
+
+    <br>
+
+    The wrasse, being a bro, is cleaning the other fish's teeth in return for a meal.  
 
 
-<a href = "/secret">Secret</a>
+    <br><br><br>
 
+    Then comes the false cleanerfish, sidling up to one of the wrasse's friends.
+    <br>
+    It squirrels its  way into the fish's mouth and rips out a chunk of meat.
+
+    <br><br>
+
+    Truly a vile and terrible creature. 
+
+  </p>
 
 
 </html>

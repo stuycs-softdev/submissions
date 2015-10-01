@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import random
+import auth
 
 app = Flask(__name__)
 
@@ -14,6 +15,25 @@ message = {1: "The day is ripe for the taking!",3: "TREAT YO SELF",2: "Never not
 @app.route("/")
 def home():
     return render_template("home.html", r = range, p = pages, n = names)
+
+@app.route("/login", methods = ["GET","POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        user = request.form['name']
+        pas = request.form['pass']
+        button = request.form['button']
+        
+        if auth.auth(user,pas):
+            return render_template("loggedin.html")
+        
+        else:
+            return render_template("login.html")
+
+@app.route("/loggedin")
+def loggedin():
+    return render_template("loggedin.html")
 
 @app.route("/about")
 def about():

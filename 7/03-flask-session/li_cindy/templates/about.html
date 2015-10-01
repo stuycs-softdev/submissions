@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <title>About</title>
+    <style>
+    body {
+    background: url(static/cream_dust/cream_dust.png) repeat 0 0;
+    }
+    </style>
+
+  </head>
+
+  <body>
+
+    <h1><center><i>WELCOME</i></center></h1>
+    <center>
+      <a href="/">HOME</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <a href="/about">ABOUT</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <a href="/login">LOGIN</a>
+    </center>
+    <hr>
+<h3><center>ABOUT</h3></center>
+
+<center>
+Current Loves: <br> 
+
+{% if session.get('logged') %}
+
+<table>
+  <tr>
+    <td>Song</td><td>Artist</td>
+    </tr>
+  <tr>
+    <td>Infinity</td><td>One Direction</td>
+  </tr>  
+  <tr>
+    <td>Love Myself</td><td>Hailee Steinfield</td>
+  </tr>  
+  <tr>
+    <td>Here</td><td>Alessia Cara</td>
+  </tr>  
+  <tr>
+    <td>Gasoline</td><td>Halsey</td>
+  </tr>  
+
+  <tr>
+    <td>...to be updated</td>
+  </tr>  
+</table>
+
+
+
+{% else %}
+
+Please log in to see the list.
+
+{% endif %}
+
+</body>
+

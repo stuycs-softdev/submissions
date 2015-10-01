@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Sup</title>
+	<title>Sup</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<h1>Candidate Endorsement for {{names['full']}}</h1>
-<p>&nbsp&nbsp&nbsp&nbspI want to go on record as endorsing {{names['full']}} for the office of President. {{names['last']}} has worked effectively in the County Clerk's office for five years, during which time the county population has almost doubled. S/he brings excellent credentials to this position, with an MA degree from Springfield University in information management and four years experience in the law office of Johnson and Johnson. Since joining the County Clerk's office, s/he has worked under {{names['boss']}}'s direction and has been acting clerk since her untimely death earlier this year.
-<br>
-&nbsp&nbsp&nbsp&nbspThe clerk's duties require filing accurate court records, overseeing the court clerk's duties, organizing voter registration, {{names['last']}} and scheduling elections.  understands the importance of keeping good records and of dealing congenially with the public. S/he is honest, reliable, and willing to work the long hours needed for the position. I believe {{names['full']}} is the person best qualified to be our next County Clerk.
-</p>
-<br>
+	<h1>Candidate Endorsement for {{names['full']}}</h1>
+	<div>
+	
+		<p>&nbsp&nbsp&nbsp&nbspI want to go on record as endorsing {{names['full']}} for the office of President. {{names['last']}} has worked effectively in the County Clerk's office for five years, during which time the county population has almost doubled. S/he brings excellent credentials to this position, with an MA degree from Springfield University in information management and four years experience in the law office of Johnson and Johnson. Since joining the County Clerk's office, s/he has worked under {{names['boss']}}'s direction and has been acting clerk since her untimely death earlier this year.
+			<br>
+			&nbsp&nbsp&nbsp&nbspThe clerk's duties require filing accurate court records, overseeing the court clerk's duties, organizing voter registration, {{names['last']}} and scheduling elections.  understands the importance of keeping good records and of dealing congenially with the public. S/he is honest, reliable, and willing to work the long hours needed for the position. I believe {{names['full']}} is the person best qualified to be our next County Clerk.
+		</p>
+	</div>
 	<h4>No way the best County Clerk was clearly:</h4>
 	<ul>
+                <li><a href="/home">Random</a></li>
 		{% for item in candidates %}
-		<li><a href="/home/{{item}}">{{item}}</a></li>
+                <li><a href="/home/{{item}}">{{item}}</a></li>
 		{% endfor %}
 	</ul>
         <br>
-        <form>
-            Add another candidate:<br>
-            <b> {{error}}</b>
-            <br>
-            First Name: <input type = "text" name="first">
-            Last Name: <input type = "text" name = "last">
-            <input type = "submit" name="button">
-        </form>
+	<div>
+		<form>
+			Add another candidate:<br>
+			<b> {{error}}</b>
+			<br>
+			First Name: <input type = "text" name="first"><br>
+			Last Name: <input type = "text" name = "last"><br>
+			<input type = "submit" name="button">
+		</form>
+	</div>
         <br>
 
         <a href = "/rabbit/red">red</a> or <a href = "/rabbit/blue">blue</a>
