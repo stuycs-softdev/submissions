@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--<link rel="shortcut icon" href="favicon.ico">-->
+<title>Can I Wear This Today?</title>
+<meta charset="UTF-8">
+</head>
+<style>
+body
+{ 
+background-image:url('''+img+''');
+background-repeat:no-repeat;
+background-attachment:fixed;
+background-position:center
+}
+body {
+    font-family: Futura, Helvetica, sans-serif;
+    text-align: Center;
+    <!--color: rgb(255,255,255);-->
+}
+</style>
+<body><h1>Can I Wear This Today?</h1>
+
+<h1>Enter a city below:</h1>
+<form method="POST">
+<input type="text" name="city" placeholder="City, Country...">
+<p>Select the items you would like recommendations for:
+<br><label for="shirt">Shirt</label>
+<input type="checkbox" name="shirt" checked>
+<br><label for="shorts">Shorts</label>
+<input type="checkbox" name="shorts" checked>
+<br><label for="sweater">Sweater</label>
+<input type="checkbox" name="sweater" checked>
+<br><label for="jacket">Jacket</label>
+<input type="checkbox" name="jacket" checked>
+<br><label for="hat">Hat</label>
+<input type="checkbox" name="hat" checked>
+<br><label for="umbrella">Umbrella</label>
+<input type="checkbox" name="umbrella" checked>
+
+</p></p>
+<input type="submit" name ="go" value="Go!">
+</form>
+<p><a href="http://shorts.today/">Inspired by</a>
+<br><a href="http://openweathermap.org/">Made possible by</a>
+</body>
+</html>
+
