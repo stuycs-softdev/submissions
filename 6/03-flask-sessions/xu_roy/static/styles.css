@@ -1,0 +1,22 @@
+.main-box {
+  text-align: center;
+}
+.input-box {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  width: 200px;
+  margin-top: 20px;
+  border: 2px solid black;
+  padding-left: 10px;
+}
+.input-box:focus {
+  outline: none;
+}
+.submit-button {
+  margin-top: 20px;
+  background-color: transparent;
+  border: 2px solid black;
+  width: 80px;
+}

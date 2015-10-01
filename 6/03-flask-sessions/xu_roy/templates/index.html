@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+
+{% block body %}
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="main-box">
+          <h1 class="title">
+            Welcome to 03-Flask-Sessions
+          </h1>
+          <h2 class="name">
+            Please Log In!!
+          </h2>
+          {% if status %}
+            <h2> {{status}} </h2>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

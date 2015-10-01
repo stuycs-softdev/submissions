@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+
+{% block body %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="main-box">
+        <h1 class="title">
+          Please Log In
+        </h1>
+        <div class="form-group">
+          <form method="POST">
+            <input class="input-box" type="text" name="username" placeholder="Username">
+            <input class="input-box" type="password" name="password" placeholder="Password">
+            <button class="submit-button" type="submit" name="login">Login</button>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}
