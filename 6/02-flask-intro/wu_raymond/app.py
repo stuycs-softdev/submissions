@@ -14,9 +14,18 @@ def home():
         session['pword'] = request.form['password']
         return redirect(url_for('index'))
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for('home'))
+
 @app.route("/index")
 def index():
-    if session['uname']=="ray" and session['pword']=="shaco":
+    if session['uname']=="Doctor" and session['pword']=="shaco":
         return render_template("index.html",name=session['uname'])
     else:
         session.clear()
@@ -27,7 +36,7 @@ def ask():
     if request.method=="GET":
         if 'uname' in session.keys() and 'pword' in session.keys():
       	    word = ""
-	else:
+        else:
             return redirect(url_for("home.html"))
     else:
         word = request.form["ask"]
@@ -35,9 +44,20 @@ def ask():
     d['knife'] = "A useful toy. It can bring suffering... or relief. Have you ever tried juggling several of them at once?"
     d['friend'] = "I have no friends, only acquantances. As soon as you feel like you can call someone a friend, that's when they can stab you in the back."
     d['box'] = "A present? How sweet. I love surprises. But it seems like few others I've met do... I wonder why..."
-    print "WORKS"
-    return render_template("ask.html", d = d, word = word)
+
+    import random
+    quotes = [];
+    quotes.append("We all wear masks, and the time comes when we cannot remove them without removing some of our own skin.")
+    quotes.append("We understand how dangerous a mask can be. We all become what we pretend to be.")
+    quotes.append("Nothing is more real than the masks we make to show each other who we are.")
+    quotes.append("An honest enemy is better than a friend who lies.")
+    quotes.append("Who knows what's behind that smile?")
+    quotes.append("Why so serious?")
+    s = quotes[random.randrange(0,len(quotes))]
+
+    return render_template("ask.html", d = d, word = word, s=s)
 
 if __name__=="__main__":
     app.debug = True
+    app.secret_key="Evil Laughter"
     app.run(host='0.0.0.0',port=8000)

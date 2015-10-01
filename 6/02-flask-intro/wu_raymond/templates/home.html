@@ -1,22 +1,22 @@
 <html>
 <head>
-	<title>Login</title>
+	<title>Asylum Entrance</title>
 	<link rel="stylesheet" href="../static/styles.css">
 </head>
 <body class="profile">
-<center>
 	<div class="transbox">
-		<br></br>
+		<br>
 		<p>Asylum 582</p>
 		<form method="POST">
 			<p><input type="text" name="username" placeholder="Name"></input></p>
-			<p><input type="text" name="password" placeholder="Access Code"></input></p>
-			<input type ="submit" value="Login"> </input>
-			<input type ="button" value="About"></input>
+			<p><input type="password" name="password" placeholder="Access Code"></input></p>
+			<input type ="submit" value="Enter"> </input>
+		</form>
+		<form>
+			<input type ="submit" formaction="/about" value="About"></input>
 		</form>
 		<br>
 	</div>
-</center>
 
 </body>
 </html>
