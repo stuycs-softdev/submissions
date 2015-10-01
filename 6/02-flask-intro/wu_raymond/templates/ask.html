@@ -4,22 +4,23 @@
 	<link rel="stylesheet" href="../static/styles.css">
 </head>
 <body class="shaco">
-<center>
 	<div class="transbox">
-		<p>You decide to ask him a few questions of your own. However, he will only answer on the subjects he deems interesting. Be sure to keep his interest and learn as much as possible.</p>
+		<br>
+		<p>You decide to try to get information from him. However, he will only answer on the subjects he deems interesting. Be sure to keep his interest and learn as much as possible. He may refuse to answer and seem to ramble on at times, but look for clues in his words. His mental state is unstable, to say the least, so simple word association should be enough for now.</p>
         {% if word in d.keys() %}
-		<p>{{d[word]}}</p>
+		<p class="shaco">{{d[word]}}</p>
+		{% elif word==""%}
+		<p class="shaco">Zzz...</p>
         {% else %}
-        <p>Zzz</p>
+        <p class="shaco">{{s}}</p>
         {% endif %}
         <form method="POST">
-	        	<p>Ask</p><input type="text" name="ask"></input>
-	        	<input type="submit" value ="Ask"></input>
+	        	<input type="text" name="ask" ></input>
+	        	<input type="submit" value ="Ask" placeholder="Say..."></input>
 	        </form>
 	    
-		<p><a href="/home">Prisoner Profile</a></p>
-		<p><a href="/advice">Words of Advice</a></p>
+		<p><a href="/index">Back to Lobby</a></p>
+		<br>
 	</div>
-</center>
 </body>
 </html>

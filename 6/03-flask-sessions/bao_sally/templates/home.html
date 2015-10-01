@@ -1,15 +1,19 @@
 <!DOCTYPE HTML>
 <html>
-  <style>
-    body {text-align: center}
-  </style>
- 
+
+<style>
+body {text-align: center}
+</style>
+
     <h1>The Wonders of Mimicry</h1>
     <hr>
 
-    {% if s['username'] %}
+    <a href = "/about">About</a>
+    <a href = "/guess">Let's play a game</a>
 
-    <h3>What's up, {{s.username}}?</h3>
+    {% if s['uname'] %}
+
+    <h3>What's up, {{s.uname}}?</h3>
     <br>
 
     <a href = "/logout">Log out</a>
@@ -20,8 +24,6 @@
 
     {% endif %}
 
-    <a href = "/about">What's all this about?</a>
-    <a href = "/guess">Let's play a game</a>
 
     <br><br><br>
 
@@ -49,7 +51,5 @@
 	</td>
       </tr>
     </table>
-  
-
-
+    
 </html>

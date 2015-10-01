@@ -6,6 +6,11 @@
 
 <body>
   <p> {% if s.logged %} You are logged in already!  </p>
+  <a href="/secret">Check out the secret page</a>
+  <form action="/logout">
+    <input type="submit" value="Logout">
+  </form>
+
   <p> {% else %} You are not logged in! :( </p> 
 <form action="/secret" method="POST" >
   Username: <input type="text" name="username">

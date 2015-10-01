@@ -1,0 +1,15 @@
+<h1>Hai</h1>
+<h2>Welcome to my site</h2>
+<p>Please login to continue.</p>
+{% if message %}
+<p style="color:red">{{message}}
+{% endif %}
+<form method="post">
+	<p>Username: <input type="text" name="username"></p>
+	<p>Password: <input type="password" name="password"></p>
+	<p><input type="submit" value="Submit"></p>
+</form>
+<p>
+	If this is your first time here, please click
+	<a href="/register">here</a> to register.
+</p>

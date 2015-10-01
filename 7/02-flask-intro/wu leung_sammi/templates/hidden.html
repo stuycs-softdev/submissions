@@ -1,0 +1,14 @@
+{% extends "page.html" %}
+
+{% block bar %}
+{% if loggedIn == 1 %}
+<li class="bar"><a href="/hidden">Hidden</a></li>
+<li class="bar"><a href="/logout">Log Out</a></li>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div>
+  <h2> You've found the hidden page!!! </h2>
+</div>
+{% endblock %}

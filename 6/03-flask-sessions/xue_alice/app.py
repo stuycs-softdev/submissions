@@ -34,13 +34,13 @@ def login():
 @app.route("/logout",methods = ["GET","POST"])
 def logout():
     if 'username' in session:
-        return render_template("logout.html")
-    elif request.form['logout'] == "exit":
         del session['username']
+        return render_template("logout.html")
+    else:
         return redirect(url_for('about'))
 
 
-@app.route("/secret")
+@app.route("/secret",methods = ["GET","POST"])
 def secret():
     if 'username' in session:
         if request.method == "GET":
@@ -57,7 +57,8 @@ def about():
 
 
 if __name__ == "__main__":
-    app.debug = Trud
+    app.debug = True
     app.secret_key = "gruyere"
-    app.run(host='0.0.0.0', post=8000)
+    app.run(host='0.0.0.0',port=8000)
+
 

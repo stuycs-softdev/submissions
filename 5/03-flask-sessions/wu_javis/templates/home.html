@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>LOG IN</title>
+{% if error %}
+<b>{{error}}</b><br>
+{% endif %}
+Create an account<br>
+<form method="POST">
+  Username:<input type="text" name="newuser">
+  Password:<input type="text" name="newpass">
+  <input type="submit" name="button" value="create">
+</form>
+<br><br><br>
+LOG IN
+<form method="POST">
+  Username:<input type="text" name="user">
+  Password:<input type="text" name="pass">
+  <input type="submit" name="button" value="go">
+  <br>
+  <input type="submit" name="button" value="logout">
+</form>
+{% if access %}
+<h1> YOU ARE LOGGED IN </h1>
+<a href="/secret"> Members only</a>
+{% else %}
+<a href="/about"> Members only</a>
+{% endif %}
+<br><br>
+<a href="/about">About page</a>
+
+
+
+

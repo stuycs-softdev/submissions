@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,session
+from flask import Flask,render_template,request,session,redirect
 
 app=Flask(__name__)
 
@@ -21,8 +21,8 @@ dex={
 
 
 def home():
-    if 'id' not in session:
-        session['id']=0
+    if 'n' not in session:
+        session['n']=0
     if request.method=='GET':
         return render_template("home.html")
     
@@ -65,8 +65,12 @@ def listPKMNimg(list):
 @app.route("/grass")
 @app.route("/grass/")
 def grass():
-    grasspkmn=['bulbasaur']
-    return render_template("grass.html", grasspkmn=grasspkmn)
+    print session['n']
+    if session['n']!=2:
+        return redirect("/login")
+    else:
+        grasspkmn=['bulbasaur']
+        return render_template("grass.html", grasspkmn=grasspkmn)
 
 
 moves=[['bulbasaur',[1,'Tackle'],[3,'Growl'],[7,'Leech Seed'],[9,'Vine Whip']]]
@@ -77,6 +81,21 @@ def pkdex(pocketmonster):
 def pokemon(pokemon=""):
     dgrass={pokemon:pkdex(pokemon)}
     return render_template("grasspkmn.html",dgrass=dgrass,pokemon=pokemon,moves=moves)
+
+@app.route("/login", methods=['GET','POST'])
+
+def login():
+    success=""
+    if request.method=='POST':
+        if request.form['user']!="Pokemon" or request.form['pass']!="Master":
+            success="Invalid User or Pass"
+            session['n']=0
+        else:
+            success="Success!"
+            session['n']=2
+    return render_template("login.html",success=success)
+        
+
 
 if __name__=="__main__":
     app.debug = True
