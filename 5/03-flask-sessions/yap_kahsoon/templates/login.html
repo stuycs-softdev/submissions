@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+
+<title>Login</title>
+
+<h1>Login</h1>
+
+{% if error %}
+<h2>{{error}}</h2>
+<hr>
+{%endif%}
+
+<form method="POST">
+  Username: <input type="text" name="username">
+  <p>
+    Password: <input type="text" name="password">
+  <p>
+    <input type="submit" name="button" value="login">
+    <input type="submit" name="button" value="cancel">
+</form>
+<a href="/about">About Page</a>
