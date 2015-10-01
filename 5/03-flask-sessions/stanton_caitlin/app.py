@@ -1,50 +1,42 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect
 import utils
 
 app = Flask(__name__)
 
-@app.route("/login", methods=["GET","POST"])
-@app.route("/login/", methods=["GET","POST"])
-def login():
-    if request.method=="GET":
-        return render_template("login.html")
+@app.route('/')
+@app.route('/about')
+@app.route('/about/')
+def about():
+    if 'user' not in session:
+        session['user'] = False
+    return render_template('about.html', s = session)
+
+@app.route('/login')
+@app.route('/login/')
+def login(error = None):
+    return render_template('login.html', s = session)
+
+@app.route('/logout')
+@app.route('/logout/')
+def logout():
+    session['logged'] = False
+    return redirect('/about')
+
+@app.route('/secret', methods=["GET","POST"])
+def secret():
+    if request.method=="POST":
+	    name = request.form['username']
+	    password = request.form['password']
+	    if utils.authenticate(name, password):
+		    session['logged'] = True
+    if session['logged'] == True:
+	    #name = request.form['username']
+	    return render_template('secret.html', s = session)
     else:
-        button = request.form['button']
-        username = request.form['username']
-        password = request.form['password']
-        if button == "Go Back":
-            return render_template("login.html")
-        if utils.authenticate(username,password):
-            return render_template("secret.html")
-        else:
-            return render_template("login.html",error="INVALID USERNAME OR PASSWORD")
+        return redirect('/login')
 
-"""
-@app.route("/increase")
-def increase():
-    if 'n' not in session:
-	    session['n'] = 0
-    n = session['n']
-    n = n + 1
-    print n, "years"
-    return redirect("/")			
-			
-@app.route("/subtract")
-def subtract():
-    if 'n' not in session:
-	    session['n'] = 0
-    n = session['n']
-    n = n - 1
-    print n, "years"
-    return redirect("/")
-"""
-	
-@app.route("/")
-def index():
-    return render_template("index.html",args = request.args)
+if __name__=="__main__":
+    app.debug = True
+    app.secret_key = "Two can keep a secret if one of them is dead"
+    app.run('0.0.0.0', port=8000)
 
-
-
-if __name__ == "__main__":
-   app.debug = True
-   app.run(host="0.0.0.0", port=8000)
