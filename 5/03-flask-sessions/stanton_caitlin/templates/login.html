@@ -1,25 +1,14 @@
 <!DOCTYPE html>
-
-<head> 
-
-  <title>Login</title>
-
-</head>
-
-<body>
-  
-  {% if s.logged %}
-  <p>You have already logged in :)</p>
-  {% else %}
-  <p>Log in below!</p>
-
-  <form action="/secret" method="POST">
-    <p>Username:</p>
-    <input type="text" name="username">
-    <p>Password:</p>
-    <input type="text" name="password">
-  </form>
-
-  {% endif %}
-
-</body>
+<h1>Login</h1>
+{% if error %}
+<h2>{{error}}</h2>
+	{%endif%}
+	<form method="POST">
+		<p>Username:</p> 
+		<input type="text" name="username">
+		<p>Password:</p>
+		<input type="text" name="password">
+		<input type="submit" name="button" value="Enter">
+				<p>
+					<input type="submit" name="button" value="Go Back">
+	</form>
