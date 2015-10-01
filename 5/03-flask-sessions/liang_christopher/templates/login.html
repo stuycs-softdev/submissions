@@ -2,25 +2,27 @@
 <html>
     <link rel="stylesheet" class="text/css" href="/static/style.css">
     <head>
-            <title>Login</title>
+        <title>Login</title>
         <font size="12" color = "white">
-        <center><h1>Login</h1></center>
+            <center><h1>Login</h1></center>
         </font>
         {% if error %}
-        <h2>{{error}}</h2>
-        {%endif%}
+        <center><font color="white">
+                <h2>{{error}}</h2>
+            </font></center>
+            {%endif%}
     </head>
     <body>
         <center>
             <form method="POST">
                 <font color="white">
-                Uname: <input type="text" name="username">
-                <br>
-                Pword: <input type="text" name="password">
-                <p>
-                <input type="submit" name="button" value="Login">
-                <br>
-                <input type="submit" name="button" value="Cancel">
+                    Uname: <input type="text" name="username">
+                    <br>
+                    Pword: <input type="text" name="password">
+                    <p>
+                    <input type="submit" name="button" value="login">
+                    <br>
+                    <input type="submit" name="button" value="cancel">
                 </font>
             </form>
         </center>
