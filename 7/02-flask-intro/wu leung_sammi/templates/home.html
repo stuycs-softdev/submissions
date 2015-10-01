@@ -1,7 +1,22 @@
 {% extends "page.html" %}
+
+{% block bar %}
+{% if loggedIn == 1 %}
+<li class="bar"><a href="/hidden">Hidden</a></li>
+<li class="bar"><a href="/logout">Log Out</a></li>
+{% endif %}
+
+{% if loggedIn == 0 %}
+<li class="bar"><a href="/login">Log In </a></li>
+{% endif %}
+{% endblock%}
+
 {% block content %}
 <div>
   <h1> Welcome! You are user number {{n}} </h1>
   <h3> This was supposed to be a poll thing but I ran out of time so now it's just a list thing </h3>
+  {% if loggedIn != 1 %}
+  <h3> Please log in <a href="\login"> here </h3>
+  {% endif %}
 </div>
 {% endblock %}

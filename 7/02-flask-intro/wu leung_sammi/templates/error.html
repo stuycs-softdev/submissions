@@ -1,0 +1,14 @@
+{% extends "page.html" %}
+
+{% block bar %}
+{% if loggedIn == 0 %}
+<li class="bar"><a href="/login">Log In </a></li>
+{% endif %}
+{% endblock%}
+
+{% block content %}
+<div>
+  <h2> Error </h2>
+  <h3> Please Log In </h3>
+</div>
+{% endblock %}
