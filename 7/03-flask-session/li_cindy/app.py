@@ -14,7 +14,8 @@ def login():
         if button=="cancel":
             return render_template("login.html")
         if utils.authenticate(uname,pword):
-            if 'logged' not in session: 
+            if 'logged' not in session:
+                print session
                 session['logged'] = True
             return redirect(url_for("about"))
         else:
@@ -32,7 +33,12 @@ def index():
 def about():
     return render_template("about.html")
 
+@app.route("/logout")
+def logout(): 
+    session['user'] = False
+    return redirect(url_for("home"))
+
 if __name__ == "__main__":
    app.debug = True
    app.secret_key = "Don't put on git"
-   app.run(host="0.0.0.0", port=8600)
+   app.run(host="0.0.0.0", port=8700)
