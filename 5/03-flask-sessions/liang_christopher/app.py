@@ -50,7 +50,7 @@ def about():
 if __name__ == "__main__":
     app.debug = True
     app.secret_key="swag"
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=5000)
 
 #use dictionaries for templates 
 #for ex
