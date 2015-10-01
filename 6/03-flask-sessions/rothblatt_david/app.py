@@ -9,6 +9,12 @@ import auth
 
 app = Flask(__name__)
 
+@app.route("/")
+@app.route("/home")
+@app.route("/home/")
+def home():
+    return redirect(url_for("about"))
+
 @app.route("/about")
 @app.route("/about/")
 def about():
