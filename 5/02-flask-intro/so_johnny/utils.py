@@ -32,3 +32,9 @@ def returnd():
 
 def returnartists():
     return d2
+
+def loginauth(un,pw):
+    if un=="HERE'S" and pw=="JOHNNY!":
+        return True
+    else:
+        return False

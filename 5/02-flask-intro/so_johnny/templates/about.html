@@ -2,18 +2,26 @@
 
 <html>
 
-<head>
+  <center>
 
-<h1> Hello friends! </h1>
-
-<h2> You might be wondering what this is all about... </h2>
-
-<h3> Sorry to say, I have no idea either :) </h3>
-
-</head>
-
-<body>
-<a href=".."> Back to Home! </a>
-</body>
+    <head>
+      
+      {% if un %}
+      <h1> Hello {{un}}! </h1>
+      {% else %}
+      <h1> Hello friends! </h1>
+      {% endif %}
+      
+      <h2> You might be wondering what this is all about... </h2>
+      
+      <h3> Sorry to say, I have no idea either :) </h3>
+      
+    </head>
+    
+    <body>
+      <a href=".."> Back to Home! </a>
+    </body>
+  
+  </center>
 
 </html>
