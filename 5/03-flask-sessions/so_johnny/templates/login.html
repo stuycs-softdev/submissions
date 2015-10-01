@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+
+<html>
+
+  <center>
+
+    <head>
+      <h1> Login Page </h1>
+      {% if error %}
+      <h2> {{error}} </h2>
+      {% endif %}
+      
+      {% if un %}
+      <h2> Hello, {{un}} </h2>
+      {% endif %}
+
+      {% if unlogged %}
+      <h2> {{unlogged}} </h2>
+      {% endif %}
+    </head>
+    
+    <body>
+      <form method="POST">
+	Username: <input type="text" name="username">
+	<p>
+	  Password: <input type="text" name="password">
+	<p>
+	  <input type="submit" name="button" value="login">
+	  <hr/>
+	  <input type="submit" name="button" value="logout">
+    </body>
+    
+  </center>
+  
+</html>
