@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- bootstrap stuff -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>{{ name }}'s Homepage</title>
+  </head>
+
+  <body>
+      <div class="container">
+          <nav class="navbar navbar-default">
+              <div class="navbar-header">
+                  <a class="navbar-brand" href="/">03-Flask Sessions</a>
+              </div>
+              <div>
+                  <ul class="nav navbar-nav">
+                      <li><a href="/login">Login</a></li>
+                  </ul>
+              </div>
+          </nav>
+          <h1>Hello {{ name }}</h1>
+          Last time you logged in: {{ time }}
+          <br>
+          <div id="logins" style="display:none">
+              <h3>You logged in at:</h3>
+              <table class="table table-striped">
+                  {% for item in logins %}
+                  <tr>
+                      <td>{{ item }}</td>
+                  </tr>
+                  {% endfor %}
+              </table>
+          </div>
+          <br>
+          <button type="button" class="btn btn-default" onclick="showTimeTable()">Show/Hide Login Time Table</button>
+          <script>
+            function showTimeTable() {
+                if (document.getElementById('logins').style.display == 'none') {
+                    document.getElementById('logins').style.display = '';
+                }
+                else {
+                    document.getElementById('logins').style.display = 'none';
+                }
+            }
+          </script>
+      </div>
+  </body>
+</html>
+
