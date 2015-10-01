@@ -2,45 +2,35 @@ from flask import Flask, render_template, request, session, url_for, redirect
 
 app = Flask (__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
         return render_template("login.html")
     if (request.form['uname'] == request.form['pword']):
         session['auth'] = True
-        session['points'] = 50
-        uname = request.form['uname']
-        session['uname'] = uname
-        f = open(uname, "w")
-        f.write('50')
-        f.close()
+        session['uname'] = request.form['uname']
         return redirect(url_for("profile"))
 
 @app.route("/profile")
 def profile():
-    if 'auth' not in session:
+    if not session['auth'] :
         return redirect(url_for("login"))
-    uname = session['uname']    
-    f = open(uname, "r")
-    profPoints = int(f.read())
-    session['points'] = profPoints
-    
-    return render_template("profile.html", uname = uname, points = profPoints)
+    uname = session['uname']
+    return render_template("profile.html", uname = uname)
 
-@app.route("/givePoints/<user>")
-def givePoints():
-    if 'auth' not in session:
-        return redirect(url_for("login"))
-    f = open(user, "r")
-    points = int(f.read())
-    f.close()
-    points += request.form['givePoints']
-    f = open(user, "w")
-    f.write(str(points))
-    f.close()
-    return "success.html"
-    
+@app.route("/about")
+def about():
+    return render_template("about")
+
+@app.route("/logout")
+def logout():
+    session['uname'] = ""
+    session['auth'] = False
+    return redirect(url_for("login"))
+
+
+  
 if __name__ == "__main__":
     app.debug = True
     app.secret_key = "HelloWorld"
