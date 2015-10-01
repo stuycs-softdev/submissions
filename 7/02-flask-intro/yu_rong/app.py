@@ -18,6 +18,10 @@ def logIn():
 def defaultPage():
     return render_template("home.html")
 
+@app.route("/logout")
+def defaultPage():
+    return render_template("logout.html")
+
 @app.route("/homework")
 def hwPage():
     quotes = []
