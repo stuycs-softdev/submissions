@@ -1,0 +1,21 @@
+{% extends "page.html" %}
+
+{% block bar %}
+{% if loggedIn == 0 %}
+<li class="bar"><a href="/login">Log In </a></li>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div>
+  <h2> Login Please: </h2>
+  <form action="/login" method = "POST">
+    <table>
+      <tr><td>Username:</td><td> <input type="text" class="in" name="user"></td></tr>
+      <tr><td>Password:</td><td> <input type="password" class="in" name="pass"></td></tr>
+      <tr><td><input type="submit"></tr></td>
+    </table>
+  </form>
+<h2> Use: test as the username &  123 as the password </h2>
+</div>
+{% endblock %}
