@@ -1,5 +1,25 @@
 <!DOCTYPE HTML>
 
-<h1> LOGIN <h1>
+<img src="/static/lol2.jpg">
+<hr>
+<h1> Login </h1>
+<hr>
+Go to my <a href="/about">about page</a> that has some nice electronic music!
+<hr>
+Hint #0: Username is possibly the greatest guitar player to ever live and password is his most famous song (Both with no spaces but with capital letters)
+<hr>
+{%if wrong %}
+    <img src="/static/Lol1.jpg"></p>
+    {{wrong}}
+    <hr>
+{% endif %}
 
-    
+<form method="POST">
+  Username: <input type="text" name="Username">
+  </p>
+  Password: <input type="text" name="Password">
+  </p>
+  <input type="submit" name="button" value="Login">
+  <input type="submit" name="button" value="Cancel">
+</form>
+
