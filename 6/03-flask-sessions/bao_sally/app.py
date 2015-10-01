@@ -3,7 +3,9 @@ import utils
 
 app = Flask(__name__)
 
-ans = {"ans1": "hummingbird moth", "ans2": "mimic octopus"}
+
+ans = {'1': "moth", '2': "spider", '3': "fly", '4': "octopus", '5': "octopus", '6': "butterfly" }
+
 
 @app.route("/")
 @app.route("/home")
@@ -18,7 +20,7 @@ def about():
 
 @app.route("/login", methods = ["GET", "POST"])
 def login():
-    if 'username' in session:
+    if 'uname' in session:
         return redirect(url_for('logout'))
     if request.method == "GET":
         return render_template("login.html")
@@ -26,38 +28,61 @@ def login():
         uname = request.form['username']
         pword = request.form['password']
         if utils.authenticate(uname, pword):
-            session['username'] = uname
+            session['uname'] = uname
             return redirect(url_for('guess'))
         else:
             error = "Invalid username or password"
             return render_template("login.html", error = error)
 
 
-@app.route("/guess", methods = ["GET", "POST"])
-def guess():
-    if request.method == "GET":
-        if 'username' not in session:
-            return redirect(url_for('login'))
-        else:
-            return render_template("guess.html", s = session)
-    else:
-        answer = request.form['answer']
-        if utils.checkans(answer, ans["ans1"]):
-            return redirect(url_for('guess2'))
-        else:
-            error = "Try again"
-            return render_template("guess.html", error = error)
-
-
     
 @app.route("/logout")
 def logout():
-    if 'username' in session:
-        del session['username']
+    if 'uname' in session:
+        session.clear()
         return redirect(url_for('home'))
 
+
+
+@app.route("/guess", methods = ["GET", "POST"])
+@app.route("/guess/", methods = ["GET", "POST"])
+def guess():
+    if request.method == "GET":
+        if 'uname' not in session:
+            return redirect(url_for('login'))
+        else: 
+            if 'n' not in session:
+                session['n'] = 0
+                inc(1)
+            return render_template("guess.html", s = session)
+    else:
+        a = request.form['answer']
+        b = ans[str(session['n'])]
+
+        if utils.checkans(a, b):
+            if session['n'] == 6:
+                session['n'] = 0
+                return redirect(url_for('success'))
+            else:
+                inc(1)
+                return render_template("guess.html", s = session)
+        else:
+            error = "Try again"
+            return render_template("guess.html", error = error, s = session)
+
+
+@app.route("/success")
+def success():
+    return render_template("success.html")
+
     
-        
+
+def inc(num):
+    session['n'] = session['n'] + num
+    session['link'] = "/static/pic" + str(session['n']) + ".jpg"
+     
+
+   
 if __name__ == "__main__":
     app.debug = True
     app.secret_key = "potatoes"

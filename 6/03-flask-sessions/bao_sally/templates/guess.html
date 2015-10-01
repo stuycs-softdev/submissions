@@ -1,6 +1,9 @@
 <!DOCTYPE HTML>
 <html>
 
+<style>
+body {text-align: center}
+</style>
   
   <h1>Who's That Pokemon?</h1>
   
@@ -13,12 +16,12 @@
   <p>Now that you've had your taste of mimicry in action, <br>
     it's time to put your observational skills to the test!</p>
 
+  {% if s %}
 
-  <p><b>Case One</b></p>
+  <img src = {{s.link}}>
 
-
-  <p>Is this an insect disguised as a bird...<br>Or a bird disguised as an insect?</p>
-  <img src = "http://www.sudburyvalleytrustees.org/sites/default/files/20070729_Hummingbird%20Clearwing%20Moth_Garry%20Kessler.jpg">
+  {% endif %} 
+ 
 
   <h2>What am I?</h2>
 
@@ -29,12 +32,14 @@
 
     <input type = "submit" name = "button" value = "check">
 
-    <br>
+    <br><br>
   </form>
 
   {% if error %}
 
+<hr>
   <h2>{{error}}</h2>
+<hr>
 
   {% endif %} 
 
