@@ -20,8 +20,11 @@ def about():
 
 @app.route("/logout")
 def logout():
-    session.clear()
-    return redirect(url_for('home'))
+    if 'uname' in session.keys() and 'pword' in session.keys():
+        session.clear()
+        return render_template("logout.html")
+    else:
+        return redirect(url_for('home'))
 
 @app.route("/index")
 def index():
