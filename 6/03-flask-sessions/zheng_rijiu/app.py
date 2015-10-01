@@ -5,13 +5,8 @@ app = Flask(__name__)
 
 @app.route("/", methods = ["GET","POST"])
 def home():
-    if(request.method == "GET"):
-        return render_template("home.html",session = session)
-    else:
-        if(request.form['button'] == 'logout'):
-            del session['username'];
-            session['Login'] = False;
-            return render_template("home.html",session = session)
+    return render_template("home.html",session = session)
+
 @app.route("/login", methods = ["GET","POST"])
 def login():
     if request.method == "GET":
@@ -25,6 +20,12 @@ def login():
         except:
             pass
         return render_template("login.html", failed = True)
+
+@app.route("/logout")
+def logout():
+    del session['username']
+    session['Login'] = False
+    return redirect(url_for('home'))
 
 @app.route("/secret")
 def secret():
