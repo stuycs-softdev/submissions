@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" class="text/css" href="/static/style.css">
+    <head>
+            <title>Login</title>
+        <font size="12" color = "white">
+        <center><h1>Login</h1></center>
+        </font>
+        {% if error %}
+        <h2>{{error}}</h2>
+        {%endif%}
+    </head>
+    <body>
+        <center>
+            <form method="POST">
+                <font color="white">
+                Uname: <input type="text" name="username">
+                <br>
+                Pword: <input type="text" name="password">
+                <p>
+                <input type="submit" name="button" value="Login">
+                <br>
+                <input type="submit" name="button" value="Cancel">
+                </font>
+            </form>
+        </center>
+    </body>
+    <div class="footer"> 
+        <footer>
+            <font color="white"> © Chris Liang 2015-2016 All Rights Reserved </font>
+        </footer>
+    </div>
+</html>
