@@ -29,11 +29,13 @@ def login():
             return render_template("loggedin.html")
         
         else:
-            return render_template("login.html")
+            error = "Invalid Username/Password. Try Again!"
+            return render_template("login.html",e = error)
 
-@app.route("/loggedin")
+@app.route("/loggedin", methods = ["GET","POST"])
 def loggedin():
-    return render_template("loggedin.html")
+    if request.method == "GET":
+        return render_template("loggedin.html")
 
 @app.route("/about")
 def about():
