@@ -15,6 +15,6 @@ def login():
 def home():
     return render_template("home.html")
 
-if __name__ = "__name__":
+if __name__ == "__name__":
     app.debug = True
     app.run(host = "0.0.0.0", port=8000)
