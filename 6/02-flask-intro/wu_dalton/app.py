@@ -1,32 +1,38 @@
-from flask import Flask, render_template, session
+from flask import Flask, render_template, request
 from flask import redirect, url_for
+import utils
 
 app = Flask(__name__)
 
-@app.route('/')
-def about(error=''):
-	return render_template('about.html', error=error)
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/')
+def about(message=''):
+	return render_template('about.html', message=message)
+
+@app.route('/login', methods=['get', 'post'])
 def login():
-	if request_method == 'GET':
+	if request.method == 'get':
 		return render_template('login.html')
 	else:
 		username = request.form['username']
 		password = request.form['password']
-	
-	if utils.authenticate(username, password):
-		return render_template(url_for('hidden'))
+		
+		if utils.authenticate(username, password):
+			return render_template(url_for('hidden'))
+		else:
+			message = 'Invalid username or password'
+			return render_template('login.html', message=message)
 
-@app.route('/42')
+@app.route('/42', methods=['get', 'post'])
 def hidden():
-	if request_method == 'GET':
+	if request.method == 'get':
 		return render_template('hidden.html')
-	else:
-		button = request.form['button']
+	
+	button = request.form['button']
 	
 	if button == 'logout':
-		return render_template(url_for('about'), error='Logged out.')
+		return render_template(url_for('about'), message='Logged out.')
+
 
 if __name__=="__main__":
 	app.debug = True

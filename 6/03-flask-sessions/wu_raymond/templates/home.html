@@ -1,18 +1,24 @@
 <html>
 <head>
-	<title>Login Page</title>
+	<title>Asylum Entrance</title>
 	<link rel="stylesheet" href="../static/styles.css">
 </head>
 <body class="profile">
-<center>
 	<div class="transbox">
-		<p>Basic Login</p>
+		<br>
+		<p>Asylum 582</p>
 		<form method="POST">
-			<p class ="reg">Username: <input type="text" name="username"></input></p>
-			<p class ="reg">Password: <input type="text" name="password"></input></p>
-			<input type ="submit" value="Login"></input>
+			<p><input type="text" name="username" placeholder="Name"></input></p>
+			<p><input type="password" name="password" placeholder="Access Code"></input></p>
+			<input type ="submit" value="Enter"> </input>
 		</form>
+		<form>
+			<input type ="submit" formaction="/about" value="About"></input>
+		</form>
+		<br>
+		<p><a href="../static/backgroundM.mp3" target="_blank">Click for Background Music</a></p>
+		<br>
 	</div>
-</center>
+
 </body>
 </html>

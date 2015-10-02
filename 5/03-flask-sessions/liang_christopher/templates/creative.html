@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <head>
+        <link rel="shortcut icon" href="/static/C.png">
+        <title>Creative</title>
+    </head>
+    <body>
+        {% if 'n' in session %}
+        <nav>
+            <center>
+                <h1><font size="30" color="white">Creative</font></h1>
+            </center>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/portraits">Portraits</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href='/logoff'>Log Off</a></li> 
+            </ul>
+        </nav>
+        <center>
+            <div style="width:1000px">
+                <p><img src="/static/c1.jpg" style="max-width:100%;"/></p>
+                <p><img src="/static/c2.jpg" style="max-width:100%;"/></p>
+                <p><img src="/static/c3.jpg" style="max-width:100%;"/></p>
+            </div> 
+        </center>
+        {% else %}
+        <font color="white"><center><h1> You need to login to continue </h1><center> </font>
+        {% endif %}
+        <div class="footer"> 
+            <footer>
+                <font color="white"> © Chris Liang 2015-2016 All Rights Reserved </font>
+            </footer>
+        </div>
+    </body>
+</html>

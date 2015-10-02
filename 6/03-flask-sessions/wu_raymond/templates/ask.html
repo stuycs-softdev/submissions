@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Containment Cell</title>
+	<link rel="stylesheet" href="../static/styles.css">
+</head>
+<body class="shaco">
+	<div class="transbox">
+		<br>
+		<p>You decide to try to get information from him. However, he will only answer on the subjects he deems interesting. Be sure to keep his interest and learn as much as possible. He may refuse to answer and seem to ramble on at times, but look for clues in his words. His mental state is unstable, to say the least, so simple word association should be enough for now.</p>
+        {% if word in d.keys() %}
+		<p class="shaco">{{d[word]}}</p>
+		{% elif word==""%}
+		<p class="shaco">Zzz...</p>
+        {% else %}
+        <p class="shaco">{{s}}</p>
+        {% endif %}
+        <form method="POST">
+	        	<input type="text" name="ask" ></input>
+	        	<input type="submit" value ="Ask" placeholder="Say..."></input>
+	        </form>
+	    
+		<p><a href="/index">Back to Lobby</a></p>
+		<br>
+	</div>
+</body>
+</html>
