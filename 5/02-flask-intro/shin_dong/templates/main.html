@@ -18,25 +18,22 @@ font-size: 30px;
 text-align: center;
 color:gray;
 }
+p {
+color:gray;
+text-align:center;
 </style>
 </head>
 <body>
 <h1>
-hello.
+my website.
 <h2>
-welcome to my website
+the stuff i may or may not like
 </h2>
-<p style="color:gray;text-align:center">
-you may have your stay<br><br>
-but first sign up o.o
+<p style="color:gray;text-align:left">
+  hello <span style="color:lightgray">{{user}}</span><br><br>
+  you are free to stay<br><br>
+  <a href="{{url_for('logout')}}">log out</a>
 </p>
-<br><br><br><br><br><br><br><br>
-<form method="POST" style="color:gray;text-align:center">
-username
-<input type="text" name="user"><br><p>
-password
-<input type="password" name="pass"><br><p>
-<input type="submit" name="press" value="submit">
-</form>
+
 </body>
 </html>

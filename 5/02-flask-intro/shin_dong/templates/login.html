@@ -24,11 +24,11 @@ color:gray;
 <h1>
 hello.
 <h2>
-welcome to my website
+please log in
 </h2>
 <p style="color:gray;text-align:center">
-you may have your stay<br><br>
-but first sign up o.o
+if you have not signed up yet<br><br>
+please go <a href="{{url_for('intro')}}">here</a>
 </p>
 <br><br><br><br><br><br><br><br>
 <form method="POST" style="color:gray;text-align:center">
@@ -36,7 +36,7 @@ username
 <input type="text" name="user"><br><p>
 password
 <input type="password" name="pass"><br><p>
-<input type="submit" name="press" value="submit">
+<input type="submit" name="press" value="login">
 </form>
 </body>
 </html>
