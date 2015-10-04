@@ -1,0 +1,19 @@
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/ptok")
+def secretchart():
+    return render_template("ptok.html")
+@app.route("/")
+@app.route("/home", methods = ["get,"POSR")
+def home():
+    page="<h1>Pounds to kilo chart In the Below Link</h1>"
+    page = page + '<br><a href="/ptok">secretchart</a>'
+    page = page + "<br><h2>Click above</h2>"
+    return page
+
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run(host='0.0.0.0',port=8000)
