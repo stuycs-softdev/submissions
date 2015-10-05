@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect,url_for
+from flask import Flask, render_template, session, redirect,url_for, request
 
 
 
@@ -6,10 +6,13 @@ app = Flask(__name__)
 
 @app.route("/inc")
 def inc():
+    s=""
     if 'w' not in session:
-        session['w']=0
+        session['w']={}
     w=session['w']
-    w=w+1
+    #for(x in w.keys()):
+        #s+=x
+        #s+="<br>"
     session['w']=w
     if 'n' not in session:
         session['n']=0
@@ -17,7 +20,16 @@ def inc():
     n=n+1
     session['n']=n
     print "From a session:",n
-    return render_template("counter.html",n=n,w=w)
+    return render_template("counter.html",n=n,w=w.keys())
+
+@app.route("/register")
+def register():
+    newphone = request.args.get('phone')
+    print newphone
+    w=session['w']
+    w[newphone]=newphone
+    session['w']=w
+    return redirect("/inc")
 
 @app.route("/")
 def index():
@@ -26,7 +38,7 @@ def index():
 @app.route("/reset")
 def reset():
     session['n']=0
-    session['w']=0
+    session['w']={}
     return redirect("/inc")
                     
 
