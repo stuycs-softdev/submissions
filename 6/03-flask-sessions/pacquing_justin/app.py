@@ -32,10 +32,9 @@ def login():
             error = "Invalid Username/Password. Try Again!"
             return render_template("login.html",e = error)
 
-@app.route("/loggedin", methods = ["GET","POST"])
-def loggedin():
-    if request.method == "GET":
-        return render_template("loggedin.html")
+@app.route("/loggedout")
+def logout():
+    return render_template("loggedout.html")
 
 @app.route("/about")
 def about():
