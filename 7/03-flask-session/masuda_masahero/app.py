@@ -17,7 +17,7 @@ def lucky():
     color = list[n]
     return render_template("lucky_color.html", color = color)
 
-@app.route("/cookie_clicker"):
+@app.route("/cookie_clicker")
     if 'n' not in session:
         session['n'] = 0
     n = session['n']
