@@ -1,7 +1,13 @@
 <h1>Cell Phone Registry User Control Panel</h1>
 
-<h2># of Times You Have Logged In: {{n}}</h2>
+<h2>Number of Times You Have Logged In: {{n}}</h2>
 <h2>Your Registered Cell Phones: {{w}}</h2>
 <body background="http://pre15.deviantart.net/d776/th/pre/i/2011/343/f/b/seamless_metal_plate_by_hhh316-d4ink0a.jpg">
+<form method = "GET" action="/register">
+  Register a Phone:<br>
+  <input type="text" name="phone">
+  <br>
+  <input type="submit" value="Submit">
+</form>
 <button><a href="/reset">Delete Your Session</a></button><br>
 <button><a href="/">Back to Home</a></button>
