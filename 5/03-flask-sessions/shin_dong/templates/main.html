@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+font-family: "Ubuntu", Sans-serif;
+color: white;
+background-image: url("http://www.wallpaperup.com/uploads/wallpapers/2012/08/04/8548/07f4032eddf2777664a0ec1431a34a56.jpg");
+background-repeat: no-repeat;
+background-position: center top;
+}
+h1 {
+font-size: 60px;
+text-align: center;
+}
+h2 {
+font-size: 30px;
+text-align: center;
+color:gray;
+}
+p {
+color:gray;
+text-align:center;
+</style>
+</head>
+<body>
+<h1>
+my website.
+<h2>
+the stuff i may or may not like
+</h2>
+<p style="color:gray;text-align:left">
+  hello <span style="color:lightgray">{{user}}</span><br><br>
+  you are free to stay<br><br>
+  <a href="{{url_for('logout')}}">log out</a>
+</p>
+
+</body>
+</html>
