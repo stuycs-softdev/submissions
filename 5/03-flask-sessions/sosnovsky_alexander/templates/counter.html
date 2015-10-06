@@ -1,10 +1,10 @@
-<h1>Cell Phone Registry User Control Panel</h1>
+<font color="white"><h1>Cell Phone Registry User Control Panel</h1>
 
 <h2>Number of Times You Have Logged In: {{n}}</h2>
-<h2>Your Registered Cell Phones: {{w}}</h2>
-<body background="http://pre15.deviantart.net/d776/th/pre/i/2011/343/f/b/seamless_metal_plate_by_hhh316-d4ink0a.jpg">
+<h2>Your Registered Cell Phones:<br> {% autoescape false %}{{w}}{% endautoescape %}</h2>
+<body background="http://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg">
 <form method = "GET" action="/register">
-  Register a Phone:<br>
+  Register a Phone:<br></font>
   <input type="text" name="phone">
   <br>
   <input type="submit" value="Submit">
