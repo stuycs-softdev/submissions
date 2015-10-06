@@ -4,13 +4,13 @@ import auth
 
 app = Flask(__name__)
 
-range = range(4)
-rando = random.randrange(4)
-pages = ["http://localhost:8000/","http://localhost:8000/about","http://localhost:8000/things","http://localhost:8000/custom"]
-names = ["home","about","things","custom"]
-like = ["My Macbook",'My "Totally Legal, I Still Buy CDs and things" Music Collection',"Literature"]
-dislike = ["Overcast Days","Subway Delays","Not Sleeping Enough"]
-message = {1: "The day is ripe for the taking!",3: "TREAT YO SELF",2: "Never not work!",0: "#YOLO"}
+range = range(2)
+rando = random.randrange(2)
+pages = ["http://localhost:8000/","http://localhost:8000/login"]#"http://localhost:8000/things","http://localhost:8000/custom"]
+names = ["home","login"] # "things","custom"]
+#like = ["My Macbook",'My "Totally Legal, I Still Buy CDs and things" Music Collection',"Literature"]
+#dislike = ["Overcast Days","Subway Delays","Not Sleeping Enough"]
+#message = {1: "The day is ripe for the taking!",3: "TREAT YO SELF",2: "Never not work!",0: "#YOLO"}
 
 @app.route("/")
 def home():
@@ -32,10 +32,9 @@ def login():
             error = "Invalid Username/Password. Try Again!"
             return render_template("login.html",e = error)
 
-@app.route("/loggedin", methods = ["GET","POST"])
-def loggedin():
-    if request.method == "GET":
-        return render_template("loggedin.html")
+@app.route("/loggedout")
+def logout():
+    return render_template("loggedout.html")
 
 @app.route("/about")
 def about():
