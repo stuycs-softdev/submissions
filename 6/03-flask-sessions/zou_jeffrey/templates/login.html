@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Login</title>
+</head>
+
+<body>
+{% if err %}
+<p style="color:red"> <b>Error: Wrong username or password, try again!</b></p>
+{% endif %}
+<form method="POST">
+Enter username: <br>
+<input type="text" name="user" value="Username"></input>
+<br>
+Enter password: <br>
+<input type="text" name="pass" value="Password"></input>
+
+<br><br>
+<button type="submit" name="press" value="login">Login</button>
+</form>
+<form action="/">
+<button> I wanna go home </button>
+</form>
+</body>
+
+
+</html>

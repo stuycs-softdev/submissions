@@ -1,8 +1,14 @@
 <html>
   <body>
     <form method="POST">
-      Username: <input type="text" name = "name"> \n
-      Password: <input type="text" name = "pass"> \n
+      Username: <input type="text" name = "name"> <br>
+      Password: <input type="password" name = "pass"> <br>
       <input type="submit" name = "button" value = "login">
+      <button><a href="/">Head Back Home!</a></button> <br> <br>
+      {% if e %}
+      
+      {{e}}
+
+      {% endif %}
   </body>
 </html>
