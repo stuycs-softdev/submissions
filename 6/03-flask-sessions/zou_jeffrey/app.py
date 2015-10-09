@@ -31,6 +31,12 @@ def secret():
         session['n']=1
     return render_template("secret.html")
 
+@app.route("/random")
+def random():
+    number = Math.random()*100;
+    return render_template("random.html", n = number)
+
+
 if __name__ == "__main__":
     app.debug = True
     app.secret_key = "Keyblade"
