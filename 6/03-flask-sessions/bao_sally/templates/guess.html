@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+
+<style>
+body {text-align: center}
+</style>
+  
+  <h1>Who's That Pokemon?</h1>
+  
+
+  <a href = "/home">Home</a>
+  <a href = "/about">About</a>
+  <a href = "/logout">Log out</a>
+  <br><br><br><br>
+
+  <p>Now that you've had your taste of mimicry in action, <br>
+    it's time to put your observational skills to the test!</p>
+
+  {% if s %}
+
+  <img src = {{s.link}}>
+
+  {% endif %} 
+ 
+
+  <h2>What am I?</h2>
+
+  <form method = "POST">
+    Answer: <input type = "text" name = "answer">
+
+    <br><br>
+
+    <input type = "submit" name = "button" value = "check">
+
+    <br><br>
+  </form>
+
+  {% if error %}
+
+<hr>
+  <h2>{{error}}</h2>
+<hr>
+
+  {% endif %} 
+
+
+
+</html>

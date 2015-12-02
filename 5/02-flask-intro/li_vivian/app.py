@@ -3,6 +3,9 @@ import utils
 
 app = Flask(__name__)
 
+class LoggedIn:
+    is_login = False
+
 #@app.route("/home")
 #@app.route("/")
 #def home():
@@ -21,17 +24,28 @@ def login():
         if button == "cancel":
             return render_template("login.html")
         if utils.authenticate(user, pw):
+            LoggedIn.is_login = True
             return "You can now access the secret page"
+            #return render_template("access.html")
         else:
             return render_template("login.html", error = "INVALID USERNAME OR PASSWORD")
-                                   
+
+def access():
+    button = request.form['button']
+    if button == "Go to secret":
+        return render_template("secret.html")
+"""                                   
 @app.route("/about")
 def about():
     return render_template("about.html") 
+"""
 
 @app.route("/secret")
 def secret():
-    return render_template("secret.html")
+    if LoggedIn.is_login:
+        return render_template("secret.html")
+    else:
+        return "NOT LOGGED IN"
 """
 @app.route("/pie")
 @app.route("/pie/")

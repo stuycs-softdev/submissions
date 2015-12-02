@@ -1,0 +1,13 @@
+body {
+    background: #9966FF;
+    text-align:left;
+}
+
+div {
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+

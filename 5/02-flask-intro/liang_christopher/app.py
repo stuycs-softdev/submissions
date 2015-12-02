@@ -1,46 +1,37 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template, request, session, redirect, url_for
+import utils
 
 app = Flask(__name__)
 
 
-#Variables
-nameForm = True
-name = ''
-d = {'welcome': '',
-     'nameForm':nameForm,
-     'name':name}
+@app.route("/login", methods=["GET","POST"])
+def login():
+    if request.method=="GET":
+        return render_template("login.html")
+    else:
+        button = request.form['button']
+        uname = request.form['username']
+        pword = request.form['password']
+        if button == "cancel":
+            return render_template("login.html")
+        if utils.authenticate(uname,pword):
+            if 'n' not in session:
+                session['n'] = 0
+            return redirect(url_for('home'))
+        else:
+            return render_template("login.html",error="INVALID USERNAME OR PASSWORD")
 
+@app.route("/logoff", methods=["GET","POST"])
+def logout():
+    # remove the username from the session if it's there
+    session.pop('n', None)
+    return redirect(url_for('login'))
 
 @app.route("/home")
 @app.route("/home/")
 @app.route("/")
 def home():
-    nameForm = True
-    if name == '' :
-        nameForm = True
-    return render_template("home.html",d=d)
-
-
-@app.route("/name", methods=['POST'])
-def get_name():
-    name = request.form['nameform']
-    d['name'] = name
-    d['welcome'] = 'Welcome ' + name
-    nameForm = False
-    d['nameForm'] = nameForm
-    return render_template("home.html",d=d)
-
-
-@app.route("/cname", methods=['POST'])
-def change_name():
-    name = request.form['cname']
-    d['name'] = name
-    d['welcome'] = 'Welcome ' + name    
-    nameForm = False
-    d['nameForm']=nameForm
-    return render_template("home.html",d=d)
-
-
+    return render_template("home.html")
 @app.route("/portraits")
 def portraits():
     return render_template("portraits.html")
@@ -58,6 +49,7 @@ def about():
 
 if __name__ == "__main__":
     app.debug = True
+    app.secret_key="swag"
     app.run(host='0.0.0.0', port=8000)
 
 #use dictionaries for templates 

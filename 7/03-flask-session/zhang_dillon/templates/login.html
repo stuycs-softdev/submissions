@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<h1>Login</h1>
+
+<hr>
+
+{%if status %}
+<h3> {{status}} </h3>
+
+<hr>
+
+{% endif %}
+
+
+<form method="POST">
+  username: <input type="text" name="username"> <br>
+  password: <input type="password" name="password"> <br>
+  Login:<input type="submit" name="button" value="go">
+</form>
+
+<button><a href="/">Home</a></button>

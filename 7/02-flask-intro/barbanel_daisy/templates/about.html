@@ -2,15 +2,18 @@
 
 <head>
     <title>About</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>About</h1>
     <hr>
+    <div>
     <p>Hi! There's not much going on here.
     Just some text replaction for who's the most qualified president given their experience as
     County Clerk and rabbits. That's pretty accurate but if you want to know more you can 
     <a href="/login">login here</a>.
     </p>
+    </div>
     {% if loggedin %}
     <button><a href="/home">Home</a></button><br>
     <button><a href="/rabbit/">Rabbit</a></button><br>

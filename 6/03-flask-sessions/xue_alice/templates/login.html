@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<style> 
+  body {background-color: #d0e4fe; } 
+</style>
+
+{% if error %}
+<h1> {{error}} </h1>
+{% endif %}
+
+<h1>Log into your account</h1>
+
+<form method = "POST">
+  username: <input type="text" name="username">
+  password: <input type="text" name="password">
+  <input type="submit" name="button" value="login">
+</form>
+
+		   

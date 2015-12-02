@@ -18,6 +18,23 @@ def profile(lastname="", firstname="", annaorpuppy=""):
     return render_template("profile.html", d = dict)
 
 
+@app.route("/login", methods=["GET","POST"])
+def login():
+    if request.method=="GET":
+        return render_template("login.html")
+    else:
+        uname = request.form['username']
+        pword = request.form['password']
+        button = request.form['button']
+        if button=="cancel":
+            return render_template("login.html")
+        if utils.authenticate(uname,pword):
+            return "<h1>Logged in</h1>"
+        else:
+            error = "Invalid username or password"
+            return render_template("login.html",err=error)
+
+
 @app.route("/aboutpuppies")
 def puppies():
     return render_template("aboutpuppies.html")

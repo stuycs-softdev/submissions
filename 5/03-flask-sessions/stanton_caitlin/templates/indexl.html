@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<h1>Home page</h1>
+<img src="/static/thluffy.png">
+<hr/>
+{% for item in args%}
+<h2>{{item}} : {{args[item]}}</h2>
+{% endfor %} :
+<hr>
+Out of form
+Outname : <input type="text" name="outname">
+<hr/>
+The form:
+<form>
+	Name:	<input type="text" name="name">
+	<p>
+		<input type="submit" name="button" value="Yes">
+		<input type="submit" name="button" value="No">
+</form>
+
+<form>
+	Name:	<input type="text" name="zname">
+	<p>
+		<input type="submit" name="button" value="up">
+		<input type="submit" name="button" value="down">
+</form>
+
+
+
+
+

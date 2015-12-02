@@ -7,7 +7,9 @@
     {% if session['Login'] %}
     Welcome, {{session['username']}}.
     <br>
-    <input type="submit" name="button" value="logout"></input>
+    Click <a href="/secret">here</a> to access a super secret page.
+    <br>
+    <button><a href="logout">Logout</a></button>
     {% else %}
     <button><a href="login">Login</a></button>
     {% endif %}
