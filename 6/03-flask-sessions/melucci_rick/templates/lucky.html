@@ -1,0 +1,29 @@
+
+<body style="background-color: #A8C5A8">
+    <center><div style="width: 50% ; background-color:#D7E6ED ; border-radius: 20px; padding-top: 5%">
+        <center>
+            <h1 style="top: 50% ; color: #000">Your lucky number is <u>{{n}}</u></h1>
+            <h2 style="top: 50% ; color: #000">Refresh the screen to see the latest lucky numbers!</h2>
+        </center>
+        <hr style="color: #000">
+        
+        
+            <center>
+                <table style="border-style: solid ; border-width: 1 ; width: 25%">
+                    <tr><h1>Recent Lucky Numbers</h1></tr>
+                    {% for a in d: %}
+                    
+                    {% if a == number %}
+                    <tr><td style="border-style: solid ; border-width:1"><center>{{a}} (this is your lucky number!)</center></td></tr>
+                    {% endif %}
+                    
+                    {% if a != number %}
+                    <tr><td style="border-style: solid ; border-width:1"><center>{{a}}</center></td></tr>
+                    {% endif %}
+                    
+                    {% endfor %}
+                </table>
+            </center>
+        <br>
+        </div></center>
+</body>

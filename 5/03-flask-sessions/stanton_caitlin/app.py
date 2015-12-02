@@ -3,14 +3,36 @@ import utils
 
 app = Flask(__name__)
 
+@app.route("/login", methods=["GET","POST"])
+def login():
+    if request.method=="GET":
+        return render_template("login.html")
+    else:
+        button = request.form['button']
+        uname = request.form['username']
+        pword = request.form['password']
+        if button == "Cancel":
+            return redirect(url_for('home'))
+        if utils.authenticate(uname,pword):
+            if 'n' not in session:
+                session['n'] = 0
+            return redirect(url_for('home'))
+        else:
+            return render_template("login.html",error="Invalid Username or Password")
+
+@app.route("/logoff", methods=["GET","POST"])
+def logout():
+    # remove the username from the session if it's there
+    session.pop('n', None)
+    return redirect(url_for('login'))
+
 @app.route('/')
 @app.route('/about')
 @app.route('/about/')
 def about():
-    if 'user' not in session:
-        session['user'] = False
-    return render_template('about.html', s = session)
+    return render_template('about.html')
 
+"""
 @app.route('/login')
 @app.route('/login/')
 def login(error = None):
@@ -34,6 +56,7 @@ def secret():
 	    return render_template('secret.html', s = session)
     else:
         return redirect('/login')
+"""
 
 if __name__=="__main__":
     app.debug = True

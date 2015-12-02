@@ -10,7 +10,7 @@
 
 	<p>This is a Flask website used to run a login system</p>
 	
-	{% if s.logged %} 
+	{% if 'n' in session %} 
 		<p>Congrats! You are logged in!  </p>
 		<p>Check out the secret page <a href="/secret">here</a></p>
 		<form action="/logout">

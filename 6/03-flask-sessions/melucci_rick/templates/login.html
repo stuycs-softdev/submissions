@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Log In</title>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+    <style>
+      body{
+        background-image: url(/static/science.png);
+        overflow: hidden;
+      }
+
+      .form{
+        position: absolute;
+        top: 50% ;
+        left: 50% ;
+        transform: translateX(-50%) translateY(-80%);
+        border-radius: 20px;
+        background-color: #F3F1EC;
+        padding: 15px;
+        -webkit-box-shadow: 0px 0px 5px 10px rgba(0,0,0,0.25);
+        -moz-box-shadow: 0px 0px 5px 10px rgba(0,0,0,0.25);
+        box-shadow: 0px 0px 5px 10px rgba(0,0,0,0.25);
+      }
+
+      input{
+        border-radius: 10px;
+        opacity: 0.7;
+        background-color: black;
+        color: white;
+        font-size: 20pt;
+      }
+
+
+      .writing{
+          font-family: 'Source Sans Pro', sans-serif;
+      }
+
+    </style>
+  </head>
+
+
+
+  <body>
+    <center>
+      <form class="form" method="POST">
+        <h2 class="writing" style="font-weight: 400">Sign in bro</h2>
+        <h3 class="writing" style="color: red"> {{d}} </h3>
+        <h3 class="writing">Username: <input class="writing" type="text" name="username" > </h3>
+        <h3 class="writing">Password: <input class="writing" type="password" name="password" > </h3>
+        <br>
+        <input type="submit" name="button" value="Log in!"><input type="submit" name="button" value="cancel">
+      </form>
+    </center>
+
+  </body>
+</html>

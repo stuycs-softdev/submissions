@@ -18,6 +18,11 @@ def home():
 def about():
     return render_template("about.html")
 
+@app.route("/leave")
+def leave():
+	session.clear()
+	return redirect(url_for('home'))
+
 @app.route("/logout")
 def logout():
     if 'uname' in session.keys() and 'pword' in session.keys():

@@ -83,13 +83,18 @@ def login3():
             # return redirect(url_for("user"))
             return redirect("/userpage")
         else:
-            return "You have entered an incorrect username or password <br> <br> <a href> Click Here to go back to start page </a>"
+            return "You have entered an incorrect username or password <br> <br> <a href> Click Here to go back to login page </a>"
 
 @app.route("/userpage")
 def userpage():
     #TODO: add a way to log out
     return render_template("userpage.html")
-        
+
+@app.route("/reset")
+def reset():
+    return redirect(url_for("start"))
+    
+
 if __name__ == "__main__":
     app.debug=True
     app.secret_key = "Don't store this on github" #used for cookies, session

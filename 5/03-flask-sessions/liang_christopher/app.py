@@ -3,7 +3,6 @@ import utils
 
 app = Flask(__name__)
 
-
 @app.route("/login", methods=["GET","POST"])
 def login():
     if request.method=="GET":
@@ -12,14 +11,14 @@ def login():
         button = request.form['button']
         uname = request.form['username']
         pword = request.form['password']
-        if button == "cancel":
+        if button == "Cancel":
             return redirect(url_for('home'))
         if utils.authenticate(uname,pword):
             if 'n' not in session:
                 session['n'] = 0
             return redirect(url_for('home'))
         else:
-            return render_template("login.html",error="INVALID USERNAME OR PASSWORD")
+            return render_template("login.html",error="Invalid Username or Password")
 
 @app.route("/logoff", methods=["GET","POST"])
 def logout():
@@ -50,7 +49,7 @@ def about():
 if __name__ == "__main__":
     app.debug = True
     app.secret_key="swag"
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=5000)
 
 #use dictionaries for templates 
 #for ex

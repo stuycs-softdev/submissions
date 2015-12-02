@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, redirect, url_for
-import authen2
+import authen
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def login():
         button = request.form["button"]
         if button=="cancel":
             return render_template("login.html")
-        if authen2.authen(username,password):
+        if authen.authen(username,password):
             session["login"] = True
             return redirect(url_for("secret"))
         else:
@@ -29,9 +29,9 @@ def login():
 @app.route("/secret")
 def secret():
     if ("login" not in session) or session["login"] == False:
-        return "<h1>You aren't logged in!!</h1>"
+        return render_template("secret.html",output="You aren't logged in!",loggedIn=False)
     else:
-        return render_template("secret.html")
+        return render_template("secret.html",output="You made it! You're logged in!",loggedIn=True)
 
 if __name__ == "__main__":
     app.debug = True

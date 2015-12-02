@@ -1,5 +1,5 @@
 def auth(user,pas):
-    if user == "jpacq" and pas == "htmlisfun4":
+    if user == "boop" and pas == "beep":
         return True;
     else:
         return False;
