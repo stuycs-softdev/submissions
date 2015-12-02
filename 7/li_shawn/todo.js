@@ -21,3 +21,8 @@ var b2Callback = function(e){
 		e.preventDefault();
 		removeItem(0);
 };
+
+var b = document.getElementById('b');
+b.addEventListener('click',buttonCallback);
+
+document.getElementById('b2').addEventListener('click',b2Callback);
