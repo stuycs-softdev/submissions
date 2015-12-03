@@ -8,13 +8,14 @@ var addItem = function addItem(s, listType){
     console.log(n);
 };
 
-//var markDone = function markDone(){};
+var markDone = function markDone(item){
+    item.remove();
+};
 
 var addMouseEvents = function(item){
     item.addEventListener('click', function(e){
-	this.classList.toggle('red');
-	console.log('p');
-	console.log(this);
+	//this.classList.toggle('red');
+	markDone(this);
     });
 };
 
