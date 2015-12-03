@@ -87,4 +87,6 @@ $(document).ready(function() {
     }
   });
 
+  cycle();
+
 });
