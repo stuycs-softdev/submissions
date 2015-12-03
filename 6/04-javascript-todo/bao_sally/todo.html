@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+	<meta charset="UTF-8">
+	<head>
+		<style>
+		.urgent {color: #ff0000; font-weight: bold;}
+		.pending {color: #00ff00;}
+		.mouseover {color: #0000ff;}
+		
+		ul {
+			list-style-type: circle;
+			display: inline-block;
+		}
+
+		.column {
+			float: left;
+			margin: 0 200px 0 0;
+		}
+		</style>
+	</head>
+
+	<body>
+
+	
+		<textarea id ="textarea" cols ="40" rows ="5" name ="text"></textarea>
+		<br>
+		<button id ="submit">Add</button>
+		<button id ="clear">Clear</button>
+		<br><br>
+	
+		
+
+		<div class="column">
+			<h1>TO DO</h1>
+			<ul id ="todo">
+			</ul>
+		</div>
+
+		<div class="column">
+			<h1>DONE</h1>
+			<ul id ="done">
+			</ul>
+		</div>
+
+		<script src="todo.js"></script>
+	</body>
+
+
+</html>
