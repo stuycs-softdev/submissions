@@ -1,10 +1,27 @@
-console.log("YOYOY script loaded");
+console.log("YOYOY script i s loaded");
 
 
-var todo = Document.getElementById("todo");
-var done = Document.getElementById("done");
 
+var todo = document.getElementById("todo");
+var done = document.getElementById("done");
 
-var do_items = todo.children;
-var done_items = done.children;
+var addEvents = function(item){
+	console.log("adding listener");
+	item.addEventListener('click', function(e){
+		console.log("clicked!");
+		item.parentNode.removeChild(item);	
+		done.appendChild(item);
+	});
+};
+
+var done = function(item){
+	
+	done.appendChild(item);
+}
+
+for (var i =0; i < todo.children.length; i++){
+	console.log(todo.children.length);
+	addEvents(todo.children[i]);
+}
+
 
