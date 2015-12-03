@@ -5,11 +5,30 @@
 </head>
 
 <body>
-  <table border="1">
-    <tr>
-      <td>To Do</td>
-      <td>Done</td>
-    </tr>
-  </table>
+  <center><h1>To Do List</h1></center>
+
+  <!-- Create New Tasks -->
+  <div>
+    <input type="text" id="newTask" placeholder="What do you need to do?"/>
+    <button id="button"> Add </button>
+  </div>
+
+  <!-- To Do List -->
+  <div id="todo">
+    <h2>To Do</h2>
+    <ol id="todoList">
+    </ol>
+  </div>
+
+  <!-- Done List -->
+  <div id="done">
+    <h2>Done</h2>
+    <ol id="doneList">
+    </ol>
+  </div>
 </body>
+
+<script src="todo.js"></script>
+
 </html>
+
