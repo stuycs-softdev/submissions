@@ -1,7 +1,7 @@
 var addItem = function addItem(name, deets) {
 	var list = document.getElementById('listoftasks');
-	var item = document.createElement('li');
-	item.innerHTML = name + "--" + deets;
+	var item = document.createElement('tr');
+	item.innerHTML = name + ": " + deets;
 	list.appendChild(item);
 	item.addEventListener('click',amDone);
 };
@@ -43,5 +43,4 @@ for (var i = 0; i < items.length; i++) {
 	console.log('sup');
 	items[i].addEventListener('mouseover',amDone);
 	doneitems[i].addEventListener('mouseover',amDone);
-}
 }
