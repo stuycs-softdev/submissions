@@ -10,12 +10,34 @@ var removeItemFromToDo = function removeItemFromToDo(s){
 };
 
 //removes item from todo list and adds to done list
-var t1Callback = function(e){
+var b1Callback = function(e){
 		console.log(e);
 		addItemToDone(t1);
-    removeItemFromToDo(t1);
+    removeItemFromToDo("n.childNodes[0]");
+    console.log("Success at t1");
 };
-document.getElementById("t1").addEventListener('click',t1Callback);
+document.getElementById("t1").addEventListener('click',b1Callback);
+
+var b2Callback = function(e){
+		console.log(e);
+		addItemToDone(t2);
+    removeItemFromToDo(t2);
+};
+document.getElementById("t2").addEventListener('click',b2Callback);
+
+var b3Callback = function(e){
+		console.log(e);
+		addItemToDone(t3);
+    removeItemFromToDo(t3);
+};
+document.getElementById("t3").addEventListener('click',b3Callback);
+
+var b4Callback = function(e){
+		console.log(e);
+		addItemToDone(t4);
+    removeItemFromToDo(t4);
+};
+document.getElementById("t4").addEventListener('click',b4Callback);
 
 /*
 var b2Callback = function(e){
