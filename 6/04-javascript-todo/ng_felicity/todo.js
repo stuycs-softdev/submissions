@@ -38,6 +38,12 @@ var b4Callback = function(e){
     removeItemFromToDo(t4);
 };
 document.getElementById("t4").addEventListener('click',b4Callback);
+var b5Callback = function(e){
+		console.log(e);
+		addItemToDone(t5);
+    removeItemFromToDo(t5);
+};
+document.getElementById("t4").addEventListener('click',b5Callback);
 
 /*
 var b2Callback = function(e){
