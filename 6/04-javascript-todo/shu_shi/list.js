@@ -7,7 +7,7 @@ var addItem = function addItem(s){
     l.appendChild(n);
 };
 
-var removeItem = function removeSpecificItem(s){
+var removeItem = function removeItem(s){
     var list = document.getElementsByTagName("li");
     for(i = 0; i < list.length; i ++){
 	if(list[i].innerHTML == s){
