@@ -16,7 +16,7 @@ def logged():
     return page
 def authorized(password):
     return password == '10'
-@login.route("/")
+@login.route("/", methods = ["GET","POST"])
 @login.route("/home", methods = ["GET", "POST"])
 def home():
     if 'name' in session.keys():

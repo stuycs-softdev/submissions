@@ -9,17 +9,17 @@
   </head>
   <body>
     <h1 id="h" class="blue">To Do</h1>
-    <button id="b">Add</button>
+    <form id="newItem">
+    Add an Item: <input type="text" name="todoItem">
+    </form>
+    <button id="addbutton">Add</button>
     <br>
-    <ol id="thelist">
-      <li>item 0</li>
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
-      <li>item 4</li>
-      <li>item 5</li>
-      <li>item 6</li>
-      <li>item 7</li>
+    <h2>To Do:</h2>
+    <ol id="todolist">
+    </ol>
+
+    <h2>Done:</h2>
+    <ol id="donelist">
     </ol>
     <script src="todo.js"></script>
   </body>
