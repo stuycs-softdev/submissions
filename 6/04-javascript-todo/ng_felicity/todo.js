@@ -1,3 +1,23 @@
+//add element to to-do list
+var c = 0;
+function add(s){
+  c++;
+  var x = document.createElement("li");
+  x.id="t"+c;
+  var text = document.getElementById("td").value;
+  x.innerHTML=text;
+  if(text!=""){
+    var z = document.createElement("button");
+    z.innerHTML="finished";
+    z.id="b"+c;
+    x.appendChild(z);
+    var y= document.getElementById("todo");
+    y.appendChild(x);
+    x.addEventListener('click',bCallback);
+  }
+}
+document.getElementById("submit").addEventListener('click',add);
+
 //the parameter s is the id from the node being removed
 function addItemToDone(s){
     var n = document.getElementById("done");
@@ -15,55 +35,38 @@ function bCallback(e){
     this.removeEventListener("click", bCallback);
     this.addEventListener('click',dCallback);
 };
-document.getElementById("t1").addEventListener('click',bCallback);
-document.getElementById("t2").addEventListener('click',bCallback);
-document.getElementById("t3").addEventListener('click',bCallback);
-document.getElementById("t4").addEventListener('click',bCallback);
-document.getElementById("t5").addEventListener('click',bCallback);
 
 function dCallback(e){
   addItemToDo(this);
   this.removeEventListener("click", dCallback);
   this.addEventListener('click',bCallback);
 };
-/*
-document.getElementById("t1").addEventListener('click',dCallback);
-document.getElementById("t2").addEventListener('click',dCallback);
-document.getElementById("t3").addEventListener('click',dCallback);
-document.getElementById("t4").addEventListener('click',dCallback);
-document.getElementById("t5").addEventListener('click',dCallback);*/
 
-/*
-var b2Callback = function(e){
-    console.log(e);
-    addItemToDone(t2);
-    removeItemFromToDo(t2);
-};
-document.getElementById("t2").addEventListener('click',b2Callback);
-
-var b3Callback = function(e){
-    console.log(e);
-    addItemToDone(t3);
-    removeItemFromToDo(t3);
-};
-document.getElementById("t3").addEventListener('click',b3Callback);
-
-var b4Callback = function(e){
-    console.log(e);
-    addItemToDone(t4);
-    removeItemFromToDo(t4);
-};
-document.getElementById("t4").addEventListener('click',b4Callback);
-var b5Callback = function(e){
-    console.log(e);
-    addItemToDone(t5);
-    removeItemFromToDo(t5);
-};
-document.getElementById("t4").addEventListener('click',b5Callback);
-*/
-var highlight = function highlight(e){
-    var x = document.getElementById(e);
-    var y = x.getElementById("txt");
-    var para = document.createElement("mark");
-    para.appendChild(y);
+var counter = 1;
+function unhighlight(e){
+  var y = document.getElementById(e);
+  y.classList.remove("highlight");
 }
+
+function highlight(e){
+  if(counter == 1){
+    unhighlight("t"+c);
+  }else{
+    unhighlight("t"+(counter-1));
+  }
+  var y = document.getElementById("t"+counter);
+  y.classList.add("highlight");
+  if(counter==c){
+    counter = 1;
+  }else{
+    counter++;
+  }
+}
+var myInterval;
+document.getElementById("s1").addEventListener('click', function(e) {
+  myInterval = setInterval(highlight,1000);
+});
+
+document.getElementById("s2").addEventListener('click', function(e){
+  clearInterval(myInterval);
+});
