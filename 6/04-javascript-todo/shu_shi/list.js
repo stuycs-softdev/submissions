@@ -1,4 +1,3 @@
-console.log("loaded js");
 
 var addItem = function addItem(s){
     var l = document.getElementById("todo");
