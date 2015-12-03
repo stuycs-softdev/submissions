@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <body style="text-align:center">
+    <form id="addForm">
+    Add To-Do! <input type="text" name="addtodo" value="Write Code">
+    </form>
+    <br>
+    <button id="but"> Add! </button>
+    <br> <br>
+    <table align="center">
+      <thead>
+	<tr>
+	  <th>To-Do:</th>
+	  <th>To-Done:</th>
++	</tr>
++      </thead>
++      
++      <tbody>
++	<tr>
++	  <td>
++	    <ul id="todolist">
++	    </ul>
++	  </td>
++	  <td>
++	    <ul id="todonelist">
++	    </ul>
++	  </td>
++	</tr>
++      </tbody>
++    </table>
++    <script src="todone.js"></script>
++
++  </body>  
++</html>

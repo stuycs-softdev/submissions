@@ -1,0 +1,10 @@
+_Create a fake todolist_
+
+[Button]
+[Text]
+
+<Makes an item for the todolist>
+
+
+Click on item in todolist: moves to done list
+Click on item in donelist: removes it or something

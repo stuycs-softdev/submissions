@@ -30,8 +30,7 @@ var addItem = function addItem(s){
 		n.innerHTML=s;
 		l.appendChild(n);
         
-    items[items.length] = n
-    items[items.length-1].addEventListener('click',removeItem);
+    n.addEventListener('click',removeItem);
 };
 
 var removeItem = function removeItem(){
