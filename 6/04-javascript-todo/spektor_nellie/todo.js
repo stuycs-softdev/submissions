@@ -1,35 +1,50 @@
 console.log("loaded js");
 
-var addItem = function addItem(s){
-    var l = document.getElementById("thelist");
+itemNumber = 1;
+var getItem = function getItem(){
+    var a = document.getElementById("newItem").elements.namedItem("todoItem").value;
+    return a;
+};
+
+var addItem = function addItem(){
+    var a = getItem();
+    var l = document.getElementById("todolist");
     var n = document.createElement("li");
-    n.innerHTML=s;
+    n.innerHTML = a;
+    n.setAttribute("id", ""+itemNumber);
     l.appendChild(n);
+    document.getElementById(itemNumber).addEventListener('click',b2CallBack);
+    itemNumber = itemNumber + 1;
+    
 };
 
-var removeItem = function removeItem(n) {
-    var items = document.getElementsByTagName("li");
-    items[n].remove();
+var moveItemToDone = function moveItemToDone(n) {
+    var a = document.getElementById(""+n);
+    var l = document.getElementById("donelist");
+    var n = document.createElement("li"); 
+    n.innerHTML = a;
+    n.setAttribute("id", ""+itemNumber);
+    l.appendChild(n);
+    itemNumber= itemNumber+1;
+    a.remove();    
+
 };
 
-var b1Callback = function(e){
-    console.log(e);
-    addItem("HELLO");
-};
-var b = document.getElementById("b1");
-b.addEventListener('click',b1Callback);
-
-var b2Callback = function(e){
-    e.preventDefault();
-    removeItem(0);
+var b2CallBack = function b2CallBack(){
+    var id = this.id;
+    moveItemToDone(id);
 };
 
-var b = document.getElementById("b2");
-b.addEventListener('click',b2Callback);
+var ButtonCallBack = function ButtonCallBack(){ //add button is pressed
+    addItem();
+};
 
-var thelist = document.getElementById("thelist");
-var items = thelist.children;
+var b = document.getElementById("addbutton");
+b.addEventListener('click',ButtonCallBack);
+
+
+var todolist = document.getElementById("todolist");
+var items = todolist.children;
 for (var i=0; i < items.length; i++){
-    // items[i].addEventListener('click',redCallback);
     addMouseEvents(items[i]);
 };
