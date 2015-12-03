@@ -15,10 +15,17 @@ var addtableitem = function addtableitem(fn,nn,ln){
     cell3.innerHTML=ln;
 }
 var buttonCallback = function buttonCallback(e){
-    console.log(e);
-    console.log(this);
+//    console.log(e);
+  //  console.log(this);
+/*
     additem("NEWITEM");
-    additem("NEW2ITEM");
+    additem("NEW2ITEM");*/
+    var box = document.getElementById("addtolistA");
+    var input = box.value;
+    if(input.value != ""){
+	additem(input)
+	box.value="";
+    }
 }
 var button2Callback = function buttonCallback(e){
     e.preventDefault();

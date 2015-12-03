@@ -1,0 +1,12 @@
+_Create a fake todolist_
+
+* TODO Lookup how to get the data out of a text entry
+
+[Button]
+[Text]
+
+<Makes an item for the todolist>
+
+
+Click on item in todolist: moves to done list
+Click on item in donelist: removes it or something
