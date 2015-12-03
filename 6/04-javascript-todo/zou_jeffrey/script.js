@@ -22,9 +22,24 @@ var appendText() = function appendText(id,words) {
   }
 };
 
+var deleteText = function deleteText(index) {
+  var items = document.getElementsByTagName("li");
+  items.remove(index);
+}
+
 document.getElementById("li").addEventListener("click", function(event){
   event.preventDefault();
-  var words =
+  var words = this.innerHTML;
   appendText(this.id,words);
   deleteText(this.index);
+});
+
+document.getElementsByClassName("todo").addEventListener("mouseover", function(event){
+  this.classList.remove("red");
+  this.classList.add("blue");
+});
+
+document.getElementsByClassName("done").addEventListener("mouseover", function(event) {
+  this.classList.remove("red");
+  this.classList.add("blue");
 });
