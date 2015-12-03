@@ -9,12 +9,12 @@ var addItem = function addItem(s, listType){
 };
 
 var markDone = function markDone(item){
+    addItem(item.innerHTML,"doneList");
     item.remove();
 };
 
 var addMouseEvents = function(item){
     item.addEventListener('click', function(e){
-	//this.classList.toggle('red');
 	markDone(this);
     });
 };
