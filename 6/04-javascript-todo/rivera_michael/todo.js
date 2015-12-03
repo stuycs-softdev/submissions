@@ -15,11 +15,10 @@ var addItem = function addItem(e){
     var a = document.createElement("li");
     a.id = c++;
     a.innerHTML = e;
-    a.addEventListener('click',remItem(a.id));
+    a.addEventListener('click',remItem);
     l.appendChild(a);
 };
 
 var remItem = function remItem(e){
-    var l = document.getElementById(e);
-    l.remove();
+    this.remove();
 };
