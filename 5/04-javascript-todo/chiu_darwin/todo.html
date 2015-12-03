@@ -1,34 +1,19 @@
 <!DOCTYPE html>
-<html>
-  <body style="text-align:center">
-    <form id="addForm">
-    Add To-Do! <input type="text" name="addtodo" value="what do">
-    </form>
-    <br>
-    <button id="but"> Add! </button>
-    <br> <br>
-    <table align="center">
-      <thead>
-	<tr>
-	  <th>To-Do:</th>
-	  <th>Done:</th>
-	</tr>
-      </thead>
-      
-      <tbody>
-	<tr>
-	  <td>
-	    <ul id="todolist">
-	    </ul>
-	  </td>
-	  <td>
-	    <ul id="donelist">
-	    </ul>
-	  </td>
-	</tr>
-      </tbody>
-    </table>
-    <script src="todo.js"></script>
 
-  </body>  
+<html>
+  <body>
+    <h2>To Do</h2>
+    <ul id="todo">
+    </ul>
+    Add:
+    <br>
+    <input type="text" name="item" id="item">
+    <br>
+    <button id="button">Add</button>
+    <br>
+    <h2>Done</h2>
+    <ul id="done">
+    </ul>
+    <script src="todo.js"></script>
+  </body>
 </html>
