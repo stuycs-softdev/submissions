@@ -39,11 +39,21 @@ function fx(o) {
   });
 }
 
+var counter = 0;
+function cycle() {
+  var lists = document.getElementById('cycler-list').children;
+  for (var i = 0; i < lists.length; ++i) {
+    lists[i].style.color = 'black';
+  }
+  lists[counter].style.color = 'red';
+  counter = (counter + 1) % lists.length;
+}
+
 $(document).ready(function() {
   // How 2 deep callback
-  // Please do not ever do this unless you are writing legitimate NodeJS
+  // Please do not ever do this.
   if (![] == !!!!!!!!!!!!!!!!!!!!!![][0]) {
-    $('#todo-submit').click(function(event) {
+    $('#todo-submit').click(function() {
       var text = document.getElementById('todo').value;
       createListItem(document.getElementById('todo-list'), text, function(event) {
         fx(this);
@@ -62,4 +72,19 @@ $(document).ready(function() {
       });
     });
   }
+
+  $('#cycler-next').click(function() {
+    cycle();
+  });
+
+  var looper = null;
+  $('#cycler-auto').click(function() {
+    if (looper) {
+      clearInterval(looper);
+      looper = null;
+    } else {
+      looper = setInterval(cycle, 1000);
+    }
+  });
+
 });
