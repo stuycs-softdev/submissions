@@ -85,17 +85,20 @@
     <div id="todo" class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div data-role="content">
-            <p>
-            </p>
-            <ul id="listoftasks" data-role="listview" data-split-icon="check" data-split-theme="a" data-inset="true"></ul>
+          <div style="text-align:center;" data-role="content">
+			<h1>What's Left to Do?</h1>
+			<h2>Click on the task when you've completed it</h2>
+			<br>
+			
+            <ol style="width: 50%;margin-right: auto;margin-left: auto;" id="listoftasks" data-role="listview" data-split-icon="check" data-split-theme="a" data-inset="true"></ol>
             <div data-role="content">
               
               <input style="color:#006699;" type="text" name="TaskName" ID="newTask" placeholder="Whatchu gotta do?">
               <input style="color:#006699;" type="text" name="TaskNotes" ID="taskNotes" placeholder="Any deets?">
-              <input type="button" value="Save" data-theme="b" ID="saveButton">
+              <input type="button" value="Add" data-theme="b" ID="saveButton">
               
             </div>
+			<br>
           </div>
         </div>
       </div>
@@ -105,7 +108,12 @@
     <div id="done" class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <ul id="donetasks" data-role="listview" data-split-icon="check" data-split-theme="a" data-inset="true"></ul>
+			<div style="text-align:center;">
+			<br>
+		  <h1>Way to Get Stuff DONE!</h1>
+		  <h2>Want to get rid of a completed task? Click on it, ya fool.</h2>
+		         <ul style="width: 50%;margin-right: auto;margin-left: auto;" id="donetasks" data-role="listview" data-split-icon="check" data-split-theme="a" data-inset="true"></ul>
+		  </div>
         </div>
       </div>
     </div>

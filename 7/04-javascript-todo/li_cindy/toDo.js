@@ -25,8 +25,8 @@ var buttonCallback = function(e){
     var text = document.getElementById("todo");
     var input = text.value;
     if (input != ""){
-	addItem(input, ls);
-	l.children[ls.children.length - 1].addEventListener("click", itemCallback);
+	addItem(input, l);
+	l.children[l.children.length - 1].addEventListener("click", itemCallback);
     }
     text.value = "";
 };
