@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+    <title>Things to Do!</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
 
   <body>
-    <h1>Clicking Extravaganza</h1>
+    <h1>Things to Do!</h1>
+    <br>
     <form>
-      Your text here: <input type="text" name="stuff">
-      </form>
-    <div></div>
+      Item: <input type="text" name="item">
+    </form>
+    
+    <button id="add">Add</button>
+    <br><br>
+    <table id="to-do">
+      <tr><th id="to-do-head">To-Do</th></tr>
+      <tr><td>calc test</td></tr>
+      <tr><td>CS hw</td></tr>
+      <tr><td>essay</td></tr>
+    </table>
+    <br>
+    <table id="done">
+      <tr><th id="done-head">Finished</th></tr>
+      <tr><td>eating chocolate</tr></td>
+      <tr><td>playing Hearthstone</tr></td>
+      <tr><td>procrastinating</tr></td>
+    </table>
+      
+    <script src="click.js"></script>
+
   </body>
-
-  <script>
-
-  </script>
 </html>
