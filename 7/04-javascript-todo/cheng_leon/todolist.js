@@ -8,11 +8,25 @@ var addItem = function addItem(s, listType){
     console.log(n);
 };
 
+//for the done list
+var addMouseEvents2 = function(item){
+    item.addEventListener('dblclick',function(e){
+	item.remove();
+    });
+    item.addEventListener('click',function(e){
+	this.classList.toggle('green');
+    });
+}
+
+var theDoneList = document.getElementById("doneList");
+var dones = theDoneList.children;
 var markDone = function markDone(item){
     addItem(item.innerHTML,"doneList");
     item.remove();
+    addMouseEvents2(dones[dones.length-1]);
 };
 
+//for the task list
 var addMouseEvents = function(item){
     item.addEventListener('click', function(e){
 	markDone(this);
