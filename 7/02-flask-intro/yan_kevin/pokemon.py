@@ -15,13 +15,13 @@ def about():
 
 @poke.route("/login", methods = ["GET", "POST"])
 def login():
-    if' message' in session:
-        m = session['message']
+    if 'message' in session:
+        msg = session['message']
         session['message'] = ""
     else:
-        m=""
+        msg=""
     if request.method == "GET":
-        return render_template("login.html", m = m)
+        return render_template("login.html", m = msg)
     else:
         f = request.form
         username = f['u']
@@ -30,13 +30,13 @@ def login():
             session["u"] = "logged in"
             return redirect(url_for("secret"))
         else:
-            return render_template("login.html", error = "Urine trouble now")
+            return render_template("login.html", error = "Username or password incorrect")
 
 @poke.route("/logout")
 def logout():
     if "u" in session:
         session["u"] = "not logged in"
-        session["message"] = "Logged Out!"
+        session["message"] = "Logged Out"
     return redirect(url_for("login"))
     
 @poke.route("/secret")

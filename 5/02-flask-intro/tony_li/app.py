@@ -11,7 +11,12 @@ dex={
     'charizard':6,
     'squirtle':7,
     'wartortle':8,
-    'blastoise':9
+    'blastoise':9,
+    'chikorita':152,
+    'treecko':252,
+    'turtwig':387,
+    'snivy':495,
+    'chespin':650
 }
 
 
@@ -21,18 +26,20 @@ dex={
 
 
 def home():
+    
     if 'n' not in session:
         session['n']=0
-    if request.method=='GET':
-        return render_template("home.html")
-    
-    ID=session['id']
-    ID=int(request.form['id'])
-    session['id']=ID
-    button=request.form['button']
-    print "SDADDASD  "+str(ID)
-    return render_template("home.html", ID=ID, dex=dex )
-   
+        n=session['n']
+    else:
+        n=session['n']
+    if request.method!='GET':
+        n=session['n']
+        ID=int(request.form['id'])
+        button=request.form['button']
+        
+            
+        return render_template("home.html", ID=ID, dex=dex,n=n)
+    return render_template("home.html",n=n)
         
 
 @app.route("/about")
@@ -53,6 +60,10 @@ def about():
     '''
     return aboutpage
 
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/home")
 
 ###helper
 
@@ -65,15 +76,20 @@ def listPKMNimg(list):
 @app.route("/grass")
 @app.route("/grass/")
 def grass():
-    print session['n']
-    if session['n']!=2:
-        return redirect("/login")
-    else:
-        grasspkmn=['bulbasaur']
+    if session['n']==2:
+        grasspkmn=['bulbasaur','chikorita','treecko','turtwig','snivy','chespin']
         return render_template("grass.html", grasspkmn=grasspkmn)
+    else:
+        return redirect("/login")
+       
 
 
-moves=[['bulbasaur',[1,'Tackle'],[3,'Growl'],[7,'Leech Seed'],[9,'Vine Whip']]]
+moves=[['bulbasaur',[1,'Tackle'],[3,'Growl'],[7,'Leech Seed'],[9,'Vine Whip']],
+['chikorita',[1,'Tackle'],[1,'Growl'],[6,'Razor Leaf'],[9,'Poison Powder']],
+['treecko',[1,'Pound'],[1,'Leer'],[5,'Absorb'],[9,'Quick Attack']],
+['turtwig',[1,'Tackle'],[5,'Withdraw'],[9,'Absorb'],[13,'Razor Leaf']],
+['snivy',[1,'Tackle'],[4,'Leer'],[7,'Vine Whip'],[10,'Wrap']],
+['chespin',[1,'Tackle'],[3,'Growl'],[5,'Vine Whip'],[8,'Rollout']]]
 def pkdex(pocketmonster):
     return dex[pocketmonster]
     
@@ -82,6 +98,17 @@ def pokemon(pokemon=""):
     dgrass={pokemon:pkdex(pokemon)}
     return render_template("grasspkmn.html",dgrass=dgrass,pokemon=pokemon,moves=moves)
 
+<<<<<<< HEAD
+@app.route("/login",methods=['GET','POST'])
+
+def login():
+    if 'n' not in session:
+    session['n']=0
+    if request.method=='POST':
+        session['n']=1
+        
+    
+=======
 @app.route("/login", methods=['GET','POST'])
 
 def login():
@@ -97,6 +124,7 @@ def login():
         
 
 
+>>>>>>> 33b08731379ca1b24e696781ea641558019cd62c
 if __name__=="__main__":
     app.debug = True
     app.secret_key="Don't upload to github"

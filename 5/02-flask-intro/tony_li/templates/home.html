@@ -35,14 +35,20 @@ Home
   </form>
   <br>
 
-  {% if ID %}
+  
   {% for pkmn in dex %}
   {% if dex[pkmn]==ID %}
   <br>
   <h2>It's {{pkmn}}</h2>
   {% endif %}
   {% endfor %}
-  {% endif %}
+  
 
-  <button><a href="/login"> Login </a></button>
+  {% if n!=2 %}
+  <button><a href="/login"> Login </a></button><br>
+ 
+  {% else %}
+  <button><a href="/logout"> Logout </a></button><br>
+  {% endif %}
+  <h1>{{n}}</h1>
 </body>
