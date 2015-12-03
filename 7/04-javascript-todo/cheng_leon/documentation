@@ -1,0 +1,6 @@
+Features:
+	Enter Text in textarea
+	Click add to add to Tasks
+	Click a task to move to Done List
+	Click a done to turn into green color
+	DoubleClick a done to remove it
