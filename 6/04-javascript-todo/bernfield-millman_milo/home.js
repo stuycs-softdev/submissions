@@ -16,3 +16,7 @@ var removeItem = function removeItemTodo(n) {
 		var items = document.getElementsByTagName("li");
 		items[n].remove();
 };
+
+var ButtonCallback = function(e){
+		addItemTodo(document.getElementById("input").value);
+};
