@@ -11,6 +11,7 @@ var addItemToDo = function additemToDo(s){
     var newElement = document.createElement("li");
     newElement.innerHTML=s;
     listt.appendChild(newElement);
+    eventss();
 };
 
 var addItemDone = function additemDone(s){
@@ -23,32 +24,30 @@ var addItemDone = function additemDone(s){
 
 var removeItemToDo = function removeItemToDo(n){
     var items1 = document.getElementById("todolist").children;
-    items1[n].remove()
+    items1[n].remove();
     eventss();
 };
 
 var removeItemDone = function removeItemDone(n){
     var items2 = document.getElementById("donelist").children;
-    items2[n].remove()
+    items2[n].remove();
     eventss();
 };
 
-var button = document.getElementById('b')
+var button = document.getElementById('b');
 button.addEventListener('click',buttonCallback);
 
 var eventss = function events(){
     var todoItems = document.getElementById("todolist").children;
-    //console.log("todoItemsLength="+todoItems.length);
-    console.log(todoItems);
+    //console.log(todoItems);
     for (var i=0;i<todoItems.length;i++){
 	//todoItems[i].addEventListener('click',function(e){
 	todoItems[i].onclick=function(){
-	    //console.log(todoItems[i-1]);
-	    //console.log(i-1);
+	    console.log(todoItems[i-1].innerHTML);
 	    addItemDone(todoItems[i-1].innerHTML);
 	    removeItemToDo(i-1);
-	    todoItems = document.getElementById("todolist").children;
-	    i=0;
+	    todoItems.parentNode.removeChild(i-1);
+	    //todoItems = document.getElementById("todolist").children;
 	//});
 	};
 
@@ -59,8 +58,7 @@ var eventss = function events(){
 	//doneItems[q].addEventListener('click',function(e){
 	doneItems[q].onclick=function(){
 	    removeItemDone(q-1);
-	    doneItems = document.getElementById("donelist").children;
-	    i=0;
+	    //doneItems = document.getElementById("donelist").children;
 	//});
 	};
 
