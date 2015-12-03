@@ -20,3 +20,5 @@ var removeItem = function removeItemTodo(n) {
 var ButtonCallback = function(e){
 		addItemTodo(document.getElementById("input").value);
 };
+var b = document.getElementById("b");
+b.addEventListener('click',ButtonCallback);
