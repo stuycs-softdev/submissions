@@ -1,0 +1,13 @@
+/*This should be the left column*/
+
+#todo {
+  width:50%;
+  float:left;
+}
+
+/*This should be the right column*/
+
+#done {
+  width:50%;
+  float:right;
+}

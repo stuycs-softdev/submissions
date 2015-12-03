@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> MyToDo</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body>
+    <h1>Welcome to my Todo List!</h1>
+    <!--Left side of the page aka the todo-->
+    <div id="todo">
+      <!--Submit to add more stuff todo-->
+      <form>
+        <input type="text" placeholder="Todo">
+        <input type="submit" name="submitTodo" value="Submit" onsubmit="appendText">
+      </form>
+      <!--Need some type of submit bar to add stuff -->
+      <ul>
+      </ul>
+    </div>
+
+    <div id="done">
+      <ul>
+      </ul>
+    </div>
+
+    <!--Javascript-->
+    <script src="script.js"></script>
+  </body>
+</html>
