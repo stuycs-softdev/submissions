@@ -153,21 +153,19 @@ body {
   margin-bottom: 10px;
   color: green;
 }
-#new-todo {
-  display: block;
+.todo-button {
+  display: inline-block;
   width: 100px;
   height: 40px;
-  margin-left: auto;
-  margin-right: auto;
   background-color: transparent;
   border: 1px solid lightgray;
   font-family: "lato", sans-serif;
   font-size: 16px;
 }
-#new-todo:hover {
+.todo-button:hover {
   cursor: pointer;
 }
-#new-todo:focus {
+.todo-button:focus {
   outline: none;
 }
 #error {
@@ -205,4 +203,13 @@ body {
 }
 .move-to-completed:focus {
   outline: none;
+}
+.button-box {
+  width: 316px;
+  height: 45px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.highlighted {
+  color: red;
 }

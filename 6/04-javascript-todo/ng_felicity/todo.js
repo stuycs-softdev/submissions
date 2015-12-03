@@ -1,22 +1,39 @@
 //the parameter s is the id from the node being removed
-var addItemToDone = function addItemToDone(s){
+function addItemToDone(s){
     var n = document.getElementById("done");
     n.appendChild(s);
 };
 
-var removeItemFromToDo = function removeItemFromToDo(s){
+function addItemToDo(s){
     var n = document.getElementById("todo");
-    n.removeChild(s);
+    n.appendChild(s);
 };
 
 //removes item from todo list and adds to done list
-var b1Callback = function(e){
-    console.log(e);
-    addItemToDone(t1);
-    removeItemFromToDo(t1);
+function bCallback(e){
+    addItemToDone(this);
+    this.removeEventListener("click", bCallback);
+    this.addEventListener('click',dCallback);
 };
-document.getElementById("t1").addEventListener('click',b1Callback);
+document.getElementById("t1").addEventListener('click',bCallback);
+document.getElementById("t2").addEventListener('click',bCallback);
+document.getElementById("t3").addEventListener('click',bCallback);
+document.getElementById("t4").addEventListener('click',bCallback);
+document.getElementById("t5").addEventListener('click',bCallback);
 
+function dCallback(e){
+  addItemToDo(this);
+  this.removeEventListener("click", dCallback);
+  this.addEventListener('click',bCallback);
+};
+/*
+document.getElementById("t1").addEventListener('click',dCallback);
+document.getElementById("t2").addEventListener('click',dCallback);
+document.getElementById("t3").addEventListener('click',dCallback);
+document.getElementById("t4").addEventListener('click',dCallback);
+document.getElementById("t5").addEventListener('click',dCallback);*/
+
+/*
 var b2Callback = function(e){
     console.log(e);
     addItemToDone(t2);
@@ -43,7 +60,7 @@ var b5Callback = function(e){
     removeItemFromToDo(t5);
 };
 document.getElementById("t4").addEventListener('click',b5Callback);
-
+*/
 var highlight = function highlight(e){
     var x = document.getElementById(e);
     var y = x.getElementById("txt");
