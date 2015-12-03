@@ -12,6 +12,6 @@ var AddButtonCallback = function(e){
     console.log(e);
     add();
 };
-var add_button = document.getElementById("add_button");
-add_button.addEventListener('click',AddButtonCallback);
+var button = document.getElementById("button");
+button.addEventListener('click',AddButtonCallback);
 
