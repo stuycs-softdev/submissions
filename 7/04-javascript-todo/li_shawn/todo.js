@@ -18,20 +18,17 @@ var process = function process(){
 	}
 };
 
-var addMouseEvents = function(item){
-		item.addEventListener('mouseover',function(e){
-				this.classList.remove('green');
-				this.classList.add('blue');
-		});
-		item.addEventListener('mouseout',function(e){
-				this.classList.remove('blue');
-				this.classList.add('green');
-		});
-};
+var start = document.getElementById("start");
+var stop = document.getElementById("stop");
+start.addEventListener('click',function(){
+		myInterval = setInterval(doStuff,1000);
+});
+stop.addEventListener('click',function(){
+		clearInterval(myInterval);
+});
 
-for (var i=0; i<toDoList.length; i++){
-		// items[i].addEventListener('click',redCallback);
-		addMouseEvents(toDoList[i]);
+var redCallback = function(e){
+		this.classList.toggle('red');		
 };
 
 var submitThis= document.getElementById("submitThis");
