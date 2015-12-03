@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>TodoL: A bundle of organization!</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+  <body>
+    <div class="section no-pad-bot no-pad-top" id="index-banner">
+      <div class="row">
+        <div class="col s6 light-blue darken-4" style="height: 100vh">
+          <div class="section center-align white-text">
+            <h5> Are you ready? Here are the things you need to do: </h5>
+          </div>
+          <div class="divider"></div>
+          <ul id="todolist">
+          </ul>
+        </div>
+        <div class="col s6 orange darken-4" style="height: 100vh">
+          <div class="section center-align white-text">
+            <h5> Enter something new to do! </h5>
+          </div>
+          <div class="divider"></div>
+          <div class="row">
+            <div class="input-field col s12 white-text">
+              <i class="material-icons prefix">mode_edit</i>
+              <input placeholder="Title" id="new_title" type="text" class="validate">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12 white-text">
+              <i class="material-icons prefix">mode_edit</i>
+              <textarea id="new_content" class="materialize-textarea"></textarea>
+              <label for="new_content">Anything else? Elaborations?</label>
+            </div>
+          </div>
+          <div class="row center-align">
+            <button class="center-align btn waves-effect waves-light"
+              type="submit" name="action" id="add">Add!
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="todol.js"></script>
+
+  </body>
+</html>
