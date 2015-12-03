@@ -3,12 +3,63 @@
   
 </head>
 <body>
-  <h1>Welcome to your To Do list</h1>
-  <textarea placeholder="Activity to do..."
-	    style="overflow:auto;
-		   resize:none;"
-	    cols="30"></textarea>
-  <br>
-  <button>Submit Activity</button>
+  <center>
+    <h1>Welcome to your To Do list</h1>
+    <h2>Features</h2>
+  </center>
+    <ol style="margin-left:20%">
+      <li>
+	Mousing over an item in a list will make it change color to help you
+	focus on where your mouse is.
+      </li>
+      <li>
+	You can add an activity by using the textbox below and then clicking
+	Submit Activity. This will add your activity to your to do list.
+      </li>
+      <li>
+	Clicking on an activity in the to do list will bring it over to the
+	done list.
+      </li>
+      <li>
+	Clicking on an activity in the done list will delete the activity.
+      </li>
+      <li>
+	WARNING: If you make a mistake, you must bring it over to the done
+	list and delete it from there!
+      </li>
+    </ol>
+    <center>
+    <h3>Happy planning!</h3>
+    <textarea placeholder="Activity to do..."
+	      style="overflow:auto;
+		     resize:none;"
+	      cols="30"
+	      id="activity"></textarea>
+    <br>
+    <button id="button">Submit Activity</button>
+    <br>
+  </center>
+  <dl style="width:40%;
+	     float:left;
+	     border:1px solid black;
+	     padding:20px;
+	     margin-left:2em;"
+      id="todo"
+      rows="30">
+    <dt><h1>To Do</h1></dt>
+    <dd>Wake up</dd>
+    <dd>Go to school</dd>
+    <dd>Do homework</dd>
+  </dl>
+  <dl style="width:40%;
+	     float:left;
+	     border:1px solid black;
+	     padding:20px;
+	     margin-left:5em;"
+      id="done">
+    <dt><h1>Done</h1></dt>
+    <dd>Get out of bed</dd>
+  </dl>
+  <script src="java.js"></script>
 </body>
 </html>
