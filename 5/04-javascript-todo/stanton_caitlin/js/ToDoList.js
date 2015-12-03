@@ -1,6 +1,6 @@
 var addItem = function addItem(name, deets) {
 	var list = document.getElementById('listoftasks');
-	var item = document.createElement('tr');
+	var item = document.createElement('li');
 	item.innerHTML = name + ": " + deets;
 	list.appendChild(item);
 	item.addEventListener('click',amDone);
