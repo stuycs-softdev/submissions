@@ -1,9 +1,9 @@
 //* TODO Lookup how to get the data out of a text entry
 
-var addItem = function addItem(s, list_type){
+var addItem = function addItem(s, listType){
     var n = document.createElement("li");
     n.innerHTML = s;
-    var l = document.getElementById(list_type);
+    var l = document.getElementById(listType);
     l.appendChild(n);
     console.log(n);
 };
@@ -11,10 +11,10 @@ var addItem = function addItem(s, list_type){
 var buttonCallback = function(e){
     //Retrieve the text that is currently in textarea
     //Then add the text to the list
-    var t = document.getElementById("input_text").value;
+    var t = document.getElementById("inputText").value;
     addItem(t, "taskList");
 };
 
-var b = document.getElementById("add_button");
+var b = document.getElementById("addButton");
 b.addEventListener('click',buttonCallback);
 
