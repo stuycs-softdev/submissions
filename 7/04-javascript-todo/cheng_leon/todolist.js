@@ -8,22 +8,30 @@ var addItem = function addItem(s, listType){
     console.log(n);
 };
 
+//for the done list
+var addMouseEvents2 = function(item){
+    item.addEventListener('dblclick',function(e){
+	item.remove();
+    });
+    item.addEventListener('click',function(e){
+	this.classList.toggle('green');
+    });
+}
 
-var theTaskList = document.getElementById("taskList");
-var tasks = theTaskList.children;
+var theDoneList = document.getElementById("doneList");
+var dones = theDoneList.children;
+var markDone = function markDone(item){
+    addItem(item.innerHTML,"doneList");
+    item.remove();
+    addMouseEvents2(dones[dones.length-1]);
+};
 
+//for the task list
 var addMouseEvents = function(item){
     item.addEventListener('click', function(e){
-	this.classList.toggle('blue');
+	markDone(this);
     });
 };
-
-//update the listeners for each list item
-for (var i = 0; i<tasks.length;i++){
-    addMouseEvents(tasks[i]);
-    console.log("inside for loop");
-};
-
 
 var buttonCallback = function(e){
     //Retrieve the text that is currently in textarea
@@ -32,10 +40,9 @@ var buttonCallback = function(e){
     addItem(t, "taskList");
     
     //update the listeners for each list item
-    for (var i = 0; i<tasks.length;i++){
-	addMouseEvents(tasks[i]);
-	console.log("inside for loop");
-    };    
+    var theTaskList = document.getElementById("taskList");
+    var tasks = theTaskList.children;
+    addMouseEvents(tasks[tasks.length-1]);
 };
 
 var b = document.getElementById("addButton");
