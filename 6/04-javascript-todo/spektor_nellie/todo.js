@@ -21,18 +21,32 @@ var addItem = function addItem(){
 var moveItemToDone = function moveItemToDone(n) {
     var a = document.getElementById(""+n);
     var l = document.getElementById("donelist");
-    var n = document.createElement("li"); 
-    n.innerHTML = a;
-    n.setAttribute("id", ""+itemNumber);
-    l.appendChild(n);
+    var m = document.createElement("li"); 
+    m = n;
+    m.setAttribute("id", ""+itemNumber);
+    l.appendChild(m);
     itemNumber= itemNumber+1;
     a.remove();    
 
 };
 
+var startCycling = function startCycling(){
+};
+
+var stopCycling = funciton stopCycling(){
+};
+
+
+var startbCallBack = function startbCallBack(){
+    startCycling();
+};
+
+var stopbCallBack = function stopbCallBack(){
+};
+
 var b2CallBack = function b2CallBack(){
     var id = this.id;
-    moveItemToDone(id);
+    moveItemToDone(this);
 };
 
 var ButtonCallBack = function ButtonCallBack(){ //add button is pressed

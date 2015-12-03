@@ -21,7 +21,7 @@ def index():
             jacket=request.form['jacket']
             hat=request.form['hat']
             umbrella=request.form['umbrella']
-            d = {'city':city},
+            d = {'city':city,
                  'shirt':shirt,
                  'shorts':shorts,
                  'sweater':sweater,
