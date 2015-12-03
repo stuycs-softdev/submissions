@@ -21,12 +21,12 @@ var itemCallback = function(e){
 };
 
 var buttonCallback = function(e){
-    var ls = document.getElementById("theList");
+    var l = document.getElementById("theList");
     var text = document.getElementById("todo");
     var input = text.value;
     if (input != ""){
 	addItem(input, ls);
-	ls.children[ls.children.length - 1].addEventListener("click", itemCallback);
+	l.children[ls.children.length - 1].addEventListener("click", itemCallback);
     }
     text.value = "";
 };
