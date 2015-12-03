@@ -45,5 +45,3 @@ var listMaster = function(lister, index) {
 
 var button = document.getElementById("add");
 button.addEventListener("click",buttonCallback);
-
-    
