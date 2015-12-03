@@ -1,0 +1,50 @@
+html, body{
+    height: 100;
+    line-height: 200%;
+}
+
+table{
+    text-align: center;
+    width: 500px;
+}
+
+form{
+    height: 50px;
+}
+
+input{
+    height: 25px;
+}
+
+#add{
+    width: 50px;
+    height: 30px;
+}
+
+#to-do{
+    background-color: rgb(250,160,165);
+}
+
+#done{
+    background-color: rgb(210,240,120);
+}
+
+tr{
+    font-family: "Arial", "Arial", sans-serif;
+    font-size: 20px;
+}
+
+th{
+    font-family: "Arial", "Arial", sans-serif;
+    font-size: 25px;
+    text-decoration: underline;
+    border: 1px solid black;
+}
+
+#to-do-head{
+    background-color: rgb(245,130,135);
+}
+
+#done-head{
+    background-color: rgb(175,225,25);
+}
