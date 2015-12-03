@@ -9,7 +9,7 @@ var additem = function additem(s,listname){
 
 var removeitem = function(n){
     var items = document.getElementsByTagName("li");
-    var donestuff = items[n].value;
+    var donestuff = items[n].innerHTML;
     additem(donestuff,"done")
     items[n].remove();
 };

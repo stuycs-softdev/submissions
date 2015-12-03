@@ -61,10 +61,11 @@ var buttonCallback = function buttonCallback(e){
     
 };
 var b2Callback = function buttonCallback(e){
-    e.preventDefault();
     console.log(e);
-    console.log(this);
-    removeitem(0);
+console.log(this);
+var input = document.getElementById('input');
+var text = input.value;
+additem(text);
 };
 
 var button = document.getElementById('b');

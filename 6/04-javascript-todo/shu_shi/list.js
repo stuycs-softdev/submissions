@@ -22,6 +22,9 @@ var ButtonCallback = function(e){
     addItem(add);
 };
 
+var button = document.getElementById("b");
+b.addEventListener('click',ButtonCallback);
+
 var addFinish = function addFinish(s){
     var l = document.getElementById("done");
     var n = document.createElement("li");
@@ -35,15 +38,29 @@ var ClickCallback = function(e){
     addFinish(s);
 };
 
+var todo = document.getElementById("todo");
+todo.addEventListener('click',ClickCallback);
+
 var ClickCallback2 = function(e){
     document.getElementById("done").getElementsByTagName("li")[0].remove();
 }
 
-var button = document.getElementById("b");
-b.addEventListener('click',ButtonCallback);
-
-var todo = document.getElementById("todo");
-todo.addEventListener('click',ClickCallback);
-
 var done = document.getElementById("done");
 done.addEventListener('click',ClickCallback2);
+
+var num = 0;
+
+var HighLightNext = function HighLight(e){
+    var list = document.getElementsByTagName("li");
+    if(num = list.length()){
+	num = 0;
+    }
+    else{
+	list[num] = "<li>" + list[num].innerHTML + "</li>";
+	num ++;
+	list[num] = "<li><font color ='red'>" + list[num].innerHTML + "</font></li>";
+    }
+}
+
+var next = document.getElementById("next");
+next.addEventListener('click',HighLightNext);
