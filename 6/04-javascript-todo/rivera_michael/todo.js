@@ -1,24 +1,30 @@
 console.log("Initiate List");
 
-c = 1;
-
-var button = document.getElementById('button');
-button.addEventListener('click',ButtonCallback);
-
-var ButtonCallback = function(e){
-    var add = document.getElementById("input").value;
-    addItem(add);
-};
-
-var addItem = function addItem(e){
-    var l = document.getElementById("dolist");
+var addItem = function addItem(e,l){
+    console.log(e);
     var a = document.createElement("li");
-    a.id = c++;
     a.innerHTML = e;
-    a.addEventListener('click',remItem);
+    a.addEventListener('click', remItem);
     l.appendChild(a);
 };
 
+
+var ButtonCallback = function ButtonCallback(e){
+    console.log(e);
+    addItem(document.getElementById("input").value, document.getElementById("dolist"));
+};
+var b = document.getElementById('b');
+b.addEventListener('click',ButtonCallback);
+
+/*
+var ClickCallback = function ClickCallback(e){
+    console.log(e);
+    var id = this.id;
+    remItem(id);
+};
+*/
 var remItem = function remItem(e){
+    console.log(e);
     this.remove();
 };
+
