@@ -24,19 +24,14 @@ var add_to_list = function add_to_list(e) {
         "</div> </div> </div> </div>"
     ];
     var todo_list = document.getElementById("todolist");
-    console.log(todo_list);
     var new_item = document.createElement("li");
     template[5] = document.getElementById('new_title').value;
-    console.log(template[5]);
     template[8] = document.getElementById('new_content').value;
-    console.log(template[8]);
     var combined = "";
     for (var i = 0; i < template.length; i++) {
         combined += template[i];
     }
-    console.log(combined);
     new_item.innerHTML = combined;
-    console.log(new_item.innerHTML);
     todo_list.appendChild(new_item);
     document.getElementById('new_title').value = "";
     document.getElementById('new_content').value = "";
