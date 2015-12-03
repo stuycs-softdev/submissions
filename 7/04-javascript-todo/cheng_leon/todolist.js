@@ -8,13 +8,46 @@ var addItem = function addItem(s, listType){
     console.log(n);
 };
 
+
+var theTaskList = document.getElementById("taskList");
+var tasks = theTaskList.children;
+
+var addMouseEvents = function(item){
+    item.addEventListener('click', function(e){
+	this.classList.toggle('blue');
+    });
+};
+
+//update the listeners for each list item
+for (var i = 0; i<tasks.length;i++){
+    addMouseEvents(tasks[i]);
+    console.log("inside for loop");
+};
+
+
 var buttonCallback = function(e){
     //Retrieve the text that is currently in textarea
     //Then add the text to the list
     var t = document.getElementById("inputText").value;
     addItem(t, "taskList");
+    
+    //update the listeners for each list item
+    for (var i = 0; i<tasks.length;i++){
+	addMouseEvents(tasks[i]);
+	console.log("inside for loop");
+    };    
 };
 
 var b = document.getElementById("addButton");
 b.addEventListener('click',buttonCallback);
+
+
+
+// var redCallback = function(e){
+//     this.classList.toggle('red');
+// };
+
+// for (var i = 0; i<tasks.length;i++){
+//     tasks[i].addEventListener('click', redCallback);
+// }
 
