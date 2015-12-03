@@ -13,8 +13,8 @@ var addDone = function addDone(words) {
 };
 
 
-var appendText() = function appendText(id,words) {
-  if (id === "done") {
+var appendText = function appendText(id,words) {
+  if (id === "todo") {
     addTodo(words);
   }
   else {
@@ -24,22 +24,22 @@ var appendText() = function appendText(id,words) {
 
 var deleteText = function deleteText(index) {
   var items = document.getElementsByTagName("li");
-  items.remove(index);
+  items[index].remove();
 }
 
-document.getElementById("li").addEventListener("click", function(event){
+document.getElementById("submitButton").addEventListener("click", function(event){
   event.preventDefault();
   var words = this.innerHTML;
   appendText(this.id,words);
   deleteText(this.index);
 });
 
-document.getElementsByClassName("todo").addEventListener("mouseover", function(event){
+document.getElementById("todo").addEventListener("mouseover", function(event){
   this.classList.remove("red");
   this.classList.add("blue");
 });
 
-document.getElementsByClassName("done").addEventListener("mouseover", function(event) {
+document.getElementById("done").addEventListener("mouseover", function(event) {
   this.classList.remove("red");
   this.classList.add("blue");
 });
