@@ -8,22 +8,15 @@ var addItem = function addItem(s, listType){
     console.log(n);
 };
 
-
-var theTaskList = document.getElementById("taskList");
-var tasks = theTaskList.children;
+//var markDone = function markDone(){};
 
 var addMouseEvents = function(item){
     item.addEventListener('click', function(e){
-	this.classList.toggle('blue');
+	this.classList.toggle('red');
+	console.log('p');
+	console.log(this);
     });
 };
-
-//update the listeners for each list item
-for (var i = 0; i<tasks.length;i++){
-    addMouseEvents(tasks[i]);
-    console.log("inside for loop");
-};
-
 
 var buttonCallback = function(e){
     //Retrieve the text that is currently in textarea
@@ -32,10 +25,9 @@ var buttonCallback = function(e){
     addItem(t, "taskList");
     
     //update the listeners for each list item
-    for (var i = 0; i<tasks.length;i++){
-	addMouseEvents(tasks[i]);
-	console.log("inside for loop");
-    };    
+    var theTaskList = document.getElementById("taskList");
+    var tasks = theTaskList.children;
+    addMouseEvents(tasks[tasks.length-1]);
 };
 
 var b = document.getElementById("addButton");
