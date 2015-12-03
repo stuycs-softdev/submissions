@@ -1,0 +1,12 @@
+#leftcolumn, #rightcolumn {
+    min-height: 750px;
+}
+#leftcolumn {
+    width: 500px;
+    min-height: 100px;
+    position:fixed;
+}
+#rightcolumn {
+    width: 500px;
+    float: right;
+}
