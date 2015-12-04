@@ -2,25 +2,28 @@
 <html>
   <head>
     <title> MyToDo</title>
+    <!--CSS-->
     <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
     <h1 class="gold">Welcome to my Todo List!</h1>
     <!--Left side of the page aka the todo-->
-    <div id="todo" class="red">
-      <p class="leftp">Stuff Todo </p>
+    <div id="leftdiv">
+      <h2 class="leftp">Stuff Todo </h2>
       <!--Submit to add more stuff todo-->
-      <form>
-        <input type="text" placeholder="Todo">
-        <input type="submit" value="Submit" id="submitButton">
-      </form>
-      <ul>
+      <input type="text" value="" id="addThis">
+      <button id="submitButton">Submit</button>
+      <ul id="todo">
       </ul>
+
+      <!--Highlighting buttons-->
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
     </div>
     <!--Right side/Done list-->
-    <div id="done">
-      <p class="rightp">Done =D</p>
-      <ul>
+    <div id="rightdiv">
+      <h2 class="rightp">Done =D</h2>
+      <ul id="done">
       </ul>
     </div>
 

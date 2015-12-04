@@ -5,27 +5,43 @@ var additem = function additem(s){
 		l.appendChild(n);
 };
 
-var removeitem = function(n){
+var removeitem = function removeitem(n){
 		var tasks = document.getElementsByTagName("li");
-		tasks[n].remove();
-
+		tasks[n-1].remove(); //indexing is weird
 };
 
+var changeColor = function changeColor(){
+		var items = document.getElementsByTagName("li");
+		for( var i = 0; i < items.length; i++ ){
+			if( items[i].classList.contains("green")){
+				items[i].classList.remove("green");
+				if( i == items.length-1 ){
+					items[0].classList.add("green");
+				}else{
+					items[i+1].classList.add("green");
+				}
+			break;
+			}
+		}
+};
 var buttonAdd = function buttonAdd(e){
 		console.log(e);
 		console.log(this);
-		console.log(task);
+		task = document.getElementById("task").value;
 		additem(task);
 };
 var buttonRemove = function buttonRemove(e){
 		console.log(e);
 		console.log(this);
-		console.log(rmno);
-		removeitem(n);
+		rmno = +document.getElementById("rmno").value;
+		removeitem(rmno);
 };
 
-var button = document.getElementById('add');
-add.addEventListener('click',buttonAdd);
+var button = document.getElementById("add");
+add.addEventListener("click",buttonAdd);
 
-var button2 = document.getElementById('remove');
-remove.addEventListener('click',buttonRemove);
+var button2 = document.getElementById("remove");
+remove.addEventListener("click",buttonRemove);
+
+var button3 = document.getElementById("chcol");
+chcol.addEventListener("click",changeColor);
