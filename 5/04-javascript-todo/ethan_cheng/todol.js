@@ -69,8 +69,43 @@ var add_to_list = function add_to_list(e) {
 
 var colorscroll_current = 0;
 var tick = 0;
+var bg_color = {"red":255, "green":255, "blue":255};
 
 var colorscroll = function colorscroll(e) {
+    // Scroll the background color
+    var delta = Math.floor((Math.random() * 100) + 1) - 50;
+    if (delta < -20) {
+        delta = -2;
+    } else if (delta > -20) {
+        delta = 2;
+    } else {
+        delta = 0;
+    }
+    bg_color['red'] += delta;
+
+    delta = Math.floor((Math.random() * 100) + 1) - 50;
+    if (delta < -20) {
+        delta = -2;
+    } else if (delta > -20) {
+        delta = 2;
+    } else {
+        delta = 0;
+    }
+    bg_color['green'] += delta;
+
+    delta = Math.floor((Math.random() * 100) + 1) - 50;
+    if (delta < -20) {
+        delta = -2;
+    } else if (delta > -20) {
+        delta = 2;
+    } else {
+        delta = 0;
+    }
+    bg_color['blue'] += delta;
+
+    document.body.style.backgroundColor = "rgb(" + [bg_color['red'],bg_color['green'],bg_color['blue']].join() + ")";
+
+    // Scroll the cards
     var todo_list = document.getElementsByClassName("card");
     if (todo_list.length < 1) {
         return;
@@ -90,13 +125,20 @@ var colorscroll_button = document.getElementById('colorscroll');
 var colorscroll_run;
 
 colorscroll_init = function colorscroll_init() {
+    bg_color["red"] = Math.floor((Math.random() * 256) + 1);
+    bg_color["green"] = Math.floor((Math.random() * 256) + 1);
+    bg_color["blue"] = Math.floor((Math.random() * 256) + 1);
+    document.getElementById('left_panel').className = "col s6 transparent";
+    document.getElementById('right_panel').className = "col s6 transparent";
     colorscroll_button.removeEventListener('click', colorscroll_init);
     colorscroll_button.addEventListener('click', colorscroll_stop);
-    colorscroll_run = setInterval(colorscroll, 500);
+    colorscroll_run = setInterval(colorscroll, 100);
 }
 
 colorscroll_stop = function colorscroll_stop() {
     window.clearTimeout(colorscroll_run);
+    document.getElementById('left_panel').className = "col s6 light-blue darken-4";
+    document.getElementById('right_panel').className = "col s6 orange darken-4";
     colorscroll_button.removeEventListener('click', colorscroll_stop);
     colorscroll_button.addEventListener('click', colorscroll_init);
 }
