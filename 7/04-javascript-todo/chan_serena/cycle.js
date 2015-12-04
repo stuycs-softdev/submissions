@@ -8,15 +8,35 @@ imgs[3] = "static/img4.jpg"
 
 function imageCycle() {
 
-	document.img.src = imgs[i];
-	if (i < imgs.length - 1) {
-		i++;
-	}
-	else {
-		i=0;
-	}
-	setTimeout("imageCycle(), 3000");
+    /*
+    document.img.src = imgs[i];
+    if (i < imgs.length - 1) {
+	i++;
+    }
+    else {
+	i=0;
+    }
+    setTimeout("imageCycle(), 3000");
+    */
+    
 }
 
 
-window.onload = imageCycle;
+var ImgFade = function(){
+    var myInterval = setInterval(function(){
+	this.style.opacity = 0;
+    }, 1000);
+}
+
+item.addEventListener("load", function(e){
+    var myInterval = setInterval(function(){
+	this.style.opacity = 1;
+    }, 1000);
+});
+
+
+item.addEventListener("load", function(e){
+    setTimeout(ImgFade(), 1000);
+});
+    
+window.onload = imageCycle();
