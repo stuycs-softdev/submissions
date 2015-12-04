@@ -22,12 +22,49 @@ document.getElementById("submitItem").addEventListener('click', submitCallback);
 
 
 var index = 0;
-var TDL = document.getElementsByTagName("li");
 document.getElementById("nextItem").addEventListener("click",function(e) {
-    TDL[index].style.fontSize = "xx-large";
     console.log("next");
+
+    var TDL = document.getElementsByTagName("li");
+
+    TDL[(index) % TDL.length].style.fontSize = "large";
+    TDL[(index + 1) % TDL.length].style.fontSize = "xx-large";
+    index += 1;
 })
+
 document.getElementById("prevItem").addEventListener("click",function(e) {
     console.log("prev");
+    
+    var TDL = document.getElementsByTagName("li");
+
+    TDL[(index - 1) % TDL.length].style.fontSize = "xx-large";
+    TDL[(index) % TDL.length].style.fontSize = "large";
+    index -= 1;
+    if (index ==0) {
+	index += TDL.length;
+    }
+    
 })
+
+var goNext = function goNext() {
+    console.log("next");
+
+    var TDL = document.getElementsByTagName("li");
+
+    TDL[(index) % TDL.length].style.fontSize = "large";
+    TDL[(index + 1) % TDL.length].style.fontSize = "xx-large";
+    index += 1;
+};
+
+var start = document.getElementById("startcycle");
+var stop = document.getElementById("stopcycle");
+
+start.addEventListener("click",function(e) {
+    myInterval = setInterval(goNext , 1000 );
+});
+
+stop.addEventListener("click", function(e) {
+    clearInterval(myInterval);
+});
+    
 
