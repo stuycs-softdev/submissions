@@ -29,30 +29,47 @@ var moveItemToDone = function moveItemToDone(n) {
     a.remove();    
 
 };
-var index = -1;
+var index = 0;
 var lastIndex = 0;
 var next = function next(){//highlights next item in todo list
+    console.log("index = "+index);
     var todolist = document.getElementById("todolist");
     var items = todolist.getElementsByTagName("li");
-    
-    if(index !== -1){
+    if(index > items.length-1){
+	index = 0;
+    }
+    if(index == 0){
+	items[index].style.background = "yellow";
+	items[items.length-1].style.background = "white";
+	index += 1;
+    }
+    else{
+	items[index].style.background = "yellow";
+	lastIndex = index;
+	lastIndex -= 1;
+	items[lastIndex].style.background = "white";
+	console.log("highlighting "+index);
+	index += 1;
+    }
+
+    /*if(index !== -1){
 	items[index].style.background = "white";
     }
     if(index > items.length-1){
-	index = 0;/*
+	index = 0;
 	lastIndex = items.length-1;
 	items[lastIndex].style.background = "white";
-	*/
+	
     }
     else{
 	index += 1;
-	/*if(index == 0){
+	if(index == 0){
 	    lastIndex = items.length-1;
 	}
 	else{
 	    lastIndex = index; 
 	    index ++;
-	    }*/
+	    }
     }
     console.log("length "+ items.length);
     if(items.length > 0){
@@ -67,7 +84,7 @@ var next = function next(){//highlights next item in todo list
     //}
     //index++;
     console.log("index "+index);
-   
+   */
 };
 
 
