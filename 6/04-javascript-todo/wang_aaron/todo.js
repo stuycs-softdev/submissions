@@ -14,16 +14,20 @@ var clickCallback = function clickCallback(item) {
 };
 
 var submitCallback = function submitCallback(e) {
-    addItem(document.getElementById("newItem").value)
+    addItem(document.getElementById("newItem").value);
+    document.getElementById("newItem").value = "";
 };
-
-// var OGlist = document.getElementsByTagName("li");
-// for (i = 0; i < OGlist.length; i++) {
-//     OGlist[i].style.color = "red";
-//     OGlist[i].addEventListener("click",function(e){clickCallback(OGlist[i])});
-//     }
 
 document.getElementById("submitItem").addEventListener('click', submitCallback);
 
 
+var index = 0;
+var TDL = document.getElementsByTagName("li");
+document.getElementById("nextItem").addEventListener("click",function(e) {
+    TDL[index].style.fontSize = "xx-large";
+    console.log("next");
+})
+document.getElementById("prevItem").addEventListener("click",function(e) {
+    console.log("prev");
+})
 
