@@ -17,3 +17,22 @@ document.getElementById("submit").addEventListener("click",function(){
     });
     todo.appendChild(el);
 });
+
+var items = todo.children;
+var cnt = 0;
+var color = function color(){
+    if (cnt == 0){
+	items[items.length-1].style.color = "red";
+    }
+    else{
+	items[items.length-1].style.color = "black";
+    }
+    items[cnt].style.color = "red";
+    cnt = (cnt + 1)%items.length;
+};
+
+document.getElementById("grow").addEventListener("click",color);
+
+document.getElementById("grow-cycle").addEventListener("click",function(e){
+    setInterval(color,2000);
+});

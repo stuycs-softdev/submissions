@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #parent{
+      display: flex;
+      }
+      #left {
+      flex: 1;
+      border-width: 1px;
+      border-style: solid;
+      }
+      #right {
+      width: 50%;
+      border-width: 1px;
+      border-style: solid;
+      }
+    </style>
+  <head>
+  <body>
+    <h1>TODO LIST!!</h1>
+    <div id="f">
+      <form>
+	Add item: <input type="text" id="newitem" name="newitem">
+      </form>
+      <br>
+      <button id="b">Go</button>
+      <p></p>
+    </div>    
+    <div id="parent">
+      <div id="left">
+	<h3>To do: </h3>
+	<ul id="todo">
+	  <li>1</li>
+	  <li>2</li>
+      </ul>
+      </div>
+      
+      <div id="right">
+	<h3>Done: </h3>
+	<ul id="done">
+	  <li>1</li>
+	  <li>2</li>
+	</ul>
+      </div>
+    </div>
+    <script src="todo.js"></script>
+  </body>
+</html>

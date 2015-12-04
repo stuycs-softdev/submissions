@@ -18,21 +18,28 @@ var process = function process(){
 	}
 };
 
-var addMouseEvents = function(item){
-		item.addEventListener('mouseover',function(e){
-				this.classList.remove('green');
-				this.classList.add('blue');
-		});
-		item.addEventListener('mouseout',function(e){
-				this.classList.remove('blue');
-				this.classList.add('green');
-		});
+var index = 0;
+
+var cycle = function cycle(){
+	var toDoList = document.getElementsByTagName("li");
+	if (toDoList.length > 1){
+		toDoList[index].style.color="white";
+		index = (index + 1) % toDoList.length;
+		toDoList[index].style.color="red";
+	}
+	console.log(toDoList[index]);
 };
 
-for (var i=0; i<toDoList.length; i++){
-		// items[i].addEventListener('click',redCallback);
-		addMouseEvents(toDoList[i]);
-};
+var myInterval;
+
+var start = document.getElementById("start");
+var stop = document.getElementById("stop");
+start.addEventListener('click',function(){
+		myInterval = setInterval(cycle,100);
+});
+stop.addEventListener('click',function(){
+		clearInterval(myInterval);
+});
 
 var submitThis= document.getElementById("submitThis");
 submitThis.addEventListener("click",submit);

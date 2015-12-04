@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Chiu To-do</title>
+    <style>
+    #container {
+    padding: 25px 50px 25px 50px;
+    height: 100%;
+    }
+    #todo {
+    float:left;
+    width: 50%;
+    border: dotted;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <center><h1>What do you need to do, Chiu??</h1><br>
+      <form id="data">ADD TO TO-DO: <input type ="text" id="input" name="whattodo"><button id="go">Add</button></form>
+      </center>
+      <br><br>
+
+      <div id="todo">
+      <center><h2>To-Do List</h2></center>
+      <ol id="todolist">
+      </ol>
+      </div>
+
+      <div id="done">
+      <center><h2>Completed Tasks</h2></center>
+      <ol id="donelist">
+      </ol>
+      </div>
+    </div>
+
+  </body>
+  <script src="todo.js"></script>
+</html>

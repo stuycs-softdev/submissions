@@ -1,25 +1,22 @@
-
-
 console.log("JS Loaded");
 
 //Just testing understanding
 var x = 20;
 
-var l = [10,20, "hello", 30]
+var l = [10,20,"hello",30];
 
 var d = {
     "k1" : "value 1",
-    k2 : 123
+    k2 : 123,
     123 : [1,2,3,4,5]
-    
 };
 
 //Backend functions
 var addItem = function addItem(s) {
-    var l = document.getElementById("List");
+    var list = document.getElementById("List");
     var n = document.createElement("li");
     n.innerHTML=s;
-    l.appendChild(n);   
+    list.appendChild(n);   
 }
 
 var removeItem = function removeItem(n) {
@@ -29,14 +26,14 @@ var removeItem = function removeItem(n) {
 
 /*
 var color = function() {
-    var items = document.getElementsByTagName("li");
+    var items = Document.getElementsByTagName("li");
     for( var i =0; i < items.length; i++)
 	items[i].classList.add("red");
     
 }
 
 var stripe = function() {
-    var items = document.getElementsByTagName("li");
+    var items = Document.getElementsByTagName("li");
     for( var i = 0; i < items.length; i++) {
 	if ( i%2==0)
 	    items[i].classList.add("red")
@@ -48,24 +45,25 @@ var stripe = function() {
 
 
 //Adds Item when "b" Add button is clicked
-var buttonCallback = function(e){
+var addButton = function(e) {
     addItem("HELLO");
 };
 
-var b = document.getElementById('b');
-b.addEventListener('click',buttonCallback);
+var add = document.getElementById('add');
+add.addEventListener('click',addButton);
 
-//Prevents "Remove" b2 button from going to Stuy website
-var b2Callback = function(e){
+//Prevents "Remove" remove button from going to Stuy website and removes
+var removeCallback = function(e){
 		e.preventDefault();
 		removeItem(0);
 };
-document.getElementById('b2').addEventListener('click',b2Callback);
+document.getElementById('remove').addEventListener('click',removeCallback);
+
+
+var List = document.getElementById("List");
+var items = List.children;
 
 /*
-var thelist = document.getElementById("thelist");
-var items = thelist.children;
-
 var redCallback = function(e){
 		this.classList.toggle('red');		
 };

@@ -1,6 +1,29 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-
-
-
+  <head>
+    <title>Todo List</title>
+    <style>
+      .red {color:#ff0000;}
+      .green {color:#00ff00;}
+      .blue {color:#0000ff;}
+    </style>
+  </head>
+  <body>
+    <h1>TODO List</h1>
+    <br>
+    <textarea id="input" rows="1" cols="20"></textarea>
+    <button id="b">Insert</button>
+    <br>
+    <ol id="dolist">
+      <li>Finish homework</li>
+    </ol>
+    <hr>
+    <ol id="donelist">
+      <li>Eat Snack</li>
+    </ol>
+    <hr>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <script src="todo.js"></script>
+  </body>
 </html>

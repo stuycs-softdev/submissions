@@ -16,20 +16,43 @@ var removeItem = function removeItem(item) {
 };
 
 //adds item to done list
-var addItemDone = function addItemDone(s) {
+var addItemDone = function addItemDone(item) {
     var list = document.getElementById("done");
-    var item = document.createElement("li");
-    item.innerHTML = s;
+    //var item = document.createElement("li");
+    //item.innerHTML = s;
     list.appendChild(item);
 };
 
-//stuff for add button
-var b1 = document.getElementById("b1");
-//var b1 = document.getElementById("todo");
-console.log(b1);
-b1.addEventListener('click', b1Callback);
+//highlighter
+var highlight = function highlight() {
+    var list=document.getElementById("todo");
+    var items=list.children;
+    var item=items[itemInd];
+    
+    if (itemInd==0) {
+	var lastItem=items[items.length-1];	
+    } else {
+	var lastItem=items[itemInd-1];
+    }
+    
+    lastItem.classList.remove('high');
+    item.classList.add('high');
+    
+    if (itemInd==items.length-1) {
+	itemInd=0;
+    } else {
+	itemInd++;
+    }
+    setTimeout(highlight, 5000);
+}
 
-var b1Callback = function(e) {
+//stuff for add button
+var add = document.getElementById("add");
+//var b1 = document.getElementById("todo");
+
+
+
+var addCallback = function(e) {
     var text = document.getElementById("new_task");
     console.log('hi');
     addItemToDo(text.value);
@@ -37,14 +60,31 @@ var b1Callback = function(e) {
 };
 
 //stuff for shifty button
-var b2 = document.getElementById("b2");
-b2.addEventListener('click', b2Callback);
+var move = document.getElementById("move");
 
-var b2Callback = function(e) {
+var moveCallback = function(e) {
     var list = document.getElementById("todo");
     var items = list.children;
-    items[0].remove();
-    addItemDone(items[0].innerHTML);
+    var thing = items[0];
+    thing.remove();
+    addItemDone(thing);
 };
 
+var itemInd=0;
+var lastInd=-1;
+
+var start = document.getElementById("start");
+var stop=document.getElementById("stop");
+var step=document.getElementById("step");
+
+var interval;
+add.addEventListener('click', addCallback);
+move.addEventListener('click', moveCallback);
+step.addEventListener('click', highlight);
+start.addEventListener('click', function(e) {
+    interval=setInterval(highlight, 3000);
+});
+stop.addEventListener('click', function(e) {
+    clearInterval(interval);
+});
 

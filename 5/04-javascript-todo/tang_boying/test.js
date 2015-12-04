@@ -55,3 +55,36 @@ for (var i=0;i<items.length;i++){
 for (var i=0;i<undone.length;i++){
     dlistOn(undone[i]);
 	}
+
+//highlight
+var hitems = document.getElementById("hlist").children;
+
+var i = 0
+var highlight = function highlight(){
+    console.log(hitems[i]);
+    hitems[i].classList.add("red");
+    if (i == 0){
+        hitems[hitems.length-1].classList.remove('red');
+    }
+    else{
+        hitems[i-1].classList.remove('red');
+    }
+}
+
+var doStuff = function doStuff() {
+    i = i%hitems.length;
+    highlight(i);
+    i++;
+    console.log("Stuff has been done");
+};
+var myInterval;
+
+var b2 = document.getElementById("start");
+start.addEventListener('click',function(e){
+    myInterval =  setInterval(doStuff,2000);
+});
+
+var b3 = document.getElementById("s");
+s.addEventListener('click',function(e){
+        clearInterval(myInterval);
+});

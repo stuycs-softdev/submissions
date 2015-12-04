@@ -1,9 +1,13 @@
  function updateItemStatus() {
  	var cbId = this.id.replace("cb_", "");
  	var itemText = document.getElementById("item_" + cbId);
-
  	//removeItem(itemText);
-	itemText.style.textDecoration = "line-through";
+     itemText.style.textDecoration = "line-through";
+
+     /*
+     var activities = document.getElementById("todolist").children;
+     activities[cbId].remove();
+     */
  }
 
  function addNewItem(list, itemText){
@@ -14,7 +18,7 @@
 	checkBox.type = "checkBox";
 	checkBox.id = "cb_" + totalItems;
 	checkBox.onclick = updateItemStatus;
-
+     
 	var span = document.createElement("span");
 	span.id = "item_" + totalItems;
 	span.innerText = itemText;
@@ -47,5 +51,6 @@ inItemText.onkeyup = function(event) {
 };
 
 var removeItem = function removeItem(n){
-	n.parentNode.removeChild(n);
+    n.parentNode.removeChild(n);
+    //this.remove();
 }
