@@ -1,3 +1,4 @@
+var indx = 0;
 //Adds item to the end of a list
 //params: an item and a list
 var additem = function additem(item,listname){
@@ -11,6 +12,30 @@ var removeitem = function(n){
 		items[n].remove();
 };
 
+//Changes colors
+var changeColor = function(){
+    var items = document.getElementById("todolist");
+    var stuff = items.children;
+    //console.log(stuff.length);
+    //console.log(indx);
+    if (stuff.length == 0){
+    } else if (stuff.length == 1){
+	stuff[0].style.color = "red";
+	console.log(stuff);
+	indx = 1;
+    } else if (stuff.length > indx){
+	stuff[indx-1].style.color = "black";
+	stuff[indx].style.color = "red";
+	indx++;
+    } else if (stuff.length == indx){
+	stuff[stuff.length-1].style.color = "black";
+	stuff[0].style.color = "red";
+	indx = 1;
+    } else {
+	console.log("COLORS!!!");	
+    }
+};
+
 //Adds an item to the todolist
 //type something into textbox and press the button
 var todoCallback = function todoCallback(e){
@@ -20,6 +45,7 @@ var todoCallback = function todoCallback(e){
     var index = tdlist.children.length
     additem(item,todolist);
     tdlist.children[index].addEventListener("click", doneCallback);
+    tdlist.children[index].classList.add("red");
     text.value = "";
 };
 
@@ -31,10 +57,8 @@ var doneCallback = function doneCallback(e){
     dlist.appendChild(this);
 };
 
-//Adds an item to todolist
-//press button
 var button = document.getElementById("addtolist");
 addtolist.addEventListener("click", todoCallback);
 
-//var b1 = document.getElementById("b1");
-//b1.addEventListener("click",doneCallback);
+var colorButton = document.getElementById("colors");
+colors.addEventListener("click", changeColor);

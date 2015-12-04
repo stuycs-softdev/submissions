@@ -53,4 +53,46 @@ var updateItems = function(items){
 	addMouseEvents(i);
     };
 };
+
+var changeColor = function(item){
+    if (item.style.color.localeCompare('red') == 0){
+	item.style.color = 'black';
+    } else {
+	item.style.color = 'red';
+    };    
+};
+
+
+var changeColorButtonCallback = function(e){
+    items = document.getElementById('todolist').children;
+    changeColor(items[0]);
+};
+
+
+var c = document.getElementById('add_color');
+c.addEventListener('click',changeColorButtonCallback);
+
+var i;
+var incI = function(e){
+    items = document.getElementById('todolist').children;
+    if (i < items.length){
+	changeColor(items[i]);
+	i++;
+    } else {
+	i = 0;
+    };
+};
+
+var start = document.getElementById('start');
+var stop = document.getElementById('stop');
+start.addEventListener('click',function(e){
+    i = 0;
+    myInterval = setInterval(incI,800);
+});
+stop.addEventListener('click',function(e){
+    clearInterval(myInterval);
+});
+ 
 updateItems(items);
+
+
