@@ -25,16 +25,28 @@ var submitCallback = function submitCallback(e) {
 
 document.getElementById("submitItem").addEventListener('click', submitCallback);
 
-var counter = 0;
+//Highlighting assignment
+var counter = -1;
 var cycle = function cycle(){
-		var lists = Document.getElementById('cycler').children;
-		for (var i = 0; i < lists.length; ++i) {
-				lists[i].style.color = 'black';
+		var lists = document.getElementById('cycler').children;
+		var c = lists.length-1;
+		if (counter == c) {
+				counter = 0;
+				//resets the loop, starts back at zero again
+		} else {
+				counter = counter + 1;
+				//else, advance in the loop
 		}
-		lists[counter].style.color = 'green';
-		counter = (counter+1) % lists.length;
+		if (counter != 0) {
+				l[counter-1].classList.remove("red");
+				//if not the first element, then remove "red" from the one before it
+		} else {
+				l[c].classList.remove("red");
+				//if the first element, remove "red" from the last in the list
+		}
+		l[counter].classList.add("red");
+		//turns the current element red
 };
-
-document.getElementById("cycle-next").addEventListener("click",cycle);
+var cycle_next = document.getElementById("next").addEventListener("click",cycle);
 
 
