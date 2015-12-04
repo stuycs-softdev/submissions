@@ -23,7 +23,32 @@ var done = function done(){
     }
 };
 
-var button = document.getElementById("button");
+var remove = function remove(){
+  
+    var todo = document.getElementById("todo");
+    var complete = document.getElementById("done");
+    
+    if (complete.contains(complete.children[0])){
+	complete.removeChild(complete.children[0]);
+    } 
+    else {
+    }
+};
+
+var myInterval;
+
+var start = document.getElementById("start");
+var stop = document.getElementById("stop");
+
+start.addEventListener('click',function(){
+		myInterval = setInterval(remove,10000);
+});
+
+stop.addEventListener('click',function(){
+		clearInterval(myInterval);
+});
+
+var button = document.getElementById("submit");
 
 button.addEventListener("click",submit);
 

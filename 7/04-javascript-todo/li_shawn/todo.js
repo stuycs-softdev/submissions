@@ -18,18 +18,28 @@ var process = function process(){
 	}
 };
 
+var index = 0;
+
+var cycle = function cycle(){
+	var toDoList = document.getElementsByTagName("li");
+	if (toDoList.length > 1){
+		toDoList[index].style.color="white";
+		index = (index + 1) % toDoList.length;
+		toDoList[index].style.color="red";
+	}
+	console.log(toDoList[index]);
+};
+
+var myInterval;
+
 var start = document.getElementById("start");
 var stop = document.getElementById("stop");
 start.addEventListener('click',function(){
-		myInterval = setInterval(doStuff,1000);
+		myInterval = setInterval(cycle,100);
 });
 stop.addEventListener('click',function(){
 		clearInterval(myInterval);
 });
-
-var redCallback = function(e){
-		this.classList.toggle('red');		
-};
 
 var submitThis= document.getElementById("submitThis");
 submitThis.addEventListener("click",submit);

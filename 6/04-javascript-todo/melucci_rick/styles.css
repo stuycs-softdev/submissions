@@ -8,11 +8,20 @@ html{
 }
 
 #main{
+  min-height: 50%;
+  width: 50%;
+  /*top: 0; bottom: 0; left: 0; right: 0;
+  position: absolute;*/
+  margin: auto;
+  margin-top: 5%;
+  background-color: #39B9A1;
+  border-radius: 30px;
+  padding: 5%;
+}
+
+#main2{
   height: 50%;
   width: 50%;
-  top: 0; bottom: 0; left: 0; right: 0;
-  position: absolute;
-  margin: auto;
   background-color: #39B9A1;
   border-radius: 30px;
   padding: 5%;
