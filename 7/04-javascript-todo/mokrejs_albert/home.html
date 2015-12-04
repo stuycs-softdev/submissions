@@ -54,29 +54,6 @@
 		
 <script>
 
-var timer;
-
-var x = 0;
-
-var start = document.getElementById("startB");
-var stop = document.getElementById("stopB");
-
-var box = document.getElementById("check");
-box.checked = true;
-
-var b = document.getElementById("b");
-b.addEventListener('click',ButtonCallback);
-
-var thelist = document.getElementById("thelist");
-items = thelist.children;
-
-var thelist2 = document.getElementById("thelist2");
-items2 = thelist2.children;
-
-for (var i=0; i<items.length; i++){
-		items[i].addEventListener('click',removeItem);
-};
-
 var addItem = function addItem(s){
 		var l = document.getElementById("thelist");
 		var n = document.createElement("li");
@@ -117,6 +94,24 @@ var ButtonCallback = function(e){
         document.getElementById('txtfld').value = "";
 };
 
+var box = document.getElementById("check");
+box.checked = true;
+
+var b = document.getElementById("b");
+b.addEventListener('click',ButtonCallback);
+
+var thelist = document.getElementById("thelist");
+items = thelist.children;
+
+var thelist2 = document.getElementById("thelist2");
+items2 = thelist2.children;
+
+for (var i=0; i<items.length; i++){
+		items[i].addEventListener('click',removeItem);
+};
+
+var x = 0;
+
 var cycle = function cycle(){
 	var list = document.getElementsByTagName("li");
 	if (list.length > 1){
@@ -126,8 +121,13 @@ var cycle = function cycle(){
 	}
 };
 
+var timer;
+
+var start = document.getElementById("startB");
+var stop = document.getElementById("stopB");
+
 start.addEventListener('click',function(){
-		timer = setInterval(cycle,100);
+		timer = setInterval(cycle,200);
 });
 
 stop.addEventListener('click',function(){
