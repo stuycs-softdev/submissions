@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
+  <head>
+      <link type="test/css" rel="stylesheet" href="main.css"/>
+  </head>
   <body style="text-align:center">
-    <form id="addForm">
-    Add To-Do! <input type="text" name="addtodo" value="Write Code">
-    </form>
-    <br>
-    <button id="but"> Add! </button>
-    <br> <br>
-    <table align="center">
-      <thead>
-	<tr>
-	  <th>To-Do:</th>
-	  <th>To-Done:</th>
-	</tr>
-      </thead>
-      
+    <h1>Javascript!</h1>
+    <div>
+      <h2>  ToDo|ToDone</h2>
+      <form id="addForm">
+	<input type="text" name="addtodo" value="Write Code">
+      </form>
+      <br>
+      <button id="but"> Add! </button>
+      <br> <br>
+      <table width="400px" align="center">
+	<thead>
+	  <tr>
+	    <th width="50%">To-Do:</th>
+	    <th width="50%">To-Done:</th>
+	  </tr>
+	</thead>
+	
       <tbody>
 	<tr>
 	  <td>
@@ -27,8 +33,28 @@
 	  </td>
 	</tr>
       </tbody>
-    </table>
+      </table>
+    </div>
+   
+    
+    <div>
+      <h2>ListCycler</h2>
+      List:
+      <br><br>
+      <ol id="cyclelist">
+	<li>Hi Mom!</li>
+	<li>Hi Dad!</li>
+	<li>Hi Cuz!</li>
+	<li>Did I remember to buy Milk?</li>
+	<li>Ay Girl</li>
+	<li>Hey Bae!</li>
+	<li>Sup B!</li>
+      </ol>
+      <br><br>
+      <button id="next"> Next </button> 
+      <button id="start"> Start </button> <button id="stop"> Stop </button>
+    </div>
     <script src="todone.js"></script>
-
+    <script src="listcycler.js"></script>
   </body>  
 </html>
