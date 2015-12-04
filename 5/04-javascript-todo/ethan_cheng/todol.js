@@ -1,4 +1,8 @@
+var colorscroll_init;
+var colorscroll_stop;
+
 var remove_card = function remove_card(card) {
+    colorscroll_stop();
     var list_element = card.parentElement.parentElement.parentElement.parentElement.parentElement;
     list_element.parentNode.removeChild(list_element);
     document.getElementById('left_panel').setAttribute("style","height:100vh");
@@ -64,6 +68,7 @@ var add_to_list = function add_to_list(e) {
 };
 
 var colorscroll_current = 0;
+var tick = 0;
 
 var colorscroll = function colorscroll(e) {
     var todo_list = document.getElementsByClassName("card");
@@ -71,8 +76,11 @@ var colorscroll = function colorscroll(e) {
         return;
     }
     set_active(todo_list[colorscroll_current]);
+    tick++;
+    if (todo_list.length === 1 && tick % 2 === 1) {
+        return;
+    }
     var i = colorscroll_current > 0 ? colorscroll_current - 1 : todo_list.length - 1;
-    console.log(i);
     set_inactive(todo_list[i]);
     colorscroll_current = (colorscroll_current + 1) % todo_list.length;
 }
@@ -80,8 +88,6 @@ var colorscroll = function colorscroll(e) {
 var add = document.getElementById('add');
 var colorscroll_button = document.getElementById('colorscroll');
 var colorscroll_run;
-var colorscroll_init;
-var colorscroll_stop;
 
 colorscroll_init = function colorscroll_init() {
     colorscroll_button.removeEventListener('click', colorscroll_init);
