@@ -12,7 +12,7 @@ var toComplete = document.getElementsByClassName("move-to-completed");
 var completed = document.getElementById("completed-list");
 var highlight = document.getElementById("highlight");
 var start = document.getElementById("start");
-var loop = false;
+var myInterval;
 
 todoExit.addEventListener("click", function(e) {
   e.preventDefault();
@@ -57,7 +57,8 @@ submit.addEventListener("click", function(e) {
   }
 });
 
-highlight.addEventListener("click", highlight);
+highlight.addEventListener("click", hilight);
+start.addEventListener("click", highlightLoop);
 
 function moveToComplete(e) {
   this.innerHTML = "<--";
@@ -73,7 +74,7 @@ function moveToTodo(e) {
   this.removeEventListener("click", moveToTodo);
   this.addEventListener("click", moveToComplete);
 }
-function highlight(e) {
+function hilight(e) {
   var children = todoList.children;
   var doesContain = false;
   if (children.length > 0) {
@@ -89,7 +90,20 @@ function highlight(e) {
       }
     }
     if (!doesContain) {
+      console.log("hello");
       children[0].classList.add("highlighted");
     }
   }
+}
+function highlightLoop(e) {
+  myInterval = setInterval(hilight, 2000);
+  this.innerHTML = "Stop";
+  this.removeEventListener("click", highlightLoop);
+  this.addEventListener("click", stopLoop);
+}
+function stopLoop(e) {
+  clearInterval(myInterval);
+  this.innerHTML = "Start";
+  this.removeEventListener("click", stopLoop);
+  this.addEventListener("click", highlightLoop);
 }
