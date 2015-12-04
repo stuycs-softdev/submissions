@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 
 <html>
-  <body>
-    <h2>To Do</h2>
-    <ul id="todo">
-    </ul>
-    Add:
-    <br>
-    <input type="text" name="item" id="item">
-    <br>
-    <button id="button">Add</button>
-    <br>
-    <h2>Done</h2>
-    <ul id="done">
-    </ul>
-    <script src="todo.js"></script>
-  </body>
+	<head>
+		<style>
+			.turqoise {color:#3c8274;}
+		</style>
+	</head>
+	<body>
+        <h1>Todo</h1>
+		<ol id="todo">
+            <li class="turqoise">Eat Chicken</li>
+		</ol>
+		<form name="in">
+			<input type="text" id="task"> 
+			<input id="add" type="button" value="Add Task"> <br><br>
+			<input type="text" id="rmno"> 
+			<input id="remove" type="button" value="Remove Task (by number)">
+		</form>
+		<br>
+		<button id="chcol">Change Color</button>
+	</body>
+	<script src="todo.js"></script>
 </html>

@@ -1,31 +1,40 @@
-var addItem = function addItem(item, list){
-		var nItem = document.createElement("li");
-		nItem.innerHTML = item;
-		list.appendChild(nItem);
+console.log("loaded the js file");
+
+var addItem = function addItem(s) {
+    var list = document.getElementById("TDL");
+    var newItem = document.createElement("li");
+    newItem.style.color = "red";
+    newItem.addEventListener('click',function(e){clickCallback(newItem)});
+    newItem.innerHTML = s;
+    list.appendChild(newItem);
 };
 
-var itemCallback = function itemCallback(e){
-		var todo = document.getElementById("todo");
-		var done = document.getElementById("done");
-		if (done.contains(this)){
-				done.removeChild(this);
-		}
-		else{
-				todo.removeChild(this);
-				done.appendChild(this);
-		}
+var clickCallback = function clickCallback(item) {
+    item.style.color = "green";
 };
 
-var buttonCallback = function buttonCallback(e){
-		var ls = document.getElementById("todo");
-		var text = Document.getElementById("item");
-		var input = text.value;
-		if (input != ""){
-				addItem(input,ls);
-				ls.children[ls.children.length - 1].addEventListener("click",itemCallback);
-		}
-		text.value = "";
+var submitCallback = function submitCallback(e) {
+    addItem(document.getElementById("newItem").value)
 };
 
-var button = document.getElementById("button");
-button.addEventListener("click", buttonCallback);
+// var OGlist = document.getElementsByTagName("li");
+// for (i = 0; i < OGlist.length; i++) {
+//     OGlist[i].style.color = "red";
+//     OGlist[i].addEventListener("click",function(e){clickCallback(OGlist[i])});
+//     }
+
+document.getElementById("submitItem").addEventListener('click', submitCallback);
+
+var counter = 0;
+var cycle = function cycle(){
+		var lists = Document.getElementById('cycler').children;
+		for (var i = 0; i < lists.length; ++i) {
+				lists[i].style.color = 'black';
+		}
+		lists[counter].style.color = 'green';
+		counter = (counter+1) % lists.length;
+};
+
+document.getElementById("cycle-next").addEventListener("click",cycle);
+
+
