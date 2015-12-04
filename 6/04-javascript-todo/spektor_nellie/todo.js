@@ -41,6 +41,7 @@ var next = function next(){//highlights next item in todo list
     if(index == 0){
 	items[index].style.background = "yellow";
 	items[items.length-1].style.background = "white";
+	console.log("highlighting "+index);
 	index += 1;
     }
     else{
@@ -51,40 +52,6 @@ var next = function next(){//highlights next item in todo list
 	console.log("highlighting "+index);
 	index += 1;
     }
-
-    /*if(index !== -1){
-	items[index].style.background = "white";
-    }
-    if(index > items.length-1){
-	index = 0;
-	lastIndex = items.length-1;
-	items[lastIndex].style.background = "white";
-	
-    }
-    else{
-	index += 1;
-	if(index == 0){
-	    lastIndex = items.length-1;
-	}
-	else{
-	    lastIndex = index; 
-	    index ++;
-	    }
-    }
-    console.log("length "+ items.length);
-    if(items.length > 0){
-	items[index].style.background = "yellow";
-	//items[lastIndex].style.background = "white";
-	console.log("highlight");
-    }
-     //    if(index !== -1)
-    //	items[index].style.background = "white";
-    //    if(index >= items.length-1){
-    //index = 0;
-    //}
-    //index++;
-    console.log("index "+index);
-   */
 };
 
 
@@ -94,7 +61,7 @@ var stop = document.getElementById("stop");
 var interval;
 
 start.addEventListener("click",function(e){
-        interval = setInterval(next,3000);
+        interval = setInterval(next,2000);
     });
 stop.addEventListener("click",function(e){
 	clearInterval(interval);
