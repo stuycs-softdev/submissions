@@ -4,15 +4,12 @@ i = 1
 
 var add = function add(t){
     var thing = document.getElementById("todo").value
-    var list = document.getElementById("thingstodo");
+    var todoList = document.getElementById("thingstodo");
     var toAdd = document.createElement("li");
-    var a = document.createElement("a");
-    a.innerHTML = thing;
-    a.id = i;
-    a.addEventListener('click', RemoveItem);
-    toAdd.appendChild(a);
     toAdd.id = i++;
-    list.appendChild(toAdd);
+    toAdd.innerHTML = thing;
+    toAdd.addEventListener('click', Done);
+    todoList.appendChild(toAdd);
 };
 
 var ButtonCallBack = function ButtonCallBack(e){
@@ -22,8 +19,18 @@ var ButtonCallBack = function ButtonCallBack(e){
 var button = document.getElementById("add");
 button.addEventListener('click', ButtonCallBack);
 
+var Done = function Done(e){
+    e.preventDefault();
+    var haveDone = document.getElementById(e.target.id);
+    haveDone.parentNode.removeChild(havedone);
+    haveDone.removeEventListener(Done);
+    haveDone.addEventListener('click', RemoveItem);
+    var doneList = document.getElementById("thingsdone");
+    doneList.appendChild(haveDone)
+}
+
 var RemoveItem = function RemoveItem(e){
     e.preventDefault();
-    var deader = document.getElementById(e.target.id);
-    deader.parentNode.removeChild(deader);
+    var doner = document.getElementById(e.target.id);
+    doner.parentNode.removeChild(doner);
 };
