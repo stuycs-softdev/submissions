@@ -1,14 +1,16 @@
-var addItem = function addItem(s){
-    var n = document.createElement("li");
-    n.innerHTML = s;
-    var l = document.getElementById("theList");
-    l.appendChild(n);
-    console.log(n);
+var myInterval;
+
+count = 0
+var doStuff = function doStuff(){
+    console.log(count);
+    count++;
 };
 
-var buttonCallback = function(e){
-    addItem("something");
-}
-
-var b = document.getElementById("addButton");
-b.addEventListener('click', buttonCallback);
+var start = document.getElementById('start');
+start.addEventListener('click', function(e){
+    myInterval = setInterval(doStuff, 500);
+});
+var stop = document.getElementById('stop');
+stop.addEventListener('click', function(e){
+    clearInterval(myInterval);
+});
