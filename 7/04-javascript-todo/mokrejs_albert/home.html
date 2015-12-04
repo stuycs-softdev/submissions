@@ -3,56 +3,111 @@
 		.green {color: #00ff00;}
 		.red   {color: #ff0000;}
 		.blue  {color: #0000ff;}
+        
+        table, th, td {
+    		border: 5px solid black;
+		}
+		th, td {
+    		padding: 15px;
+		}
 	</style>
 
 	</head>
 	<body>
-		<h1 id="h" class="blue">The header</h1>
+		<h1 id="h" >The Listening</h1>
          <input type="text" id = "txtfld" value="">
+         <input type="checkbox" id="check" name="spam">Spam
 		<button id="b">Add</button>
-		
+       
+        <table style="width:80%">
+        
+        <tr>
+        <td>
         <h3> The To Do List </h3>
-        <ol id="thelist">
-			    <li> sample </li>
-		    </ol>
+        </td>
         
-        <hr>
         
+      
+        <td>
         <h3> The Done List </h3>
+        </td>
+        </tr>
+        <tr>
+        <td>
+		
+        
+        <ol id="thelist">
+			<li> sample </li>
+		</ol>
+        
+        </td>
+        <td>
+       
         <ol id="thelist2">
-
-		    </ol>
-  <script>
+</ol>
+		</td>
+		</tr>
+		</table>
+        
+        <button id="startB"> Start </button>
+        <button id="stopB"> Stop </button>
+		
+<script>
 
 var addItem = function addItem(s){
 		var l = document.getElementById("thelist");
 		var n = document.createElement("li");
-		n.innerHTML=s;
-		l.appendChild(n);
         
-    n.addEventListener('click',removeItem);
+        if (s.indexOf(".png") > -1 || s.indexOf(".jpg") > -1 || s.indexOf(".bmp") > -1 ){
+        var tmpimg=document.createElement("img");
+        tmpimg.src = s;
+        if (tmpimg.width > 200){
+        	tmpimg.width = 200;
+            }
+        n.appendChild(tmpimg);
+        }
+        else{
+		n.innerHTML=s;
+        }
+		
+        l.appendChild(n);
+        items[items.length] = n
+        items[items.length-1].addEventListener('click',removeItem);
+
 };
+
 
 var removeItem = function removeItem(){
 		var l = document.getElementById("thelist2");
 		var n = document.createElement("li");
-		n.innerHTML=this.childNodes[0].nodeValue;
-		l.appendChild(n);
+
+        for (var i=0; i<this.childNodes.length; i++){
+		l.appendChild(this.childNodes[i]);
+};
+        
 		this.parentNode.removeChild(this);
         
-       
-    items2[items2.length] = n;
-    items2[items2.length-1].addEventListener('click',removeItemFinal);
+        if (document.getElementById("check").checked){
+        var phrases = ["Good job!","Keep it up!", "Nice!", "Cool!","10/10!"];
+       	alert(phrases[parseInt(Math.random()*5)]);
+        }
+        
+        items2[items2.length] = n;
+        items2[items2.length-1].addEventListener('click',removeItemFinal);
 };
 
 var removeItemFinal = function removeItemFinal(){
 		this.parentNode.removeChild(this);
+        
 };
 
 var ButtonCallback = function(e){
 		addItem(document.getElementById('txtfld').value);
-    document.getElementById('txtfld').value = "";
+        document.getElementById('txtfld').value = "";
 };
+
+var box = document.getElementById("check");
+box.checked = true;
 
 var b = document.getElementById("b");
 b.addEventListener('click',ButtonCallback);
@@ -63,16 +118,42 @@ items = thelist.children;
 var thelist2 = document.getElementById("thelist2");
 items2 = thelist2.children;
 
-
-var redCallback = function(e){
-		this.classList.toggle('red');		
-};
-
 for (var i=0; i<items.length; i++){
 		items[i].addEventListener('click',removeItem);
 };
 
+var x = 0;
+
+var cycle = function cycle(){
+	var list = document.getElementsByTagName("li");
+	if (list.length > 1){
+		list[x].style.color="black";
+		x = (x + 1) % list.length;
+		list[x].style.color="red";
+	}
+};
+
+var timer;
+
+var start = document.getElementById("startB");
+var stop = document.getElementById("stopB");
+
+start.addEventListener('click',function(){
+		try{clearInterval(timer);}
+        catch (err){
+        }
+		timer = setInterval(cycle,200);
+});
+
+stop.addEventListener('click',function(){
+		clearInterval(timer);
+});
+
+
+
 </script>
+
+
 </p>
 
 	</body>
