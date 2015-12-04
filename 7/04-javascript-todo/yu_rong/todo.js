@@ -8,6 +8,7 @@ var addItem = function addItem(s){
 };
 
 var addItem2 = function addItem2(s){
+    console.log("HI");
 		var l = document.getElementById("done");
 		var n = document.createElement("li");
 		n.innerHTML=s;

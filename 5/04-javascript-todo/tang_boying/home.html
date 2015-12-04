@@ -1,6 +1,13 @@
 <!DOCTYPE html>
-
 <html>
+  <head>
+    <style>
+      .red {color:#ff0000;}
+      .green {color:#00ff00;}
+      .blue {color:#0000ff;}
+    </style>
+  </head>
+
   <body>
     To Do List
     <ol id="thelist">
@@ -16,9 +23,23 @@
     Done List
     <ol id="donelist">
     </ol>
-    
+
+    Highlight
+    <ol id="hlist">
+      <li>item 0</li>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+      <li>item 4</li>
+      <li>item 5</li>
+      <li>item 6</li>
+      <li>item 7</li>
+    </ol>
+
     <textarea id="content"></textarea>
     <button id="submit">Submit</button>
+    <button id="start">Start</button>
+    <button id="s">Stop</button> 
 
     <script src="test.js"></script>
   </body>

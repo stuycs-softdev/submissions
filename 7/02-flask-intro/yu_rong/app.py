@@ -19,7 +19,7 @@ def defaultPage():
     return render_template("home.html")
 
 @app.route("/logout")
-def defaultPage():
+def Page():
     return render_template("logout.html")
 
 @app.route("/homework")
@@ -47,5 +47,4 @@ def testPage():
 
 if __name__ == "__main__":
     app.debug = True
-    
     app.run(host='0.0.0.0', port = 8000)

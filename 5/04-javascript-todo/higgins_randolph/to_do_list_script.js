@@ -1,26 +1,38 @@
 console.log("it works to here");
-var add_to_toDos = function add_to_toDos(s){
+var add = function add(s){
     var l = document.getElementById("toDos");
     var n = document.createElement("li");
-    n.setAttribute("onClick", n.classList.add("green"));
+    n.addsetEventlistener("mouseclick", function(e){
+	remove(s, "toDos");
+	add2(s);
+	});
     n.innerHTML=s;
-    l.appendChild(s);
-   // var butt = document.createElement("button")
-    
     l.appendChild(n);
 };
-
-var add_to_dones = function add_to_dones(s){
+var add2 = function add2(s){
     var l = document.getElementById("dones");
-    l.appendChild(s);
+    var n = document.createElement("li");
+    n.addsetEventlistener("mouseclick", function(e){
+	remove(s, "dones");
+    });
+    n.innerHTML=s;
+    l.appendChild(n);
 };
-var move = function move(x){
-    var k = docuemnt.getElementByTagName("li");
-    for(var i = 0; i < items.length; i++){
-	if(x == k[i].innerHTML){
-	    add_to_dones(k[i]);
-	    k[i].parentNode.removeChild(k[i]);
+var removeItem = function(s, list){
+    var items = document.getElementsById(list);
+    for(var n = 0; n < items.length; n++){
+	if(items[n].innerHTML == s){
+	    items[n].remove();
 	    return;
 	};
     };
+};
+
+var button = document.getElementById("button");
+button.addEventListener("click",buttonPress);
+
+var buttonCallBack = function buttonPress(e){
+    var stuff = document.getElementById("item")
+    var text = stuff.value;
+    add(text);
 };

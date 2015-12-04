@@ -5,7 +5,6 @@
     <title>To Do</title>
     <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.css">
-    <script src="app.js"></script>
   </head>
 
 
@@ -13,9 +12,10 @@
       <div id="main">
         <center>
           <h1> To Do Bro </h1>
+          <p>Enter below the things you have to do man, and just do it!</p>
           <div class="input-group">
             <input name="task" type="text" id="add-task" placeholder="Enter another task..." class="form-control flat" />
-            <button class="btn" type="submit">
+            <button id="submit-button" class="btn" type="submit">
               <span class="input-group-btn">
                 <span class="fui-plus"></span>
               </span>
@@ -23,8 +23,17 @@
           </div>
         </center>
             <ul id="thelist">
-              <li><h4>hey</h4></li>
             </ul>
       </div>
+
+      <hr style="margin: 5%">
+
+      <center>
+        <div id="main2">
+          <h1> look at this hover </h1>
+          <h3 id="hover1">Whoa dude</h3>
+          <h3 id="hover2">this is so cool</h3>
+        </div>
   </body>
+  <script src="app.js"></script>
 </html>

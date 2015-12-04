@@ -5,6 +5,16 @@ var remove_card = function remove_card(card) {
     document.getElementById('right_panel').setAttribute("style","height:100vh");
 }
 
+var mark_as_active = function mark_as_active(card) {
+    var card_div = card.parentElement.parentElement;
+    card_div.className = "card cyan darken-4";
+}
+
+var mark_as_inactive = function mark_as_active(card) {
+    var card_div = card.parentElement.parentElement;
+    card_div.className = "card blue-grey darken-1";
+}
+
 var add_to_list = function add_to_list(e) {
     // Keep template parts within function to prevent global overwrites
     var template = [
@@ -20,23 +30,20 @@ var add_to_list = function add_to_list(e) {
         "</p>",
         "</div>",
         "<div class=\"card-action\">",
+        "<a href=\"javascript:void(0);\" onclick=\"mark_as_active(this);\">Mark As Active</a>",
+        "<a href=\"javascript:void(0);\" onclick=\"mark_as_inactive(this);\">Mark As Inactive</a>",
         "<a href=\"javascript:void(0);\" onclick=\"remove_card(this);\">Remove</a>",
         "</div> </div> </div> </div>"
     ];
     var todo_list = document.getElementById("todolist");
-    console.log(todo_list);
     var new_item = document.createElement("li");
     template[5] = document.getElementById('new_title').value;
-    console.log(template[5]);
     template[8] = document.getElementById('new_content').value;
-    console.log(template[8]);
     var combined = "";
     for (var i = 0; i < template.length; i++) {
         combined += template[i];
     }
-    console.log(combined);
     new_item.innerHTML = combined;
-    console.log(new_item.innerHTML);
     todo_list.appendChild(new_item);
     document.getElementById('new_title').value = "";
     document.getElementById('new_content').value = "";
