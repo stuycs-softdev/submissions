@@ -2,19 +2,25 @@
 
 <html>
 	<head>
+		<style>
+			.green {color:#00ff00;}
+		</style>
 		<img src="http://i.imgur.com/7YKULgZ.png" alt="To Do!">
 	</head>
 	<body>
 		<ol id="todo">
-			<li>Finish Systems HW</li>
-			<li>Figure out why input is not registering :^(</li>
+			<li class="green">Buy Spaghetti</li>
+			<li>Cook Spaghetti</li>
+			<li>Eat Spaghetti</li>
 		</ol>
 		<form name="in">
-			<input type="text" name="task"> 
+			<input type="text" id="task"> 
 			<input id="add" type="button" value="Add Task"> <br><br>
-			<input type="text" name="rmno"> 
+			<input type="text" id="rmno"> 
 			<input id="remove" type="button" value="Remove Task (by number)">
 		</form>
+		<br>
+		<button id="chcol">Change Color</button>
 	</body>
 	<script src="todo.js"></script>
 </html>
