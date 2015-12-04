@@ -10,7 +10,7 @@ var addCallBack = function(){
 	addItem(document.getElementById("textbox").value)
 }
 var addButton = document.getElementById("textbox-submit");
-addButton.addEventListener('click',addCallBack)
+addButton.addEventListener('click',addCallBack);
 
 
 var moveItem = function moveItem(){
