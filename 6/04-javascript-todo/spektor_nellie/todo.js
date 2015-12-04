@@ -29,20 +29,62 @@ var moveItemToDone = function moveItemToDone(n) {
     a.remove();    
 
 };
-
-var startCycling = function startCycling(){
+var index = -1;
+var lastIndex = 0;
+var next = function next(){//highlights next item in todo list
+    var todolist = document.getElementById("todolist");
+    var items = todolist.getElementsByTagName("li");
+    
+    if(index !== -1){
+	items[index].style.background = "white";
+    }
+    if(index > items.length-1){
+	index = 0;/*
+	lastIndex = items.length-1;
+	items[lastIndex].style.background = "white";
+	*/
+    }
+    else{
+	index += 1;
+	/*if(index == 0){
+	    lastIndex = items.length-1;
+	}
+	else{
+	    lastIndex = index; 
+	    index ++;
+	    }*/
+    }
+    console.log("length "+ items.length);
+    if(items.length > 0){
+	items[index].style.background = "yellow";
+	//items[lastIndex].style.background = "white";
+	console.log("highlight");
+    }
+     //    if(index !== -1)
+    //	items[index].style.background = "white";
+    //    if(index >= items.length-1){
+    //index = 0;
+    //}
+    //index++;
+    console.log("index "+index);
+   
 };
 
-var stopCycling = funciton stopCycling(){
-};
 
+var start = document.getElementById("start");
+var stop = document.getElementById("stop");
 
-var startbCallBack = function startbCallBack(){
-    startCycling();
-};
+var interval;
 
-var stopbCallBack = function stopbCallBack(){
-};
+start.addEventListener("click",function(e){
+        interval = setInterval(next,3000);
+    });
+stop.addEventListener("click",function(e){
+	clearInterval(interval);
+    });
+
+var index = 0;
+
 
 var b2CallBack = function b2CallBack(){
     var id = this.id;
@@ -56,9 +98,11 @@ var ButtonCallBack = function ButtonCallBack(){ //add button is pressed
 var b = document.getElementById("addbutton");
 b.addEventListener('click',ButtonCallBack);
 
+var nextb = document.getElementById("nextButton");
+nextb.addEventListener('click',next);
 
-var todolist = document.getElementById("todolist");
+//var todolist = document.getElementById("todolist");
 var items = todolist.children;
-for (var i=0; i < items.length; i++){
-    addMouseEvents(items[i]);
-};
+    //for (var i=0; i < items.length; i++){
+
+    //};
