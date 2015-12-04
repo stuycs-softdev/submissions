@@ -76,7 +76,7 @@ hl.addEventListener('click',highlight);
 
 var run=function run(){
     quit=0;
-    var myInterval =  setInterval(highlight,2000);
+    var myInterval =  setInterval(highlight,1000);
     
 }
 

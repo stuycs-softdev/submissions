@@ -53,5 +53,31 @@ var add_event_todo = function(item) {
     item.addEventListener('click', add_to_done);
 };
 
-var add_event_remove = function(item) {
+var i = 0;
+
+var do_stuff = function() {
+    var todo = document.getElementById("todo").children;
+    i = i % todo.length;
+    if (i == 0) {
+        todo[todo.length - 1].firstChild.setAttribute("class", "red");
+    }
+    else {
+        todo[(i - 1) % todo.length].firstChild.setAttribute("class", "red");
+    }
+    todo[i].firstChild.setAttribute("class", "green");
+    i = (i + 1) % todo.length;
 }
+
+var myInterval;
+
+document.getElementById("start_button").addEventListener("click", function(e) {
+    myInterval = setInterval(do_stuff, 1000);
+});
+
+document.getElementById("stop_button").addEventListener("click", function(e) {
+    clearInterval(myInterval);
+    if (i == 0) {
+        i = document.getElementById("todo").children.length;
+    }
+    document.getElementById("todo").children[i - 1].firstChild.setAttribute("class", "red");
+})
