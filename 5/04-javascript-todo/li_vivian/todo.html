@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+  <title>List</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Dosis:600,400|Roboto' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+  <div id="bg-right"></div>
+  <div id="bg-center">
+    <br>
+    <div class="headingType" align="center">
+      <h1>to do</h1>
+    </div>
+    <hr>
+    <div class="col-md-2 col-md-offset-5">
+      <ol id="list" onclick="removeFunction(event)">
+      </ol>
+    </div>
+    <br>
+    <div class="col-md-2 col-md-offset-5">
+      <div align="center">
+	<input type="text" id="textbox" class="form-control">
+	<br>
+	<button id="b1" class="btn btn-primary">Add to List</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<center>
+	<head>
+		<title> To-Do List </title>
+		<style>
+			body {
+				background-color: black;
+				color: white;
+			}
+			table{
+				border-color:white;
+			}
+			button{
+				color: white;
+				background-color: black;
+				border: 1px solid white;
+			}
+			td{
+				padding-right: 25px;
+			}
+			.red{
+				color:red;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<h2> Simple To-Do List </h2>
+
+		<form>
+		Input a task: <input type="text" id="input">
+		</form>
+		<br>
+		<button id="submitThis"> Submit </button>
+		<br><br>
+
+		<table align="center" border="1">
+			<thead>
+				<tr>
+					<th>Tasks:</th>
+					<th>Completed Tasks:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<ul class="red" id="toDoList"></ul>
+					</td>
+					<td>
+						<ul class="red" id="result"></ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+
+		<script src="todo.js"></script>
+	</body>
+	</center>
+</html>

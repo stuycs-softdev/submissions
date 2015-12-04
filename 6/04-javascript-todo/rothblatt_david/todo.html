@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 
 <html>
+  <head>
 
-   <title> WTD </title>
-   <h1 align="center"> WTD (What To-Do!) </h1>
+    <title> WTD </title>
+    <h1 align="center"> WTD (What To-Do!) </h1>
 
-   <button id="item_to_do"> 
+    <style>
+      .red {color: #ff0000;}
+      .green {color: #00ff00;}
+      .blue {color: #0000ff;}
+    </style>
 
+  </head>
+  
+  <body>
+    <br><center> <img src="to-do-list.png" align="middle" width="159" height="133"></center><br><br>
+    <input type="text" id="new_item">
+    <button id="add_button"> Add It </button>
+    <button id="remove_button">Remove </button>
+    <br><br><br>
+
+    To Do:
+    <ul id="todo_list">
+    </ul>
+    <br> <hr> <br>
+    Done:
+    <ul id="done_list">
+    </ul>
+
+    <script src="todo.js"></script>
+
+  </body>
 
 </html>
+
+
+

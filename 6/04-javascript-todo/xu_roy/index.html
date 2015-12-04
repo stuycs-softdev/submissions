@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles/styles.css" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <h1 class="page-title">Get Started!<h1>
+    <div class="button-box">
+      <button id="highlight" class="todo-button">Highlight</button>
+      <button id="new-todo" class="todo-button">+ New Todo</button>
+      <button id="start" class="todo-button">Start</button>
+    </div>
+    <div class="lists">
+      <div class="todo-list-container">
+        <h1 class="todo">Todo List</h1>
+        <ul id="todo-list"></ul>
+      </div>
+      <div class="todo-list-container">
+        <h1 class="completed">Complete</h1>
+        <ul id="completed-list"></ul>
+      </div>
+    </div>
+
+    <div id="todo-text-box">
+      <button id="todo-text-exit">x</button>
+      <h1 id="todo-text-header">What do you have to do?</h1>
+      <p id="error"></p>
+      <input type="text" id="todo-title" placeholder="Title"></input>
+      <textarea id="todo-text" placeholder="Tell Me What You Need To Do"></textarea>
+      <button id="todo-text-submit">Submit</button>
+    </div>
+    <div id="cover"></div>
+    <script src="scripts/scripts.js"></script>
+  </body>
+</html>
