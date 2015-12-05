@@ -81,7 +81,7 @@ var colorscroll = function colorscroll(e) {
     } else {
         delta = 0;
     }
-    bg_color['red'] += delta;
+    bg_color['red'] = (bg_color['red'] + delta + 256) % 256;
 
     delta = Math.floor((Math.random() * 100) + 1) - 50;
     if (delta < -20) {
@@ -91,7 +91,7 @@ var colorscroll = function colorscroll(e) {
     } else {
         delta = 0;
     }
-    bg_color['green'] += delta;
+    bg_color['green'] = (bg_color['green'] + delta + 256) % 256;
 
     delta = Math.floor((Math.random() * 100) + 1) - 50;
     if (delta < -20) {
@@ -101,7 +101,7 @@ var colorscroll = function colorscroll(e) {
     } else {
         delta = 0;
     }
-    bg_color['blue'] += delta;
+    bg_color['blue'] = (bg_color['blue'] + delta + 256) % 256;
 
     document.body.style.backgroundColor = "rgb(" + [bg_color['red'],bg_color['green'],bg_color['blue']].join() + ")";
 
