@@ -9,6 +9,8 @@ h1 {
 }
 
 h2 {
+    margin-top: -10px;
+    margin-bottom: -10px;
     text-align: center;
     color: white;                                                        
     font-family: "New Courier", courier, monospace;
@@ -19,4 +21,19 @@ body {
     color: white;                                                        
     font-family: "New Courier", courier, monospace;
     background-color: black;
+}
+
+#player1 {
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    height: 100px;
+}
+
+
+#player2 {
+    position: absolute;
+    left: 92%;
+    top: 50%;
+    height: 100px;
 }
