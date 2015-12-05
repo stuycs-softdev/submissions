@@ -4,8 +4,14 @@ var add = function(s){
     var n = document.createElement("li");
     n.addEventListener("click", function(e){
 	add2(s);
-	remove(s, "toDos");
+	n.parentNode.removeChild(n);
 	});
+    n.addEventListener("mouseover", function(e){
+	n.classList.toggle("red");
+    });
+    n.addEventListener("mouseout", function(e){
+	n.classList.toggle("red");
+    });
     n.innerHTML=s;
     l.appendChild(n);
 };
@@ -13,21 +19,18 @@ var add2 = function(s){
     var l = document.getElementById("dones");
     var n = document.createElement("li");
     n.addEventListener("click", function(e){
-	remove(s, "dones");
+	n.parentNode.removeChild(n);
+    });
+     n.addEventListener("mouseover", function(e){
+	n.classList.toggle("red");
+     });
+    n.addEventListener("mouseout", function(e){
+	n.classList.toggle("red");
     });
     n.innerHTML=s;
     l.appendChild(n);
 };
-var remove = function(s, list){
-    var items = document.getElementById(list);
-    add("Check");
-    for(var n = 0; n < items.length; n++){
-	if(items[n].innerHTML == s){
-	    items[n].remove();
-	    return;
-	};
-    };
-};
+
 
 var button = document.getElementById('button');
 button.addEventListener("click", function(e){
