@@ -13,23 +13,23 @@ var colorChange = function colorChange(){
     count = 1;
     while(count<16){
 	var str = document.getElementById(count.toString());
-	var myVar = setTimeout(colorRed, 0, str);
-	var myVar = setTimeout(colorGreen, 250, str);
-	var myVar = setTimeout(colorBlack, 500, str);
+	var myVar = setTimeout(colorRed, 250, str);
+	var myVar = setTimeout(colorGreen, 500, str);
+	var myVar = setTimeout(colorBlack, 750, str);
 	count = count+3;
     } count = 2;
     while(count<16){
 	var str = document.getElementById(count.toString());
-	var myVar = setTimeout(colorGreen, 0, str);
-	var myVar = setTimeout(colorBlack, 250, str);
-	var myVar = setTimeout(colorRed, 500, str);
+	var myVar = setTimeout(colorGreen, 250, str);
+	var myVar = setTimeout(colorBlack, 500, str);
+	var myVar = setTimeout(colorRed, 750, str);
 	count = count+3;
     } count = 3;
     while(count<16){
 	var str = document.getElementById(count.toString());
-	var myVar = setTimeout(colorBlack, 0, str);
-	var myVar = setTimeout(colorRed, 250, str);
-	var myVar = setTimeout(colorGreen, 500, str);
+	var myVar = setTimeout(colorBlack, 250, str);
+	var myVar = setTimeout(colorRed, 500, str);
+	var myVar = setTimeout(colorGreen, 750, str);
 	count = count+3;
     }
 }
@@ -38,6 +38,10 @@ var myInterval;
 var title = document.getElementById("1");
 window.addEventListener('load', function(){
     console.log("hello");
-    setInterval(colorChange, 500);
+    setInterval(colorChange, 750);
 });
 //colorRed(title);
+
+/* Please note! The Falling snow is NOT mine! Here is the link for reference
+http://www.kirupa.com/html5/the_falling_snow_effect.htm */
+
