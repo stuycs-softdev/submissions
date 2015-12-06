@@ -6,21 +6,32 @@ window.addEventListener('mousemove', function(e) {
     face.style.top=e.pageY+'px';
     //console.log(e.pageX);
     //console.log(face.style.left);
-    if ((e.pageX>=cakeX-100) && (e.pageX<=cakeX+100) && (e.pageY>=cakeY-100) && (e.pageY<=cakeY+100)) {
+    var surX_r=cakeX+100;
+    var surX_l=cake-100;
+    var surY_a=cakeY+100;
+    var surY_b=cakeY-100;
+    console.log('xr: '+surX_r);
+    console.log('xl: '+surX_l);
+    console.log('ya: '+surY_a);
+    console.log('yb: '+surY_b);
+    
+ 
+    
+    if (((e.pageX>=surX_l) && (e.pageX<=surX_r)) && ((e.pageY>=surY_b) && (e.pageY<=surY_a))) {
 	face.src="face_3.png";
-    } else if ((e.pageX>=cakeX-250) && (e.pageX<=cakeX+250) && (e.pageY>=cakeY-250) && (e.pageY<=cakeY+250)) {
+    } else if (((e.pageX>=surX_l+50) && (e.pageX<=surX_r+50)) && ((e.pageY>=surY_b+50) && (e.pageY<=surY_a+50))) {
 	face.src="face_2.png";
-    } else if ((e.pageX>=cakeX-350) && (e.pageX<=cakeX+350) && (e.pageY>=cakeY-350) && (e.pageY<=cakeY+350)) {
+    } else if (((e.pageX>=surX_l+100) && (e.pageX<=surX_r+100)) && ((e.pageY>=surY_b+100) && (e.pageY<=surY_a+100))) {
 	face.src="face_1.png";
-    } else if ((e.pageX>=cakeX-4500) && (e.pageX<=cakeX+450) && (e.pageY>=cakeY-450) && (e.pageY<=cakeY+450)) {
+    } else if (((e.pageX>=surX_l+250) && (e.pageX<=surX_r+250)) && ((e.pageY>=surY_b+250) && (e.pageY<=surY_a+250))) {
 	face.src="face_0.png";
-    } else if ((e.pageX>=cakeX-550) && (e.pageX<=cakeX+550) && (e.pageY>=cakeY-550) && (e.pageY<=cakeY+550)) {
+    } else if (((e.pageX>=surX_l+400) && (e.pageX<=surX_r+400)) && ((e.pageY>=surY_b+400) && (e.pageY<=surY_a+400))) {
 	face.src="face_-1.png";
-    } else if ((e.pageX>=cakeX-650) && (e.pageX<=cakeX+650) && (e.pageY>=cakeY-650) && (e.pageY<=cakeY+650)) {
+    } else if (((e.pageX>=surX_l+600) && (e.pageX<=surX_r+600)) && ((e.pageY>=surY_b+600) && (e.pageY<=surY_a+600))) {
 	face.src="face_0.png";
-    } else if ((e.pageX>=cakeX-750) && (e.pageX<=cakeX+750) && (e.pageY>=cakeY-750) && (e.pageY<=cakeY+750)) {
+    } else if (((e.pageX>=surX_l+800) && (e.pageX<=surX_r+800)) && ((e.pageY>=surY_b+800) && (e.pageY<=surY_a+800))) {
 	face.src="face_-1.png";
-    } else if ((e.pageX>=cakeX-850) && (e.pageX<=cakeX+850) && (e.pageY>=cakeY-850) && (e.pageY<=cakeY+850)) {
+    } else if (((e.pageX>=surX_l+950) && (e.pageX<=surX_r+950)) && ((e.pageY>=surY_b+950) && (e.pageY<=surY_a+950))) {
 	face.src="face_-2.png";
     } else {
 	face.src="face_-3.png";
