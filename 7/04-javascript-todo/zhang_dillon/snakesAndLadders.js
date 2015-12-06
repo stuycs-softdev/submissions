@@ -15,6 +15,8 @@ var currentLocations = [currentLocation1, currentLocation2];
 var myStatus = document.getElementById("status");
 
 var board = document.getElementById("board").children[0].children;
+var startmovements = [04, 09, 17, 20, 28, 40, 51, 54, 62, 63, 64, 71, 87, 93, 95, 99];
+var endmovements =   [14, 31, 07, 38, 84, 59, 67, 34, 19, 81, 60, 91, 24, 73, 75, 78];
 
 var findRow = function(num) {
     return 9 - Math.floor((num-1) / 10);
@@ -30,11 +32,22 @@ var movePiece = function() {
     board[findRow(currentLocations[turn])].children[findColumn(currentLocations[turn])].appendChild(players[turn]);
 }
 
+var moveVertically = function() {
+    var indexing = startmovements.indexOf(finalLocations[turn]);
+    if (indexing >= 0) {
+	board[findRow(currentLocations[turn])].children[findColumn(currentLocations[turn])].removeChild(players[turn]);
+	currentLocations[turn] = endmovements[indexing];
+	finalLocations[turn] = endmovements[indexing];
+	board[findRow(currentLocations[turn])].children[findColumn(currentLocations[turn])].appendChild(players[turn]);
+    }
+}
+
 var moveIt = function() {
-    if (currentLocations[turn] < finalLocations[turn] || currentLocations[turn] == 100) {
+    if (currentLocations[turn] < finalLocations[turn] || currentLocations[turn] >= 100) {
 	movePiece();
     } else {
 	clearInterval(myInterval);
+	moveVertically();
 	turn = (turn + 1) % 2;
 	if (currentLocations[turn] == 100) {
 	    myStatus.innerHTML = "Player " + (turn + 1) + "Wins!"
