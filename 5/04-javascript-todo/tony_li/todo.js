@@ -24,12 +24,13 @@ var checklist=document.getElementById("checklist");
 var checkItems=checklist.children;
 
 
-
+console.log(this);
 var shiftClick = function shiftClick(n){
     n.addEventListener('click',shiftitem);
 }
 
 var undoClick = function undoClick(n){
+    console.log("hello");
     n.addEventListener('click',undoitem);
 }
 
@@ -50,6 +51,47 @@ var undoitem=function undoitem(){
                                                                    
     this.remove();
 };
+
+var j=0;
+var quit=0;
+var highlight=function highlight(){
+    if (quit==1){
+	return;
+    }
+    var l=document.getElementsByTagName("li");
+    l[l.length-1].classList.remove("highlight");
+    l[j].classList.add("highlight");
+    if (j>0){
+	l[j-1].classList.remove("highlight");
+    }
+    j++;
+    if (l.length==j){
+	j=0;
+    }
+    console.log(l);
+}
+
+var highlightButton=document.getElementById("hl");
+hl.addEventListener('click',highlight);
+
+var run=function run(){
+    quit=0;
+    var myInterval =  setInterval(highlight,1000);
+    
+}
+
+var goButton=document.getElementById("go");
+go.addEventListener('click',run);
+
+var stopIt = function stopIt(){
+    quit=1;
+}
+
+var stopButton=document.getElementById("Stop");
+console.log(Stop);
+Stop.addEventListener('click',stopIt);
+
+//stop.addEventListener("stop",stopIt);
 
 for (var i=0;i<doItems.length;i++){
     shiftClick(doItems[i]);

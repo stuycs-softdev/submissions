@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+
+<head>
+    <title>Toodoo</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="icon" href="favicon.jpg" type="image/png">
+    <style>
+    /* Makes sure that tables don't overflow from long words. */
+    table {
+        word-break: break-word;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header navbar-brand">
+                TooDoo Website!
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-3">
+                <label for="new_item">New Item:</label>
+                <input type="text" class="form-control" id="new_item">
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <h2 class="sub-header">To-do</h2>
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th class="col-xs-1">Time Added</th>
+                        <th class="col-xs-4">Item</th>
+                    </tr>
+                </thead>
+                <tbody id="todo">
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-default" id="todo_cycle">Cycle</button>
+        </div>
+        <div class="col-xs-6 col-xs-offset-1">
+            <h2 class="sub-header">Done</h2>
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th class="col-xs-1">Time Completed</th>
+                        <th class="col-xs-1">Time Added</th>
+                        <th class="col-xs-4">Item</th>
+                    </tr>
+                </thead>
+                <tbody id="done">
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-default" id="done_cycle">Cycle</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="toodoo.js"></script>
+</body>

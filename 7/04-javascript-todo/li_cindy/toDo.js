@@ -33,3 +33,38 @@ var buttonCallback = function(e){
 
 var button = document.getElementById("add");
 button.addEventListener("click", buttonCallback);
+
+/** Highlighting **/
+var count = -1;
+var highlight = function highlight() {
+    var l = document.getElementById("theList").children;
+    var c = l.length-1;
+    
+    if (count == c) {
+	count = 0;
+    } else {
+	count = count + 1;
+    }
+    if (count != 0) {
+	l[count-1].classList.remove("red");
+    } else {
+	l[c].classList.remove("red");
+    }
+    l[count].classList.add("red");
+  
+};
+
+var next = document.getElementById("next");
+next.addEventListener('click', highlight);
+
+var myInterval;
+var start = document.getElementById("start");
+var stop = document.getElementById("stop");
+
+start.addEventListener('click', function(){
+    myInterval = setInterval(highlight, 500);
+});
+
+stop.addEventListener('click', function(){
+    clearInterval(myInterval);
+});

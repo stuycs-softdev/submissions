@@ -5,26 +5,60 @@
     <title>To Do</title>
     <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.css">
-    <script src="app.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
   </head>
 
 
   <body id="body">
       <div id="main">
-        <center>
-          <h1> To Do Bro </h1>
-          <div class="input-group">
-            <input name="task" type="text" id="add-task" placeholder="Enter another task..." class="form-control flat" />
-            <button class="btn" type="submit">
-              <span class="input-group-btn">
-                <span class="fui-plus"></span>
-              </span>
-            </button>
-          </div>
-        </center>
+        <div id="main1" class="maincell">
+          <center>
+            <h1> To Do Bro </h1>
+            <p>Enter below the things you have to do man, and just do it!</p>
+            <div class="input-group">
+              <input name="task" type="text" id="add-task" placeholder="Enter another task..." class="form-control flat" />
+              <button id="submit-button" class="btn" type="submit">
+                <span class="input-group-btn">
+                  <span class="fui-plus"></span>
+                </span>
+              </button>
+            </div>
+          </center>
             <ul id="thelist">
-              <li><h4>hey</h4></li>
             </ul>
+          </div>
+
+          <div id="main2" class="maincell">
+            <center>
+              <h1 id= "hover1"> Bring that mouse over here</h1>
+              <h3 id="hover2">Whoa dude</h3>
+              <h3 id="hover3">this is so cool</h3>
+            </center>
+          </div>
+
+          <a id="next" href="#">
+            <div>
+              <center>
+              <p>Click here for more cool stuff!</p>
+                <span  class="fui-right-arrow"></span>
+              </center>
+            </div>
+          </a>
+      </div>
+
+      <div class="container" id="scoreboard">
+        <h5 class="drakeheader"> Help Drake get to the phone! </h5>
+        <p class="drakeheader">Use the arrow keys to move him</p>
+        <p id="score"></p>
+      </div>
+
+      <div id="move">
+        <img id="drake" src="drake.gif" alt="" />
+      </div>
+
+      <div id="random-phone">
+        <img src="http://images.clipartpanda.com/phone-clip-art-jTxgjjXTE.png" alt="" id="phone"/>
       </div>
   </body>
+  <script src="app.js"></script>
 </html>
