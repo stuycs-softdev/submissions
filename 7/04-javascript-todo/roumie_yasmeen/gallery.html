@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gallery</title>
+  <style>
+
+  .hide {
+    height: 45%;
+    width: 45%;
+    left: 300px;
+    top: 100px;
+    display: none;
+  }
+  #arrowLeft {
+    height: 50px;
+    width: 50px;
+    left: 50px;
+    top: 100px;
+  }
+  #arrowRight {
+    height: 50px;
+    width: 50px;
+    top:100px;
+    right: 50px;
+  }
+  #play_pause {
+    height: auto;
+    width: 50px;
+  }
+  </style>
+</head>
+
+<body>
+<div id="container" align="center">
+  <h1>Gallery</h1>
+
+  <div>
+    <img id="a" class="hide" src="armadillo0.jpg">
+    <img id="b" class="hide" src="armadillo1.jpg">
+    <img id="c" class="hide" src="armadillo2.jpg">
+  </div>
+
+  <div id="arrow">
+    <input type="image" id="arrowLeft" src="arrowLeft.png">
+    <!-- <input type="image" id="play_pause" src="play_pause.png"> -->
+    <input type="image" id="arrowRight" src="arrowRight.png">
+  </div>
+</div>
+</body>
+
+<script src="gallery.js"></script>
+
+</html>
