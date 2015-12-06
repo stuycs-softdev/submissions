@@ -43,7 +43,7 @@ var moveVertically = function() {
 }
 
 var moveIt = function() {
-    if (currentLocations[turn] < finalLocations[turn] || currentLocations[turn] >= 100) {
+    if (currentLocations[turn] < finalLocations[turn] && currentLocations[turn] <= 100) {
 	movePiece();
     } else {
 	clearInterval(myInterval);
