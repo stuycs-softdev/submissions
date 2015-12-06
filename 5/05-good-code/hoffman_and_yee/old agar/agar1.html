@@ -23,7 +23,6 @@
 <div>
 <input type=submit id="start" value="Start"></submit>
 <input type=submit id="stop" value="Stop"></submit>
-Get the Cookies!
 </div>
 
 <script>
@@ -39,22 +38,8 @@ function eat(e){
 	var leftc=document.getElementById("leftc");
 	var opacity1=document.querySelector('.cookie1');
 	var opacity2=document.querySelector('.cookie2');
-	var a = (opacity1.style.opacity);
-   	var b = (opacity2.style.opacity);
-	var x1 = (opacity1.style.left);
-   	var x3 = (opacity2.style.left);
-	var cell=document.getElementById("cell");
-   	var moveelt=document.querySelector('.move');
-   	var x2 = (moveelt.style.left);
-	if (x3 - x2 > x2 - x1){
-		a = 0;
-		b = 1;
-		}
-	else{
-		b = 0;
-		a = 1;
-	}
-
+	var x = (opacity1.style.opacity);
+   	var y = (opacity2.style.opacity);
 }
 
 function move(e) {
