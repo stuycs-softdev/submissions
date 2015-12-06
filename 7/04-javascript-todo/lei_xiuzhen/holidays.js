@@ -24,3 +24,11 @@ var snow = document.getElementById('snow');
 snow.addEventListener('click',letItSnow);
 var noMoreSnow = document.getElementById('noMoreSnow');
 noMoreSnow.addEventListener('click',stopSnowing);
+
+var clearSnowPile = function(e){
+    snowpile.src="http://www.picgifs.com/graphics/s/snoopy/graphics-snoopy-690506.gif";
+    snowpile.width="200";
+    snowpile.height="200";
+};
+var snowpile = document.getElementById('snowpile');
+snowpile.addEventListener('click',clearSnowPile);
