@@ -12,6 +12,8 @@ var players = [player1, player2];
 var finalLocations = [finalLocation1, finalLocation2];
 var currentLocations = [currentLocation1, currentLocation2];
 
+var myStatus = document.getElementById("status");
+
 var board = document.getElementById("board").children[0].children;
 
 var findRow = function(num) {
@@ -27,3 +29,46 @@ var movePiece = function() {
     currentLocations[turn]++;
     board[findRow(currentLocations[turn])].children[findColumn(currentLocations[turn])].appendChild(players[turn]);
 }
+
+var moveIt = function() {
+    if (currentLocations[turn] < finalLocations[turn] || currentLocations[turn] == 100) {
+	movePiece();
+    } else {
+	clearInterval(myInterval);
+	turn = (turn + 1) % 2;
+	if (currentLocations[turn] == 100) {
+	    myStatus.innerHTML = "Player " + (turn + 1) + "Wins!"
+	} else {
+	    myStatus.innerHTML = "Player " + (turn + 1) + "'s Turn"
+	}
+    }
+}
+    
+var rollDie = function(id) {
+    var imager = document.getElementById(id);
+    var face = Math.ceil(Math.random() * 6)
+    imager.src = "./img/" + face + ".png"
+    return face;
+}
+
+var rollTime = 1;
+var rollValue = 0;
+var rollDice = function() {
+    if (rollTime > 0 ){
+	rollValue = rollDie("leftImg") + rollDie("rightImg");
+	rollTime--;
+    } else {
+	clearInterval(myInterval);
+	finalLocations[turn] += rollValue;
+	myStatus.innerHTML = "Moving the your piece"
+	myInterval = setInterval(moveIt, 100);
+    }
+}
+
+var myInterval;
+var rolling = document.getElementById("roll");
+rolling.addEventListener('click', function(){
+    myStatus.innerHTML = "Rolling the dice"
+    rollTime = Math.floor(Math.random() * 10) + 5
+    myInterval = setInterval(rollDice, 50);
+});
