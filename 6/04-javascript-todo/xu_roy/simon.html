@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simon Says</title>
+    <link rel="stylesheet" href="styles/simon.css" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <h1 class="title">Simon Says</h1>
+    <p class="instructions">
+      When the status is <b>wait</b>, wait for lights to flash.
+      <br>When the status is <b>ready</b>, click on the lights in the same order they flashed.
+    </p>
+    <h2 class="level">Level <p id="level"></p></h2>
+    <h3 class="status">Status: <p id="status"></p></h3>
+    <button id="start" class="button">Start</button>
+      <div class="simon-box">
+      <div id="green"></div>
+      <div id="red"></div>
+      <div id="yellow"></div>
+      <div id="blue"></div>
+    </div>
+    <script src="scripts/simon.js"></script>
+  </body>
+</html>
