@@ -3,15 +3,44 @@ body{
   padding:25px;
 }
 
-
 ul{
   float:left;
-  margin:5px;
+  margin-left:20%;
+  list-style:none outside none;
+  padding:0;
+}
+
+#todo{
+  background-color:orange;
+  color:brown;
+}
+#finished{
+  background-color:green;
+  color:red;
+}
+
+.red{
+  color:red;
+}
+
+.blue{
+  color:blue;
+}
+
+li{
+  border:3px black solid;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:25px;
+  padding-right:25px;
+}
+
+li.title{
+  font-size:24px;
 }
 
 li.hover{
-  color:red;
-}
-li.neutral{
-  color:black;
+  color:blue;
+  cursor:pointer;
+  background-color:white;
 }

@@ -32,7 +32,7 @@ start.addEventListener("click",function(){
 	cycleInt = setInterval(highlight,500);
     });
 
-stop.addEventListener("click",function(e){
+stop.addEventListener("click",function(){
 	clearInterval(cycleInt);
     });
 

@@ -5,6 +5,7 @@
     <style>
     .red {color: #FF0000;}
     .blue {color: #0000FF;}
+    .green {color: #00FF00;}
     th, td {
         width: 250px;
     }
@@ -16,7 +17,7 @@
 <body>
     <h3>To-do List Generator</h3>
     <hr>
-    <a href="alex-wyc.me/Tools/todo.html">Pretty Version</a>
+    <a href="http://alex-wyc.me/Tools/todo.html">Pretty Version</a>
     <br>
     <input type="text" id="newThing">
     <button onClick="add_item_to_todo()">Add</button>
@@ -36,5 +37,7 @@
             </td>
         </tr>
     </table>
+    <button id="start_button">start</button>
+    <button id="stop_button">stop</button>
     <script src="todo.js"></script>
 </body>

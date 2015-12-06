@@ -57,22 +57,34 @@
 var addItem = function addItem(s){
 		var l = document.getElementById("thelist");
 		var n = document.createElement("li");
-		n.innerHTML=s;
-		l.appendChild(n);
         
+        if (s.indexOf(".png") > -1 || s.indexOf(".jpg") > -1 || s.indexOf(".bmp") > -1 ){
+        var tmpimg=document.createElement("img");
+        tmpimg.src = s;
+        if (tmpimg.width > 200){
+        	tmpimg.width = 200;
+            }
+        n.appendChild(tmpimg);
+        }
+        else{
+		n.innerHTML=s;
+        }
+		
+        l.appendChild(n);
         items[items.length] = n
         items[items.length-1].addEventListener('click',removeItem);
+
 };
 
 
 var removeItem = function removeItem(){
 		var l = document.getElementById("thelist2");
 		var n = document.createElement("li");
-        try{
-		n.innerHTML=this.childNodes[0].nodeValue;}
-        catch(err){
-        n.innerHTML=" "}
-		l.appendChild(n);
+
+        for (var i=0; i<this.childNodes.length; i++){
+		l.appendChild(this.childNodes[i]);
+};
+        
 		this.parentNode.removeChild(this);
         
         if (document.getElementById("check").checked){
@@ -127,6 +139,9 @@ var start = document.getElementById("startB");
 var stop = document.getElementById("stopB");
 
 start.addEventListener('click',function(){
+		try{clearInterval(timer);}
+        catch (err){
+        }
 		timer = setInterval(cycle,200);
 });
 

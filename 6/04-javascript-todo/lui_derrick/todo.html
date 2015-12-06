@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html>
+  <style>
+  .red { color: red; }
+  </style>
+  <head>
+    <title> TODO LIST </title>
+  </head>
 
-	<body>
+  <body>
+    <h1>Grocery List</h1>
+    
+    <input type="text" id="newItem"> </input>
+    <button id="submitItem"> Add </button>
+    <br>
 
-    <h2>To Do</h2>
-    <ul id="todo"> 
+    <ul id="TDL">
+      <li> Eggs </li>
+      <li> Bread </li>
+      <li> Milk </li>
+      <li> Vegetables </li>
+      
     </ul>
-    Add to list:
+    
+		<hr>
+		<hr />
+    
+    <h1>List Cycler</h1>
+    <ul id='cycler'>
+      <li>test1</li>
+      <li>test2</li>
+      <li>test3</li>
+      <li>test4</li>
+      <li>test5</li>
+      <li>test6</li>
+      <li>test7</li>
+      <li>test8</li>
+    </ol>
+    <button type='button' id='next'>Next</button>
+    <button type='button' id='auto'>Auto Cycle</button>
 
-		<input type="text" name="item" id="item">
-		<br>
-		<button id="button">Add</button>
-		<br>
+  </body>
 
-    <h2>Done</h2>
-    <ul id="done">
-		</ul>
-		<script src="todo.js"></script>
-
-	</body>
-
-</html>
+  <script src = "todo.js">
+  </script>
+  
+  
+</html> 
