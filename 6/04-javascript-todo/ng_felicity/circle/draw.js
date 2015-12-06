@@ -21,7 +21,7 @@ function drawCircle(x,y,r){
     c.style.top = String(y)+"px";
     c.style.position = "absolute";
     var ctx = c.getContext("2d");
-   // ctx.clearRect(0, 0, c.width, c.height);
+    // ctx.clearRect(0, 0, c.width, c.height);
     ctx.beginPath();
     ctx.arc(r, r, r, 0, 2 * Math.PI);
     ctx.stroke();
@@ -39,8 +39,17 @@ function clickCircle(){
     var rr = getRandom(w);
     var rrr = getRandom(h);
     drawCircle(rr,rrr,30);
-   // console.log("(" + rr+','+rrr+')');
+    // console.log("(" + rr+','+rrr+')');
     counter=counter+1;
+    printScore();
+}
+
+function unclickCircle(){
+    var rr = getRandom(w);
+    var rrr = getRandom(h);
+    drawCircle(rr,rrr,30);
+    // console.log("(" + rr+','+rrr+')');
+  //  counter=counter+1;
     printScore();
 }
 
@@ -55,6 +64,7 @@ s.innerHTML="Click the circle to begin";
 drawCircle(xCenter,yCenter,30);
 
 var interval;
-interval = setInterval(drawCircle,1000,getRandom(w),getRandom(h),30);
+interval = setInterval(unclickCircle,1000);
+//,getRandom(w),getRandom(h),30);
 
-//document.getElementById("canvas").addEventListener('click',clickCircle);
+document.getElementById("canvas").addEventListener('click',clickCircle);
