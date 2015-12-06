@@ -1,0 +1,44 @@
+/* Making p look like a header */
+
+p {
+    font-size: 300%;
+    display: inline-block;
+    font-weight: bold;
+    letter-spacing:-3px;
+    color: OldLace;
+    line-height: 0%;
+}
+
+/* Prettify! */
+
+body {
+    background-color: #1D2247;
+    font-color: white;
+}
+
+/* Snow? */
+#snowflakeContainer {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    z-index:-1;
+}
+.snowflake {
+    padding-left: 15px;
+    font-family: Cambria, Georgia, serif;
+    font-size: 14px;
+    line-height: 24px;
+    position: fixed;
+    color: oldlace;
+    user-select: none;
+    z-index: 1000;
+}
+.snowflake:hover {
+    cursor: default;
+}
+
+/* Image Carousel things? */
+.images {
+    position: relative;
+    z-index: 2;
+}
