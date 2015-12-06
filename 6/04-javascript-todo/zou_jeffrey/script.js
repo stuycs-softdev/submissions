@@ -60,7 +60,6 @@ var listEventer = function listEventer(parentId, item, index) {
   })
 
   item.addEventListener("click", function(event) {
-    console.log(this);
     if (parentId === "todo") {
       addDone(this.innerHTML);
     }
@@ -74,24 +73,35 @@ var listEventer = function listEventer(parentId, item, index) {
 /*****
 Highlighting todo list
 *****/
+var index = 0;
 var highlightTodo = function highlightTodo() {
-  var index = 0;
-  var list = document.getElementById("todo").children;
-  if (index == list.length) {
+  var list = document.querySelector("#todo").children;
+  //when it loops back to the beginning, set the last item back to red
+  if (index == 0) {
+    list[list.length - 1].setAttribute("style", "color:red");
+  }
+  //loops throught list turning previous list items red
+  if (index > 0) {
+    list[index - 1].setAttribute("style", "color:red");
+  }
+  list[index].setAttribute("class", "highlight");
+  //prevents index from going out of range
+  if (index < list.length - 1) {
+    index += 1;
+  }
+  else {
     index = 0;
   }
-  list[index].classList.add("highlight");
-  setTimeout(list[index].classList.remove("highlight"), 3000)
-}
-
+};
+/*
 var repeat = function repeat() {
   highlightTodo();
-}
-
+};
+*/
 var newInterval;
 var startButton = document.getElementById("start");
 startButton.addEventListener("click", function(event) {
-  newInterval = setInterval(repeat, 3000);
+  newInterval = setInterval(highlightTodo, 3000);
 });
 
 var stopButton = document.getElementById("stop");
