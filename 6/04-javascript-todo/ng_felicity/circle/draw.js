@@ -1,5 +1,5 @@
 //score
-var counter = -1;
+var counter = 0;
 
 function printScore(){
     var s = document.getElementById("score");
@@ -25,7 +25,7 @@ function drawCircle(x,y,r){
     ctx.beginPath();
     ctx.arc(r, r, r, 0, 2 * Math.PI);
     ctx.stroke();
-    c.addEventListener('click',console.log("clicked"));
+
 }
 
 function clearCircle(){
@@ -37,14 +37,14 @@ function clearCircle(){
 function clickCircle(){
     drawCircle(getRandom(w),getRandom(h),30);
     counter++;
+    printScore()
 }
 
 var w = document.documentElement.clientWidth;
 var h = document.documentElement.clientHeight;
 var xCenter = Math.floor(w/2);
 var yCenter = Math.floor(h/2);
-clickCircle();
-
-//document.getElementById("canvas").addEventListener('click',clearCircle());
-
-printScore();
+var rx = getRandom(w);
+var ry = getRandom(h);
+clickCircle(xCenter,yCenter,30);
+document.getElementById("canvas").addEventListener('click',clickCircle);
