@@ -9,12 +9,14 @@ var add_item_to_todo = function add() {
     }
     var patt = new RegExp("(0[0-9]|1[0-9]|2[0-4]):?([0-5][0-9]|60)?:?([0-5][0-9]|60)?");
     var res = patt.exec(document.getElementById("due_time").value);
-    var hour = +res[1];
-    var minutes = +res[2];
-    var seconds = +res[3];
-    if (isNaN(hour)) { hour = 24; };
-    if (isNaN(hour)) { minutes = 0; };
-    if (isNaN(hour)) { seconds = 0; };
+    if (res) {
+        var hour = +res[1];
+        var minutes = +res[2];
+        var seconds = +res[3];
+        if (isNaN(hour)) { hour = 24; };
+        if (isNaN(hour)) { minutes = 0; };
+        if (isNaN(hour)) { seconds = 0; };
+    }
     var li = document.createElement("li");
     var a = document.createElement("a");
     var text = document.createTextNode(new_item + " (" + priority + ")");
