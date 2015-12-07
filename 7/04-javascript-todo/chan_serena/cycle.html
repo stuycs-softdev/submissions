@@ -3,7 +3,9 @@
 <html>
 
   <head>
-
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="static/cycle.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   </head>
 
   <body>
@@ -12,10 +14,16 @@
       <h1 id="title">Merry Christmas!</h1>
     </center>
 
-    <img src="static/img1.jpg" name="img" height="200" width="140">
-    <img src="static/img2.jpg" name="img" height="200" width="300">
-    <img src="static/img3.jpg" name="img" height="200" width="160">
-    <img src="static/img4.jpg" name="img" height="200" width="250">
+    <div class="container">
+      <div class="image-slider-wrapper">
+        <ul id="image_slider">
+            <li><img src="static/img1.jpg" name="img" ></li>
+            <li><img src="static/img2.jpg" name="img" height="400" width="600"></li>
+            <li><img src="static/img3.jpg" name="img" height="400" width="380"></li>
+            <li><img src="static/img4.jpg" name="img" height="400" width="500"></li>
+        </ul>
+      </div>
+    </div>
 
     <script src="cycle.js"></script>
 

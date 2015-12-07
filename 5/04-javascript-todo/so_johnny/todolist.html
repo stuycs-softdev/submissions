@@ -5,6 +5,8 @@
     <style>
       .header {color:#0000ff;}
       .liRed {color:#ff0000;}
+      .move {position:absolute; left:500px; top:500px;}
+      .img {height:100px;height:100px;}
     </style>
   </head>
 
@@ -14,25 +16,41 @@
       <ul id="todolist">
       </ul>
     </div>
+
     <div id="TDLinputdiv">
       To Be Done: <input id="TDLinput" type="text" name="item">
       <button id="addButton"> Add </button>
     </div>
+
     <div id="highlightButtonDiv">
       <button id="highlightButton"> Highlight </button>
     </div>
+
     <div id="startButtonDiv">
       <button id="startButton"> Start </button>
     </div>
+
     <div id="stopButtonDiv">
       <button id="stopButton"> Stop </button>
     </div>
+
    <div id="DL">
      <h1 id="header2" class="header"> Done List </h1>
      <ul id="donelist">
      </ul>
    </div>
+
+   <div>
+     <input type="submit" id="startPusheen" value="startPusheen"></input>
+     <input type="submit" id="stopPusheen" value="stopPusheen"></input>
+   </div>
+
+   <div class="move">
+     <img id="pusheen" class="img" src="pusheen.jpg">
+   </div>
+
     <script src="todolist.js"></script>
+
   </body>
 
 </html>
