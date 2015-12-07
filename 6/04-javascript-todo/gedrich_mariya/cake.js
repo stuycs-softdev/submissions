@@ -3,11 +3,13 @@ var face = document.getElementById("searcher");
 //face.style.left=500;
 var cake = document.getElementById("cake");
 var cakeX, cakeY;
+var isFashion=false;
 var placeCake = function placeCake() {
     var speshul=Math.random() * 100;
     console.log(speshul);
     if (speshul<40) {
 	console.log('yay');
+	isFashion=true;
 	cake.src='fashion.jpg';
     }
     cakeX=Math.floor((Math.random() * (window.innerWidth-100)) + 1);
@@ -18,6 +20,14 @@ var placeCake = function placeCake() {
 };
 
 placeCake();
+
+/*var openDialog = function openDialog() {
+    var dialog = createElement('div');
+    dialog.setAttribute('id', 'winner');*/
+var b1=document.getElementById("again");
+b1.addEventListener('click', function(e) {
+    location.reload();
+});
 
 window.addEventListener('mousemove', function(e) {
     face.style.left=e.pageX+'px';
@@ -48,10 +58,12 @@ window.addEventListener('mousemove', function(e) {
 window.addEventListener('click', function(e) {
      if ((e.pageX>=cakeX-100) && (e.pageX<=cakeX+100) && (e.pageY>=cakeY-100) && (e.pageY<=cakeY+100)) {
 	 console.log('found it!');
-	 //cake.style.display='';
+	 cake.style.display='';
+	 b1.display='';
      }
 });
-			
+
+
 
 
 
