@@ -53,7 +53,8 @@ window.addEventListener('mousemove',function(e){
 var moving = function moving(e){
     var stickman = document.getElementById("stickman");
     var move = document.querySelector('.move');
-    //var speed = document.getElementById("speed").value;
+    var speed = document.getElementById("speed").value;
+    speed=parseInt(speed);
     var x = (move.style.left);
     var y = (move.style.top);
     x=x.substring(0,x.length-2);
@@ -65,17 +66,17 @@ var moving = function moving(e){
     if (isNaN(y)) y=400;
     
     if (mouseX<x){
-	x=x-10;
+	x=x-speed;
 	stickman.src = "stickmanL.jpg";
     } else{
-	x=x+10;
+	x=x+speed;
 	stickman.src = "stickmanR.jpg";
     }
 
     if (mouseY<y){
-	y=y-10;
+	y=y-speed;
     } else{
-	y=y+10;
+	y=y+speed;
     }
     move.style.left=x+"px";
     move.style.top=y+"px";
