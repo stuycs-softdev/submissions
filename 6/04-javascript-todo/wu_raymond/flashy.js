@@ -39,7 +39,7 @@ var stop = document.getElementById("stop");
 
 var myInterval;
 start.addEventListener("click",function(e){
-	myInterval = setInterval(flashItem,1000)
+	myInterval = setInterval(flashItem,1000);
 });
 stop.addEventListener("click",function(e){
 	clearInterval(myInterval);

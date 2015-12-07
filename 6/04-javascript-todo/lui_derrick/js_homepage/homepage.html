@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en">
+   <head>
+		 <style>
+		 .container .content {
+			 display: none;
+			 height: 100%
+			 width: 100%
+			 padding : 5px;
+		 }
+		 </style>
+		 <meta charset="utf-8">
+		 <title>Homepage</title>
+		 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		 <link rel="stylesheet" href="main.css">
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+       <div class="container-fluid">
+         <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand">Homepage</a>
+         </div>
+       </div>
+     </nav>
+     <div class="container-fluid">
+       <div class="row">
+         <div class="col-sm-3 col-md-2 sidebar">
+           <ul id="urllist" class="nav nav-sidebar">
+						 <li><a id="http://www.findtheinvisiblecow.com/" class="listlinks">Find the Invisible Cow</a></li>
+						 <li><a id="http://agar.io/" class="listlinks">Agar.io</a></li>
+						 <li><a id="http://2048game.com/" class="listlinks">2048</a></li>
+						 <li><a id="http://www.staggeringbeauty.com/" class="listlinks">Staggering Beauty</a></li>
+					 </ul>
+           <input type="text" class="form-control" name="textbox" id="textbox" placeholder="Name of Website">
+           <input type="text" class="form-control" name="textbox" id="urlbox" placeholder="Link to Website">
+           <button id="button" class="btn btn-primary">Add</button>
+				 </div>
+
+				 <div id="content" class="col-md-offset-2 col-sm-offset-3 col-sm-9 col-md-10">
+					 <h1> A Smarter Homepage </h1>		
+					 <p> Created by Young Kim and Derrick Lui, this makes it easy to go to favorited links. </p>
+				 </div>
+
+			 </div>
+		 </div>
+		 <script src="script.js"></script>
+   </body>
+</html>
