@@ -1,23 +1,80 @@
 var mouseX = 0;
 var mouseY = 0;
-var bXdir = 2;
-var bYdir = 2;
-
+var bXdir = 3;
+var bYdir = .5;
+var globX = 200;
+var globY = 200;
+var xWall = 1000;
+var yWall = 500;
 window.addEventListener('mousemove',function(e){
     mouseX=e.pageX;
     mouseY=e.pageY;
-    console.log(e.pageX);
-    console.log(""+mouseX+","mouseY);
+    xWall = mouseX;
+    yWall = mouseY;
 });
-
 var move = function(e){
-    var holder=document.querySelector('.move');
-    var x = (holder.style.left);
-    var y = (holder.style.top);
+    console.log("---");
+    var ball=document.getElementById("ball");
+    var holder = document.querySelector('.move');
+    if(globX == NaN){
+	globX = 200;
+    };
+    if(globY == NaN){
+	globY = 200;
+    };
+    var x = globX;
+    var y = globY;
+    console.log(x);
     x+=20;
     y+=20
-    x+=bXdir;
-    y+=bYdir;
+    if(x<20){
+	x=20;
+	bXdir=Math.abs(bXdir);
+    };
+    if(y<20){
+	y=20;
+	bYdir=Math.abs(bYdir);
+    };
+    if(x>xWall){
+	x=xWall;
+	bXdir*=-1;
+    };
+    if(y>yWall){
+	y=yWall;
+	bYdir*=-1;
+    };
+    /*if(x>document.body.clientWidth){
+	x=document.body.clientWidth;
+	bXdir=Math.abs(bXdir)*-1;
+    };
+    if(y>document.body.clientHeight){
+	x=document.body.clientHeight;
+	bXdir=Math.abs(bXdir)*-1;
+    };*/
+    bYdir+=.05;
+    x+=bXdir-20;
+    y+=bYdir-20;
+    console.log(x);
+    console.log(" ");
+    holder.style.left=""+parseInt(x)+"px";
+    holder.style.top=""+parseInt(y)+"px";
+    globX = x;
+    globY = y;
+};
+var move2 = function(e){
+    var ball=document.getElementById("ball");
+    var holder = document.querySelector('.move');
+    if(globX == NaN){
+	globX = 200;
+    };
+    if(globY == NaN){
+	globY = 200;
+    };
+    var x = globX;
+    var y = globY;
+    console.log(x);
+    x+=20;
+    y+=20
     if(x<20){
 	x=20;
 	bXdir=Math.abs(bXdir);
@@ -34,16 +91,16 @@ var move = function(e){
 	x=document.body.clientHeight;
 	bXdir=Math.abs(bXdir)*-1;
     };
-    if(Math.abs(mouseX-x) < 300){
-	bXdir=parseInt(20/(x-mouseX));
+    if(Math.abs(mouseX-x) < 1024){
+	bXdir+=parseInt(32/(mouseX-x));
     };
-    if(Math.abs(mouseY-y) < 300){
-	bYdir=parseInt(20/(y-mouseY));
+    if(Math.abs(mouseY-y) < 1024){
+	bYdir+=parseInt(32/(mouseY-y));
     };
-    if(bXdir > 1){
+    if(bXdir > 5){
 	bXdir-=1;
     }else{
-	if(bXdir < -1){
+	if(bXdir < -5){
 	    bXdir+=1;
 	}};
     if(bYdir > 1){
@@ -52,11 +109,17 @@ var move = function(e){
 	if(bYdir < -1){
 	    bYdir+=1;
 	}};
-    x-=20;
-    y-=20;
+    x+=bXdir-20;
+    y+=bYdir-20;
+    console.log(x);
+    console.log(" ");
+    holder.style.left=""+x+"px";
+    holder.style.top=""+y+"px";
+    globX = x;
+    globY = y;
 };
 var myevent;
 function startit(){
-    myevent = setInterval(move,20);
+    myevent = setInterval(move,1);
 }
 startit();

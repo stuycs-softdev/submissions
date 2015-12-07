@@ -36,5 +36,25 @@ stop.addEventListener("click",function(){
 	clearInterval(cycleInt);
     });
 
+var getCycleEl = function getCycleEl(){
+    var a = document.getElementById("cycleForm").elements.namedItem("addcycle").value;
+    //console.log(a);                                                                                                                                                                
+    return a;
+};
 
+var addCycleEl = function addCycleEl(){
+    var a = getCycleEl();
+    var l = document.getElementById("cyclelist");
+    var d = document.createElement("li");
+    d.innerHTML = a;
+    l.appendChild(d);
+};
 
+var FormCallBack = function FormCallBack(e){
+    console.log("does this work?");
+    e.preventDefault();
+    addCycleEl();
+};
+
+var f = document.getElementById("cycleForm");
+f.addEventListener('submit',FormCallBack);

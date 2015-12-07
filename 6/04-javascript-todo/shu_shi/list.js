@@ -104,3 +104,17 @@ var stop = document.getElementById("stop");
 stop.addEventListener("click",function(e){
 		clearInterval(myInterval);
 });
+
+var mouseX;
+var mouseY;
+
+window.addEventListener('click',function(e){
+    jerry = document.getElementById("jerry");
+    if(jerry.src.indexOf("jerry-left.jpg") != -1){
+	jerry.src = "jerry-right.jpg";
+    }
+    else{
+	jerry.src = "jerry-left.jpg";
+    }
+});
+

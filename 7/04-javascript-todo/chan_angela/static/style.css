@@ -1,0 +1,66 @@
+/* Making p look like a header */
+
+p {
+    font-size: 300%;
+    display: inline-block;
+    font-weight: bold;
+    letter-spacing:-3px;
+    color: OldLace;
+    line-height: 0%;
+}
+
+/* Prettify! */
+
+body {
+    background-color: #1D2247;
+    font-color: white;
+    cursor: url(cookies_n_milk2.png),
+    url(cookies_n_milk.cur),
+    url(cursor/cookies_n_milk.cur),
+    url("http://downloadicons.net/sites/default/files/cookies-and-milk-icon-13716.png"),
+    move;
+}
+
+.cursor {
+    cursor:url(cookies_n_milk2.png), move;
+}
+
+/* Snow? */
+#snowflakeContainer {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    z-index:-1;
+    cursor:url(cookies_n_milk2.png), auto;
+}
+.snowflake {
+    padding-left: 15px;
+    font-family: Cambria, Georgia, serif;
+    font-size: 14px;
+    line-height: 24px;
+    position: fixed;
+    color: oldlace;
+    user-select: none;
+    z-index: 1000;
+    cursor:url(cookies_n_milk2.png), auto;
+}
+
+
+/* Please note! The Falling snow is NOT mine! Here is the link for reference
+http://www.kirupa.com/html5/the_falling_snow_effect.htm */
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+* {
+    cursor:url(cookies_n_milk2.png), auto;
+
+}
+
+.mirror {
+    filter: FlipH;
+}
