@@ -24,25 +24,31 @@ array.push("*pant pant*");
 array.push("...");
 array.push("Seems like running won't work...");
 array.push("Time to use covert tactics.");
-array.push("OMG WHERE DID I GO");//index = 23
+array.push("WHERE DID I GO??");//index = 23
 array.push("How did you do that?");
 array.push("Are you a wizard?");
 array.push("Or a hacker?");
 array.push("Either way you should have better things to do than this...");
-array.push("Where's Waldo?");//index = 28
+array.push("Want to play a game?");
+array.push("It's like 'the game', you know, the one where you lose when you think about it?");
+array.push("It's called do not press the red button.");
+array.push("You lose.");
+array.push("Go away.");
+array.push("Still here? Ok, let's play another game.");
+array.push("Where's Waldo?");//index = 34
 array.push("...");
 array.push("..");
 array.push(".");
 array.push("No.");
 array.push("I refuse to give you any more satisfaction.");
-array.push("Go Away.");
+array.push("Goodbye");
 array.push("Arrivederci");
 array.push("Adios");
 array.push("Au Revoir");
 array.push("etc...");
 array.push("...");
 array.push("Let me tell you a story...");
-array.push("...inspired by http://sprott.physics.wisc.edu/pickover/pc/redbut.html.");
+array.push("...inspired by <a href='http://sprott.physics.wisc.edu/pickover/pc/redbut.html'>this one</a>");
 array.push("It starts off with...");
 //Comment Initialization
 var index = 0;
@@ -89,7 +95,7 @@ var left = 1;
 var btn;
 function checkEvent(){
 	if(index == 4){
-		button.style.marginTop="-50px";
+		button.style.marginTop="-100px";
 	}
 	if(index == 8){
 		button.style.height="10px";
@@ -101,8 +107,8 @@ function checkEvent(){
 		button.style.width ="auto";
 	}
 	if(index == 12){
-		button.style.height="100%";
-		button.style.width ="100%";
+		button.style.height="40%";
+		button.style.width ="40%";
 	}
 	if(index == 13){
 		button.style.height="auto";
@@ -110,10 +116,10 @@ function checkEvent(){
 	}
 	if(index == 17){
 		percent = 45;
-		myInterval = setInterval(moveButton,100);
+		myInterval = setInterval(moveButton,50);
 	}
 	if(index == 18){
-		myInterval2 = setInterval(moveButton,50);
+		myInterval2 = setInterval(moveButton,10);
 	}
 	if(index == 19){
 		clearInterval(myInterval2);
@@ -128,7 +134,7 @@ function checkEvent(){
 	if(index == 24){
 		button.style.marginLeft="auto";
 	}
-	if(index == 28){
+	if(index == 34){
 		button.remove();
 		for(i = 0; i < 18; i++) {
 			btn = document.createElement("img");
@@ -147,7 +153,7 @@ function checkEvent(){
 			}
 		}
 	}
-	if(index==29){
+	if(index==35){
 		button.setAttribute('class','button');
 		while(document.images['temp'])
 			document.images['temp'].remove();
@@ -156,9 +162,9 @@ function checkEvent(){
 
 function moveButton(){
 	if(left)
-		percent -= 2;
+		percent -= 1;
 	else
-		percent += 2;
+		percent += 1;
 	button.style.marginLeft=percent + "%";
 	console.log(percent);
 	if(percent < 20)
