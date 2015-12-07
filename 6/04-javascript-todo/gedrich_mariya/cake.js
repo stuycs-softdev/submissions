@@ -21,20 +21,12 @@ var placeCake = function placeCake() {
 
 placeCake();
 
-/*var openDialog = function openDialog() {
-    var dialog = createElement('div');
-    dialog.setAttribute('id', 'winner');*/
-var b1=document.getElementById("again");
-b1.addEventListener('click', function(e) {
-    location.reload();
-});
-
 window.addEventListener('mousemove', function(e) {
     face.style.left=e.pageX+'px';
     face.style.top=e.pageY+'px';
     //console.log(e.pageX);
     //console.log(face.style.left);
-    if ((e.pageX>=cakeX-100) && (e.pageX<=cakeX+100) && (e.pageY>=cakeY-100) && (e.pageY<=cakeY+100)) {
+    if ((e.pageX>=cakeX-50) && (e.pageX<=cakeX+50) && (e.pageY>=cakeY-50) && (e.pageY<=cakeY+50)) {
 	face.src="face_3.png";
     } else if ((e.pageX>=cakeX-150) && (e.pageX<=cakeX+150) && (e.pageY>=cakeY-150) && (e.pageY<=cakeY+150)) {
 	face.src="face_2.png";
@@ -55,11 +47,18 @@ window.addEventListener('mousemove', function(e) {
     }
 });
 
+
+var restart = function restart() {
+    location.reload();
+}
+
 window.addEventListener('click', function(e) {
      if ((e.pageX>=cakeX-100) && (e.pageX<=cakeX+100) && (e.pageY>=cakeY-100) && (e.pageY<=cakeY+100)) {
 	 console.log('found it!');
 	 cake.style.display='';
 	 b1.display='';
+	 //face.src='face_3.png';
+	 setTimeout(restart, 3000);
      }
 });
 
