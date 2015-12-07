@@ -91,3 +91,69 @@ var stopButton = document.querySelector("#stopButton");
 stopButton.addEventListener("click",function(e){
     clearInterval(autoHighlight);
 });
+
+var mouseX;
+var mouseY;
+
+window.addEventListener("mousemove",function(e){
+    mouseX=e.pageX;
+    mouseY=e.pageY;
+});
+
+function move(e){
+    var pusheen = document.getElementById("pusheen");
+    var moveElement = document.querySelector(".move");
+    var x = (moveElement.style.left);
+    var y = (moveElement.style.top);
+    x = x.substring(0,x.length-2);
+    x = parseInt(x);
+    y = y.substring(0,y.length-2);
+    y = parseInt(y);
+    
+    if (isNaN(x))
+	x = 500;
+    if (isNaN(y))
+	y = 500;
+
+    if (mouseX < x){
+	x = x-3;
+	pusheen.src="pusheen_left.jpg";
+    } else {
+	x = x+3;
+	pusheen.src="pusheen.jpg";
+	}
+
+    if (mouseY < y){
+	y = y-3;
+    } else {
+	y = y+3;
+    }
+
+    moveElement.style.left=x+"px";
+    moveElement.style.top=y+"px";
+};
+
+var movePusheen;
+
+// pusheen will only move if nothing is in the done list
+function startPusheen(){
+    var dlItems = donelist.children;
+    if (dlItems.length == 0){
+	movePusheen = setInterval(move,100);
+	console.log("start");
+    } else {}
+    console.log("start");
+};
+
+function stopPusheen(){
+    clearInterval(movePusheen);
+    console.log("stop");
+};
+
+var startPusheenButton = document.getElementById("startPusheen");
+startPusheenButton.addEventListener("click",function(){startPusheen()});
+
+var stopPusheenButton = document.getElementById("stopPusheen");
+stopPusheenButton.addEventListener("click",function(){stopPusheen()});
+
+console.log("Pusheen?");
