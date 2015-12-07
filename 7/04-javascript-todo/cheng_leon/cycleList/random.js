@@ -4,13 +4,17 @@ index = 0;
 
 var colorNext = function color(){
     var items = document.getElementsByTagName("li");
+    var pics = document.getElementsByTagName("img");
     i = index%items.length;
     items[i].classList.add("red");
+    pics[i].height = "200";
     if(i!=0 && items[i-1].classList.contains("red")){
 	items[i-1].classList.remove("red");
+	pics[i].height = "100";
     }
     if(items[0].classList.contains("red") && (items[items.length-1].classList.contains("red"))){
 	items[items.length-1].classList.remove("red");
+	pics[i].height = "200";
     }
     index++;
 };
