@@ -80,8 +80,8 @@ var update_projectiles = function update_projectiles() {
         curr_y = parseInt(curr_y);
         if (Math.abs(curr_x - mouse_x) <= player_hitbox && Math.abs(curr_y - mouse_y) <= player_hitbox) {
             $(".projectile").fadeOut(3000, function() { $(this).remove(); });
-            $(".player").fadeOut(3000, function() { $(this).remove(); });
-            $(".spaner").fadeOut(3000, function() { $(this).remove(); });
+            $(".player").fadeOut(4000, function() { $(this).remove(); });
+            $(".spawner").fadeOut(5000, function() { $(this).remove(); });
             window.clearTimeout(player_updater);
             window.clearTimeout(projectile_spawner);
             window.clearTimeout(projectile_updater);
