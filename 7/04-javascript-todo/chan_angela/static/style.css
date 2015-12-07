@@ -14,6 +14,15 @@ p {
 body {
     background-color: #1D2247;
     font-color: white;
+    cursor: url(cookies_n_milk2.png),
+    url(cookies_n_milk.cur),
+    url(cursor/cookies_n_milk.cur),
+    url("http://downloadicons.net/sites/default/files/cookies-and-milk-icon-13716.png"),
+    move;
+}
+
+.cursor {
+    cursor:url(cookies_n_milk2.png), move;
 }
 
 /* Snow? */
@@ -22,6 +31,7 @@ body {
     left: 0px;
     top: 0px;
     z-index:-1;
+    cursor:url(cookies_n_milk2.png), auto;
 }
 .snowflake {
     padding-left: 15px;
@@ -32,13 +42,25 @@ body {
     color: oldlace;
     user-select: none;
     z-index: 1000;
-}
-.snowflake:hover {
-    cursor: default;
+    cursor:url(cookies_n_milk2.png), auto;
 }
 
-/* Image Carousel things? */
-.images {
-    position: relative;
-    z-index: 2;
+
+/* Please note! The Falling snow is NOT mine! Here is the link for reference
+http://www.kirupa.com/html5/the_falling_snow_effect.htm */
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+* {
+    cursor:url(cookies_n_milk2.png), auto;
+
+}
+
+.mirror {
+    filter: FlipH;
 }

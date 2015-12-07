@@ -22,7 +22,12 @@ b.addEventListener("click", bCallback);
 
 //Making clicking on to-do items work
 var tdCallback = function tdCallback(e){
-    addToDo("HUE");
+    removeToDo("HUE");
 };
-var tododata = document.getElementByClassName('to-do-data');
-tododata.addEventListener("mouseover", tdCallback);
+var todo = document.getElementById('to-do');
+var items = todo.children;
+for (var i = 0 ; i < items.length ; i++){
+    items[i].addEventListener('click', function(e){
+	removeToDo(i);
+    });
+};
