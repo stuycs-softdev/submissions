@@ -33,12 +33,10 @@ function moveS(e) {
    moveelt.style.left=x+"px";
    moveelt.style.top=y+"px";
 
-  var deltaY = mouseY-y;
-  var deltaX = mouseX-x;
-  var degs=Math.atan2(deltaY,deltaX) *180 / 3.14159;
+  var deltaYS = mouseY-y;
+  var deltaXS = mouseX-x;
+  var degs=Math.atan2(deltaYS,deltaXS) *180 / 3.14159;
   santa.style.webkitTransform = "rotate("+degs+"deg)";
-
-  //('-webkit-transform','rotate('+degs+"deg)");
 
 }
 
@@ -60,12 +58,10 @@ function moveR(e) {
    moveelt.style.left=x+"px";
    moveelt.style.top=y+"px";
 
-  var deltaY = mouseY-y;
-  var deltaX = mouseX-x;
-  var degs=Math.atan2(deltaY,deltaX) *180 / 3.14159;
+  var deltaYR = mouseY-y;
+  var deltaXR = mouseX-x;
+  var degs=Math.atan2(deltaYR,deltaXR) *180 / 3.14159;
   rudolf.style.webkitTransform = "rotate("+degs+"deg)";
-
-  //('-webkit-transform','rotate('+degs+"deg)");
 
 }
 
