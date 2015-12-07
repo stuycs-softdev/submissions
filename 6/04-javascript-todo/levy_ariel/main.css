@@ -1,0 +1,42 @@
+body {
+	padding: 50px 75px 50px;
+}
+
+#date {
+	float: right;
+	color: #666666;
+}
+
+#addTask {
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #cccccc;
+	visibility: collapse;
+}
+
+#content {
+	top: -250px;
+	position: relative;
+}
+
+#todo-table {
+	width: 75%;
+	float: left;
+}
+
+#done-table {
+	width: 75%;
+	color: #666666;
+	font-style: italic;
+	float: left;
+}
+
+#controls {
+	width: 25%;
+	float: right;
+}
+
+#controls button {
+	float: right;
+	margin-bottom: 10px;
+}
