@@ -11,7 +11,7 @@ var deltaXS;
    }); 
 
 function moveS(e) {
-  var santa=document.getElementById("santa.jpg");
+    var santa=document.getElementById("santa.jpg");
    var moveelt=document.querySelector('.move');
    var x = (moveelt.style.left);
    var y = (moveelt.style.top);
