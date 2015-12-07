@@ -1,0 +1,27 @@
+body{ 
+	background-image: url(RedDragon.jpg);
+	background-repeat: no-repeat;
+	}
+h1{
+	text-align: center;
+	margin-top: 20px;
+	font-size: 50px;
+}
+h2{
+	text-align:center;
+	font-size: 50px;
+	display: none;
+}
+#poke{
+	margin-top: 150px;
+	margin-left: 650px;
+}
+#run{
+	margin-left: 655px;
+	margin-top: 30px;
+}
+#hidden{
+	display: none;
+	margin-left: 640px;
+	margin-top: 200px;
+}

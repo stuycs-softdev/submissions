@@ -20,8 +20,12 @@ var removeItem = function removeItem(list) {
 	l2[0].remove();
 };
 
+var removeCallback = function removeCallback(e) {
+	removeItem("to-do");
+};
+
 var r = document.getElementById("remove");
-r.addEventListener('click', addItem("something","to-do"));
+r.addEventListener('click', removeCallback);
 
 var count = -1;
 var auto_add = function(e){
