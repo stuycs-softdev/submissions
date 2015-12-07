@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		<input type="text" name="newtodo" id="newtodo" placeholder=" Activity">
-		<input type="button" id="add" value="Add" onclick="buttonCallback(this)">
-		<br><br>
-		To Do
-		<span style="visibility:hidden" id="td"><hr></span>
-		<ol id="todolist">
-		</ol>
-		<span style="visibility:hidden" id="td"><hr></span>
-		<br><br>
-		Done
-		<span style="visibility:hidden" id="done"><hr></span>
-		<ol id="donelist">
-		</ol>
-		<span style="visibility:hidden" id="done"><hr></span>
-		<script src="todo.js"></script>
-	</body>
+	<input type="text" name="newtodo" id="newtodo" placeholder=" Activity">
+	<input type="button" id="add" value="Add" onclick="buttonCallback(this)">
+	<br>
+	<input type="button" id="start" value="Start" onclick="startCallback(this)">
+	
+	<br><br>
+	To Do
+	<span style="visibility:hidden" id="td"><hr></span>
+	<ol id="todolist">
+	</ol>
+	<span style="visibility:hidden" id="td"><hr></span>
+	<br><br>
+	Done
+	<span style="visibility:hidden" id="done"><hr></span>
+	<ol id="donelist">
+	</ol>
+	<span style="visibility:hidden" id="done"><hr></span>
+	<script src="todo.js"></script>
+</body>
 </html>
