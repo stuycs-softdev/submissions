@@ -1,43 +1,86 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
 
-<head>
-    <title>TODO</title>
-    <style>
-    .red {color: #FF0000;}
-    .blue {color: #0000FF;}
-    .green {color: #00FF00;}
-    th, td {
-        width: 250px;
-    }
-    th {
-        text-align: left;
-    }
-    </style>
-</head>
-<body>
-    <h3>To-do List Generator</h3>
-    <hr>
-    <a href="http://alex-wyc.me/Tools/todo.html">Pretty Version</a>
-    <br>
-    <input type="text" id="newThing">
-    <button onClick="add_item_to_todo()">Add</button>
-    <table>
-        <tr>
-            <th>Todo</th>
-            <th>Done</th>
-        </tr>
-        <tr>
-            <td>
-                <ul id="todo">
-                </ul>
-            </td>
-            <td>
-                <ul id="done">
-                </ul>
-            </td>
-        </tr>
-    </table>
-    <button id="start_button">start</button>
-    <button id="stop_button">stop</button>
-    <script src="todo.js"></script>
-</body>
+        <title>hiWorld!</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script type="text/javascript"
+                src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+
+        <script>
+$(function() {
+    $("#masthead").load("masterhead.html");
+    $("#menunav").load("menunav.html");
+    $("#footer").load("footer.html");
+    $("#sidebar").load("/sidebar_default.html");
+});
+        </script>
+        <script type="text/javascript" src="/JS/CollapsibleLists.js"></script>
+
+
+        <style>
+th, td {
+    width: 250px;
+}
+th {
+    text-align:left;
+}
+
+.popup {
+    position:absolute;
+    margin-left:5px;
+    display:inline-block;
+    background:#ffff66;
+    color:#000000;
+    padding-left:2px;
+    padding-right:2px
+}
+        </style>
+    </head>
+    <body>
+        <body>
+            <div id="wrap">
+                <div id="masthead">
+                </div>
+                <div id="menucontainer">
+                    <div id="menunav">
+                    </div>
+                </div>
+                <div id="container">
+                    <div id="sidebar">
+
+                    </div>
+                    <div id="content">
+                        <h3>To-do List Generator</h3>
+                        <input type="text" id="newThing" placeholder="What do you need to do?" autofocus>
+                        <input type="text" id="priority" size="1" maxlength="2" placeholder="Rank">
+                        <input type="text" id="due_time" size="5" placeholder="Due Time">
+                        <br>
+                        <input type="text" id="description" size="31" placeholder="More to say, have you?">
+                        <button onClick="add_item_to_todo()">Add</button>
+                        <table>
+                            <tr>
+                                <th length=30>Todo</th>
+                                <th>Done</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <ul id="todo">
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul id="done">
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                        <script src="todo.js"></script>
+                    </div>
+                </div>
+                <div id="footer"></div>
+            </div>
+        </body>
+</html>
