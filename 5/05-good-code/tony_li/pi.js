@@ -19,16 +19,24 @@ var changeColor=function changeColor1(s){
     
     var i=document.getElementById("first");
     i.src="circles/"+getRandColor();
-    first.addEventListener('click', subScore);
+    first.addEventListener('click', modScore);
     
     var j=document.getElementById("second");
+    j.src="circles/"+getRandColor();
+    second.addEventListener('click', modScore);
 }
 
 var myInterval = setInterval(changeColor,1000);
 
-var subScore=function subScore(){
+var modScore=function modScore(){
     console.log(this);
-    score=score-1;
+    var i=document.getElementById("first");
+    var j=document.getElementById("second");
+    if (i.src==j.src){
+	score++;
+    }else{
+	score--;
+    }
     var s=document.getElementById("score");
     s.innerHTML="Score: "+score;
 }
