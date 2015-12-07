@@ -44,10 +44,10 @@ var spawn_new_projectile = function spawn_new_projectile() {
 
     // Get a speed
     var factor = 50 + (Math.floor(Math.random() * 100) % 10);
-    var constant = 1 + (Math.floor(Math.random() * 100) % 5);
+    var constant = 2 + (Math.floor(Math.random() * 100) % 5);
     new_projectile.setAttribute("speed_x", constant + (mouse_x - ($(window).width() / 2)) / factor);
     factor = 50 + (Math.floor(Math.random() * 100) % 10);
-    constant = 1 + (Math.floor(Math.random() * 100) % 5);
+    constant = 2 + (Math.floor(Math.random() * 100) % 5);
     new_projectile.setAttribute("speed_y", constant + (mouse_y - ($(window).height() / 2)) / factor);
 
     // Make a timestamp so we can kill it off past a certain time point
