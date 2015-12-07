@@ -37,8 +37,8 @@ function newGame() {
     clearInterval(myevent);
     myevent = setInterval(move, 100);
     hidden.src = "blank.png";
-    hidden.style.height = "10px";
-    hidden.style.width = "10px";
+    hidden.style.height = "20px";
+    hidden.style.width = "20px";
     hidden.style.left=Math.floor((Math.random() * 1000) + 50) + "px";
     hidden.style.top =Math.floor((Math.random() * 10) * 50) + "px";
     hiddenX = hidden.style.left
