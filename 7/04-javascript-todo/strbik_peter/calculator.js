@@ -75,5 +75,5 @@ for (var i = 0; i < ops.length; i++){
 }
 
 equals.onclick = display;
-elem("#reset").onclick = clear;
+elem("#clear").onclick = clear;
 
