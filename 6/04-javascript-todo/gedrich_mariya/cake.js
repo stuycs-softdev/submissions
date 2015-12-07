@@ -3,11 +3,13 @@ var face = document.getElementById("searcher");
 //face.style.left=500;
 var cake = document.getElementById("cake");
 var cakeX, cakeY;
+var isFashion=false;
 var placeCake = function placeCake() {
     var speshul=Math.random() * 100;
     console.log(speshul);
     if (speshul<40) {
 	console.log('yay');
+	isFashion=true;
 	cake.src='fashion.jpg';
     }
     cakeX=Math.floor((Math.random() * (window.innerWidth-100)) + 1);
@@ -24,7 +26,7 @@ window.addEventListener('mousemove', function(e) {
     face.style.top=e.pageY+'px';
     //console.log(e.pageX);
     //console.log(face.style.left);
-    if ((e.pageX>=cakeX-100) && (e.pageX<=cakeX+100) && (e.pageY>=cakeY-100) && (e.pageY<=cakeY+100)) {
+    if ((e.pageX>=cakeX-50) && (e.pageX<=cakeX+50) && (e.pageY>=cakeY-50) && (e.pageY<=cakeY+50)) {
 	face.src="face_3.png";
     } else if ((e.pageX>=cakeX-150) && (e.pageX<=cakeX+150) && (e.pageY>=cakeY-150) && (e.pageY<=cakeY+150)) {
 	face.src="face_2.png";
@@ -45,13 +47,22 @@ window.addEventListener('mousemove', function(e) {
     }
 });
 
+
+var restart = function restart() {
+    location.reload();
+}
+
 window.addEventListener('click', function(e) {
      if ((e.pageX>=cakeX-100) && (e.pageX<=cakeX+100) && (e.pageY>=cakeY-100) && (e.pageY<=cakeY+100)) {
 	 console.log('found it!');
-	 //cake.style.display='';
+	 cake.style.display='';
+	 b1.display='';
+	 //face.src='face_3.png';
+	 setTimeout(restart, 3000);
      }
 });
-			
+
+
 
 
 
