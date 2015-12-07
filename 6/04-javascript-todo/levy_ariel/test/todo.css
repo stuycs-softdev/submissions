@@ -1,0 +1,38 @@
+body {
+	padding: 50px;
+}
+
+h1 {
+	width: 100%;
+	clear: both;
+}
+
+#input {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+#left {
+	width: 50%;
+	float: left;
+	margin: 0px;
+}
+
+#right {
+	width: 50%;
+	float: right;
+	margin: 0px;
+}
+
+#todo-list {
+}
+
+#done-list {
+	color: #444;
+}
+
+#mark-list {
+	clear: both;
+	margin-top: 20px;
+	width: 100%;
+}
