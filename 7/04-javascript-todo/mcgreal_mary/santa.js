@@ -1,13 +1,17 @@
 var mouseX;
 var mouseY;
+var deltaYR;
+var deltaXR;
+var deltaYS;
+var deltaXS;
 
  window.addEventListener('mousemove',function(e){
      mouseX=e.pageX;
      mouseY=e.pageY;
    }); 
 
-function move(e) {
-  var thluffy=document.getElementById("thluffy");
+function moveS(e) {
+  var santa=document.getElementById("santa.jpg");
    var moveelt=document.querySelector('.move');
    var x = (moveelt.style.left);
    var y = (moveelt.style.top);
@@ -16,7 +20,7 @@ function move(e) {
    y=y.substring(0,y.length-2);
    y=parseInt(y);
    
-   if (isNaN(x)) x=200;
+   if (isNaN(x)) x=700;
    if (isNaN(y)) y=200;
 
   if (mouseX<x) {
@@ -33,22 +37,53 @@ function move(e) {
    moveelt.style.left=x+"px";
    moveelt.style.top=y+"px";
 
-  var deltaY = mouseY-y;
-  var deltaX = mouseX-x;
-  var degs=Math.atan2(deltaY,deltaX) *180 / 3.14159;
-  thluffy.style.webkitTransform = "rotate("+degs+"deg)";
+  deltaYS = mouseY-y;
+  deltaXS = mouseX-x;
+  var degs=Math.atan2(deltaYS,deltaXS) *180 / 3.14159;
+  santa.style.webkitTransform = "rotate("+degs+"deg)";
 
-  //('-webkit-transform','rotate('+degs+"deg)");
+}
 
+function moveR(e) {
+  var rudolf=document.getElementById("rudolf.jpg");
+   var moveelt=document.querySelector('.move2');
+   
+
+   x = mouseX + 2;
+   y = mouseY + 2;
+   moveelt.style.left=x+"px";
+   moveelt.style.top=y+"px";
+
+  deltaYR = mouseY + 2;
+  deltaXR = mouseX + 2;
+  var degs=Math.atan2(deltaYR,deltaXR) *180 / 3.14159;
+  rudolf.style.webkitTransform = "rotate("+degs+"deg)";
+
+}
+
+var count = 0;
+function touch(e){
+  if(deltaXS < deltaXR && deltaYS < deltaYR){
+    count ++;
+  }
 }
 
 
 var myevent;
+var myeventR;
+var touchy;
 function startit() {
- myevent = setInterval(move,100);
+ myevent = setInterval(moveS,40);
+ myeventR = setInterval(moveR,40);
+ touchy = setInterval(touch,10);
+
 }
+
 function stopit() {
 	window.clearTimeout(myevent);
+  window.clearTimeout(myeventR);
+  window.clearTimeout(touchy);
+  //document.write(count);
 }
 
  document.getElementById("start").addEventListener('click',startit);
