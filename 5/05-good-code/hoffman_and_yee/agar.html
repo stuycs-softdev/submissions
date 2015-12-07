@@ -42,17 +42,29 @@ function eat(e){
 	var a = (opacity1.style.opacity);
    	var b = (opacity2.style.opacity);
 	var x1 = (opacity1.style.left);
+        x1=x1.substring(0,x1.length-2);
+        x1=parseInt(x1);
    	var x3 = (opacity2.style.left);
+        x3=x3.substring(0,x3.length-2);
+        x3=parseInt(x3);
+        if (isNaN(x1)) x1=500;
+           if (mouseX<x1) {
+           x1=x1-10;
+         } else {
+             x1=x1+10;
+         }
 	var cell=document.getElementById("cell");
    	var moveelt=document.querySelector('.move');
    	var x2 = (moveelt.style.left);
-	if (x3 - x2 > x2 - x1){
-		a = 0;
-		b = 1;
+        x2=x2.substring(0,x2.length-2);
+        x2=parseInt(x2);
+	if (x1==490){
+		opacity1.style.opacity = 0;
+		opacity2.style.opacity = 1;
 		}
 	else{
-		b = 0;
-		a = 1;
+		opacity2.style.opacity = 0;
+		opacity1.style.opacity = 1;
 	}
 
 }
@@ -66,30 +78,25 @@ function move(e) {
    x=parseInt(x);
    y=y.substring(0,y.length-2);
    y=parseInt(y);
-   
    if (isNaN(x)) x=500;
    if (isNaN(y)) y=500;
   if (mouseX<x) {
-     x=x-3;
+     x=x-10;
   } else {
-     x=x+3;
+     x=x+10;
    }
   if (mouseY<y) {
-     y=y-3;
+     y=y-10;
   } else {
-     y=y+3;
+     y=y+10;
    }
    moveelt.style.left=x+"px";
    moveelt.style.top=y+"px";
-  var deltaY = mouseY-y;
-  var deltaX = mouseX-x;
-  var degs=Math.atan2(deltaY,deltaX) *180 / 3.14159;
-  thluffy.style.webkitTransform = "rotate("+degs+"deg)";
-  //('-webkit-transform','rotate('+degs+"deg)");
 }
 var myevent;
 function startit() {
  myevent = setInterval(move,100);
+ myevent2 = setInterval(eat,100);
 }
 function stopit() {
 	window.clearTimeout(myevent);

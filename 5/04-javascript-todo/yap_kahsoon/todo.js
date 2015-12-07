@@ -1,4 +1,3 @@
-var indx = 0;
 //Adds item to the end of a list
 //params: an item and a list
 var additem = function additem(item,listname){
@@ -6,46 +5,37 @@ var additem = function additem(item,listname){
 		n.innerHTML=item;
 		listname.appendChild(n);
 };
-//Removes item
-var removeitem = function(n){
-		var items = document.getElementsByTagName("li");
-		items[n].remove();
-};
 
 //Changes colors
-var changeColor = function(){
-    var items = document.getElementById("todolist");
-    var stuff = items.children;
-    //console.log(stuff.length);
-    //console.log(indx);
-    if (stuff.length == 0){
-    } else if (stuff.length == 1){
-	stuff[0].style.color = "red";
-	console.log(stuff);
-	indx = 1;
-    } else if (stuff.length > indx){
-	stuff[indx-1].style.color = "black";
-	stuff[indx].style.color = "red";
-	indx++;
-    } else if (stuff.length == indx){
-	stuff[stuff.length-1].style.color = "black";
-	stuff[0].style.color = "red";
-	indx = 1;
-    } else {
-	console.log("COLORS!!!");	
+var colorCallback = function(){
+    var items = document.getElementById("todolist").children;
+    for (var i = 0; i < items.length; i++){
+	if (items[i].classList.contains("red")){
+	    items[i].classList.toggle("red");
+	    if (items.length != 1){
+		i++;
+		if (i == items.length){
+		    items[0].classList.toggle("red");
+		} else {
+		    items[i].classList.toggle("red");
+		}
+	    }
+	    return;
+	} else if (i == items.length-1){
+	    items[0].classList.toggle("red");
+	}
     }
 };
 
 //Adds an item to the todolist
 //type something into textbox and press the button
-var todoCallback = function todoCallback(e){
+var todoCallback = function todoCallback(){
     var tdlist = document.getElementById("todolist");
     var text = document.getElementById("todo");
     var item = text.value;
     var index = tdlist.children.length
     additem(item,todolist);
     tdlist.children[index].addEventListener("click", doneCallback);
-    tdlist.children[index].classList.add("red");
     text.value = "";
 };
 
@@ -57,8 +47,23 @@ var doneCallback = function doneCallback(e){
     dlist.appendChild(this);
 };
 
+var event;
+
+var startCallback = function startCallback(){
+    event = setInterval(colorCallback, 1000);
+};
+
+var stopCallback = function stopCallback(){
+    clearInterval(event);
+}
 var button = document.getElementById("addtolist");
 addtolist.addEventListener("click", todoCallback);
 
 var colorButton = document.getElementById("colors");
-colors.addEventListener("click", changeColor);
+colors.addEventListener("click", colorCallback);
+
+var startButton = document.getElementById("start");
+start.addEventListener("click", startCallback);
+
+var endButton = document.getElementById("end");
+end.addEventListener("click", stopCallback);
