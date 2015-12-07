@@ -36,6 +36,7 @@ function clearCircle(){
 }
 
 function clickCircle(){
+    i();
     var rr = getRandom(w);
     var rrr = getRandom(h);
     drawCircle(rr,rrr,30);
@@ -49,7 +50,7 @@ function unclickCircle(){
     var rrr = getRandom(h);
     drawCircle(rr,rrr,30);
     // console.log("(" + rr+','+rrr+')');
-  //  counter=counter+1;
+    //  counter=counter+1;
     printScore();
 }
 
@@ -61,10 +62,13 @@ var rx = getRandom(w);
 var ry = getRandom(h);
 var s = document.getElementById("score");
 s.innerHTML="Click the circle to begin";
-drawCircle(xCenter,yCenter,30);
+drawCircle(xCenter,yCenter,30,1);
 
 var interval;
-interval = setInterval(unclickCircle,1000);
-//,getRandom(w),getRandom(h),30);
+function i(){
+    if(counter==-1){
+        interval = setInterval(unclickCircle,1000);
+    }
+}
 
 document.getElementById("canvas").addEventListener('click',clickCircle);
