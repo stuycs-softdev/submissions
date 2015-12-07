@@ -15,8 +15,8 @@ array.push("You're making me angry.");
 array.push("You wouldn't like it when I'm angry...");
 array.push("RARRRGARRAARARA");//index = 12
 array.push("...");
-array.push("...");
-array.push("...");
+array.push("I see...");
+array.push("It's like that then...");
 array.push("Time to intiate epic dodging skills");
 array.push("Can't Touch This!");//index = 17
 array.push("Muahahahahahahaha!");
@@ -28,7 +28,7 @@ array.push("OMG WHERE DID I GO");//index = 23
 array.push("How did you do that?");
 array.push("Are you a wizard?");
 array.push("Or a hacker?");
-array.push("Either ways you should have better things to do than this...");
+array.push("Either way you should have better things to do than this...");
 array.push("Where's Waldo?");//index = 28
 array.push("...");
 array.push("..");
@@ -39,10 +39,10 @@ array.push("Go Away.");
 array.push("Arrivederci");
 array.push("Adios");
 array.push("Au Revoir");
-array.push("Why are you still here?");
+array.push("etc...");
 array.push("...");
-array.push("Let me tell you a story");
-array.push("inspired by http://sprott.physics.wisc.edu/pickover/pc/redbut.html");
+array.push("Let me tell you a story...");
+array.push("...inspired by http://sprott.physics.wisc.edu/pickover/pc/redbut.html.");
 array.push("It starts off with...");
 //Comment Initialization
 var index = 0;
@@ -89,7 +89,7 @@ var left = 1;
 var btn;
 function checkEvent(){
 	if(index == 4){
-		button.style.marginTop="-20px";
+		button.style.marginTop="-50px";
 	}
 	if(index == 8){
 		button.style.height="10px";
@@ -109,10 +109,11 @@ function checkEvent(){
 		button.style.width ="auto";
 	}
 	if(index == 17){
+		percent = 45;
 		myInterval = setInterval(moveButton,100);
 	}
 	if(index == 18){
-		myInterval2 = setInterval(moveButton,100);
+		myInterval2 = setInterval(moveButton,50);
 	}
 	if(index == 19){
 		clearInterval(myInterval2);
