@@ -5,7 +5,7 @@ var player_hitbox = 15;
 // Globals
 var mouse_x;
 var mouse_y;
-var start_time = Math.floor(Date.now() / 1000);
+var start_time = Math.floor(Date.now() / 500);
 var score = 0;
 var player = document.getElementById("player");
 var player_style = document.querySelector(".player");
@@ -79,6 +79,9 @@ var update_projectiles = function update_projectiles() {
         curr_x = parseInt(curr_x);
         curr_y = parseInt(curr_y);
         if (Math.abs(curr_x - mouse_x) <= player_hitbox && Math.abs(curr_y - mouse_y) <= player_hitbox) {
+            $(".projectile").fadeOut(3000, function() { $(this).remove(); });
+            $(".player").fadeOut(3000, function() { $(this).remove(); });
+            $(".spaner").fadeOut(3000, function() { $(this).remove(); });
             window.clearTimeout(player_updater);
             window.clearTimeout(projectile_spawner);
             window.clearTimeout(projectile_updater);
@@ -104,9 +107,9 @@ projectile_updater = setInterval(update_projectiles, 10);
 // Update the Scoreboard
 
 var update_score = function update_score() {
-    score = Math.floor(Date.now() / 1000) - start_time;
-    scoreboard.innerHTML = "Score: " + score;
+    score = Math.floor(Date.now() / 500) - start_time;
+    scoreboard.innerHTML = "Score: " + (score * 100);
 };
 
-score_updater = setInterval(update_score, 1000);
+score_updater = setInterval(update_score, 100);
 
