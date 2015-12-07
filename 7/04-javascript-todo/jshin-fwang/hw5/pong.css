@@ -25,7 +25,7 @@ body {
 
 #player1 {
     position: absolute;
-    left: 8%;
+    left: 85%;
     top: 50%;
     height: 100px;
 }
@@ -33,7 +33,14 @@ body {
 
 #player2 {
     position: absolute;
-    left: 92%;
+    left: 15%;
     top: 50%;
     height: 100px;
+}
+
+#ball {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 20px;
 }

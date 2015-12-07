@@ -21,8 +21,8 @@
 </div>
 
 <div>
-<input type=submit id="start" value="Start"></submit>
-<input type=submit id="stop" value="Stop"></submit>
+<input type="button" id="start" value="Start"></submit>
+<input type="button" id="stop" value="Stop"></submit>
 Get the Cookies!
 </div>
 
@@ -95,6 +95,7 @@ function move(e) {
 }
 var myevent;
 function startit() {
+ document.getElementById("start").remove();
  myevent = setInterval(move,100);
  myevent2 = setInterval(eat,100);
 }

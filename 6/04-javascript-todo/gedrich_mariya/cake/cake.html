@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head><title>LIES</title></head>
+  <style>
+    #winner {
+    background-color: red;
+    text-color: white;
+    margin: auto;
+    width:30%;
+    padding: 20px;
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    z-index: 99;
+    display: none;
+    }
+  </style>
+  
+  <body>
+    <img id="searcher" src="face_0.png" height="150px" width="150px" style="position: absolute; left:0px; top:0px;}"></img>
+    <img id="cake" src="cake.png" height="150px" width="150px" style="position: absolute; left:200px; top:200px; display:none;}"></img>
+    <div id="winner">
+      You found it! The cake is not a lie.
+      <img id="prize" src="cake.png" height="200px" width="200px" style="margin: auto; width:50%"></img></div>
+    <button id="again" style="display:none;">Go again</button> 
+  </body>
+  <script src="cake.js"></script>
+</html>
