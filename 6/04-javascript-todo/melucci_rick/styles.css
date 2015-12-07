@@ -10,24 +10,59 @@ html{
 #main{
   min-height: 50%;
   width: 50%;
-  /*top: 0; bottom: 0; left: 0; right: 0;
-  position: absolute;*/
   margin: auto;
   margin-top: 5%;
   background-color: #39B9A1;
   border-radius: 30px;
   padding: 5%;
+  display: table;
 }
 
-#main2{
-  height: 50%;
-  width: 50%;
-  background-color: #39B9A1;
-  border-radius: 30px;
-  padding: 5%;
+.maincell{
+  display: table-cell;
+}
+
+#next{
+  display: table-cell;
+  width: 25%;
+  background-color: #FFD9DE;
+  border-radius: 40px;
 }
 
 #add-task{
   width: 50%;
   height: 25%;
+}
+
+#main2{
+  display: none;
+}
+
+#drake{
+  display: none;
+  position: absolute;
+}
+
+#move{
+  position: absolute;
+}
+
+#phone{
+  width: 50px;
+  height: 50px;
+  display: none;
+  position: absolute;
+}
+
+
+#scoreboard{
+  float: right;
+  background-color: gray;
+  border-radius: 20px;
+  display: none;
+  padding: 2.5%;
+}
+
+#score{
+  display: none;
 }

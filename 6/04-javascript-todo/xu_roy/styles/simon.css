@@ -1,0 +1,86 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+.title {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.instructions {
+  text-align: center;
+  margin-top: 5px;
+}
+.status {
+  text-align: center;
+  margin-bottom: 13px;
+  margin-top: 3px;
+}
+.level {
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 8px;
+}
+#level {
+  display: inline;
+}
+#status {
+  display: inline;
+  color: red;
+}
+.simon-box {
+  width: 410px;
+  height: 410px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+#green {
+  width: 200px;
+  height: 200px;
+  background-color: green;
+  display: inline-block;
+  border-radius: 200px 0 0 0;
+  opacity: 0.6;
+}
+#red {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  display: inline-block;
+  border-radius: 0 200px 0 0;
+  opacity: 0.6;
+}
+#yellow {
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  display: inline-block;
+  border-radius: 0 0 0 200px;
+  opacity: 0.4;
+}
+#blue {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  display: inline-block;
+  border-radius: 0 0 200px 0;
+  opacity: 0.6;
+}
+.ready:hover {
+  cursor: pointer;
+}
+.button {
+  width: 80px;
+  height: 30px;
+  border: 1px solid black;
+  background-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 18px;
+}
+.button:hover {
+  cursor: pointer;
+}
+.button:focus {
+  outline: none;
+}

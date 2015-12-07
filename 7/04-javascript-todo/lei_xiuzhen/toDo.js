@@ -49,5 +49,34 @@ var removeCallback2 = function(e){
     removeItem('done',this.innerHTML);
 };
 
-var start = document.getElementById('add');
-start.addEventListener('click',addCallback);
+var enter = document.getElementById('add');
+enter.addEventListener('click',addCallback);
+
+var i = 0;
+var rotation = function(e){
+    var toDoList = document.getElementById('toDo');
+    toDoList.children[toDoList.children.length-1].style.color="black";
+    if (i<toDoList.children.length){
+	if (i != 0){
+	    toDoList.children[i-1].style.color="black";
+	}
+	toDoList.children[i].style.color="blue";
+	i++;
+    }
+    if (i == toDoList.children.length){
+	i=0;
+    }
+    myInterval;
+};
+
+var start = document.getElementById('start');
+var stop = document.getElementById('stop');
+var myInterval;
+
+start.addEventListener('click',function(){
+    myInterval = setInterval(rotation,1000);
+});
+stop.addEventListener('click',function(){
+    clearInterval(myInterval);
+});
+next.addEventListener('click',rotation);
