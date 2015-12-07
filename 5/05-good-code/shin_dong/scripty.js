@@ -43,8 +43,9 @@ var mouseX = 0;
 var mouseY = 0;
 
 var mousepos = function(e){
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+    var rect = canvas.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
     console.log(mouseX+ ' ' +mouseY);
 }
 
