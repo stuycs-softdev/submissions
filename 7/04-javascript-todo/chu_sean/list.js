@@ -5,16 +5,27 @@ var addItem = function addItem(s,list) {
     l.appendChild(n);
 };
 
-var removeItem = function removeItem(list) {
-	var l = document.getElementById(list);
-	l.removeChild(l.childNodes[0]);
-};
 var buttonCallback = function(e){
 	var text = document.getElementById("submission").value;
 	addItem(text,"to-do");
 };
+
 var b = document.getElementById("button");
 b.addEventListener('click',buttonCallback);
+
+var removeItem = function removeItem(list) {
+	var l1 = document.getElementById(list);
+	var l2 = l1.getElementsByTagName("li");
+	console.log(l2[0])
+	l2[0].remove();
+};
+
+var removeCallback = function removeCallback(e) {
+	removeItem("to-do");
+};
+
+var r = document.getElementById("remove");
+r.addEventListener('click', removeCallback);
 
 var count = -1;
 var auto_add = function(e){

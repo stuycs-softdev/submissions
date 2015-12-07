@@ -44,6 +44,37 @@ var addListEvents = function(lst, index){
     });
 };
 
+var n;
+var changeColor = function changeColor(){
+    lst = document.getElementById("todolist");
+    if ( n > 0){
+	lst.children[n-1].style.color = "black";
+    }
+    len = lst.children.length
+    if (n < len){
+	lst.children[n].style.color = "green";
+	n++;
+    } else {
+	n = 0;
+	changeColor();
+    }
+}
+
+    
+var interval;
+var startCallback = function(e){
+    var l = document.getElementById("todolist");
+    console.log(l);
+    n = 0;
+    interval = setInterval(changeColor,1000);
+
+}
+
+var stopCallback = function(e){
+    clearInterval(interval);
+}
+			
+
 var addHorizontal = function addHorizontal(lst){
     var s = document.getElementsByTagName("span");
     if (lst == "todolist"){

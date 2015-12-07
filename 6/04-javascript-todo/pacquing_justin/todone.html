@@ -4,14 +4,17 @@
       <link type="test/css" rel="stylesheet" href="main.css"/>
   </head>
   <body style="text-align:center">
-    <h1>Javascript!</h1>
+    <h1 style="color:#2B4970">Bits O' Javascript!</h1>
     <div>
       <h2>  ToDo|ToDone</h2>
+      Hit Enter to Add
+      <br>
       <form id="addForm">
 	<input type="text" name="addtodo" value="Write Code">
       </form>
-      <br>
-      <button id="but"> Add! </button>
+      <!--<button id="but">Add!</button> or Hit Enter!
+      <br><br> -->
+      Click When Done | Want to Delete
       <br> <br>
       <table width="400px" align="center">
 	<thead>
@@ -50,11 +53,27 @@
 	<li>Hey Bae!</li>
 	<li>Sup B!</li>
       </ol>
-      <br><br>
-      <button id="next"> Next </button> 
+      <br>
+      <form id="cycleForm">
+        Add to the List: <input type="text" name="addcycle" value="Yo Bro">
+      </form> 
+      <br> <button id="next"> Next </button> 
       <button id="start"> Start </button> <button id="stop"> Stop </button>
+    </div>
+    
+    <div id="moveme">
+      <h2>MakeMeTurn</h2>
+      <img id="me" src="me.png" height="400px" width="400px"/> <br>
+      <button id="mestart"> Start </button> <button id="mestop"> Stop </button> 
+    </div>
+
+    <div id="movedrake">
+      <h2>MakeDrakeTurn</h2>
+      <img id="drake" src="drake2.png"height="380px" width="300px"/><br>
+      <button id="dstart"> Start </button> <button id="dstop"> Stop </button> 
     </div>
     <script src="todone.js"></script>
     <script src="listcycler.js"></script>
+    <script src="meturn.js"></script>
   </body>  
 </html>
