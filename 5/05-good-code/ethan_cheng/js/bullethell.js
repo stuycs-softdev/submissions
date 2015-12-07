@@ -44,8 +44,11 @@ var spawn_new_projectile = function spawn_new_projectile() {
 
     // Get a speed
     var factor = 50 + (Math.floor(Math.random() * 100) % 10);
-    new_projectile.setAttribute("speed_x", 1 + (mouse_x - ($(window).width() / 2)) / factor);
-    new_projectile.setAttribute("speed_y", 1 + (mouse_y - ($(window).height() / 2)) / factor);
+    var constant = 1 + (Math.floor(Math.random() * 100) % 5);
+    new_projectile.setAttribute("speed_x", constant + (mouse_x - ($(window).width() / 2)) / factor);
+    factor = 50 + (Math.floor(Math.random() * 100) % 10);
+    constant = 1 + (Math.floor(Math.random() * 100) % 5);
+    new_projectile.setAttribute("speed_y", constant + (mouse_y - ($(window).height() / 2)) / factor);
 
     // Make a timestamp so we can kill it off past a certain time point
     new_projectile.setAttribute("timestamp", Math.floor(Date.now() / 1000));
@@ -77,6 +80,9 @@ var update_projectiles = function update_projectiles() {
             window.clearTimeout(projectile_spawner);
             window.clearTimeout(projectile_updater);
             window.clearTimeout(score_updater);
+        }
+        if (curr_x < 0 || curr_x >= $(window).width() || curr_x < 0 || curr_y >= $(window).height()) {
+            deletions[i] = true;
         }
         curr_x += parseInt(projectiles[i].getAttribute("speed_x"));
         curr_y += parseInt(projectiles[i].getAttribute("speed_y"));
