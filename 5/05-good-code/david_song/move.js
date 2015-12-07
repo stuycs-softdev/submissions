@@ -10,13 +10,13 @@ var movePichu = function movePichu(e) {
     var pichu = document.getElementById("pichu");
     var xPichu = parseInt(pichu.style.left);
     var yPichu = parseInt(pichu.style.top);
-    if (mouseX > xPichu) {
+    if (mouseX -200> xPichu) {
 	xPichu = xPichu + 3;
     }
     else {
 	xPichu = xPichu - 3;
     }
-    if (mouseY > yPichu) {
+    if (mouseY -100> yPichu) {
 	yPichu = yPichu + 3;
     }
     else {
