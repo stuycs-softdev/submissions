@@ -23,7 +23,6 @@ var setColor = function setColor(){
     var count = 0;
     var child = this.parentNode;
     while((child = child.previousSibling) != null ) count++;
-    console.log(count);
     guess[Math.floor(count/2)-1]=color;
 }
 
@@ -45,16 +44,19 @@ var submit = function submit(){
     for(j=0; j<4; j++){
         if(guess[j]==code[j]){
             r++;
-        }else{
-            var k;
-            for(k=0; k<4; k++){
-                if(guess[j]==code[k]&&guess[j]!=guess[k]){
-                    w++;
-                    break;
-                }
-            }
         }
     }
+    for(j=0; j<7; j++){
+	var x = 0;
+	var y = 0;
+	var k;
+	for(k=0; k<4; k++){
+	    if(guess[k]==j) x++;
+	    if(code[k]==j) y++;
+	}
+	w+=Math.min(x,y);
+    }
+    w-=r;
     if(guess[0]==0 || guess[1]==0 || guess[2]==0 || guess[3]==0){
         alert("You must place a peg in every slot of row "+(turn+1)+" in order to submit a guess!");
     }else if(r==4){
@@ -62,7 +64,7 @@ var submit = function submit(){
     }else if (turn == 9){
         alert("You lose! The code was "+code.toString()+".");
     }else{
-        board[turn].children[5].innerHTML = "# of right color and right place: " + r + "\n# of right color but wrong place: " + w;
+        board[turn].children[5].innerHTML = "# of right color and right place: " + r + "<br># of right color but wrong place: " + w;
         turn++;
         setUp();
     }
