@@ -1,27 +1,17 @@
-//Bug: cannot use "click" before you use "next" or "start" to cycle through whole list first
 
 index = 0;
 
-
 var colorNext = function color(){
-    //var items = document.getElementsByTagName("li");
     var pics = document.getElementsByTagName("img");
     i = index%pics.length;
-    //items[i].classList.add("red");
     pics[i].height = "200";
     if(i!=0){
-	//items[i-1].classList.remove("red");
 	pics[i-1].height = "100";
     }
     else {
 	pics[pics.length-1].height = "100";
     }
-    //if(items[0].classList.contains("red") && (items[items.length-1].classList.contains("red"))){
-    //items[items.length-1].classList.remove("red");
-    //pics[i].height = "200";
-    //}
     index++;
-    console.log(i);
 };
 
 var addMouseEvents = function addMouseEvents(item){
@@ -37,11 +27,6 @@ var addMouseEvents = function addMouseEvents(item){
 	colorNext();
     });
 };
-
-//var items = document.getElementsByTagName("li");
-//for (var j = 0; j<items.length;j++){
-//    addMouseEvents(items[j]);
-//}
 
 
 var myInterval;
