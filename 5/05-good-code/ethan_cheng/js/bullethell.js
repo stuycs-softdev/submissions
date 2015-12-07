@@ -1,5 +1,5 @@
 // Constants
-var projectile_timeout = 8;
+var projectile_timeout = 25;
 var player_hitbox = 15;
 
 // Globals
@@ -14,6 +14,12 @@ var player_updater;
 var projectile_spawner;
 var projectile_updater;
 var score_updater;
+
+var pos_neg_multiplier = function pos_neg_multiplier(i) {
+    if (isNaN(i)) return 0;
+    if (i < 0) return -1;
+    if (i >= 0) return 1;
+};
 
 // Player Movement
 var update_mouse_loc = function update_mouse_loc(e) {
@@ -44,10 +50,10 @@ var spawn_new_projectile = function spawn_new_projectile() {
 
     // Get a speed
     var factor = 50 + (Math.floor(Math.random() * 100) % 10);
-    var constant = 2 + (Math.floor(Math.random() * 100) % 5);
+    var constant = (2 + (Math.floor(Math.random() * 100) % 5)) * pos_neg_multiplier(mouse_x - ($(window).width() / 2));
     new_projectile.setAttribute("speed_x", constant + (mouse_x - ($(window).width() / 2)) / factor);
     factor = 50 + (Math.floor(Math.random() * 100) % 10);
-    constant = 2 + (Math.floor(Math.random() * 100) % 5);
+    constant = 2 + (Math.floor(Math.random() * 100) % 5) * pos_neg_multiplier(mouse_x - ($(window).height() / 2));
     new_projectile.setAttribute("speed_y", constant + (mouse_y - ($(window).height() / 2)) / factor);
 
     // Make a timestamp so we can kill it off past a certain time point
@@ -58,12 +64,6 @@ var spawn_new_projectile = function spawn_new_projectile() {
 projectile_spawner = setInterval(spawn_new_projectile, 90);
 
 // Projectile Updating
-var pos_neg_multiplier = function pos_neg_multiplier(i) {
-    if (isNaN(i)) return 0;
-    if (i < 0) return -1;
-    if (i >= 0) return 1;
-};
-
 var update_projectiles = function update_projectiles() {
     var projectiles = document.getElementsByClassName("projectile");
     var deletions = new Array(projectiles.length).fill(false);
