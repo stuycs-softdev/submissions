@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      .red{color:#ff0000;}
+      .pic{height:100px;}
+      .move {position:absolute; left:300px; top:400px}
+    </style>
   </head>
   <body>
     <center>
       <b><u>To Do</b></u>
-      <ol id="todo" class="todo">
+      <ol id="todo">
       </ol>
       <br>
       <b><u>Done</b></u>
-      <ol id="done" class="done">
+      <ol id="done">
       </ol>
       <input type="text" id="addon">
       </input>
       <br><br>
       <button id="addButton">Add To Do</button>
+      <br><br>
+      <button id="changeCol">Color MagiC!</button>
+      <br><br>
+      <button id="start">Start the MagiC!</button>
+      <br><br>
+      <button id="end">End the MagiC...</button>
+      <br><br>
+      Speed
+      <br>
+      <input type="range" id="speed" min=1 max=20>
+      <div class="move">
+      <img id="stickman" class="pic" src="stickmanR.jpg">
+      </div>
+      <br><br>
+      <button id="startTag">RUN!</button>
       <script src="todo.js"></script>
     </center>
   </body>
