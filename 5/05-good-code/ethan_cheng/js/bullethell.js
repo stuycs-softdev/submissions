@@ -16,7 +16,10 @@ var projectile_updater;
 var score_updater;
 
 var pos_neg_multiplier = function pos_neg_multiplier(i) {
-    if (isNaN(i)) return 0;
+    if (isNaN(i)) {
+        console.log(i);
+        return 0;
+    }
     if (i < 0) return -1;
     if (i >= 0) return 1;
 };
@@ -50,10 +53,10 @@ var spawn_new_projectile = function spawn_new_projectile() {
 
     // Get a speed
     var factor = 50 + (Math.floor(Math.random() * 100) % 10);
-    var constant = (2 + (Math.floor(Math.random() * 100) % 5)) * pos_neg_multiplier(mouse_x - ($(window).width() / 2));
+    var constant = (1 + (Math.floor(Math.random() * 100) % 5)) * pos_neg_multiplier(mouse_x - ($(window).width() / 2));
     new_projectile.setAttribute("speed_x", constant + (mouse_x - ($(window).width() / 2)) / factor);
     factor = 50 + (Math.floor(Math.random() * 100) % 10);
-    constant = 2 + (Math.floor(Math.random() * 100) % 5) * pos_neg_multiplier(mouse_x - ($(window).height() / 2));
+    constant = (1 + (Math.floor(Math.random() * 100) % 5)) * pos_neg_multiplier(mouse_y - ($(window).height() / 2));
     new_projectile.setAttribute("speed_y", constant + (mouse_y - ($(window).height() / 2)) / factor);
 
     // Make a timestamp so we can kill it off past a certain time point
