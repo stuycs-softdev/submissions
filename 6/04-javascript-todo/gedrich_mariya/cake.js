@@ -26,7 +26,7 @@ window.addEventListener('mousemove', function(e) {
     face.style.top=e.pageY+'px';
     //console.log(e.pageX);
     //console.log(face.style.left);
-    if ((e.pageX>=cakeX-50) && (e.pageX<=cakeX+50) && (e.pageY>=cakeY-50) && (e.pageY<=cakeY+50)) {
+    if ((e.pageX>=cakeX-75) && (e.pageX<=cakeX+75) && (e.pageY>=cakeY-75) && (e.pageY<=cakeY+75)) {
 	face.src="face_3.png";
     } else if ((e.pageX>=cakeX-150) && (e.pageX<=cakeX+150) && (e.pageY>=cakeY-150) && (e.pageY<=cakeY+150)) {
 	face.src="face_2.png";
@@ -53,12 +53,13 @@ var restart = function restart() {
 }
 
 window.addEventListener('click', function(e) {
-     if ((e.pageX>=cakeX-100) && (e.pageX<=cakeX+100) && (e.pageY>=cakeY-100) && (e.pageY<=cakeY+100)) {
+     if ((e.pageX>=cakeX-75) && (e.pageX<=cakeX+75) && (e.pageY>=cakeY-75) && (e.pageY<=cakeY+75)) {
 	 console.log('found it!');
 	 cake.style.display='';
-	 b1.display='';
+	 //b1.display='';
 	 //face.src='face_3.png';
-	 setTimeout(restart, 3000);
+	 setTimeout(restart, 1000);
+	 //restart();
      }
 });
 
