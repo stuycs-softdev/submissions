@@ -144,4 +144,4 @@ var linearflip = function linearflip(){
 };
 
 //myInterval = setInterval(linearflip,10);
-myInterval = setInterval(trigflip,20);
+myInterval = setInterval(trigflip,15);
