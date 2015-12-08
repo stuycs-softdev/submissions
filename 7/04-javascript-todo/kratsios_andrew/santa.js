@@ -45,7 +45,7 @@ function moveS(e) {
 }
 
 function moveR(e) {
-  var rudolf=document.getElementById("rudolf.jpg");
+  var rudolf=document.getElementById("Rudolf.jpg");
    var moveelt=document.querySelector('.move2');
    
 
