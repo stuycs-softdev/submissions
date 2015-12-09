@@ -3,7 +3,7 @@ console.log("Initiate");
 var MouseX;
 var MouseY;
 
-window.addEventListener('mousemove',function(e){MouseX = e.pageX; MouseY = e.pageY;});
+window.addEventListener('mousemove',function(e){console.log("moved"); MouseX = e.pageX; MouseY = e.pageY;console.log(MouseX);});
 
 var move = function move(e){
     var img = document.getElementById("pac");
@@ -21,40 +21,42 @@ var move = function move(e){
 	y = 200;
     }
     var l;
-    if(mouseX < x){
-	l = x - mouseX;
-	x = x - 3;
+    if(MouseX < x){
+	l = x - MouseX;
+	x = x - 1;
 	img.src = "pacl.png";
     }else{
-	l = mouseX - x;
-	x = x + 3;
+	l = MouseX - x;
+	x = x + 1;
 	img.src = "pacr.png";
     }
-    if(mouseY < y){
-	if(l < y - mouseY){
-	    img.src = "pacd.png";
-	}
-	y = y - 3;
-    }else{
-	if(l < mouseY - y){
+    if(MouseY < y){
+	if(l < y - MouseY){
 	    img.src = "pacu.png";
 	}
-	y = y + 3;
+	y = y - 1;
+    }else{
+	if(l < MouseY - y){
+	    img.src = "pacd.png";
+	}
+	y = y + 1;
     }
-    moveelt.style.left = x + "px";
-    moveelt.style.top = y + "px";
+    cl.style.left = x + "px";
+    cl.style.top = y + "px";
 };
 
-var s = document.getElementById("s");
-s.addEventListener("click",star);
 var running = 0;
 var myevent;
-var star = function star(e){
-    if(running == 0){
+var ButtonCallback = function ButtonCallback(e){
+    if(running < 1){
+	console.log("1");
 	running = 1;
-	myevent = setInterval(move,100);
+	myevent = setInterval(move,10);
     }else{
+	console.log("0");
 	running = 0;
-	window.clearTimeout(myevent);
+	clearInterval(myevent);
     }
 };
+var s = document.getElementById("s");
+s.addEventListener("click",ButtonCallback);
