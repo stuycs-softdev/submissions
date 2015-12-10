@@ -12,6 +12,7 @@ function startit() {
     myevent = setInterval(getprofile,5000);
 }
 function stopit() {
+    console.log("it ended");
     window.clearTimeout(myevent);
 }
 document.getElementById("start").addEventListener('click',startit);
