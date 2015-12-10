@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html>
-	<center>
-	<head>
-		<title> To-Do List </title>
-		<style>
-			body {
-				background-color: black;
-				color: white;
-			}
-			table{
-				border-color:white;
-			}
-			button{
-				color: white;
-				background-color: black;
-				border: 1px solid white;
-			}
-			td{
-				padding-right: 25px;
-			}
-			
-		</style>
-	</head>
+  <center>
+    <head>
+      <title> To-Do List </title>
+      <style>
+	body {
+	background-color: black;
+	color: white;
+	}
+	table{
+	border-color:white;
+	}
+	button{
+	color: white;
+	background-color: black;
+	border: 1px solid white;
+	}
+	td{
+	padding-right: 25px;
+	}
+	.move {position:absolute; left:200px; top:200px}
+	
+      </style>
+    </head>
 
-	<body>
-		<h2> Simple To-Do List </h2>
+    <body>
+      <h2> Simple To-Do List </h2>
 
-		<form>
-		Input a task: <input type="text" id="input">
-		</form>
-		<br>
-		<button id="submitThis"> Submit </button>
-		<br><br>
+      <form>
+	Input a task: <input type="text" id="input">
+      </form>
+      <br>
+      <button id="submitThis"> Submit </button>
+      <br><br>
 
-		<table align="center" border="1">
-			<thead>
-				<tr>
-					<th>Tasks:</th>
-					<th>Completed Tasks:</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>
-						<ul id="toDoList"></ul>
-					</td>
-					<td>
-						<ul id="result"></ul>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<button id="start"> Start </button>
-					</td>
-					<td>
-						<button id="stop"> Stop </button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		
+      <table align="center" border="1">
+	<thead>
+	  <tr>
+	    <th>Tasks:</th>
+	    <th>Completed Tasks:</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+	    <td>
+	      <ul id="toDoList"></ul>
+	    </td>
+	    <td>
+	      <ul id="result"></ul>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td>
+	      <button id="start"> Start </button>
+	    </td>
+	    <td>
+	      <button id="stop"> Stop </button>
+	    </td>
+	  </tr>
+	</tbody>
+      </table>
+      <div class="move">
+	<img id="SAP" class="img" src="SAP.png">
+      </div>
 
-		<script src="todo.js"></script>
-	</body>
-	</center>
+      <script src="todo.js"></script>
+    </body>
+  </center>
 </html>

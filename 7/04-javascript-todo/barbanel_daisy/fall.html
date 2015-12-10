@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<style>
+
+	#redZone {
+		position: absolute;
+		bottom:0;
+		left:0;
+		right:0;
+		background-color:red;
+		height: 200px;
+	}
+	div {
+		float:right;
+		padding-right:25px;
+
+	}
+	p {
+		padding-top: 10%;
+		padding-left:25px;
+	}
+	</style>
+<body>
+	<input type="button" value="new game" id="ng" onclick="newGame(this)">
+	<input type="button" value="clear screen" id="cs" onclick="clearS(this)">
+	<div>Score:  <span id="score">0</span></div>
+
+	<hr>
+	<div id="redZone">
+	<p>Grab the umbrellas before they reach the red zone. Don't touch the cats or dogs or else your score will go down.</p>
+	</div>
+	<script src="fall.js"></script>
+</body>
+</html>
