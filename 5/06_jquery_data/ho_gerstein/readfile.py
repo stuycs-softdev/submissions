@@ -1,8 +1,25 @@
 import csv
-
-def readprofiles:
+import random
+def readprofiles():
     f = open("MOCK_DATA.csv","r")
-    f.read()
+    s = f.read()[:-1]
+    f.close()
     profiles = []
-    for person in f:
-        
+    people = s.split("\n")
+    a = ""
+    for person in people:
+        person = person.split(",")
+        profile = {}
+        profile["id"] = person[0]
+        profile["first"] = person[1]
+        profile["last"] = person[2]
+        profile["email"] = person[3]
+        profile["country"] = person[4]
+        profile["ip"] = person[5]
+        profiles.append(profile)
+    return profiles
+
+def randomprofile():
+    profiles = readprofiles()
+    profileNum = random.randint(0,99)
+    return profiles[profileNum]
