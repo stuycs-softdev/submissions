@@ -1,8 +1,9 @@
-var displayData=function displatData(){
+var displayData=function displayData(){
     function(){
 	var d=$("#data").val();
 	//$("#data").val("");
 	$.getJSON("data.csv", function(d){
+	    console.log(this);
 	    //get a random line of data
 	    /*
 	    $("#result").text(d.result);
