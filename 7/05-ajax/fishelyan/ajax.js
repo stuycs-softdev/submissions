@@ -1,17 +1,20 @@
 function explode(txt) {
     $(txt).html($(txt).text().replace(/([\S])/g, "<span>$1</span>"));
     $(txt).css("position", "relative");
-    $("span", $(txt)).each(function() {
+    $(txt).children().each(function() {
+	var topFinal = Math.floor(Math.random()*1000)-500;
+	var leftFinal = Math.floor(Math.random()*1000)-500;
+	
 	$(this).css({position: "relative",
-		     opacity: 1,
-		     fontSize: 12,
 		     top: 0,
-		     left: 0
+		     left: 0,
+		     opacity: 1,
+		     fontSize: 10
 		    }).animate({
+			top: topFinal,
+			left: leftFinal,
 			opacity: 0,
-			fontSize: 84,
-			top: Math.floor(Math.random()*1000)-500,
-			left: Math.floor(Math.random()*1000)-500
+			fontSize: 50
 		    },1000);
     });
 }
