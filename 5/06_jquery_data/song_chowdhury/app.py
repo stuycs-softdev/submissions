@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
 
+data = []
+counter = 0
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -16,12 +19,21 @@ def getprofile():
     for line in lines:
         newlist = line.split(',')
         linelist.append(newlist)
-
+        
+    data = linelist #we don't know if this works
+    file.close()
     #it works! print linelist
     
     print "ending getprofile"
     return "profile"
 
+@app.route("/getdata")
+def getdata():
+    print "starting getdata"
+    line = data[counter]
+    counter += 1
+    print "ending getdata"
+    return line
 
 if __name__ == "__main__":
    app.debug = True
