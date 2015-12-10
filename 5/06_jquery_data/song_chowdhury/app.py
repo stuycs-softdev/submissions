@@ -9,6 +9,15 @@ def index():
 @app.route("/getprofile")
 def getprofile():
     print "starting getprofile"
+
+    file = open("MOCK_DATA.csv", 'r')
+    lines = file.readlines() #realines() should return list of lines
+    linelist = []
+    for line in lines:
+        newlist = line.split(',')
+        linelist.append(newlist)
+
+    #it works! print linelist
     
     print "ending getprofile"
     return "profile"
