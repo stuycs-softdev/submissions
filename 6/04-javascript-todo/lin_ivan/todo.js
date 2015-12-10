@@ -22,10 +22,10 @@ var items = todo.children;
 var cnt = 0;
 var color = function color(){
     if (cnt == 0){
-	items[items.length-1].style.color = "red";
+	items[items.length-1].style.color = "black";
     }
     else{
-	items[items.length-1].style.color = "black";
+	items[cnt-1].style.color = "black";
     }
     items[cnt].style.color = "red";
     cnt = (cnt + 1)%items.length;
@@ -33,6 +33,13 @@ var color = function color(){
 
 document.getElementById("grow").addEventListener("click",color);
 
+var on = false;
+var stuff;
 document.getElementById("grow-cycle").addEventListener("click",function(e){
-    setInterval(color,2000);
+    if (on){
+	clearInterval(stuff);
+    }else{
+	stuff = setInterval(color,2000);
+    }
+    on = !on;
 });

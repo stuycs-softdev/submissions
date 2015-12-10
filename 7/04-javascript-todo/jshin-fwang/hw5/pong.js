@@ -1,5 +1,5 @@
-var dx = 1;
-var dy = 1;
+var dx = 2;
+var dy = 2;
 
 /*
 var keyState = {};
