@@ -1,11 +1,8 @@
-import urllib2
-import json
+import urllib2, time, json
 from flask import Flask, render_template, request
-import time, json
+
 
 app = Flask(__name__)
-
-#url = "http://www.weather.com/weather/5day/l/10001:4:US"
 
 @app.route("/")
 @app.route("/index")
@@ -18,12 +15,9 @@ def results():
     request = urllib2.urlopen(url)
     result = request.read()
     r = json.loads(result)
-    print r
-    print
-    print r.keys()
-    print r['main']
-    result = r['main']['temp']
-    return json.dumps(result)
+    temp = r['main']['temp']
+    name = r['name']
+    return name + ", " + str(temp)
     
 if __name__ == "__main__":
    app.debug = True
