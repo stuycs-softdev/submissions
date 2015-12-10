@@ -1,0 +1,10 @@
+div {
+  padding: 10px 20px 30px 20px;
+  margin-bottom: 10px;
+  background-color: #CCCCCC;
+}
+
+.undone, .done {
+  padding: 10px 30px 10px 40px;
+  background-color: #EEEEEE;
+}
