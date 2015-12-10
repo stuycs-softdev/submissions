@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title> Project </title>
+    <style>
+      td { width:10%; height:10%;}
+      img { max-height:50%;max-width:50%;display:block;margin:auto;position:relative;top:50%;transform:translateY(-50%); }
+    </style>
+  </head>
+
+  <body>
+    <h1 style="color:blue; text-align:center;"> Snakes and Ladders </h1>
+
+    <div style="float: left; width:30%; height:40vw" id="left">
+      <img src="./img/1.png" id="leftImg">
+    </div>
+
+    <div style="float: left; width:40%; height:40vw" id="middle">
+      <table id="board" border="1" style="width: 100%; height:100%;border-collapse: collapse; background-size: 100% 100%;" background="./img/snakes-and-ladders.jpg">
+	<tr>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	</tr>
+	<tr>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	</tr>
+	<tr>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	</tr>
+	<tr>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	</tr>
+	<tr>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	</tr>
+	<tr>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	</tr>
+	<tr>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	</tr>
+	<tr>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	</tr>
+	<tr>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	</tr>
+	<tr>
+	  <td>
+	    <div id="p1" style="color:#000000; text-align:center;"><b>O</b></div>
+	    <div id="p2" style="color:#000000; text-align:center;"><b>X</b></div>
+	  </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	  <td> </td>
+	</tr>
+      </table>
+    </div>
+
+    <div style="float: left; width:30%; height:40vw" id="right">
+      <img src="./img/2.png" id="rightImg">
+    </div>
+
+    <h3 id="status" style="text-align:center; color:red"> Your Turn </h3>
+    <button id="roll" style="display:block; margin:0 auto;">Roll</button>
+
+    <script src="snakesAndLadders.js"></script>
+    
+  </body>
+</html>
+

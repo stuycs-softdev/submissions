@@ -1,51 +1,56 @@
+<!--
+  Author: Alvin Lin (alvin.lin.dev@gmail.com)
+-->
 <!DOCTYPE html>
-
 <html>
   <head>
-    <title>TODO LIST</title>
-    <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
-
-    <style>
-      #todo-list li:hover {
-        color: red;
-      }
-    </style>
-
+    <title>Alvin Lin</title>
+    <link rel='stylesheet' type='text/css'
+          href='http://fonts.googleapis.com/css?family=Open+Sans' />
+    <link rel='stylesheet'
+          href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' />
+    <link rel='stylesheet' type='text/css' href='style/style.css' />
+    <link rel='stylesheet' type='text/css' href='style/animation.css' />
+    <script type='text/javascript' src='bg/falling_square_background.js'></script>
   </head>
-
-  <body>
-    <input type='text' id='todo' />
-    <button type='button' id='todo-submit'>Submit</button>
-
-    <h1>TODO</h1>
-    <br />
-    <ol id='todo-list'>
-    </ol>
-
-    <hr />
-
-    <h1>DONE</h1>
-    <ol id='todo-done'>
-    </ol>
-
-    <hr />
-    
-    <h1>List cycler</h1>
-    <ol id='cycler-list'>
-      <li>Thing 1</li>
-      <li>Thing 2</li>
-      <li>Thing 3</li>
-      <li>Thing 4</li>
-      <li>Thing 5</li>
-      <li>Thing 6</li>
-      <li>Thing 7</li>
-      <li>Thing 8</li>
-    </ol>
-    <button type='button' id='cycler-next'>Next</button>
-    <button type='button' id='cycler-auto'>Auto Cycle</button>
-
-    <script src='script.js'>
+  <body id='single-page-body'>
+    <div id='navbar'>
+      <a>
+        Home
+      </a>
+      <a href='tap.html'>
+        Tap
+      </a>
+      <a href='klick.html'>
+        Klick
+      </a>
+    </div>
+    <div id='home-content'>
+      Alvin Lin
+      <div id='media'>
+        <a href='https://github.com/omgimanerd'
+           title='https://github.com/omgimanerd'
+           class='media-tooltip'>
+          <span class='fa fa-github-square fa-2x'></span>
+        </a>
+        <a href='https://facebook.com/omgimanerd'
+           title='https://facebook.com/omgimanerd'
+           class='media-tooltip'>
+          <span class='fa fa-facebook-square fa-2x'></span>
+        </a>
+        <a title='alvin&#46;lin&#46;dev&#64;gmail&#46;com'
+           class='media-tooltip'>
+          <span class='fa fa-envelope-square fa-2x'></span>
+        </a>
+      </div>
+    </div>
+    <div id='copyright'>
+      Copyright &copy; Alvin Lin 2014
+    </div>
+    <script type='text/javascript'>
+      // Create the background object and apply the background.
+      var backgroundObj = new FallingSquareBackground();
+      backgroundObj.buildFallingSquareBackgroundAnimation();
     </script>
-    
   </body>
 </html>

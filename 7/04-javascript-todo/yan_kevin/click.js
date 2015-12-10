@@ -13,12 +13,21 @@ var removeToDo = function removeToDo(n){
     return tditems[n].innerHTML;
 };
 
-var tdCallback = function tdCallback(e){
+//Making the add button work
+var bCallback = function bCallback(e){
     addToDo("HUE");
 };
+var b = document.getElementById("add");
+b.addEventListener("click", bCallback);
 
-//var b = document.getElementById("add");
-//b.addEventListener("click", bCallback);
-
-var tabledata = document.getElementByTagName("tr");
-tabledata.addEventListener("click", tdCallback);
+//Making clicking on to-do items work
+var tdCallback = function tdCallback(e){
+    removeToDo("HUE");
+};
+var todo = document.getElementById('to-do');
+var items = todo.children;
+for (var i = 0 ; i < items.length ; i++){
+    items[i].addEventListener('click', function(e){
+	removeToDo(i);
+    });
+};
