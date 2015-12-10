@@ -15,6 +15,4 @@ var moveSnake = function moveSnake(e){
     document.getElementById("snakedude").style.top=snakey+"px";
 };
     
-
-
-window.addEventListener("mousemove",moveSnake);
+document.getElementById("snakedude").addEventListener("mouse",moveSnake);
