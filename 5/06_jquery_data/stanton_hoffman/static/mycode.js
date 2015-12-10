@@ -7,7 +7,13 @@ var printresults = function(d){
 var timingTest1 = function(){
 
 		console.log("slow");
-		$.get("/getslow",printresults);
+		$.get("/getslow",function(){
+				console.log("Slow returned");
+				console.log("FAST");
+				$.get("/getfast",printresults);
+				console.log("BACK FROM FAST");
+		});
+		
 		console.log("BACK FROM SLOW");
 
 		console.log("regular");
@@ -15,9 +21,6 @@ var timingTest1 = function(){
 		console.log("BACK FROM REGULAR");
 
 
-		console.log("FAST");
-		$.get("/getfast",printresults);
-		console.log("BACK FROM FAST");
 		
 		
 };
@@ -35,3 +38,22 @@ var stuffdemo = function(){
 		console.log("back from getstuff");
 
 };
+
+var paramtest = function paramtest(){
+		$.getJSON("/upcase",{data:'hello'},function(d){
+				console.log(d);
+				console.log(d.result);
+		});
+
+};
+
+
+$("#b").click(function(){
+		var input = $("#data");
+		var d = input.val();
+		input.val("");
+		$.getJSON("/upcase",{data:d},function(d){
+				$("#result").text(d.result);
+				$("#thelist").append($("<li>"+d.result+"</li>"));
+		});
+});
