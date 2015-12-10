@@ -1,3 +1,5 @@
+//google places:AIzaSyCtc4ULXKSocmcjjHzp-T78-xH53a0Sz2w
+
 var map;
 
 function mapinit(){
