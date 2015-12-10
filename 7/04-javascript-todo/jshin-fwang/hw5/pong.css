@@ -17,7 +17,6 @@ h2 {
 }
 
 body {
-    text-align: center;
     color: white;                                                        
     font-family: "New Courier", courier, monospace;
     background-color: black;
@@ -43,4 +42,14 @@ body {
     left: 50%;
     top: 50%;
     height: 20px;
+}
+
+#score1 {
+    padding-left:5em;
+    font-size: 25px;
+}
+
+#score2 {
+    padding-left:30em;
+    font-size: 25px;
 }
