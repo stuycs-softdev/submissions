@@ -1,5 +1,7 @@
 //javascript document for todo.html
 
+var count = 0;
+
 var buttonCallback = function buttonCallback(e){
     added = document.getElementById("form1").elements[0].value;
     addItemToDo(added);
@@ -11,6 +13,7 @@ var addItemToDo = function additemToDo(s){
     var newElement = document.createElement("li");
     newElement.innerHTML=s;
     listt.appendChild(newElement);
+    count++;
 };
 
 var addItemDone = function additemDone(s){
@@ -25,6 +28,7 @@ var removeItemToDo = function removeItemToDo(n){
     var items1 = document.getElementById("todolist").children;
     items1[n].remove()
     eventss();
+    count--;
 };
 
 var removeItemDone = function removeItemDone(n){
@@ -32,6 +36,13 @@ var removeItemDone = function removeItemDone(n){
     items2[n].remove()
     eventss();
 };
+
+var highlight = document.getElementById('highlight');
+highlight.addEventListener('click',)
+function highlight(n) {
+    var items = document.querySelector("todolist").children;
+    items[currItem] = items[currItem] + hello;
+}
 
 var button = document.getElementById('b')
 button.addEventListener('click',buttonCallback);
