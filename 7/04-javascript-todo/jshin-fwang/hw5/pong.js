@@ -1,36 +1,11 @@
 var dx = 1;
 var dy = 1;
+var player1score = document.querySelector('#score1').innerHTML;
+var player2score = document.querySelector('#score2').innerHTML; 
+player1score=player1score.substring(length-2, length-1);
 
-/*
-var keyState = {};
-
-window.addEventListener('keydown',function(e){
-    keyState[e.keyCode || e.which] = true;
-},true);
-
-window.addEventListener('keyup',function(e){
-    keyState[e.keyCode || e.which] = false;
-},true);
-
-x = 100;
-
-function gameLoop() {
-    if (keyState[37] || keyState[65]){
-    x -=1;
-    }
-
-    if (keyState[39] || keyState[68]){
-    x += 1;
-    }
-    
-    document.getElementById("test").style.left = x + "px";
-    
-    setTimeout(gameLoop, 10);
-}
-
-gameLoop();
-*/
 var started = false;
+
 //Keystate for multitouch
 var keyState = {};
 
@@ -135,8 +110,8 @@ function startit() {
    started = true;
    //move()
    //bounce()
-   playermove = setInterval(move,50);
-   ballmove = setInterval(bounce, 50);
+   playermove = setInterval(move,20);
+   ballmove = setInterval(bounce, 20);
   }
 }
 
