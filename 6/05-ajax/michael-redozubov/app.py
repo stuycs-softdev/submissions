@@ -5,6 +5,19 @@ app= Flask(__name__)
 @app.route("/",methods=["GET","POST"])
 @app.route("/home",methods=["GET","POST"])
 def home():
+    f = open('Emergency_Response_Incidents.csv','r')
+    s = f.read()
+    l = s.split()
+    
+
+
+
+
+
+
+
+
+    
     return render_template("home.html")
 
 
