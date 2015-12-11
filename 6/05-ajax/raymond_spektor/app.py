@@ -7,7 +7,15 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/index")
 def index():
-    return render_template("index.html");
+    return render_template("index.html")
+
+@app.route("/random")
+def random():
+    return render_template("random.html")
+
+@app.route("/scrolling")
+def scrolling():
+    return render_template("scrolling.html")
 
 def getImgLink(num):
     """Arguments: Integer that is the id number of a comic
