@@ -11,10 +11,13 @@ var testparam = function testparam(s){
 $("#submit_button").click(function(){
     var data = $("#data").val();
     $("#data").val("");
-
+    
     $.getJSON("/results",{data:data},function(r){
        console.log("You entered...");
 	     console.log(r.result);
-       $("#thelist").append($("<li>"+r.result+"</li>"));
+       //$("#thelist").append($("<li>"+r.result+"</li>"));
+       //$("#thelist").append($("<li>"+r+"</li>"));
+       document.getElementById("p1").innerHTML = r;
     });
 });
+
