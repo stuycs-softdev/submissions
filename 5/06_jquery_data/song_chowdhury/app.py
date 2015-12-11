@@ -9,7 +9,7 @@ counter = 0
 def index():
     return render_template("index.html")
 
-@app.route("/getprofile")
+@app.route("/getprofile")    #####puts csv data into global variable data
 def getprofile():
     print "starting getprofile"
 
@@ -27,13 +27,16 @@ def getprofile():
     print "ending getprofile"
     return "profile"
 
-@app.route("/getdata")
+@app.route("/getdata")      ######returns a line from global variable data
 def getdata():
     print "starting getdata"
     line = data[counter]
     counter += 1
     print "ending getdata"
+    if counter > 99:
+        return
     return line
+
 
 if __name__ == "__main__":
    app.debug = True
