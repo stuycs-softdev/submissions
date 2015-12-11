@@ -47,6 +47,7 @@ def getNext():
       for row in reader:
          myreader.append(row)
       if (myreader[counter][2] == '0'):
+         delta = "-"
          delta = delta + myreader[counter][1]
       if (myreader[counter][2] == '1'):
          delta = "+"
