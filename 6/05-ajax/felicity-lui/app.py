@@ -20,7 +20,7 @@ def getProfit():
             profits.append(row[0])
    finally:
       f.close()
-   return JSON.parse(profits)
+   return json.dumps(profits)
 
 @app.route("/getLose")
 def getLose():
@@ -33,27 +33,27 @@ def getLose():
             loss.append(row[0])
    finally:
       f.close()
-   return JSON.parse(loss)
+   return json.dumps(loss)
 
 @app.route("/getNext")
 def getNext():
    global counter
    myreader = []
    results = []
+   delta = ""
    f = open("static/profit.csv",'rb')
    try:
       reader = csv.reader(f)
       for row in reader:
          myreader.append(row)
       if (myreader[counter][2] == '0'):
-         delta = "-"
          delta = delta + myreader[counter][1]
       results.append(myreader[counter][0])
       results.append(delta)
    finally:
       f.close()
    counter = counter + 1
-   return JSON.parse(results)
+   return json.dumps(results)
 
 
 if __name__ == "__main__":
