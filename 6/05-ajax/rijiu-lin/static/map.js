@@ -7,21 +7,18 @@ var time;
 var mapinit = function mapinit(){
     map = new google.maps.Map(document.getElementById('map-canvas'), {
 	zoom: 2,
-	center: {lat: 0, lng: 0} 
+	center: {lat: 0, lng: 0},
+	scrollwheel: false,
+	draggable: false
     });
-
+    map.addListener('click', checkAnswer)
     setInterval(newRound, 60000);
-    setInterval(reduceTime, 1000);
 };
 
 var newRound = function newRound(){
     console.log('a');
-    google.maps.event.clearListeners(map, 'click');
     $.get("/getCoordinates",function (d){
 	document.getElementById("street-view").src = getStreetView(d.lat, d.lng);
-	map.addListener('click', function(e){
-	    checkAnswer(e,answer);
-	});
     });
 }
 
