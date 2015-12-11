@@ -1,10 +1,10 @@
 * {
-    font-family:"Times New Roman";
+    font-family:"Arial";
 }
 
 #random {
-    background-color:blue;
-    width:500px;
+    background-color:lightgray;
+    width:250px;
     padding-top:1px;
     padding-bottom:1px;
     padding-left:10px;

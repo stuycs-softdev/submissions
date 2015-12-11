@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request
-import time, json, data
+import time, json, readfile
 
 app = Flask(__name__)
 
@@ -10,14 +10,14 @@ def index():
 @app.route("/search")
 def search():
     name = request.args.get("name")
-    profile = data.searchprofile(name)
+    profile = readfile.searchpokemon(name)
     return json.dumps(profile)
 
 @app.route("/random")
 def random():
-    profile = data.randompokemon()
+    profile = readfile.randompokemon()
     return json.dumps(profile)
     
 if __name__ == "__main__":
    app.debug = True
-   app.run(host="0.0.0.0", port=8000)
+   app.run()

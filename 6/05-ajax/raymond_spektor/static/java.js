@@ -17,11 +17,12 @@ $("#update").click(function(){
 
 index = 0;
 favlist = [150,730,162,688,556];
+var timer;
 $("#start").click(function(){
 	$.get('/carousel', {data:favlist[index]}, function(r){
 		$("#cImg").attr("src",r);
 	});
-	setInterval(function(){
+	timer = setInterval(function(){
 		if(index >= favlist.length-1)
 			index = 0;
 		else
@@ -29,5 +30,8 @@ $("#start").click(function(){
 		$.get('/carousel', {data:favlist[index]}, function(r){
 			$("#cImg").attr("src",r);
 		});
-	},30000);
+	},5000);
 })
+$("#stop").click(function(){
+    clearInterval(timer);
+});
