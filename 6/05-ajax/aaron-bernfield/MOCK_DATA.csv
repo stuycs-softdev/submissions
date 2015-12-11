@@ -1,5 +1,5 @@
 city,current_temperature,wind_speed,weather,chance_of_rain
-Maturín,2,33,Rainy,29
+Maturin,2,33,Rainy,29
 Xianren,5,96,Rainy,47
 Kacangan Lor,62,2,Rainy,29
 Zhaike,36,79,Sunny,72
@@ -9,7 +9,7 @@ Ramat HaSharon,71,100,Rainy,95
 Warungpeuteuy,95,18,Sunny,17
 Zemio,54,50,Sunny,71
 Nueva Requena,55,40,Cloudy,62
-Västerås,72,43,Sunny,43
+Vasteras,72,43,Sunny,43
 Wuluquele,43,14,Rainy,55
 Przytyk,93,21,Cloudy,50
 Belyy Gorodok,72,83,Sunny,20
@@ -35,17 +35,17 @@ Lekaj,21,50,Cloudy,96
 Sheshory,1,23,Cloudy,20
 Guancheng,1,93,Sunny,79
 Bulri,69,64,Sunny,36
-Järfälla,67,11,Sunny,72
+Jarfalla,67,11,Sunny,72
 Qiancheng,17,1,Sunny,68
 Beaufort,59,34,Sunny,40
 Adelaide Mail Centre,22,62,Rainy,81
 Ostrowsko,30,15,Rainy,67
 Artemivs’k,50,10,Rainy,36
 San Emilio,0,93,Rainy,79
-Jastrzębia,73,75,Rainy,66
-Linköping,5,28,Cloudy,15
+Jastrzebia,73,75,Rainy,66
+Linkoping,5,28,Cloudy,15
 Shigu,72,2,Sunny,5
 Terek,19,81,Rainy,45
-San Jerónimo,2,4,Sunny,31
-Sidirókastro,45,13,Rainy,9
+San Jeronimo,2,4,Sunny,31
+Sidirokastro,45,13,Rainy,9
 Outeiro,76,2,Cloudy,94

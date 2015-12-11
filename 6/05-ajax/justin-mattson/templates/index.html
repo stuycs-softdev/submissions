@@ -1,0 +1,35 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="../static/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <script src="/../static/jquery.js"></script>
+  <title>Image-ine This.</title>
+</head>
+
+<body>
+  <div id="header">
+    <h1> Image-ine This. </h1>
+
+  </div>
+  <div id="container">
+
+    <div id="left">
+      <h2> slides </h2>
+      <img id="slideimg" src="../static/images/1.jpg" height="70%" width="70%"/> <br> <br>
+      <button id="addtopicked">Make this photo your pick</button>
+      <script src = "../static/imgine.js"></script>
+      <!--
+      <script>
+	$.get("/image", function(data){
+	$("#slideimg").attr("src",data);
+	});
+      </script> -->
+    </div>
+
+    <div id="right">
+      <h2>picked</h2>
+      <img id="pickedImg" src=".jpg" alt="picked img here!" height="70%" width="70%"/> <br> <br>
+      <script src = "../static/imgine.js"></script>
+    </div>
+
+  </div>
+</body>

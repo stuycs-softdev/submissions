@@ -1,29 +1,54 @@
 <html>
-
-  <body>
-    Type in a zip code to look up: <br>
+  <head>
+    <script src="static/jquery.js"></script>
+    <title> Weather </title>
+  </head>
+  <body bgcolor="#1E90FF">
+    <div style="background-image:url(http://download-wallpapers.net/wallpapers/beach-wallpapers-beach-detail-wallpaper-south-wallpapers-wallpaper-40639.jpg);">
+    
+    <h1 align="center"> Weather Reporter </h1>
+    <font size="8">
+    Type in a something to look up: <br>
     <input id="data" placeholder="10000"></input>
-    <button id="b"> Submit </button> <br>
+    <button id="submit_button"> Submit </button>
     <button id="convert"> Convert </button>
 
+
     <table>
-      <tr>
 	<td>
-	  Zip Code:
+	  Place:
 	</td>
-	<td id="zip">
-	  {{zip}}
+	<td id="place">
+	  {{place}}
 	</td>
       </tr>
       <tr>
 	<td>
-	  Temperature:
+	  Maximum Temperature:
+	</td>
+	<td id="maxTemp">
+	  {{maxTemp}}
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  Current Temperature:
 	</td>
 	<td id="temp">
 	  {{temp}}
 	</td>
       </tr>
+      <tr>
+	<td>
+	  Min Temperature:
+	</td>
+	<td id="minTemp">
+	  {{minTemp}}
+	</td>
+      </tr>
     </table>
-
+    <br><br><br><br><br><br><br>
+    <script src="static/mycode.js"></script>
+    </font>
   </body>
 </html>

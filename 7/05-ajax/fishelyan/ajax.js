@@ -1,4 +1,4 @@
-function explode(txt) {
+var explode = function explode(txt) {
     $(txt).html($(txt).text().replace(/([\S])/g, "<span>$1</span>"));
     $(txt).css("position", "relative");
     $(txt).children().each(function() {
@@ -18,3 +18,14 @@ function explode(txt) {
 		    },1000);
     });
 }
+
+
+var getName = function getName(){
+    $.get("/names", function(n){
+	$("#name").append("<div>"+n+"</div>")
+    });
+};
+
+
+
+

@@ -1,9 +1,3 @@
-
-
-function loaddata(){
-    var filename = "data.json";
-}
-
 var keyname = function(i){
     if (i=="address"){
 	return "Address";
@@ -58,4 +52,5 @@ var search = function(a){
 	}).appendTo("#newtable");
     });
 }
+
 $('#search').click(search);
