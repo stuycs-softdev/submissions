@@ -8,6 +8,7 @@ def getDataList():
     file_=open("static/MOCK_DATA.csv","r")
     datalines=file_.readlines()
     data=[]
+    data2=[]
     for line in datalines:
         data+=[line.split(",")]
     i=0
@@ -21,20 +22,24 @@ def getDataList():
         temp["email"]=profile[2]
         temp["address"]=profile[3]
         temp["country"]=profile[4].strip("\n")
-        data+=[temp]
-   
-    return data
+        data2+=[temp]
+    return data2
 
 DATALIST=getDataList()
 def getRandomGuy():
     randNum=random.randrange(0,75)
+    print DATALIST[randNum]
     return DATALIST[randNum]
+    
 
-def searchGuy(name):
+def searchGuy(searchh):
     for profile in DATALIST:
-        if profile["first"]+" "+profile["last"]==name:
+        if profile["email"]==searchh or profile["first"]==searchh or profile["last"]==searchh or profile["address"]==searchh or profile["country"]==searchh:
+            print profile
             return profile
-    return False
+
+    #cannot find the name/address/email/country (return a random one)
+    return getRandomGuy()
 
 @app.route("/")
 def index():
@@ -47,14 +52,14 @@ def index():
     
 @app.route("/loop")
 def randloop():
-    
     result=getRandomGuy()
     return json.dumps(result)
 
 @app.route("/search")
 def search():
-    search = request.args.get("search")
-    result = searchGuy(search)
+    inputt = request.args.get("input")
+    print inputt
+    result = searchGuy(inputt)
     return json.dumps(result)
 
 if __name__ == "__main__":
