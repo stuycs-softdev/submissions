@@ -9,13 +9,10 @@ var mapinit = function mapinit(){
 	zoom: 2,
 	center: {lat: 0, lng: 0} 
     });
-
-    setInterval(newRound, 60000);
-    setInterval(reduceTime, 1000);
+    newRound();
 };
 
 var newRound = function newRound(){
-    console.log('a');
     google.maps.event.clearListeners(map, 'click');
     $.get("/getCoordinates",function (d){
 	document.getElementById("street-view").src = getStreetView(d.lat, d.lng);
@@ -23,13 +20,15 @@ var newRound = function newRound(){
 	    checkAnswer(e,answer);
 	});
     });
+    setTimeout(newRound, 30000);
+    time = 30;
 }
 
 var checkAnswer = function checkAnswer(e){
     var dist = $.get("/distance", {lat1: 0, lon1: 0, lat2: e.latLng.lat(), lon2: e.latLng.lng()}, function(distance){
 	console.log(distance);
     });
-    
+    newRound();
 };
 
 var getStreetView = function getStreetView(lat, lng){
