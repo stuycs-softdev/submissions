@@ -1,41 +1,37 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template,request, redirect, url_for, session
 import time, json
 
 app = Flask(__name__)
 
+globaldata = []
+count = 0
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/getstuff")
-def getstuff():
-    print "In getstuff"
-    time.sleep(5);
-    print "returning from getstuff"
-    return "stuff"
+@app.route("/getprofile")
+def getprofile():
+    print "In getprofile"
+    fd = open("datafile.txt", 'r')
+	buff = fd.readlines()
+	bufflist = []
+	for line in buff:
+		tmp = line.split(',')
+		bufflist.append(tmp)
+	globaldata = bufflist
+	fd.close()
+	print "Leaving getprofile"
+	return "Updated profile"
 
-@app.route("/getfast")
-def getfast():
-    print "in getfast"
-    print "returning from getfast"
-    return "fast stuff"
-
-@app.route("/getslow")
-def getslow():
-    print "in getslow"
-    time.sleep(10)
-    print "returning from getslow"
-    return "slow stuff"
-
-@app.route("/upcase")
-def upcase():
-    data = request.args.get("data")
-    print data
-    result = {'original' : data,
-            'result':data.upper()}
-    return json.dumps(result)
-    
+@app.route("/getdata")
+def getdata():
+	print "In getdata"
+    buff = globaldata[count]
+	count++
+	print "Leaving getdata"
+	return buff
+	
 if __name__ == "__main__":
    app.debug = True
    app.run(host="0.0.0.0", port=8000)
