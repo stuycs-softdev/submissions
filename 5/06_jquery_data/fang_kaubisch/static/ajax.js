@@ -9,6 +9,8 @@ var cat = "http://random.cat/meow"
         });
 }
 
+searchCat("");
+
 // api key = 2d0f6fb08bbdc443a85afa2bb39823fa                                   
 var searchurls =
 "https://api.flickr.com/services/rest/?method=flickr.photos.search& \           
