@@ -3,30 +3,43 @@ var KEY = "AIzaSyCtc4ULXKSocmcjjHzp-T78-xH53a0Sz2w";
 
 var map;
 var time;
+var timer;
 
 var mapinit = function mapinit(){
     map = new google.maps.Map(document.getElementById('map-canvas'), {
 	zoom: 2,
 	center: {lat: 0, lng: 0},
 	scrollwheel: false,
-	draggable: false
+	draggable: false,
+	disableDoubleClickZoom: true
     });
-    map.addListener('click', checkAnswer)
-    setInterval(newRound, 60000);
+    time = 30;
+    newRound();
+    setInterval(function(){
+	time--;
+	document.getElementById("time").innerHTML = "You have " + time + " seconds left";
+    },1000);
 };
 
 var newRound = function newRound(){
-    console.log('a');
+    clearInterval(timer);
+    time = 30;
+    google.maps.event.clearListeners(map, 'click');
     $.get("/getCoordinates",function (d){
-	document.getElementById("street-view").src = getStreetView(d.lat, d.lng);
+	document.getElementById("street-view").src = getStreetView(d.lat, d.lng)
+	map.addListener('click',function(e){
+	    checkAnswer(e,d);
+	});
     });
+    timer = setInterval(newRound, 30000);
 }
 
-var checkAnswer = function checkAnswer(e){
-    var dist = $.get("/distance", {lat1: 0, lon1: 0, lat2: e.latLng.lat(), lon2: e.latLng.lng()}, function(distance){
+var checkAnswer = function checkAnswer(e,ans){
+    var dist = $.get("/distance", {lat1:ans.lat, lon1: ans.lng, lat2: e.latLng.lat(), lon2: e.latLng.lng()}, function(distance){
 	console.log(distance);
+	document.getElementById("results").innerHTML = "Actual Spot: "+ans.lat+","+ans.lng+"<br>"+"You Guessed: "+e.latLng.lat()+","+e.latLng.lng()+"<br>Distance was: "+distance;
     });
-    
+    newRound();
 };
 
 var getStreetView = function getStreetView(lat, lng){
