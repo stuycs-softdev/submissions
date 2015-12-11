@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title> Ball Top 10s </title>
+    <h1 align="center"> Basketball Top 10s </h1>
+  </head>
+
+  <body>
+
+  {% if top10 %}
+  <ol>
+  {% for i in top10 %}
+     <li> {{i}} </li>
+  {% endfor %}
+  </ol>
+  {% endif %}  
+  </body>
+
+</html>
