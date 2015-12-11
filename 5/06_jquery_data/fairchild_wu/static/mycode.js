@@ -1,13 +1,13 @@
 console.log("running!");
-editCurrent = function editCurrent(data){
+var editCurrent = function editCurrent(data){
     console.log(data);
     console.log("code is about to break");
     var currentProfile = document.getElementById("currentProfile");
     //console.log("profile:");
     //console.log(currentProfile);
-    currentProfile.innerhtml = data;
+    currentProfile.innerHTML = data;
     console.log(currentProfile);
-    console.log(currentProfile.innerhtml)
+    console.log(currentProfile.innerHTML)
 }
 
 getNewProfile = function getNewProfile(){
