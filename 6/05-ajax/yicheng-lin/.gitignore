@@ -1,1 +1,7 @@
+/env
+/static/bower
 key.txt
+.*~
+.*.swp
+*~
+*.pyc
