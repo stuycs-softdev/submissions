@@ -13,7 +13,7 @@ var scroll_through_city_list = function scroll_through_city_list() {
         $("#world_temp_min").text("Low of: " + res["temp_min"]);
         $("#world_temp_max").text("High of: " + res["temp_max"]);
         // Get the picture
-        $.getJSON("http://localhost:8000/picture/?condition=" + res["wtype"], function(pic) {
+        $.getJSON("picture/?condition=" + res["wtype"], function(pic) {
             // Use DOM to save time
             document.getElementById("left_panel").style.backgroundSize = "cover";
             document.getElementById("left_panel").style.backgroundImage = "url(" + pic["url"] +")";
@@ -37,8 +37,8 @@ var lookup_weather = function lookup_weather() {
         $("#query_temp").text("Current Temperature: " + res["temp_curr"]);
         $("#query_temp_min").text("Low of: " + res["temp_min"]);
         $("#query_temp_max").text("High of: " + res["temp_max"]);
-        $.getJSON("http://localhost:8000/picture/?condition=" + res["wtype"], function(pic) {
-            // Use DOM to save time
+        $.getJSON("picture/?condition=" + res["wtype"], function(pic) {
+            // Use DOM to to save time
             document.getElementById("query_display").style.backgroundSize = "cover";
             document.getElementById("query_display").style.backgroundImage = "url(" + pic["url"] +")";
         });
