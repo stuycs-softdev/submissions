@@ -39,7 +39,7 @@ function updating(){
         var jsonData = JSON.parse(data)
         var table = document.getElementById("profitLose");
         var x = document.createElement("tr");
-        x.innerHTML = "<td>"+jsonData[0]+"</td><td>"+jsonData[1]+"/td>";
+        x.innerHTML = "<td>"+jsonData[0]+"</td><td>"+jsonData[1]+"</td>";
         table.appendChild(x);
     })
 }
@@ -48,17 +48,17 @@ function updating(){
 function addButton(){
     var f = document.getElementById("user");
     var n = document.createElement("button");
+    n.id="back";
     var txt = document.createTextNode("Back");
     n.appendChild(txt);
-    n.id="back";
     f.appendChild(n);
-    console.log("done");
     document.getElementById("back").addEventListener('click',remove());
 }
 
 function remove(){
     $('#listItem').remove();
+    console.log("gone");
 }
 
 var interval;
-interval = setInterval(updating,5000);
+interval = setInterval(updating,2000);
