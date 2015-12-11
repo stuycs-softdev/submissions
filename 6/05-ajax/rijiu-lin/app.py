@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import random, json
 
 app = Flask(__name__)
@@ -15,8 +15,8 @@ def distance():
 
 @app.route("/getCoordinates")
 def getPlace():
-    coord = {'lat':random.randint(-89,90),'lng':random.randint(-89,90)}
-    return coord
+    coord = {'lat':random.uniform(-30,75),'lng':random.uniform(-125,125)}
+    return jsonify(coord)
 
 if __name__ == "__main__":
    app.debug = True

@@ -2,14 +2,15 @@ from flask import Flask, render_template,request
 import random, json
 
 app = Flask(__name__)
-f = open('data.json', 'r')
+f = open('templates/data.json', 'r')
 data = f.read()
 data = json.loads(data)
 f.close()
 
 @app.route("/")
 def index():
-    return render_template("home.html")
+    list1 = getdata()
+    return render_template("home.html",lastname=list1['last'],email=list1['email'],dob=list1['birth'],phonenumber=list1['phone'],creditcardnumber=list1['credit'],creditcardpin=list1['pin'],bankaccountnumber=list1['bank'],address=list1['address'],firstname=list1['first'])
 
 @app.route("/about")
 def getstuff():
@@ -19,7 +20,7 @@ def getstuff():
 def getdata():
     info = random.choice(data)
     info['address'] = info['street']+', '+info['city']+', '+info['zip']
-    return data
+    return info
 
 @app.route("/search")
 def search():

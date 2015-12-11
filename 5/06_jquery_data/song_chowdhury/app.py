@@ -25,12 +25,14 @@ def getdata():
 @app.route("/getprofile")      ######returns a line from global variable data
 def getprofile():
     print "starting getprofile"
+    global counter
+    counter = 1
     line = data[counter]     #for some reason, counter is a local variable
     counter += 1
     print "ending getprofile"
     if counter > 99:
         return "end"
-    return json.dump(line)
+    return json.dumps(line)
 
 
 if __name__ == "__main__":
