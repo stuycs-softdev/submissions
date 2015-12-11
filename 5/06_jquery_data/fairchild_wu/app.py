@@ -26,16 +26,37 @@ def index():
 def getProfile():
     profileNum=random.randint(0,99)
     profile=niceData[profileNum]
-    return json.dumps(profile)
+    name=profile['name']
+    email=profile['email']
+    phone=profile['phone']
+    city=profile['city']
+    return "Name: "+name+"<br>Email: "+email+"<br>Phone: "+phone+"<br>City: "+city
 
 @app.route("/getImage")
 def getImage():
-    return "https://www.imgur.com/funnypicture"
+    imageList=["https://i.imgur.com/QlmW4aC.jpg",
+               "http://i.imgur.com/mAQPgXg.jpg",
+               "http://i.imgur.com/ScXY5al.jpg",
+               "http://i.imgur.com/SA4prMR.jpg",
+               "http://i.imgur.com/xSjQNTx.jpg"]
+    picNum=random.randint(0,len(imageList)-1)
+    return "<img src="+imageList[picNum]+'" style="width:400px;height:400;">'
 
-@app.route("/search")
-def search():
-    return "stuff"
+@app.route("/search/")
+@app.route("/search/<name>")
+def search(name=""):
+    for key in niceData:
+            if niceData[key]['name'] == name:
+                profile=niceData[key]
+                name=profile['name']
+                email=profile['email']
+                phone=profile['phone']
+                city=profile['city']
+                return "Name: "+name+"<br>Email: "+email+"<br>Phone: "+phone+"<br>City: "+city
+        
+    return  "No result"
 
 if __name__ == "__main__":
+    app.debug=True
     app.secret_key = "SECRET"
     app.run(host='0.0.0.0',port=8000)

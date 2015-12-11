@@ -25,16 +25,22 @@ def randomprofile():
     return profiles[profileNum]
 
 def searchprofile(name):
-    name = name.split()
+    i = 1
+    fixedName=""
+    while (i < len(name)):
+        if name[i].isupper():
+            fixedName = name[:i] + " " + name[i:]
+        i+=1
+    name = fixedName.split(" ")
     profiles = readprofiles()
     for person in profiles:
         if person["first"]==name[0] and person["last"]==name[1]:
             return person
     return {
-        "id": None,
-        "first": None,
-        "last": None,
-        "email": None,
-        "counttry": None,
-        "ip": None}
+        "id": "",
+        "first": "Does Not Exist",
+        "last": "",
+        "email": "",
+        "country": "",
+        "ip": ""}
 

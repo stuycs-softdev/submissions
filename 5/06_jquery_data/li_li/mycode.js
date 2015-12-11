@@ -1,16 +1,10 @@
+console.log("javascript loaded");
+
 var displayData=function displayData(){
-    function(){
-	var d=$("#data").val();
-	//$("#data").val("");
-	$.getJSON("data.csv", function(d){
-	    console.log(this);
-	    //get a random line of data
-	    /*
-	    $("#result").text(d.result);
-	    $("#thelist").append($("<li>"+d.result+"</li>"));
-	    */
-	});
-    }	
+    $.getJSON("/loop", function (d){
+	var s=document.getElementById("randData");
+	s.innerHTML="sas"
+    });
 }
 
-var myInterval = setInterval(displayData,1000);
+//var myInterval = setInterval(displayData,1000);

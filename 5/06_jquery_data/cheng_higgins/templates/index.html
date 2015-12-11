@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Weather</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="static/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+  <body>
+    <div class="section no-pad-bot no-pad-top" id="index-banner">
+      <div class="row">
+        <div class="col s6" id="left_panel" style="height: 100vh">
+          <div class="section center-align black-text">
+            <h4> World Weather </h4>
+          </div>
+          <div class="divider"></div>
+          <i class="medium material-icons left">language</i>
+          <h5 id="world_location"> Location </h5>
+          <br>
+
+          <div class="divider"></div>
+          <i class="medium material-icons left">cloud</i>
+          <h5 id="world_conditions"> Conditions </h5>
+          <br>
+
+          <div class="divider"></div>
+          <i class="material-icons left medium">trending_flat</i>
+          <h5 id="world_temp"> Temp </h5>
+          <br>
+
+          <div class="divider"></div>
+          <i class="material-icons left medium">trending_down</i>
+          <h5 id="world_temp_min"> Low of </h5>
+          <br>
+
+          <div class="divider"></div>
+          <i class="material-icons left medium">trending_up</i>
+          <h5 id="world_temp_max"> High of </h5>
+          <br>
+        </div>
+        <div class="col s6 transparent blue-grey" id="right_panel" style="height: 100vh">
+          <div id="query_display" style="height: 65%">
+            <div class="section center-align black-text">
+              <h4> Weather Lookup </h4>
+            </div>
+            <div class="divider"></div>
+            <i class="medium material-icons left">language</i>
+            <h5 id="query_location"> Location </h5>
+            <br>
+
+            <div class="divider"></div>
+            <i class="medium material-icons left">cloud</i>
+            <h5 id="query_conditions"> Conditions </h5>
+            <br>
+
+            <div class="divider"></div>
+            <i class="material-icons left medium">trending_flat</i>
+            <h5 id="query_temp"> Temp </h5>
+            <br>
+
+            <div class="divider"></div>
+            <i class="material-icons left medium">trending_down</i>
+            <h5 id="query_temp_min"> Low of </h5>
+            <br>
+
+            <div class="divider"></div>
+            <i class="material-icons left medium">trending_up</i>
+            <h5 id="query_temp_max"> High of </h5>
+            <br>
+          </div>
+          <div class="section center-align black-text">
+            <h5> Search Weather for a City </h5>
+          </div>
+          <div class="divider"></div>
+          <div class="row">
+            <div class="input-field col s12 black-text">
+              <i class="material-icons prefix">mode_edit</i>
+              <input placeholder="Name of City" id="query_city" type="text">
+            </div>
+          </div>
+          <div class="row center-align">
+            <button class="center-align btn waves-effect waves-light"
+                    type="submit" name="add" id="lookup">Search
+                    <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="static/js/materialize.min.js"></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/background.js"></script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js">
+    </script>
+  </head>
+  <body>
+     <body style="text-align:center">
+       
+    <form id="search">
+      Search for a book:
+      <br>
+      <input type="text" id="input">
+    </form>
+    <button id="submit"> Search </button>
+    <br>
+    <br>
+    
+    <table align="center" border="1">
+      <thead>
+        
+	<tr>
+	  <th>Random Suggestions</th>
+	  <th>Search your own:</th>
+	</tr>
+      </thead>
+      
+      <tbody>
+	<tr>
+	  <td>
+	    <ul id="random books"></ul>
+	  </td>
+	  
+	  <td>
+	    <ul id="specific searches"></ul>
+	  </td>
+	  
+	</tr>
+      </tbody>
+    </table>
+    
+    <script src="books.js">
+    </script>
+  </body>
+</html>
