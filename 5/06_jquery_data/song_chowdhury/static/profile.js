@@ -1,15 +1,15 @@
-var getprofile = function getprofile(e) {
-    $.get("/getprofile", function() {
-	console.log("js getprofile started");
+var getdata = function getdata(e) {
+    data = $.get("/getdata", function() {
+	console.log("js getdata started");
 	
-	console.log("js getprofile ended");
+	console.log("js getdata ended");
     });
 };
 
 var myevent;
 function startit() {
     console.log("it started");
-    myevent = setInterval(getprofile,5000);
+    myevent = setInterval(getdata,5000);
 }
 function stopit() {
     console.log("it ended");
@@ -17,3 +17,8 @@ function stopit() {
 }
 document.getElementById("start").addEventListener('click',startit);
 document.getElementById("stop").addEventListener('click',stopit);
+$.get("/getprofile", function() {
+    console.log("js getprofile started");
+    
+    console.log("js getprofile ended");
+});
