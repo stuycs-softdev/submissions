@@ -1,9 +1,9 @@
-var getdata = function getdata(e) {
+var getprofile = function getprofile(d) {
     data = []
-    $.get("/getdata", function(d) {
-	console.log("js getdata started");
+    $.get("/getprofile", function(d) {
+	console.log("js getprofile started");
 	data = d
-	console.log("js getdata ended");
+	console.log("js getprofile ended");
     });
     console.log(data[0])
 };
@@ -22,13 +22,13 @@ document.getElementById("stop").addEventListener('click',stopit);
 
 
 var csv;
-$.get("/getprofile", function(d) {
-    console.log("js getprofile started");
-    //console.log("getprofile returned: "+d);        //this works
-    console.log("js getprofile ended");
-});
 $.get("/getdata", function(d) {
     console.log("js getdata started");
-    console.log("getdata returned: "+d);
+    //console.log("getdata returned: "+d);        //this works
     console.log("js getdata ended");
+});
+$.get("/getprofile", function(d) {
+    console.log("js getprofile started");
+    console.log("getprofile returned: "+d);
+    console.log("js getprofile ended");
 });
