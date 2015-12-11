@@ -2,7 +2,7 @@ from flask import Flask, render_template,request
 import random, json
 
 app = Flask(__name__)
-f = open('data', 'r')
+f = open('data.json', 'r')
 data = f.read()
 data = json.loads(data)
 f.close()
