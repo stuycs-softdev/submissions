@@ -42,6 +42,7 @@ var beginFiring = function(num){
 var setFire = function(num){
   localStorage.fire = num;
   $("#fire").html(num);
+  return "You Dirty Cheater >(";
 };
 
 var setBellow = function(num){
