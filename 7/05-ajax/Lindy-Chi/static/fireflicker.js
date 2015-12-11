@@ -1,10 +1,4 @@
 var clicks = 0;
-var stoves = 0;
-var campfires = 0;
-var furnaces = 0;
-var brickovens = 0;
-var reactors = 0;
-var volcanos = 0;
 
 var interval = 500;
 $(document).ready(function(){
@@ -77,12 +71,14 @@ var clickUpgrade = function() {
   upgrades = $("#upgrades").children().click(function(){
     var price = possible.indexOf(this.id) + 1;
     if (localStorage.fire >= price * 100){
-      setBellow(Number(localStorage.bellow) + price * 10);
-      setFire(Number(localStorage.fire) - price * 100);
-
       setBellow(parseFloat(localStorage.bellow) + parseFloat(price * 10));
       setFire(parseFloat(localStorage.fire) - parseFloat(price*100));
-      this.innerHTML = this.innerHTML.slice(0,this.innerHTML.indexOf(">") + 1) + (parseInt(this.innerHTML.slice(this.innerHTML.indexOf(">")+1)) + 1);
+      if (localStorage.getItem(this.id)){
+        localStorage.setItem(this.id, parseInt(localStorage.getItem(this.id)) + 1);
+      }else{
+        localStorage.setItem(this.id, 1);
+      }
+      this.innerHTML = this.innerHTML.slice(0,this.innerHTML.indexOf(">") + 1) + localStorage.getItem(this.id);
     }
   });
 };

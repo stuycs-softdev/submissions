@@ -1,5 +1,8 @@
 # fireflicker
 
+Leon Chou + Cindy Li
+
+
 #Stages of Fire:
 1:Stove
 2:Campfire
