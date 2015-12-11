@@ -37,7 +37,8 @@ function updating(){
         var jsonData = JSON.parse(data)
         var table = document.getElementById("profitLose");
         var x = document.createElement("tr");
-        x.innerHTML = "<td>"+data[0]+"</td><td>"+data[1]+"/td>";
+        console.log(jsonData)
+        x.innerHTML = "<td>"+jsonData[0]+"</td><td>"+jsonData[1]+"</td>";
         table.appendChild(x);
     })
 }
