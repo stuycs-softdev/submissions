@@ -6,7 +6,7 @@ def readpokedeck():
     s = fd.read()[:-1]
     fd.close()
     pokedeck = []
-    people = s.split("\n")
+    pokedeck = s.split("\n")
     a = ""
     for pokemon in pokedeck:
         pokemon = pokemon.split(",")
@@ -21,13 +21,14 @@ def readpokedeck():
         pokedeck["hp"] = pokemon[7]
         pokedeck["lv"] = pokemon[8]
         pokedeck.append(newpokemon)
-    return pokedeck
+    print pokedeck
 
 def randompokemon():
     pokedeck = readpokedeck()
-    pokedeckNum = random.randint(2,5)
+    print pokedeck
+    pokedeckNum = random.randint(1,3)
     print pokedeckNum
-    return pokedeck[pokedeckNum]
+    return pokedeck[2]
 
 def searchpokedeck(name):
 	count = 1
