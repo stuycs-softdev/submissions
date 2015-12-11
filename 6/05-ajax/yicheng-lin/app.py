@@ -60,4 +60,4 @@ def result():
 
 if __name__ == "__main__":
   app.debug == "--debug" in sys.argv
-  app.run()
+  app.run(host="0.0.0.0")

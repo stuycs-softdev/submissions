@@ -89,7 +89,8 @@ google.maps.event.addDomListener(window, "load", function() {
             map: map
           }));
           plantLabels.push(new MapLabel({
-            text: data.nearby_plants[i].name,
+            text: data.nearby_plants[i].name + ' - ' +
+                data.nearby_plants[i].current_price,
             fontSize: 12,
             fontColor: "blue",
             position: plantLoc,

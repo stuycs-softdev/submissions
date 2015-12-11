@@ -2,7 +2,7 @@
 
 import requests
 
-key = open("key.txt", "r").read()[:-1]
+key = open("key.txt", "r").read().strip()
 
 def get_lat_lng(address):
     """
@@ -14,7 +14,6 @@ def get_lat_lng(address):
     Returns:
         a dictionary of the form {'lat': <latitude>, 'lng': <longitude>}
     """
-
     params = {'address':address, 'key':key}
     r = requests.get("https://maps.googleapis.com/maps/api/geocode/json", params = params)
     return r.json()['results'][0]['geometry']['location']
