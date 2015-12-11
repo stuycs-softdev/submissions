@@ -51,6 +51,15 @@ var myInterval = setInterval(refresh,3000);
 //Some dropdown stuff
 //$('#dropDownId').val();
 
+var temp = [];
+var search = function Search(cr,dt){
+    for(var i = 0;i<lines.length;i++){
+        if(cr == lines[i][10].split("/", 1)[0].split("-",1)){
+            temp.push(lines[i]);
+        }
+    }
+    replaceData(document.getElementById("search"),temp[0]);
+};
 /*
 Loop through the crimes/dates and try to
 fill up each dropdown depending on the
