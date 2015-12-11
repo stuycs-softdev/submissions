@@ -5,8 +5,8 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route("/")
-@app.route("/index")
-def index():
+@app.route("/home")
+def home():
     return render_template("home.html")
 
 @app.route("/results")
@@ -18,7 +18,7 @@ def results():
     temp = r['main']['temp']
     name = r['name']
     return name + ", " + str(temp)
-    
+
 if __name__ == "__main__":
    app.debug = True
    app.run(host="0.0.0.0", port=8000)
