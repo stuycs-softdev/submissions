@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $.ajax({
         type: "GET",
-        url: "MOCK_DATA.csv",
+        url: "profit.csv",
         dataType: "text",
         success: function(data) {processData(data);}
     });
