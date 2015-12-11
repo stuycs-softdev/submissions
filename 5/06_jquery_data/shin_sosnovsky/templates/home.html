@@ -27,12 +27,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Creeper!</a>
+          <a class="navbar-brand" href="/">Creeper!</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="/about">About</a></li>
             <!--<li><a href="#contact">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -67,12 +67,30 @@
         </p>
 	<hr></hr>
 	<h2>Info</h2>
-<script>
-setTimeout(function(){
-   window.location.reload(1);
-}, 20000);
-</script>
-	<table class="table">
+	<script>
+	  var update = function(){
+	  $.getJSON("/getdata",function(data){
+	  console.log(data.results.first);
+	  data = data.results;
+	  $("#oldtable tr").eq(0).find("td").eq(1).html(data.first);
+	  $("#oldtable tr").eq(1).find("td").eq(1).html(data.last);
+	  $("#oldtable tr").eq(2).find("td").eq(1).html(data.birth);
+	  $("#oldtable tr").eq(3).find("td").eq(1).html(data.email);
+	  $("#oldtable tr").eq(4).find("td").eq(1).html(data.phone);
+	  $("#oldtable tr").eq(5).find("td").eq(1).html(data.credit);
+	  $("#oldtable tr").eq(6).find("td").eq(1).html(data.pin);
+	  $("#oldtable tr").eq(7).find("td").eq(1).html(data.bank);
+	  $("#oldtable tr").eq(8).find("td").eq(1).html(data.address);
+	  
+	  });
+	  }
+
+	  setInterval(function(){
+	  update();
+	  console.log('called');
+	  }, 5000);
+	</script>
+	<table class="table" id = "oldtable">
 	  <tbody>
 	    <tr>
 	      <td class="col-md-3"><b>First Name</b></td>
@@ -119,9 +137,11 @@ setTimeout(function(){
 	  <div class="form-group col-md-3">
 	    <input type="text" class="form-control" id="query" placeholder="First or last name">
 	  </div>
-	  <button type="submit" class="btn btn-default">Submit</button>
+	  <button id="search"  class="btn btn-default">Submit</button>
 	</form>
-	
+
+	<div id="newtable">
+	</div>
 	
       </div>
     </div>
@@ -131,6 +151,7 @@ setTimeout(function(){
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../static/bootstrap.min.js"></script>
+    <script src="../static/user.js"></script> 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   </body>
 </html>
