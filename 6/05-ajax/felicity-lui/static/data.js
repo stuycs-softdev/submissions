@@ -55,10 +55,9 @@ function addButton(){
 }
 
 function remove(){
-    var x = document.getElementById("list");
-    x.removeChild(document.getElementById("listItem"));
+    $('#listItem').remove();
 }
 
-//var interval;
-//interval = setInterval(updating,5000);
+var interval;
+interval = setInterval(updating,5000);
 addButton();
