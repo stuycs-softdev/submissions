@@ -3,24 +3,29 @@ function getProfit(){
     //getNegative #s from CSV file
     //assuming it's an array
     $.get("/getProfit",function(array)){
-        var pro = document.getElementById("profitLose")
+        var pro = document.getElementById("user")
         var x = document.createElement("ul");
         for(int i = 0;i<array.length;i++){
             var y = document.createElement("li");
-            x.innerHTML = array[i];
+            y.innerHTML = array[i];
+            y.id="listItem";
             pro.appendChild(x);
         }
+        x.id="list";
         addButton();
     }
 }
 function getLose(){
     $.get("/getLose",function(array)){
-        var pro = document.getElementById("profitLose");
+        var pro = document.getElementById("user");
+        var x = document.createElement("ul");
         for(int i = 0;i<array.length;i++){
-            var x = document.createElement("li");
-            x.innerHTML = array[i];
+            var y = document.createElement("li");
+            y.innerHTML = array[i];
+            y.id="listItem";
             pro.appendChild(x);
         }
+        x.id="list";
         addButton();
     }
 }
@@ -49,7 +54,10 @@ function addButton(){
     document.getElementById("back").addEventListener('click',remove());
 }
 
-
+function remove(){
+    var x = document.getElementById("list");
+    x.removeChild(document.getElementById("listItem"));
+}
 
 //var interval;
 //interval = setInterval(updating,5000);
