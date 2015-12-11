@@ -24,7 +24,7 @@ getNewProfile = function getNewProfile(){
 getSpecificProfile = function getSpecificProfile(data){
     console.log(data);
     var searched = document.getElementById("searched");
-    searched.InnerHTML = data;
+    searched.innerHTML = data;
     $.get("/getImage",setImage);    
 }
 
@@ -35,7 +35,7 @@ getSearchedProfile = function getSearchedProfile(){
     $.get("/search/"+text.value,getSpecificProfile);
 }
 
-var button = document.getElementById("search");
+var button = document.getElementById("searchbutton");
 button.addEventListener("click",getSearchedProfile);
 
 getNewProfile();
