@@ -17,18 +17,21 @@ def search(name):
         city = item.split(",")
         d[city[0]]=city[1:]
     if name in d.keys():
-        output = output + "City:" + name + "<br>"
-        output = output + "Current Temperature:" + d[name][0] + "<br>"
-        output = output + "Wind Speed:" + d[name][1] + "<br>"
-        output = output + "Weather:" + d[name][2] + "<br>"
-        output = output + "Chance of Rain:" + d[name][3] + "<br>"
-    print output
+        output = output + "City:" + name + ","
+        output = output + "Current Temperature:" + d[name][0] + ","
+        output = output + "Wind Speed:" + d[name][1] + ","
+        output = output + "Weather:" + d[name][2] + ","
+        output = output + "Chance of Rain:" + d[name][3] + ","
+    else:
+        output = "Invalid City"
+    #print output
+    return render_template("results.html",info = output)
     #print d.keys()
 
-search('Nueva Requena')
-search('Salimbalan')
+#search('Nueva Requena')
+#search('Salimbalan')
         
 
-#if __name__ == "__main__":
-#    app.debug = True
-#    app.run(host="0.0.0.0", port=8000)
+if __name__ == "__main__":
+    app.debug = True
+    app.run(host="0.0.0.0", port=8000)
