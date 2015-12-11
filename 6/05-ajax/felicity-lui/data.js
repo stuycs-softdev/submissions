@@ -25,3 +25,26 @@ function processData(allText) {
     }
     // alert(lines);
 }
+
+
+function getProfit(
+//idk if needs parameters
+){
+//getNegative #s from CSV file
+//assuming it's an array
+var pro = document.getElementById("profitLose");
+    for(int i = 0;i<array.length;i++){
+        var x = document.createElement("tr");
+        x.innerHTML = "<th>"+companyName+"</th><th>"+companyProfit+"/th>";
+        pro.appendChild(x);
+    }
+}
+
+function getLose(){
+//get negative #s from CSV file
+//same as getProfit but with negative #s. Need parameters?
+}
+
+
+document.getElementById("profit").addEventListener('click',getProfit);
+document.getElementById("lose").addEventListener('click',getLose);
