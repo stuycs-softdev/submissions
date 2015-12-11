@@ -19,7 +19,7 @@ def example():
     name = r['name']
     return name + ", " + str(temp)
 
-
+#can try testing with http://localhost:8000/results?data=Hello
 @app.route("/results")
 def results():
     data = request.args.get("data")

@@ -13,7 +13,8 @@ $("#submit_button").click(function(){
     $("#data").val("");
 
     $.getJSON("/results",{data:data},function(r){
-	     console.log("data...");
-       console.log(data);
+       console.log("You entered...");
+	     console.log(r.result);
+       $("#thelist").append($("<li>"+r.result+"</li>"));
     });
 });
