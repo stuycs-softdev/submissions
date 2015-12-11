@@ -37,11 +37,10 @@ def searchprofile(name):
         if person["first"]==name[0] and person["last"]==name[1]:
             return person
     return {
-        "id": None,
-        "first": None,
-        "last": None,
-        "email": None,
-        "counttry": None,
-        "ip": None}
+        "id": "",
+        "first": "Does Not Exist",
+        "last": "",
+        "email": "",
+        "country": "",
+        "ip": ""}
 
-print searchprofile("AnnieMitchell")

@@ -9,9 +9,9 @@ app = Flask(__name__)
 def index():
     return render_template("layout.html")
 
-@app.route("/random")
-def random():
-    return render_template("random.html")
+@app.route("/search")
+def search():
+    return render_template("search.html")
 
 @app.route("/scrolling")
 def scrolling():
