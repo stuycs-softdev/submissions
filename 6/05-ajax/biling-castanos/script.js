@@ -28,6 +28,7 @@ var refresh = function refresh(){
 	var index = Math.floor((Math.random() * 1000));//returns random # btwn 0 and 1000
 	var item = lines[index];
 	replaceData(randomDIV, item);
+	console.log("works");
 };
 var replaceData = function replaceData(d, i){
     /**d.children[0].innerHTML = i[0];
@@ -37,8 +38,35 @@ var replaceData = function replaceData(d, i){
     d.children[0].innerHTML returns "CrimeName"
     i[0] will be the thing inside the line that you want to replace the child with
     Rinse and repeat**/
+    d.children[1].innerHTML = i[10].split("/", 1)[0].split("-",1);//Crime
+    d.children[3].innerHTML = i[2].split(" ", 1);//Date
+    d.children[5].innerHTML = i[16];//Number
+    d.children[6].innerHTML = i[17]+" St";//Street
+    d.children[8].innerHTML = i[18];//X
+    d.children[9].innerHTML = i[19];//Y
+    
 };
-var myInterval = setInterval(refresh,5000);
+var myInterval = setInterval(refresh,3000);
 
 //Some dropdown stuff
 //$('#dropDownId').val();
+
+/*
+Loop through the crimes/dates and try to
+fill up each dropdown depending on the
+types of dates/crimes inside the csv file.
+
+Afterwards, search for the stuff in the csv
+file using whatever function. Throw it into
+an array and hook up the previous/next buttons
+and also use the replaceData function written
+above. 
+
+Good luck! 
+
+- Kaizen
+
+P.S. I'll probably work on this also during
+systems alongside the semaphone project so if
+you need to msg me then do so. 
+*/

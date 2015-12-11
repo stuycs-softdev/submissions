@@ -36,11 +36,11 @@ def getProfile():
 def getImage():
     imageList=["https://i.imgur.com/QlmW4aC.jpg",
                "http://i.imgur.com/mAQPgXg.jpg",
-               "http://www.wonderslist.com/wp-content/uploads/2012/09/funny-baby-faces.jpg",
-               "http://www.sunnyskyz.com/uploads/2013/02/t5yxi-funny-seal-laughing.jpg",
-               "http://www.pugs.nl/images/funny_pug_2.jpg"]
-    picNum=random.randint(0,imageList.length-1)
-    return imageList[picNum]
+               "http://i.imgur.com/ScXY5al.jpg",
+               "http://i.imgur.com/SA4prMR.jpg",
+               "http://i.imgur.com/xSjQNTx.jpg"]
+    picNum=random.randint(0,len(imageList)-1)
+    return "<img src="+imageList[picNum]+'" style="width:400px;height:400;">'
 
 @app.route("/search")
 @app.route("/search/<name>")

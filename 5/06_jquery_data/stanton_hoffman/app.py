@@ -8,14 +8,16 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/search")
+@app.route("/searchpokemon")
 def search():
-    return "In search"
+	name = request.args.get("name")
+	pokemon = data.searchpokedeck(name)
+	return json.dumps(pokemon)
 
-@app.route("/profile")
+@app.route("/randompokemon")
 def profile():
-    newprofile = data.randomprofile()
-    return json.dumps(newprofile)
+    pokemon = data.randompokemon()
+    return json.dumps(pokemon)
     
 if __name__ == "__main__":
    app.debug = True

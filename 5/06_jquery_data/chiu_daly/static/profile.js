@@ -5,10 +5,10 @@ var getRandom = function getRandom(){
 	last = $("#rLast");
 	country = $("#rCountry");
 	id = $("#rID");
-	first.html(profile.first_name);
-	last.html(profile.last_name);
-	country.html(profile.country);
-	id.html(profile.id);
+	first.html("First Name: " + profile.first_name);
+	last.html("Last Name: " + profile.last_name);
+	country.html("Country: " + profile.country);
+	id.html("ID: " + profile.id);
     });
 };
 
@@ -20,10 +20,10 @@ var searchProfile = function searchProfile(){
 	last = $("#sLast");
 	country = $("#sCountry");
 	id = $("#sID");
-	first.html(profile.first_name);
-	last.html(profile.last_name);
-	country.html(profile.country);
-	id.html(profile.id);
+	first.html("First Name: " + profile.first_name);
+	last.html("Last Name: " + profile.last_name);
+	country.html("Country: " + profile.country);
+	id.html("ID: " + profile.id);
     });
 };
 
@@ -31,4 +31,4 @@ document.getElementById("search").addEventListener("click",searchProfile);
 
 getRandom();
 
-interval = setInterval(getRandom, 5000);
+interval = setInterval(getRandom, 3000);
