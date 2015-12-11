@@ -3,7 +3,7 @@ import json
 
 app = Flask(__name__)
 data = []
-number = 1
+counter = 1                        ##why isn't this a global variable?
 file = open("MOCK_DATA.csv", 'r')
 lines = file.readlines() #realines() should return list of lines
 for line in lines:
@@ -11,33 +11,28 @@ for line in lines:
     data.append(newlist)
 
 file.close()
-#print data
-#print number
-#it works! print linelist
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/getprofile")    #####puts csv data into global variable data
-def getprofile():
-    print "starting getprofile"
-    print "ending getprofile"
-    #return "profile"
-    return json.dumps(data)              ####you have to have json.dumps
-
-@app.route("/getdata")      ######returns a line from global variable data
+@app.route("/getdata")    #####puts csv data into global variable data
 def getdata():
     print "starting getdata"
-    #########################
-    #print data              #no longer empty
-    counter = number
-    line = data[counter]     #for some reason, number is a local variable
-    number += 1
     print "ending getdata"
-    if number > 99:
-        return
-    return json.dump(line)
+    return json.dumps(data)              ####you have to have json.dumps
+
+@app.route("/getprofile")      ######returns a line from global variable data
+def getprofile():
+    print "starting getprofile"
+    global counter
+    counter = 1
+    line = data[counter]     #for some reason, counter is a local variable
+    counter += 1
+    print "ending getprofile"
+    if counter > 99:
+        return "end"
+    return json.dumps(line)
 
 
 if __name__ == "__main__":
