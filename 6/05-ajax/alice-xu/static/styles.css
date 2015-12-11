@@ -53,6 +53,9 @@ body {
   border: 1px solid black;
   display: block;
 }
+.search-bar:focus {
+  outline: none;
+}
 .search-button {
   width: 80px;
   height: 29px;
@@ -63,11 +66,18 @@ body {
   display: block;
   margin-top: 10px;
 }
+.search-button:focus {
+  outline: none;
+}
+.search-button:hover {
+  cursor: pointer;
+}
 .trend-container {
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 800px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 #popular-list {
   list-style: none;

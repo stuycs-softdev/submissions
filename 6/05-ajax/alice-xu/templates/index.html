@@ -17,16 +17,16 @@
   </form>
 </div>
 {% else %}
-<div class="trend-container"></div>
-<div class="search-contain">
-  <input type="text" id="query" class="search-bar">
-  <button type="submit" id="search" class="search-button">Search</button>
+<div class="trend-container">
+  <h3 id="trend-title"></h3>
+  <canvas id="chart" width="800" height="300"></canvas>
 </div>
-
-<hr class="divider">
-<center><h3>Google Trends: {{query}}</h3></center>
-<center><canvas id="chart" width="800" height="300"></canvas></center>
-
+<div class="search-contain">
+  <form action="javascript:;">
+    <input type="text" id="query" class="search-bar">
+    <button type="submit" id="search" class="search-button">Search</button>
+  </form>
+</div>
 
 <hr class="divider">
 <div class="auto-trend-container">
@@ -38,7 +38,9 @@
     {% endfor %}
     </ul>
   </div>
-  <div class="auto-trend"></div>
+  <div class="auto-trend">
+    <canvas id="chart" width="800" height="300"></canvas>
+  </div>
 </div>
 
 {% endif %}
