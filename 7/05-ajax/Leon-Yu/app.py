@@ -18,7 +18,7 @@ def home():
     #print result
     #print "-------------------"
     #return jsonify(r)
-    return render_template("home.html", temp=temp, maxTemp=r['main']['temp_max'], minTemp=r['main']['temp_min'])
+    return render_template("home.html", temp=temp, place=r['name'], maxTemp=r['main']['temp_max'], minTemp=r['main']['temp_min'])
 
 @app.route("/example")
 def example():

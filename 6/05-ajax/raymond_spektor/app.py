@@ -9,9 +9,9 @@ app = Flask(__name__)
 def index():
     return render_template("layout.html")
 
-@app.route("/random")
-def random():
-    return render_template("random.html")
+@app.route("/search")
+def search():
+    return render_template("search.html")
 
 @app.route("/scrolling")
 def scrolling():
@@ -26,18 +26,10 @@ def getImg():
     url = "http://xkcd.com/{}/info.0.json".format(request.form['textbox'])
     result = json.loads(urllib2.urlopen(url).read())
     return result["img"];
-favlist=[150,730,162,688,556];
-index = 0;
+
 @app.route("/carousel")
 def carousel():
-    global index
-    global favlist
-    if index >= len(favlist):
-        index+=1
-    else:
-        index = 0
-
-    url = "http://xkcd.com/{}/info.0.json".format(favlist[index])
+    url = "http://xkcd.com/{}/info.0.json".format(request.args.get("data"))
     result = json.loads(urllib2.urlopen(url).read())
     return result["img"];
 

@@ -7,16 +7,12 @@ var testparam = function testparam(s){
     });
 };
 
-//gets result from upcase page and uses it here
 $("#submit_button").click(function(){
     var data = $("#data").val();
     $("#data").val("");
-    
+
     $.getJSON("/results",{data:data},function(r){
-       console.log("You entered...");
-	     console.log(r.result);
-       //$("#thelist").append($("<li>"+r.result+"</li>"));
-       //$("#thelist").append($("<li>"+r+"</li>"));
+       document.getElementById("place").innerHTML = r['name'];
        document.getElementById("maxTemp").innerHTML = r['main']['temp_max'];
        document.getElementById("minTemp").innerHTML = r['main']['temp_min'];
        document.getElementById("temp").innerHTML = r['main']['temp'];
@@ -26,3 +22,28 @@ $("#submit_button").click(function(){
     });
 });
 
+
+var myInterval;
+var zip = 10000;
+
+var incrementZip = function incrementZip(){
+  zip+=5;
+  console.log(zip);
+  var data = zip;
+
+
+  $.getJSON("/results",{data:data},function(r){
+     if(r['name']==undefined){
+       incrementZip();
+       console.log('hello');
+     }
+     else{
+       document.getElementById("place").innerHTML = r['name'];
+       document.getElementById("maxTemp").innerHTML = r['main']['temp_max'];
+       document.getElementById("minTemp").innerHTML = r['main']['temp_min'];
+       document.getElementById("temp").innerHTML = r['main']['temp'];
+     }
+   });
+};
+
+myInterval = setInterval(incrementZip, 5000);
