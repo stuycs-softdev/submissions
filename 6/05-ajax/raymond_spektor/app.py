@@ -26,18 +26,10 @@ def getImg():
     url = "http://xkcd.com/{}/info.0.json".format(request.form['textbox'])
     result = json.loads(urllib2.urlopen(url).read())
     return result["img"];
-favlist=[150,730,162,688,556];
-index = 0;
+
 @app.route("/carousel")
 def carousel():
-    global index
-    global favlist
-    if index >= len(favlist):
-        index+=1
-    else:
-        index = 0
-
-    url = "http://xkcd.com/{}/info.0.json".format(favlist[index])
+    url = "http://xkcd.com/{}/info.0.json".format(request.args.get("data"))
     result = json.loads(urllib2.urlopen(url).read())
     return result["img"];
 

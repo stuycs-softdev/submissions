@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div>
+      <h1 style="text-align:center;"> Stocking Up on Stocks for your Stockings </h1> 
+    </div>
+
+    <div style="float:left; width:35%">
+      Specific Stock: <input type="text" id="stockTicker"> </input> <br>
+      Initial Investment: <input type="number" id="initialInvestment"> </input> <br>
+      Submit: <button id="search">Find Return</button>
+
+      <p id="returnInfo"> </p>
+    </div>
+
+    <div style="float:right; width:65%">
+      <table>
+	<tr> <td> GOOG: </td> <td id='GOOG'> </td> </tr>
+	<tr> <td> AMBA: </td> <td id='AMBA'> </td> </tr>
+	<tr> <td> AAPL: </td> <td id='AAPL'> </td> </tr>
+	<tr> <td> ABM: </td> <td id='ABM'> </td> </tr>
+	<tr> <td> PSEC: </td> <td id='PSEC'> </td> </tr>
+	<tr> <td> RAVE: </td> <td id='RAVE'> </td> </tr>
+	<tr> <td> NE: </td> <td id='NE'> </td> </tr>
+	<tr> <td> ODFL: </td> <td id='ODFL'> </td> </tr>
+	<tr> <td> YHOO: </td> <td id='YHOO'> </td> </tr>
+	<tr> <td> MSFT: </td> <td id='MSFT'> </td> </tr>
+      </table>
+    </div>
+
+    <script src="../static/js/stocks.js"></script>
+  </body>
+</html>

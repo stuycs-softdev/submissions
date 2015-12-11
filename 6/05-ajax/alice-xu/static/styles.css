@@ -1,0 +1,108 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.form-container {
+  width: 500px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70px;
+  text-align: center;
+}
+.form-title {
+  font-size: 28px;
+}
+.form-error {
+  color: red;
+  font-size: 16px;
+}
+.form-label {
+  font-size: 20px;
+}
+.form-boxes {
+  width: 300px;
+  height: 25px;
+  border: 1px solid black;
+  padding-left: 5px;
+}
+.form-boxes:focus {
+  outline: none;
+}
+.form-button {
+  width: 80px;
+  height: 30px;
+  border: 1px solid black;
+  background: transparent;
+  display: block;
+  font-size: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.form-button {
+  outline: none;
+}
+.form-button:hover {
+  cursor: pointer;
+}
+.search-bar {
+  width: 400px;
+  height: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  display: block;
+}
+.search-bar:focus {
+  outline: none;
+}
+.search-button {
+  width: 80px;
+  height: 29px;
+  border: 1px solid black;
+  background: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 10px;
+}
+.search-button:focus {
+  outline: none;
+}
+.search-button:hover {
+  cursor: pointer;
+}
+.trend-container {
+  height: 400px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#popular-list {
+  list-style: none;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding-left: 0;
+}
+.popular-term {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid black;
+}
+.popular-term:first-child {
+  border-top: 1px solid black;
+}
+.popular-title {
+  font-size: 22px;
+}
+.popular-contain {
+  width: 250px;
+  text-align: center;
+  margin-left: 100px;
+}
+.divider {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 80%;
+}

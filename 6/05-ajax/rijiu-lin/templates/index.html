@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <!-- Source of the Map API -->
+  <style>
+    html{
+    height:100%;
+    }
+    body{
+    height:80%;
+    }
+    footer{
+    height:20%;
+    }
+    #map-canvas{
+    display: inline;
+    width:50%;
+    height:100%;
+    float: left
+    }
+    #street-view{
+    float: right
+    display: inline;
+    height:100%;
+    width:50%;
+    }
+    #results{
+    margin-left:-80px;
+    position:absolute;
+    bottom:0;
+    left:50%;
+    }
+    #time{
+    margin-left:-80px;
+    position:absolute;
+    left: 50%
+    }
+  </style>
+  <head>
+    <title>RIoGuessr</title>
+  </head>
+  
+  <body>
+    <!-- Displays the Map -->
+    <div id="map-canvas"></div>
+    <img id="street-view"/>
+  </body>
+  <footer>
+    <div id="results"></div>
+    <div id="time"></div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <script src="../static/map.js"></script>
+</html>

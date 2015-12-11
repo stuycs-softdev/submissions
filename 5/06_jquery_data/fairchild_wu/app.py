@@ -26,33 +26,35 @@ def index():
 def getProfile():
     profileNum=random.randint(0,99)
     profile=niceData[profileNum]
-    return json.dumps(profile)
+    name=profile['name']
+    email=profile['email']
+    phone=profile['phone']
+    city=profile['city']
+    return "Name: "+name+"<br>Email: "+email+"<br>Phone: "+phone+"<br>City: "+city
 
 @app.route("/getImage")
 def getImage():
-    return "https://www.imgur.com/funnypicture"
+    imageList=["https://i.imgur.com/QlmW4aC.jpg",
+               "http://i.imgur.com/mAQPgXg.jpg",
+               "http://i.imgur.com/ScXY5al.jpg",
+               "http://i.imgur.com/SA4prMR.jpg",
+               "http://i.imgur.com/xSjQNTx.jpg"]
+    picNum=random.randint(0,len(imageList)-1)
+    return "<img src="+imageList[picNum]+'" style="width:400px;height:400;">'
 
-@app.route("/search")
+@app.route("/search/")
 @app.route("/search/<name>")
 def search(name=""):
-    '''
-    button = request.form['button']
-    if button=="search":
-        firstSearch=request.form['searchBox']
-        for key in niceData:
-            if niceData[key]['name'] == firstSearch:
-                result=niceData[key]
-        return json.dumps(result)
-    '''
-    
     for key in niceData:
             if niceData[key]['name'] == name:
-                result=niceData[key]
-                return json.dumps(result)
-                #return render_template("index.html",test=result['phone'])
-            else:
-                return "No result"
-                #return render_template("index.html")
+                profile=niceData[key]
+                name=profile['name']
+                email=profile['email']
+                phone=profile['phone']
+                city=profile['city']
+                return "Name: "+name+"<br>Email: "+email+"<br>Phone: "+phone+"<br>City: "+city
+        
+    return  "No result"
 
 if __name__ == "__main__":
     app.debug=True
