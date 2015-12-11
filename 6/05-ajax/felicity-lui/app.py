@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import csv, sys
+import csv, sys, json
 counter = 1
 app = Flask(__name__)
 
@@ -20,7 +20,7 @@ def getProfit():
             profits.append(row[0])
    finally:
       f.close()
-   return profits
+   return JSON.parse(profits)
 
 @app.route("/getLose")
 def getLose():
@@ -33,7 +33,7 @@ def getLose():
             loss.append(row[0])
    finally:
       f.close()
-   return loss
+   return JSON.parse(loss)
 
 @app.route("/getNext")
 def getNext():
@@ -53,7 +53,7 @@ def getNext():
    finally:
       f.close()
    counter = counter + 1
-   return results
+   return JSON.parse(results)
 
 
 if __name__ == "__main__":
