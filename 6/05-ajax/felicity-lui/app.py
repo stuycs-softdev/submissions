@@ -20,7 +20,7 @@ def getProfit():
             profits.append(row[0])
    finally:
       f.close()
-   return JSON.parse(profits)
+   return json.dumps(profits)
 
 @app.route("/getLose")
 def getLose():
@@ -33,7 +33,7 @@ def getLose():
             loss.append(row[0])
    finally:
       f.close()
-   return JSON.parse(loss)
+   return json.dumps(loss)
 
 @app.route("/getNext")
 def getNext():

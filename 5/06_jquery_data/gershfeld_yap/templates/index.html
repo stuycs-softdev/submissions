@@ -4,25 +4,60 @@
     <script src="/static/jquery.js"></script>
     <style id="s">
       body {
-      background-color:white;
+      	background-color: white;
+      }
+      #random {
+	float: left;
+	padding: 23px;
+	border: 7px solid white;
+	width: 46%;
+      }
+      #search {
+	float: right;
+	padding: 23px;
+	border: 7px solid white;
+	width: 46%;
+      }
+      #name {
+	color: black;
       }
     </style>
   </head>
   <body>
-    <h1>Random Profile</h1>
-    <br>
-    <h2 id="name">Name</h2>
-    <table>
-      <tr><td>ID</td><td id="ID">ID</td></tr>
-      <tr><td>Email</td><td id="email">Email</td></tr>
-      <tr><td>Gender</td><td id="gender">Gender</td></tr>
-      <tr><td>Drug</td><td id="drugs">Drug</td></tr>
-    </table>
-    <img id="drugimg" src="">
-    <br><br>
-    <input id = "query">
-    <button id = "b">Search</button>
-    <br>
-    <script src="/static/mycode.js"></script>
+    <div id="random"
+    	<h1></h1>
+    	<h2 id="name"></h2>
+    	<table>
+      	    <tr>
+		<td width=100px>ID</td>
+		<td id="ID"></td>
+      	    </tr>
+      	    <tr>
+		<td>Email</td>
+		<td id="email"></td>
+      	    </tr>
+      	    <tr>
+		<td>Gender</td>
+		<td id="gender"></td>
+      	    </tr>
+	    <tr>
+		<td>Country</td>
+		<td id="country"></td>
+      	    </tr>
+      	    <tr>
+		<td>Drug</td>    
+		<td id="drugs"></td>
+      	    </tr>
+    	</table>
+    	<img id="drugimg" src="">
+    </div>
+    <div id="search">
+    	<input id = "query">
+    	<button id = "b">Search</button>
+    	<br>
+    	<table>
+	</table>
+    </div>
+  <script src="/static/mycode.js"></script>
   </body>
 </html>
