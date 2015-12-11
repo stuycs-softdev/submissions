@@ -1,6 +1,29 @@
 <!DOCTYPE html>
-<html>
+<HTML>
 
-{info}
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
 
-</html>
+<body>
+<p id="random"></p>
+<!--{% for u in info %}
+ {{u}}
+ {% endfor %}-->
+<script>
+var profiles = {{ info|tojson }};
+
+var getRandomInt = function(min, max) {
+    return(Math.floor(Math.random() * (max - min + 1)) + min);
+};
+
+var getRandomProfile = function() {
+    var randomInt = getRandomInt(1,99)
+    document.getElementById("random").innerHTML = profiles[randomInt];
+};
+
+setInterval(getRandomProfile, 3000);
+</script>
+</body>
+
+</HTML>

@@ -1,5 +1,6 @@
 //google places:AIzaSyCtc4ULXKSocmcjjHzp-T78-xH53a0Sz2w
-
+var STREET_VIEW_URL = "https://maps.googleapis.com/maps/api/streetview?";
+var KEY = "AIzaSyCtc4ULXKSocmcjjHzp-T78-xH53a0Sz2w";
 var map;
 var answer;
 
@@ -10,10 +11,21 @@ var mapinit = function mapinit(){
     });
 
     map.addListener('click', checkAnswer);
+    getStreetView(0,0);
 };
 
 var checkAnswer = function checkAnswer(e){
     var guess = {lat: e.latLng.lat(), lng:e.latLng.lng()};
 };
+
+var getStreetView = function getStreetView(lat, lng){
+    var size = "size=400x300";
+    var location = "location="+lat+","+lng;
+    var key = "key="+KEY;
+    var get = STREET_VIEW_URL + size + "&" + location + "&" + key;
+    $.get(get,function(e){
+	console.log(e);
+    });
+}
 
 window.addEventListener('load', mapinit);
