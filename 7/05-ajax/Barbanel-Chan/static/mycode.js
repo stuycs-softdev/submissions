@@ -64,7 +64,7 @@ var updateEverything = function updateEverything(){
 }
 
 var myInterval;
-myInterval = setInterval(updateEverything, 5000);            
+myInterval = setInterval(updateEverything, 3000);            
 
 feedPet = function(){
     if (getHunger() <= 95) {
@@ -75,5 +75,3 @@ feedPet = function(){
         updateHunger(diff);
     }
 }
-
-updateHunger(-40);
