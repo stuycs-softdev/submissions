@@ -12,23 +12,18 @@ var mapinit = function mapinit(){
 
 var newRound = function newRound(){
     google.maps.event.clearListeners(map, 'click');
-    $.get("../getCoordinates",function (d){
+    $.get("/getCoordinates",function (d){
 	document.getElementById("street-view").src = getStreetView(d.lat, d.lng);
 	map.addListener('click', function(e){
 	    checkAnswer(e,answer);
 	});
-    });    
+    });
 }
 
-var checkAnswer = function checkAnswer(e, answer){
-    var guess = {lat: e.latLng.lat(), lng:e.latLng.lng()};
-    /*
-    start = new google.maps.LatLng({lat:answer[0], lng:answer[1]});
-    end = e.latLng;
-    var dist = $.get("/distance", {start:start, end:end}, function(distance){
+var checkAnswer = function checkAnswer(e){
+    var dist = $.get("/distance", {lat1: 0, lon1: 0, lat2: e.latLng.lat(), lon2: e.latLng.lng()}, function(distance){
 	console.log(distance);
     });
-    */
 };
 
 var getStreetView = function getStreetView(lat, lng){
