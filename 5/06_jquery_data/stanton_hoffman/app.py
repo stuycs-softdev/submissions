@@ -1,40 +1,21 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template,request, redirect, url_for, session
 import time, json
+import data
 
 app = Flask(__name__)
-
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/getstuff")
-def getstuff():
-    print "In getstuff"
-    time.sleep(5);
-    print "returning from getstuff"
-    return "stuff"
+@app.route("/search")
+def search():
+    return "In search"
 
-@app.route("/getfast")
-def getfast():
-    print "in getfast"
-    print "returning from getfast"
-    return "fast stuff"
-
-@app.route("/getslow")
-def getslow():
-    print "in getslow"
-    time.sleep(10)
-    print "returning from getslow"
-    return "slow stuff"
-
-@app.route("/upcase")
-def upcase():
-    data = request.args.get("data")
-    print data
-    result = {'original' : data,
-            'result':data.upper()}
-    return json.dumps(result)
+@app.route("/profile")
+def profile():
+    newprofile = data.randomprofile()
+    return json.dumps(newprofile)
     
 if __name__ == "__main__":
    app.debug = True
