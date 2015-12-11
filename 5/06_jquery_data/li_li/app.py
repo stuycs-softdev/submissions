@@ -28,7 +28,7 @@ def getDataList():
 DATALIST=getDataList()
 def getRandomGuy():
     randNum=random.randrange(0,75)
-    print DATALIST[randNum]
+    #print DATALIST[randNum]
     return DATALIST[randNum]
     
 
