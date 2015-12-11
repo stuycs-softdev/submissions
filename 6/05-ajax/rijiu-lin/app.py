@@ -8,7 +8,7 @@ global cities
 @app.route("/")
 def index():
     return render_template("index.html");
-'''
+
 @app.route("/distance")
 def distance():
     lat1 = radians(float(request.args.get("lat1").encode('ascii', 'ignore')))
@@ -20,7 +20,7 @@ def distance():
     a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
     c = 2 * asin(sqrt(a))
     r = 6371
-    return str(c * r)'''
+    return str(c * r)
 
 @app.route("/getCoordinates")
 def getPlace():

@@ -6,6 +6,9 @@
 <div class="form-container">
   <form method="post">
     <h1 class="form-title">Please Login With Google Account</h1>
+    {% if err %}
+      <p class="form-error">{{err}}</p>
+    {% endif %}
     <h2 class="form-label">Username</h2>
     <input type="text" name="username" class="form-boxes">
     <h2 class="form-label">Password</h2>

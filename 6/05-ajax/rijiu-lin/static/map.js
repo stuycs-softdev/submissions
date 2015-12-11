@@ -7,18 +7,26 @@ var time;
 var mapinit = function mapinit(){
     map = new google.maps.Map(document.getElementById('map-canvas'), {
 	zoom: 2,
-	center: {lat: 0, lng: 0} 
+	center: {lat: 0, lng: 0},
+	scrollwheel: false,
+	draggable: false
     });
+    time = 30;
     newRound();
+    setInterval(function(){
+	time--;
+	document.getElementById("time").innerHTML = time;
+	if (time == 30){
+	    newRound();
+	}
+    },1000);
 };
 
 var newRound = function newRound(){
     google.maps.event.clearListeners(map, 'click');
     $.get("/getCoordinates",function (d){
 	document.getElementById("street-view").src = getStreetView(d.lat, d.lng);
-	map.addListener('click', function(e){
-	    checkAnswer(e,answer);
-	});
+	map.addListener('click',checkAnswer);
     });
     setTimeout(newRound, 30000);
     time = 30;
