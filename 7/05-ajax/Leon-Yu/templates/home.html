@@ -5,8 +5,9 @@
   <body>
     Type in a zip code to look up: <br>
     <input id="data" placeholder="10000"></input>
-    <button id="b"> Submit </button> <br>
+    <button id="submit_button"> Submit </button>
     <button id="convert"> Convert </button>
+
 
     <table>
       <tr>
@@ -19,13 +20,31 @@
       </tr>
       <tr>
 	<td>
-	  Temperature:
+	  Maximum Temperature:
+	</td>
+	<td id="maxTemp">
+	  {{maxTemp}}
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  Current Temperature:
 	</td>
 	<td id="temp">
 	  {{temp}}
 	</td>
       </tr>
+      <tr>
+	<td>
+	  Min Temperature:
+	</td>
+	<td id="minTemp">
+	  {{minTemp}}
+	</td>
+      </tr>
     </table>
+
+    <ol id="thelist">testing list here</ol>
     <script src="static/mycode.js"></script>
   </body>
 </html>
