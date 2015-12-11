@@ -25,16 +25,19 @@ var mapinit = function mapinit(){
 var newRound = function newRound(){
     google.maps.event.clearListeners(map, 'click');
     $.get("/getCoordinates",function (d){
-	document.getElementById("street-view").src = getStreetView(d.lat, d.lng);
-	map.addListener('click',checkAnswer);
+	document.getElementById("street-view").src = getStreetView(d.lat, d.lng)
+	map.addListener('click',function(e){
+	    checkAnswer(e,d);
+	});
     });
     setTimeout(newRound, 30000);
     time = 30;
 }
 
-var checkAnswer = function checkAnswer(e){
-    var dist = $.get("/distance", {lat1: 0, lon1: 0, lat2: e.latLng.lat(), lon2: e.latLng.lng()}, function(distance){
+var checkAnswer = function checkAnswer(e,ans){
+    var dist = $.get("/distance", {lat1:ans.lat, lon1: ans.lng, lat2: e.latLng.lat(), lon2: e.latLng.lng()}, function(distance){
 	console.log(distance);
+	document.getElementById("results").innerHTML = "Actual Spot:"+ans.lat+","+ans.lng+"<br>"+"You Guessed:"+e.latLng.lat()+","+e.latLng.lng()+"<br>Distance was:"+distance;
     });
     newRound();
 };
