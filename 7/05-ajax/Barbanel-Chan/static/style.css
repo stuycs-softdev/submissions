@@ -1,0 +1,11 @@
+/* STYLESHEET */
+
+div.absolute {
+    position: absolute;
+    top: 50px;
+    left: 475px;
+}
+
+table td{
+    width:2%;
+}
