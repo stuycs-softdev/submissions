@@ -3,6 +3,11 @@ import csv, sys
 counter = 1
 app = Flask(__name__)
 
+@app.route("/")
+@app.route("/home")
+def home():
+   return render_template("templates/home.html")
+
 
 @app.route("/getProfit")
 def getProfit():
@@ -13,9 +18,9 @@ def getProfit():
       for row in reader:
          if (row[2] == '1'):
             profits.append(row[0])
-         finally:
-            f.close()
-            return profits
+   finally:
+      f.close()
+   return profits
 
 @app.route("/getLose")
 def getLose():
@@ -26,9 +31,9 @@ def getLose():
       for row in reader:
          if (row[2] == '0'):
             loss.append(row[0])
-         finally:
-            f.close()
-            return loss
+   finally:
+      f.close()
+   return loss
 
 @app.route("/getNext")
 def getNext():
@@ -40,17 +45,17 @@ def getNext():
       reader = csv.reader(f)
       for row in reader:
          myreader.append(row)
-         if (myreader[counter][2] == '0'):
-            delta = "-"
-            delta = delta + myreader[counter][1]
-            results.append(myreader[counter][0])
-            results.append(delta)
-         finally:
-            f.close()
-            counter = counter + 1
-            return results
+      if (myreader[counter][2] == '0'):
+         delta = "-"
+         delta = delta + myreader[counter][1]
+      results.append(myreader[counter][0])
+      results.append(delta)
+   finally:
+      f.close()
+   counter = counter + 1
+   return results
 
 
 if __name__ == "__main__":
-   app.debug = True
-   app.run(host="0.0.0.0",port = 8000)
+    app.debug = True
+    app.run(host="0.0.0.0",port = 8000)
