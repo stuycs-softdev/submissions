@@ -1,13 +1,13 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template, request, jsonify
 import random, json
 
 app = Flask(__name__)
-f = open('data', 'r')
+f = open('data.json', 'r')
 data = f.read()
 data = json.loads(data)
 f.close()
 
-@app.route("/")
+@app.route("/", methods = ['GET', 'POST'])
 def index():
     return render_template("home.html")
 
@@ -19,15 +19,16 @@ def getstuff():
 def getdata():
     info = random.choice(data)
     info['address'] = info['street']+', '+info['city']+', '+info['zip']
-    return data
+    return jsonify(d=info)
 
 @app.route("/search")
 def search():
     query = request.args.get('query').lower()
+    #print request.args.keys()
     for i in data:
         if i['first'].lower() == query or i['last'].lower() == query:
             i['address'] = i['street']+', '+i['city']+', '+i['zip']
-            return i
+            return jsonify(results=i)
     return 'nothing'
 
 @app.route("/upcase")
