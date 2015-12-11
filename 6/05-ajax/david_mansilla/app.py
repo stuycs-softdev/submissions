@@ -18,8 +18,6 @@ def get_top_10(key_stat):
     with open('stats.csv') as stats:
         reader = csv.DictReader(stats)
         for row in reader:
-            print row[key_stat]
-            #key_stat_value = int(row[key_stat])
             top10.append({'Player': row['Player'], key_stat : float(row[key_stat])})
     result = sorted(top10, key=itemgetter(key_stat), reverse=True)
     
@@ -41,7 +39,14 @@ def niceify_top_10(top10List, key_stat):
     return res
 
 if __name__ == "__main__":
-    print get_top_10('PPG')
+    #print get_top_10('PPG')
+    print "PPG"
     print niceify_top_10(get_top_10('PPG'), 'PPG')
+    print "APG"
+    print niceify_top_10(get_top_10('AST'), 'AST')
+    print "RPG"
+    print niceify_top_10(get_top_10('TRB'), 'TRB')
+    print "BPG"
+    print niceify_top_10(get_top_10('BLK'), 'BLK')
     app.debug = True
-    app.run(host='0.0.0.0',port=8000)
+    #app.run(host='0.0.0.0',port=8000)
