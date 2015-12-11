@@ -42,11 +42,7 @@ var makeBoard = function makeBoard(){
 };
 
 var BlowUp = function BlowUp(e){
-    if(i + j == 100){
-	gameOver = 1;
-	ResetButton(0);
-    }
-    if(!e.target.src.includes("static/Normal.png")){
+    if(e.target.src.indexOf("static/Normal.png") == -1){
     }else if(gameOver == 0){
 	var table = document.getElementsByTagName("table")[0];
 	var parent = e.target.parentNode;
@@ -112,18 +108,18 @@ var BlowUp = function BlowUp(e){
 	    }
 	}
     }
+    if(i + j == 100){
+	gameOver = 1;
+	ResetButton(0);
+    }
 };
 
 
-var Flag = function Flag(){
-    var rightclick;
-    var e = window.event;
-    if (e.which) rightclick = (e.which == 3);
-    else if (e.button) rightclick = (e.button == 2);
-    if(rightclick && gameOver == 0){
-	if(e.target.src.includes("static/Normal.png")){
+var Flag = function Flag(e){
+    if(gameOver == 0){
+	if(e.target.src.indexOf("static/Normal.png") > -1){
 	    e.target.src = "static/Flag.png";
-	}else if(e.target.src.includes("static/Flag.png")){
+	}else if(e.target.src.indexOf("static/Flag.png") > -1){
 	    e.target.src = "static/Normal.png";
 	}
     }

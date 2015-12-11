@@ -1,0 +1,236 @@
+/**
+ * Author: Alvin Lin (alvin.lin@stuypulse.com)
+ * Styling for the main page.
+ */
+
+/* Global Styles */
+
+/**
+ * This html style will cause elements to leak out on tap.html,
+ * this is fine for the positioning of the canvas.
+ */
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  min-width: 800px;
+  min-height: 600px;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  background: #ccc;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  cursor: default;
+}
+
+#single-page-body {
+  height: 100%;
+}
+
+#navbar {
+  width: 100%;
+  height: 150px;
+  line-height: 150px;
+  text-align: left;
+  z-index: 1;
+}
+
+#navbar a:first-child {
+  margin-left: 50px;
+}
+
+#navbar a {
+  font-size: 25px;
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none;
+  color: #000;
+  opacity: 0.5;
+
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #000;
+
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+  transition: all 500ms;
+}
+
+#navbar a:hover {
+  opacity: 1;
+}
+
+#copyright {
+  width: 100%;
+  min-width: 800px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+/* Page-specific styles */
+
+#home-content {
+  width: 100%;
+  min-width: 800px;
+  height: 250px;
+  margin: 150px auto 150px;
+  text-align: center;
+  font-size: 50px;
+}
+
+#media {
+  margin: auto;
+}
+
+#media .media-tooltip {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+
+#media .media-tooltip:hover:after {
+  position: absolute;
+  width: 350px;
+  height: 30px;
+  left: -132px;
+  bottom: 105px;
+  font-size: 20px;
+  padding: 5px;
+  z-index: 2;
+
+  color: #fff;
+  background: rgba(20, 20, 20, 0.85);
+  content: attr(title);
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#media .media-tooltip:hover:before {
+  position: absolute;
+  left: 37px;
+  bottom: 100px;
+  z-index: 1;
+
+  border: solid;
+  border-color: #141414 transparent;
+  border-width: 6px 6px 0 6px;
+  content: "";
+}
+
+#media span {
+  color: #000;
+  opacity: 0.5;
+
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+  transition: all 500ms;
+}
+
+#media span:hover {
+  opacity: 1;
+}
+
+#resume-content {
+  width: 800px;
+  height: 400px;
+  margin: 0 auto 150px;
+  text-align: center;
+  font-size: 50px;
+}
+
+#resume-content-text {
+  width: 800px;
+  height: auto;
+  margin: auto;
+  padding-top: 50px;
+  font-size: 18px;
+  text-align: left;
+}
+
+#resume-content-text a, #resume-content-text a:visited {
+  text-decoration: none;
+  color: #777;
+
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+  transition: all 500ms;
+}
+
+#resume-content-text a:hover {
+  color: #e22828;
+}
+
+#hug-content {
+  width: 100%;
+  min-width: 800px;
+  height: auto;
+  margin: auto;
+  padding: 250px 0px;
+  text-align: center;
+  font-size: 50px;
+}
+
+#hug-button {
+  width: 300px;
+  height: 100px;
+  font-size: 25px;
+  margin: 20px;
+  background-color: #a0a0a0;
+  border: 1px solid #a0a0a0;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+
+  -webkit-box-shadow: 0px 0px 10px 20px #a0a0a0;
+  -moz-box-shadow: 0px 0px 10px 20px #a0a0a0;
+  -ms-box-shadow: 0px 0px 10px 20px #a0a0a0;
+  -o-box-shadow: 0px 0px 10px 20px #a0a0a0;
+  box-shadow: 0px 0px 10px 20px #a0a0a0;
+
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+  transition: all 500ms;
+}
+
+#hug-button:hover {
+  background-color: #676767;
+  border: 1px solid #676767;
+
+  -webkit-box-shadow: 0px 0px 10px 10px #676767;
+  -moz-box-shadow: 0px 0px 10px 10px #676767;
+  -ms-box-shadow: 0px 0px 10px 10px #676767;
+  -o-box-shadow: 0px 0px 10px 10px #676767;
+  box-shadow: 0px 0px 10px 10px #676767;
+}

@@ -129,6 +129,7 @@ var todayDone = function todayDone() {
 	var today = curDate();
 	var todoTable = document.getElementById("todo-table");
 	while (todoTable.rows.length > 1 && todoTable.rows[1].cells[2].innerHTML == today) {
+		console.log("setting done");
 		todoTable.rows[1].setDone();
 		//todoTable.deleteRow(1);
 	}

@@ -1,5 +1,5 @@
 var elem = function elem(element){
-    if (element.charAt(0) === "#"{
+    if (element.charAt(0) === "#"){
 	return document.querySelector(element);
     }
     return document.querySelectorAll(element);
@@ -75,5 +75,5 @@ for (var i = 0; i < ops.length; i++){
 }
 
 equals.onclick = display;
-elem("#reset").onclick = clear;
+elem("#clear").onclick = clear;
 

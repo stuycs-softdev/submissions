@@ -1,0 +1,27 @@
+from flask import Flask, render_template, session, request, redirect, url_for
+
+app= Flask(__name__)
+
+@app.route("/",methods=["GET","POST"])
+@app.route("/home",methods=["GET","POST"])
+def home():
+    f = open('Emergency_Response_Incidents.csv','r')
+    s = f.read()
+    l = s.split()
+    
+
+
+
+
+
+
+
+
+    
+    return render_template("home.html")
+
+
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run(host='0.0.0.0',port=8000)

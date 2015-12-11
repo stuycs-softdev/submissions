@@ -1,0 +1,89 @@
+/**
+ * Author: Alvin Lin (alvin.lin@stuypulse.com)
+ * Styling for the divs in tap.html for the tap game.
+ */
+
+#tap-content {
+  width: 800px;
+  height: 600px;
+  margin: 0 auto 150px;
+  text-align: center;
+  font-size: 50px;
+}
+
+#tap-content-text {
+  width: 800px;
+  height: auto;
+  margin: auto;
+  padding: 25px 0 20px 0;
+  font-size: 18px;
+}
+
+#tap-content-stats {
+  width: 600px;
+  margin: 10px auto -5px;
+  text-align: left;
+}
+
+#tap-content-stats span {
+  margin-right: 50px;
+}
+
+#tap-content-game {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: auto;
+}
+
+#tap-content-game-overlay {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 500px;
+  height: 300px;
+  line-height: 300px;
+  z-index: 1;
+
+  background: rgba(50, 50, 50, 0.75);
+
+  -webkit-box-shadow: 0px 0px 10px 20px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 0px 10px 20px rgba(50, 50, 50, 0.75);
+  -ms-box-shadow: 0px 0px 10px 20px rgba(50, 50, 50, 0.75);
+  -o-box-shadow: 0px 0px 10px 20px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 10px 20px rgba(50, 50, 50, 0.75);
+
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+  transition: all 500ms;
+}
+
+#tap-content-game-overlay:hover {
+  color: #ccc;
+  background: rgba(93, 93, 93, 0.75);
+
+  -webkit-box-shadow: 0px 0px 10px 30px rgba(93, 93, 93, 0.75);
+  -moz-box-shadow: 0px 0px 10px 30px rgba(93, 93, 93, 0.75);
+  -ms-box-shadow: 0px 0px 10px 30px rgba(93, 93, 93, 0.75);
+  -o-box-shadow: 0px 0px 10px 30px rgba(93, 93, 93, 0.75);
+  box-shadow: 0px 0px 10px 30px rgba(93, 93, 93, 0.75);
+}
+
+#tap-content-game-svg {
+  width: 600px;
+  height: 400px;
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+
+  -webkit-box-shadow: 0px 0px 30px 10px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 0px 30px 10px rgba(50, 50, 50, 0.75);
+  -ms-box-shadow: 0px 0px 30px 10px rgba(50, 50, 50, 0.75);
+  -o-box-shadow: 0px 0px 30px 10px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 30px 10px rgba(50, 50, 50, 0.75);
+}
