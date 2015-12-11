@@ -20,11 +20,11 @@ def readpokedeck():
     return profiles
 
 def randompokemon():
-    pokedeck = readpokedeck()
-    pokedeckNum = random.randint(0,99)
-    return pokedeck[pokedeckNum]
+    profiles = readpokedeck()
+    profileNum = random.randint(0,99)
+    return profiles[profileNum]
 
-def searchprofile(name):
+def searchpokemon(name):
     i = 1
     fixedName=""
     while (i < len(name)):
@@ -32,7 +32,7 @@ def searchprofile(name):
             fixedName = name[:i] + " " + name[i:]
         i+=1
     name = fixedName.split(" ")
-    profiles = readprofiles()
+    profiles = readpokedeck()
     for person in profiles:
         if person["first"]==name[0] and person["last"]==name[1]:
             return person
