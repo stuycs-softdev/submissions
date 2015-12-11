@@ -6,9 +6,43 @@
 </head>
 
 <body>
-Search for a person: <input type="text" name="search" id="search">
-<button id="b">Go!</button>
+  <div id = "searching">
+    Search for a person: <input type="text" name="search" id="search">
+    <button id="b">Go!</button>
+  </div>
 <p id="searched"></p>
+<script>
+var profiles = {{ info|tojson }};
+var findProfile = function() { 
+    var profiles = {{ info|tojson }}; 
+    var qu=$("#search").val();
+    if(qu!=""){
+	var searchterm = qu.split(" ");
+	for(i=0; i < 99; i++){
+	    var person = profiles[i].split(",");
+	    if(searchterm[0] == person[0] && searchterm[1] == person[1]){
+		var profile = "Name: " + person[0] + " " + person[1] + "<br>" + 
+                    "Sex: " + person[2] + "<br>" + 
+		    "Location: " + person[3] + ", " + person[4] +
+                    ", " + person[5] + "<br>" +
+                    "Contact: " + person[6] + "<br>"
+		document.getElementById("searched").innerHTML = profile;
+	    }
+	}
+    }
+    document.getElementById("searched").innerHTML = "Whoops, your person doesn't exist."
+    $("#b").click(function(){
+	search();
+    });
+    $('#search').keyup(function(e) {
+	if(e.keyCode == 13) {
+	    search();
+	}
+    });
+});
+</script>
+
+
 <p id="random"></p>
 <!--{% for u in info %}
  {{u}}

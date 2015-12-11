@@ -24,19 +24,9 @@ def randompokemon():
     pokedeckNum = random.randint(0,99)
     return pokedeck[pokedeckNum]
 
-def searchprofile(name):
-    i = 1
-    fixedName=""
-    while (i < len(name)):
-        if name[i].isupper():
-            fixedName = name[:i] + " " + name[i:]
-        i+=1
-    name = fixedName.split(" ")
-    profiles = readpokedeck()
-    for person in profiles:
-        if person["first"]==name[0] and person["last"]==name[1]:
-            return person
-    return {
+def searchprofile(idnum):
+            print  profiles[idnum]
+            return {
         "id": "",
         "first": "Does Not Exist",
         "last": "",
