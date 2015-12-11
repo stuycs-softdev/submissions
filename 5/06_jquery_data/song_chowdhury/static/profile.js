@@ -4,6 +4,7 @@ var getdata = function getdata(e) {
 	
 	console.log("js getdata ended");
     });
+    console.log(data)
 };
 
 var myevent;
@@ -17,6 +18,7 @@ function stopit() {
 }
 document.getElementById("start").addEventListener('click',startit);
 document.getElementById("stop").addEventListener('click',stopit);
+
 $.get("/getprofile", function() {
     console.log("js getprofile started");
     
