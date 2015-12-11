@@ -28,6 +28,7 @@ var refresh = function refresh(){
 	var index = Math.floor((Math.random() * 1000));//returns random # btwn 0 and 1000
 	var item = lines[index];
 	replaceData(randomDIV, item);
+	console.log("works");
 };
 var replaceData = function replaceData(d, i){
     /**d.children[0].innerHTML = i[0];
@@ -37,6 +38,7 @@ var replaceData = function replaceData(d, i){
     d.children[0].innerHTML returns "CrimeName"
     i[0] will be the thing inside the line that you want to replace the child with
     Rinse and repeat**/
+    d.children[1].innerHTML = i[10].split("/", 1)[0].split("-",1);
 };
 var myInterval = setInterval(refresh,5000);
 
