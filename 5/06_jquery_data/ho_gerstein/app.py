@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request
-import time, json
+import time, json, readfile
 
 app = Flask(__name__)
 
@@ -13,7 +13,8 @@ def search():
 
 @app.route("/random")
 def random():
-    return "random"
+    profile = readfile.randomprofile()
+    return json.dumps(profile)
     
 if __name__ == "__main__":
    app.debug = True
