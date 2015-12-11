@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-import random, json
+import random, json, re
 
 app = Flask(__name__)
 
@@ -15,6 +15,12 @@ def distance():
 
 @app.route("/getCoordinates")
 def getPlace():
+    file = open("cities15000.txt","r")
+    text = file.read()
+    #text = text.replace('\r\n','')
+    pattern = re.compile("[^\t]+")
+    print pattern.findall(text)
+    file.close()
     coord = {'lat':random.uniform(-30,75),'lng':random.uniform(-125,125)}
     return jsonify(coord)
 
