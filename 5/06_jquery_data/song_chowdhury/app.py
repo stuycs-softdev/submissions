@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+import json
 
 app = Flask(__name__)
 data = []
@@ -10,8 +11,8 @@ for line in lines:
     data.append(newlist)
 
 file.close()
-print data
-print number
+#print data
+#print number
 #it works! print linelist
 
 @app.route("/")
@@ -22,8 +23,8 @@ def index():
 def getprofile():
     print "starting getprofile"
     print "ending getprofile"
-    return "profile"
-    #return data
+    #return "profile"
+    return json.dumps(data)              ####you have to have json.dumps
 
 @app.route("/getdata")      ######returns a line from global variable data
 def getdata():
@@ -36,7 +37,7 @@ def getdata():
     print "ending getdata"
     if number > 99:
         return
-    return line
+    return json.dump(line)
 
 
 if __name__ == "__main__":
