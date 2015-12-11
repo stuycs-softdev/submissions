@@ -41,6 +41,6 @@ def searchprofile(name):
         "first": "Does Not Exist",
         "last": "",
         "email": "",
-        "counttry": "",
+        "country": "",
         "ip": ""}
 
