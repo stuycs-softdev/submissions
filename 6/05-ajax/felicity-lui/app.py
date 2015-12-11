@@ -1,10 +1,15 @@
-# from flask import Flask, render_template, request
+from flask import Flask, render_template, request
 import csv, sys
 counter = 1
-# app = Flask(__name__)
+app = Flask(__name__)
+
+@app.route("/")
+@app.route("/home")
+def home():
+   return render_template("home.html")
 
 
-# @app.route("/login")
+@app.route("/getProfit")
 def getProfit():
    f = open("static/profit.csv",'rb')
    profits = []
@@ -17,8 +22,8 @@ def getProfit():
       f.close()
    return profits
 
-# @app.route("/")
-def getLoss():
+@app.route("/getLose")
+def getLose():
    f = open("static/profit.csv",'rb')
    loss = []
    try:
@@ -30,8 +35,9 @@ def getLoss():
       f.close()
    return loss
 
+@app.route("/getNext")
 def getNext():
-   counter = 1
+   global counter
    myreader = []
    results = []
    f = open("static/profit.csv",'rb')
@@ -50,6 +56,6 @@ def getNext():
    return results
 
 
-# if __name__ == "__main__":
-#     app.debug = True
-#     app.run(host="0.0.0.0",port = 8000)
+if __name__ == "__main__":
+    app.debug = True
+    app.run(host="0.0.0.0",port = 8000)

@@ -2,12 +2,27 @@
 <html>
   <head>
     <script src="/static/jquery.js"></script>
+    <style id="s">
+      body {
+      background-color:white;
+      }
+    </style>
   </head>
   <body>
+    <h1>Random Profile</h1>
+    <br>
+    <h2 id="name">Name</h2>
+    <table>
+      <tr><td>ID</td><td id="ID">ID</td></tr>
+      <tr><td>Email</td><td id="email">Email</td></tr>
+      <tr><td>Gender</td><td id="gender">Gender</td></tr>
+      <tr><td>Drug</td><td id="drugs">Drug</td></tr>
+    </table>
+    <img id="drugimg" src="">
+    <br><br>
     <input id = "query">
     <button id = "b">Search</button>
     <br>
-    {{profiles}}
     <script src="/static/mycode.js"></script>
   </body>
 </html>
