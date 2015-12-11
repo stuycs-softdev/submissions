@@ -1,17 +1,15 @@
-
 function getProfit(){
-    //getNegative #s from CSV file
-    //assuming it's an array
     $.get("/getProfit",function(array){
         var pro = document.getElementById("user")
         var x = document.createElement("ul");
-        for(int i=0;i<array.length;i++){
+        for(var i=0;i<array.length;i++){
             var y = document.createElement("li");
             y.innerHTML = array[i];
             y.id="listItem";
-            pro.appendChild(x);
+            x.appendChild(y);
         }
         x.id="list";
+        pro.appendChild(x);
         addButton();
     })
 }
@@ -19,13 +17,14 @@ function getLose(){
     $.get("/getLose",function(array){
         var pro = document.getElementById("user");
         var x = document.createElement("ul");
-        for(int i = 0;i<array.length;i++){
+        for(var i = 0;i<array.length;i++){
             var y = document.createElement("li");
             y.innerHTML = array[i];
             y.id="listItem";
-            pro.appendChild(x);
+            x.appendChild(y);
         }
         x.id="list";
+        pro.appendChild(x);
         addButton();
     })
 }
@@ -60,4 +59,3 @@ function remove(){
 
 var interval;
 interval = setInterval(updating,5000);
-addButton();
