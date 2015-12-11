@@ -24,7 +24,7 @@ document.getElementById("stop").addEventListener('click',stopit);
 var csv;
 $.get("/getprofile", function(d) {
     console.log("js getprofile started");
-    console.log("getprofile returned: "+d);
+    //console.log("getprofile returned: "+d);        //this works
     console.log("js getprofile ended");
 });
 $.get("/getdata", function(d) {
