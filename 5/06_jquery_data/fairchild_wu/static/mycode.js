@@ -5,7 +5,8 @@ editCurrent = function editCurrent(data){
     var currentProfile = document.getElementById("currentProfile");
     //console.log("profile:");
     //console.log(currentProfile);
-    currentProfile.innerhtml = data["name"];
+    currentProfile.innerhtml = data;
+    console.log(currentProfile);
     console.log(currentProfile.innerhtml)
 }
 
