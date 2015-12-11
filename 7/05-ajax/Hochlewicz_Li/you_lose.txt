@@ -12,7 +12,7 @@
 				font-family: "Comic Sans MS";
 			}
 			body {
-    				background-image: url("lose.jpg");
+    				background-image: url("http://vignette1.wikia.nocookie.net/josh100lubu/images/4/40/18360-doge-doge-simple.jpg");
     				background-color: #cccccc;
 			}
 		</style>
