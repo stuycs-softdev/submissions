@@ -1,0 +1,21 @@
+* {
+    font-family:"Arial";
+}
+
+#random {
+    background-color:lightgray;
+    width:250px;
+    padding-top:1px;
+    padding-bottom:1px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+#searched {
+    background-color:lightgray;
+    width:250px;
+    padding-top:1px;
+    padding-bottom:1px;
+    padding-left:10px;
+    padding-right:10px;
+}
