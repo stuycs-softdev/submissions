@@ -30,7 +30,7 @@ $("#start").click(function(){
 		$.get('/carousel', {data:favlist[index]}, function(r){
 			$("#cImg").attr("src",r);
 		});
-	},1000);
+	},5000);
 })
 $("#stop").click(function(){
     clearInterval(timer);
