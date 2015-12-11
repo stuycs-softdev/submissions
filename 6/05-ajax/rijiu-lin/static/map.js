@@ -1,7 +1,8 @@
 var STREET_VIEW_URL = "https://maps.googleapis.com/maps/api/streetview?";
 var KEY = "AIzaSyCtc4ULXKSocmcjjHzp-T78-xH53a0Sz2w";
+
 var map;
-var answer;
+var time;
 
 var mapinit = function mapinit(){
     map = new google.maps.Map(document.getElementById('map-canvas'), {
@@ -9,29 +10,33 @@ var mapinit = function mapinit(){
 	center: {lat: 0, lng: 0} 
     });
 
-    map.addListener('click', checkAnswer);
-    getStreetView(0,0);
+    setInterval(newRound, 60000);
+    setInterval(reduceTime, 1000);
 };
 
+var newRound = function newRound(){
+    console.log('a');
+    google.maps.event.clearListeners(map, 'click');
+    $.get("/getCoordinates",function (d){
+	document.getElementById("street-view").src = getStreetView(d.lat, d.lng);
+	map.addListener('click', function(e){
+	    checkAnswer(e,answer);
+	});
+    });
+}
+
 var checkAnswer = function checkAnswer(e){
-    var guess = {lat: e.latLng.lat(), lng:e.latLng.lng()};
-    /*
-    start = new google.maps.LatLng({lat:answer[0], lng:answer[1]});
-    end = e.latLng;
-    var dist = $.get("/distance", {start:start, end:end}, function(distance){
+    var dist = $.get("/distance", {lat1: 0, lon1: 0, lat2: e.latLng.lat(), lon2: e.latLng.lng()}, function(distance){
 	console.log(distance);
     });
-    */
+    
 };
 
 var getStreetView = function getStreetView(lat, lng){
     var size = "size=400x300";
     var location = "location="+lat+","+lng;
     var key = "key="+KEY;
-    var get = STREET_VIEW_URL + size + "&" + location + "&" + key;
-    $.get(get,function(e){
-	console.log(e);
-    });
+    return STREET_VIEW_URL + size + "&" + location + "&" + key;
 }
 
 window.addEventListener('load', mapinit);

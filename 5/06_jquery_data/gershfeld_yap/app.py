@@ -24,10 +24,7 @@ profiles = profiles[1:]
 
 @app.route("/", methods=["GET","POST"])
 def index():
-    url = """
-    https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%s&userip=192.168.1.112
-    """
-    return render_template("index.html")#, profiles=profiles,url=url)
+    return render_template("index.html")
 
 
 @app.route("/profile")
