@@ -12,17 +12,27 @@
     height:20%;
     }
     #map-canvas{
-    width:100%;
+    display: inline;
+    width:50%;
     height:100%;
+    float: left
     }
     #street-view{
+    float: right
+    display: inline;
     height:100%;
-    width:auto;
+    width:50%;
     }
-    #time{
+    #results{
+    margin-left:-80px;
     position:absolute;
     bottom:0;
-    right:0;
+    left:50%;
+    }
+    #time{
+    margin-left:-80px;
+    position:absolute;
+    left: 50%
     }
   </style>
   <head>
@@ -32,9 +42,10 @@
   <body>
     <!-- Displays the Map -->
     <div id="map-canvas"></div>
+    <img id="street-view"/>
   </body>
   <footer>
-    <img id="street-view"/>
+    <div id="results"></div>
     <div id="time"></div>
   </footer>
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
