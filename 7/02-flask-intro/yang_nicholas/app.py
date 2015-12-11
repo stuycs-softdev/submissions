@@ -7,8 +7,17 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     if 'username' in session:
+        return render_template('home.html', username = session['username'])
+    else:
+        return render_template("home.html")
+
+@app.route("/mypage")
+def mypage():
+    if 'username' in session:
         return render_template(session['username'] + ".html")
-    return render_template("home.html")
+    else:
+        return """<h1> Not logged in </h1>
+                   <button><a href="/"> Home </a></button>"""
 
 @app.route("/about")
 def about():

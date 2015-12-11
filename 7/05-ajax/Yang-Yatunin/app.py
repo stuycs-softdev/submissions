@@ -138,6 +138,8 @@ def get_pic():
     
     return loads(response.data.decode("utf-8"))['picture']['data']['url'], 200
 
+
+
 if __name__ == '__main__':
     # Register an app token at start-up
     TOKENS["app_token"] = get_app_token()

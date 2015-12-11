@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import os.path
-from pytrends.pyGTrends import pyGTrends
+from pyGTrends import pyGTrends
 
 app = Flask(__name__)
 global connection

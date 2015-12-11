@@ -10,3 +10,10 @@ var getFriends = function()
     })
 
 };
+var test = function()
+{
+    $.get("../test/test", function(d){
+	console.log(d);
+	return d;
+    })
+};
