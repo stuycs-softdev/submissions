@@ -31,7 +31,7 @@ def getLoss():
    return loss
 
 def getNext():
-   counter = 1
+   global counter
    myreader = []
    results = []
    f = open("static/profit.csv",'rb')

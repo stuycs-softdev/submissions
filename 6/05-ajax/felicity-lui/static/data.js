@@ -1,4 +1,4 @@
-/*
+
 function getProfit(){
     //getNegative #s from CSV file
     //assuming it's an array
@@ -41,7 +41,7 @@ function updating(){
         table.appendChild(x);
     }
 }
-*/
+
 
 function addButton(){
     var f = document.getElementById("user");
