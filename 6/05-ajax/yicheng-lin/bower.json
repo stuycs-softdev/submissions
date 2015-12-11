@@ -1,0 +1,22 @@
+{
+  "name": "nukemeplease",
+  "homepage": "https://github.com/omgimanerd/nukemeplease",
+  "authors": [
+    "Yicheng Wang <alex-wyc>"
+  ],
+  "description": "",
+  "main": "app.py",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
