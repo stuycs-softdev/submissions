@@ -40,13 +40,13 @@ def niceify_top_10(top10List, key_stat):
 
 if __name__ == "__main__":
     #print get_top_10('PPG')
-    print "PPG"
+    print "\nPPG\n"
     print niceify_top_10(get_top_10('PPG'), 'PPG')
-    print "APG"
+    print "\nAPG\n"
     print niceify_top_10(get_top_10('AST'), 'AST')
-    print "RPG"
+    print "\nRPG\n"
     print niceify_top_10(get_top_10('TRB'), 'TRB')
-    print "BPG"
+    print "\nBPG\n"
     print niceify_top_10(get_top_10('BLK'), 'BLK')
     app.debug = True
     #app.run(host='0.0.0.0',port=8000)
