@@ -1,7 +1,7 @@
 import csv
 import random
 def readpokedeck():
-    f = open("MOCK_DATA.csv","r")
+    f = open("pokemon.csv","r")
     s = f.read()[:-1]
     f.close()
     profiles = []
@@ -32,7 +32,7 @@ def searchprofile(name):
             fixedName = name[:i] + " " + name[i:]
         i+=1
     name = fixedName.split(" ")
-    profiles = readprofiles()
+    profiles = readpokedeck()
     for person in profiles:
         if person["first"]==name[0] and person["last"]==name[1]:
             return person
