@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+
+<head>
+    <title>Facebook Magic</title>
+    <link rel="stylesheet" type="text/css" href="static/bootstrap.min.css">
+    <link rel="icon" href="static/favicon.jpg" type="image/png">
+    <script type="text/javascript" src="static/jquery.min.js"></script>
+</head>
+
+<body>
+	{% if not authorized %}
+	<div id="login">
+	<button class="btn btn-default btn-lg" onclick="location.href='/authorize'">Log In to FB</button>
+	</div>
+	{% else %}
+	<div id="pic">
+		<button class="btn btn-default btn-lg">CLICK SOMEWHERE AND SEE CONSOLE</button>
+	</div>
+	{% endif %}
+    <script type="text/javascript" src="static/index.js"></script>
+</body>

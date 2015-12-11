@@ -8,15 +8,15 @@
     </style>
 
   </head>
-
+ 
   <body>
 
     <title>Retrieving Data</title>
     
     <div class="search">
 
-      <form id="form1">
-      Search: <input type ="text" id="input" name="whattodo"><br><br><br>
+      <form method="GET" id="form1">
+      Search: <input type ="text" id="input" name="search"><br><br><br>
       <input type="submit">
       </form>
       
@@ -27,10 +27,11 @@
     </div>
 
     <div class="randomresults">
-
+      <p id="randData"></p>
+      <script src="static/jquery.js"></script>
+      <script src="static/mycode.js"></script>
     </div>
-
-    <script src="data.js"></script>
+   
 
   <body>
 

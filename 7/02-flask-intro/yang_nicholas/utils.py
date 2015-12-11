@@ -1,4 +1,4 @@
-usernames = {"Nicholas": "12345", "Julian" : "password", "Sasha" : "hunter2", "Vanya" : "tobeornottobe"}
+usernames = {}
 
 def authenticate(username, password):
     if usernames.get(username, "-1") == password:
