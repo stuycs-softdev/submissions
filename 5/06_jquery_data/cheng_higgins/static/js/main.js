@@ -6,7 +6,7 @@ var city_list = ["NYC", "London", "Boston", "Washington DC",
     "Chicago", "Beijing", "Seoul", "Tokyo", "Taipei", "Berlin"];
 
 var scroll_through_city_list = function scroll_through_city_list() {
-    $.getJSON("http://localhost:8000/weather/?loc=" + city_list[curr_city], function(res) {
+    $.getJSON("weather/?loc=" + city_list[curr_city], function(res) {
         $("#world_location").text(res["name"]);
         $("#world_conditions").text("Conditions: " + res["wtype"]);
         $("#world_temp").text("Current Temperature: " + res["temp_curr"]);
@@ -31,7 +31,7 @@ var lookup_weather = function lookup_weather() {
     var textbox = $("#query_city");
     var loc = textbox.val();
     textbox.val(""); // Clear the query box
-    $.getJSON("http://localhost:8000/weather/?loc=" + loc, function(res) {
+    $.getJSON("weather/?loc=" + loc, function(res) {
         $("#query_location").text(res["name"]);
         $("#query_conditions").text("Conditions: " + res["wtype"]);
         $("#query_temp").text("Current Temperature: " + res["temp_curr"]);
