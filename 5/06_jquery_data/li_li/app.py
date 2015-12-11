@@ -9,7 +9,7 @@ app = Flask(__name__)
 def index():
     data = request.args.get("data")
     print data
-    
+    return render_template("index.html")
     
 if __name__ == "__main__":
    app.debug = True
