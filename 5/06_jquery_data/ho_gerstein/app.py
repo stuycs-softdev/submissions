@@ -9,7 +9,9 @@ def index():
 
 @app.route("/search")
 def search():
-    return "search"
+    name = request.args.get("name")
+    profile = readfile.searchprofile(name)
+    return json.dumps(profile)
 
 @app.route("/random")
 def random():

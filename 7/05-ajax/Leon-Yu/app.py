@@ -41,6 +41,8 @@ def results():
     result = request2.read()
     #r = json.loads(result)
     print result
+    #print "-----------------------------"
+    #print result[0][0]
     return result
     #return data
 
