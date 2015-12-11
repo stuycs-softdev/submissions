@@ -1,59 +1,24 @@
-console.log("HELLO");
-
-var printresults = function(d){
-		console.log(d);
+var getdata = function getdata(e) {
+    data = $.get("/getdata", function() {
+	console.log("In js getdata started");
+	
+	console.log("Leaving js getdata");
+    });
 };
 
-var timingTest1 = function(){
-
-		console.log("slow");
-		$.get("/getslow",function(){
-				console.log("Slow returned");
-				console.log("FAST");
-				$.get("/getfast",printresults);
-				console.log("BACK FROM FAST");
-		});
-		
-		console.log("BACK FROM SLOW");
-
-		console.log("regular");
-		$.get("/getstuff",printresults);
-		console.log("BACK FROM REGULAR");
-
-
-		
-		
-};
-
-var stuffdemo = function(){
-
-		console.log("Calling getstuff");
-
-		$.get("/getstuff",function(d){
-				console.log("getstuff returned: "+d);
-		});
-
-
-		
-		console.log("back from getstuff");
-
-};
-
-var paramtest = function paramtest(){
-		$.getJSON("/upcase",{data:'hello'},function(d){
-				console.log(d);
-				console.log(d.result);
-		});
-
-};
-
-
-$("#b").click(function(){
-		var input = $("#data");
-		var d = input.val();
-		input.val("");
-		$.getJSON("/upcase",{data:d},function(d){
-				$("#result").text(d.result);
-				$("#thelist").append($("<li>"+d.result+"</li>"));
-		});
+var myevent;
+function startit() {
+    console.log("it started");
+    myevent = setInterval(getdata,5000);
+}
+function stopit() {
+    console.log("it ended");
+    window.clearTimeout(myevent);
+}
+document.getElementById("start").addEventListener('click',startit);
+document.getElementById("stop").addEventListener('click',stopit);
+$.get("/getprofile", function() {
+    console.log("js getprofile started");
+    
+    console.log("js getprofile ended");
 });

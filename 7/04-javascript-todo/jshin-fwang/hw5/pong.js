@@ -1,36 +1,21 @@
 var dx = 1;
 var dy = 1;
+var player2score = document.querySelector('#score2'); 
+var player2scoreval=player2score.innerHTML;
+player2scoreval = player2scoreval.substring(player2scoreval.length-1, player2scoreval.length);
+player2scoreval = parseInt(player2scoreval);
 
-/*
-var keyState = {};
+var started = false;
 
-window.addEventListener('keydown',function(e){
-    keyState[e.keyCode || e.which] = true;
-},true);
+//images
+var myPix = new Array("images/ball.png","images/DWHead.png","images/ZamanskyHead.png","images/KHead.png", "images/ball.png");
+var picIndex = 0;
 
-window.addEventListener('keyup',function(e){
-    keyState[e.keyCode || e.which] = false;
-},true);
-
-x = 100;
-
-function gameLoop() {
-    if (keyState[37] || keyState[65]){
-    x -=1;
-    }
-
-    if (keyState[39] || keyState[68]){
-    x += 1;
-    }
-    
-    document.getElementById("test").style.left = x + "px";
-    
-    setTimeout(gameLoop, 10);
+function choosePic() {
+    picIndex++;
+     document.getElementById("ball").src = myPix[picIndex%4];
 }
 
-gameLoop();
-*/
-var started = false;
 //Keystate for multitouch
 var keyState = {};
 
@@ -43,6 +28,13 @@ window.addEventListener('keyup',function(e){
 },true);
 
 //Player 1
+var player1score = document.querySelector('#score1');
+var player1scoreval=player1score.innerHTML;
+player1scoreval = player1scoreval.substring(player1scoreval.length-1, player1scoreval.length);
+player1scoreval = parseInt(player1scoreval);
+
+
+
 var player1pos=document.querySelector('#player1');
 var player1x = (player1pos.style.left);
 var player1y = (player1pos.style.top);
@@ -95,7 +87,16 @@ function bounce(e){
    x+=dx;
    y+=dy;
    if (x < 15 || x > 85) {
-     stopit();
+     if (x < 15) {
+        player2scoreval++;
+        player2score.innerHTML="Player 2: " + (player2scoreval);
+        dx*=-1;
+     } else {
+        player1scoreval++;
+        player1score.innerHTML="Player 1: " + (player1scoreval);
+        dx*=-1;
+     }
+     stopit()
      x = 50;
      y = 50;
    }
@@ -135,8 +136,8 @@ function startit() {
    started = true;
    //move()
    //bounce()
-   playermove = setInterval(move,50);
-   ballmove = setInterval(bounce, 50);
+   playermove = setInterval(move,20);
+   ballmove = setInterval(bounce, 20);
   }
 }
 
@@ -146,11 +147,20 @@ function stopit() {
 	x = 50;
 	y = 50;
 	bounceball.style.left=x+"%";
- bounceball.style.top=y+"%";
+	bounceball.style.top=y+"%";
 	started = false;
 }
 
+function reset() {
+    stopit()
+    player1scoreval = 0;
+    player2scoreval = 0;
+    player1score.innerHTML="Player 1: " + '0';
+    player2score.innerHTML="Player 2: " + '0';
+}
+
  document.getElementById("start").addEventListener('click',startit);
- document.getElementById("stop").addEventListener('click',stopit);
+ document.getElementById("stop").addEventListener('click',reset);
+ document.getElementById("changeball").addEventListener('click', choosePic);
 
 document.onkeydown = move;

@@ -1,39 +1,37 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+import json
 
 app = Flask(__name__)
-
 data = []
-counter = 0
+counter = 1
+file = open("MOCK_DATA.csv", 'r')
+lines = file.readlines() #realines() should return list of lines
+for line in lines:
+    newlist = line.split(',')
+    data.append(newlist)
+
+file.close()
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/getprofile")
+@app.route("/getprofile")    #####puts csv data into global variable data
 def getprofile():
     print "starting getprofile"
-
-    file = open("MOCK_DATA.csv", 'r')
-    lines = file.readlines() #realines() should return list of lines
-    linelist = []
-    for line in lines:
-        newlist = line.split(',')
-        linelist.append(newlist)
-        
-    data = linelist #we don't know if this works
-    file.close()
-    #it works! print linelist
-    
     print "ending getprofile"
-    return "profile"
+    return json.dumps(data)              ####you have to have json.dumps
 
-@app.route("/getdata")
+@app.route("/getdata")      ######returns a line from global variable data
 def getdata():
     print "starting getdata"
-    line = data[counter]
+    line = data[counter]     #for some reason, counter is a local variable
     counter += 1
     print "ending getdata"
-    return line
+    if counter > 99:
+        return "end"
+    return json.dump(line)
+
 
 if __name__ == "__main__":
    app.debug = True
