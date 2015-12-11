@@ -29,5 +29,5 @@ $("#start").click(function(){
 		$.get('/carousel', {data:favlist[index]}, function(r){
 			$("#cImg").attr("src",r);
 		});
-	},30000);
+	},10000);
 })
