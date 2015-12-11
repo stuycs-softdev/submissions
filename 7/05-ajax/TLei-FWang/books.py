@@ -1,6 +1,7 @@
 import urllib2
 import json
 import csv
+import string, random
 
 def getBooks(userAsked, searchterm):
     if userAsked == True:
@@ -35,5 +36,14 @@ def getBooks(userAsked, searchterm):
 
         bookToAdd = ""
 
+def randomSearch():
+    rSearchTerm = random.choice(string.letters)
+    #url = "http://www-personal.umich.edu/~jlawler/wordlist"
+    #request = urllib2.urlopen(url)
+    #result = request.read()
+    #rSearchTerm = result[]
+    getBooks(False, rSearchTerm)
+
 #getBooks(True,"hi")
 #getBooks(False,"hello")
+randomSearch()
