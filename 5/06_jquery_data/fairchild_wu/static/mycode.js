@@ -35,7 +35,7 @@ getSearchedProfile = function getSearchedProfile(){
     $.get("/search/"+text.value,getSpecificProfile);
 }
 
-var button = document.getElementById("search");
+var button = document.getElementById("searchbutton");
 button.addEventListener("click",getSearchedProfile);
 
 getNewProfile();

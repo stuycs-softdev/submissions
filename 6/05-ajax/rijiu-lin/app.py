@@ -31,5 +31,6 @@ def getPlace():
 if __name__ == "__main__":
     f = open('cities15000.txt', 'r')
     cities = f.read().split('\n')
+    f.close()
     app.debug = True
     app.run(host = "0.0.0.0", port=8000)
