@@ -8,6 +8,10 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
+@app.route('/test')
+def test():
+    return "Hello World"
+
 if __name__ == "__main__":
     app.debug = True
     app.secret_key = "V\xd7\x94<\xb50\xca\n\xf9\xa0@\x17\x06(\x17-\x8f\xf39\x83\xa2\xfcm\x14"
