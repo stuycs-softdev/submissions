@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import os.path
 import json
 import requests
+import utils
 from pyGTrends import pyGTrends
 
 app = Flask(__name__)
@@ -33,7 +34,10 @@ def index():
 @app.route("/search", methods=['GET'])
 def search():
     if request.method == "GET":
-        term = request.form['search']
+        # haven't gotten this part to work yet (url returns 400 bad request error)
+        term = request.get_json()
+
+        term = "pizza"
         data = trend(term)
         results = parseTrend(data)
     return json.dumps(results)
@@ -43,8 +47,8 @@ def popular():
     global counter
     pop = popularList()
     data = trend(pop[counter % 20])
-    results = parseTrend(data)
-    return json.dumps(results)
+    r = parseTrend(data)
+    return json.dumps(r);
 
 def trend(term):
     path = "data/" + term + ".csv"
