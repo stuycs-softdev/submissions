@@ -39,13 +39,6 @@ def searchProfile(name):
             person = profiles[p]
             if person['first_name'].lower()==name or person['last_name'].lower()==name:
                 return person
-    return {
-        'first_name': None,
-        'last_name': None,
-        'id': None,
-        'country': None
-    }
-
 
 
 
