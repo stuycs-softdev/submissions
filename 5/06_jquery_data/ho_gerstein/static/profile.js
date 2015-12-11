@@ -32,4 +32,4 @@ document.getElementById("searchIt").addEventListener("click",searchProfile);
 
 getRandom();
 
-interval = setInterval(getRandom, 1000);
+interval = setInterval(getRandom, 3000);
