@@ -40,7 +40,7 @@ def getImage():
                "http://i.imgur.com/SA4prMR.jpg",
                "http://i.imgur.com/xSjQNTx.jpg"]
     picNum=random.randint(0,len(imageList)-1)
-    return "<img src="+imageList[picNum]+'" style="width:640px;height:480;">'
+    return "<img src="+imageList[picNum]+'" style="width:400px;height:400;">'
 
 @app.route("/search")
 @app.route("/search/<name>")
