@@ -1,7 +1,7 @@
 window.addEventListener('click', function(e) {
     $.ajax({
         'type': 'GET',
-        'url': '/getpic',
+        'url': '/getfriends',
         success: function(response) {
             console.log(response);
         },
