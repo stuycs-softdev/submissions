@@ -42,7 +42,7 @@ def getImage():
     picNum=random.randint(0,len(imageList)-1)
     return "<img src="+imageList[picNum]+'" style="width:400px;height:400;">'
 
-@app.route("/search")
+@app.route("/search/")
 @app.route("/search/<name>")
 def search(name=""):
     for key in niceData:
@@ -53,8 +53,8 @@ def search(name=""):
                 phone=profile['phone']
                 city=profile['city']
                 return "Name: "+name+"<br>Email: "+email+"<br>Phone: "+phone+"<br>City: "+city
-            else:
-                return "No result"
+        
+    return  "No result"
 
 if __name__ == "__main__":
     app.debug=True
