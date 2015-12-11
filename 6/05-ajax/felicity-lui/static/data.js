@@ -34,9 +34,10 @@ document.getElementById("lose").addEventListener('click',getLose);
 
 function updating(){
     $.get("/getNext",function(data){
+        var jsonData = JSON.parse(data)
         var table = document.getElementById("profitLose");
         var x = document.createElement("tr");
-        x.innerHTML = "<td>"+data+"</td><td>"+data+"/td>";
+        x.innerHTML = "<td>"+data[0]+"</td><td>"+data[1]+"/td>";
         table.appendChild(x);
     })
 }
