@@ -2,8 +2,13 @@ import urllib2
 import json
 import csv
 
-def getBooks(searchterm):
-    f = open('booklist.txt','w')
+def getBooks(userAsked, searchterm):
+    if userAsked == True:
+        bookfile = 'userBooklist.txt'
+    elif userAsked == False:
+        bookfile = 'booklist.txt'
+
+    f = open(bookfile,'w')
     f.write("")
     f.close()
     url = "https://www.googleapis.com/books/v1/volumes?q=" + searchterm + "&key=" + "AIzaSyAbcq5DqVguTNomXJhuQhLp2ZX_0q4pOXY"
@@ -24,10 +29,11 @@ def getBooks(searchterm):
             else:
                 bookToAdd += "Author unknown\n"
                 
-        f = open('booklist.txt','a') 
+        f = open(bookfile,'a') 
         f.write(bookToAdd)
         f.close()
 
         bookToAdd = ""
 
-#getBooks("hello")
+#getBooks(True,"hi")
+#getBooks(False,"hello")
