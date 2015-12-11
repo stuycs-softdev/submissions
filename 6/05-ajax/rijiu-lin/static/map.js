@@ -7,17 +7,16 @@ var mapinit = function mapinit(){
 	zoom: 2,
 	center: {lat: 0, lng: 0} 
     });
-    setInterval(newRound, 60000);
+    map.addListener('click', checkAnswer)
+    newRound()
 };
 
 var newRound = function newRound(){
-    google.maps.event.clearListeners(map, 'click');
     $.get("/getCoordinates",function (d){
+	console.log(d)
 	document.getElementById("street-view").src = getStreetView(d.lat, d.lng);
-	map.addListener('click', function(e){
-	    checkAnswer(e,answer);
-	});
     });
+    setInterval(newRound, 60000);
 }
 
 var checkAnswer = function checkAnswer(e){
