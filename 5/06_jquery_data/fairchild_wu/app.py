@@ -33,9 +33,28 @@ def getImage():
     return "https://www.imgur.com/funnypicture"
 
 @app.route("/search")
-def search():
-    return "stuff"
+@app.route("/search/<name>")
+def search(name=""):
+    '''
+    button = request.form['button']
+    if button=="search":
+        firstSearch=request.form['searchBox']
+        for key in niceData:
+            if niceData[key]['name'] == firstSearch:
+                result=niceData[key]
+        return json.dumps(result)
+    '''
+    
+    for key in niceData:
+            if niceData[key]['name'] == name:
+                result=niceData[key]
+                return json.dumps(result)
+                #return render_template("index.html",test=result['phone'])
+            else:
+                return "No result"
+                #return render_template("index.html")
 
 if __name__ == "__main__":
+    app.debug=True
     app.secret_key = "SECRET"
     app.run(host='0.0.0.0',port=8000)
