@@ -31,6 +31,7 @@ function checkifdrowning(){
 		dn.style.top = parseInt(ij.style.top) - 70 + 'px';
 		dn.style.visibility = 'visible';
 		checkifdead();
+		changehelptext();
 	}
 	else{
 		dn.style.visibility = 'hidden';
@@ -40,8 +41,31 @@ function checkifdrowning(){
 function checkifdead(){
 	if (parseInt(ij.style.top) > 500){
 		console.log('I am dead.');
+		loadDoc()
 	}
 };
+
+function changehelptext(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("helptext").innerHTML = xhttp.responseText;
+		}
+	};
+  xhttp.open("GET", "almost_dead.txt", true);
+  xhttp.send();
+}
+		 
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("main").innerHTML = xhttp.responseText;
+    }
+  };
+  xhttp.open("GET", "you_lose.txt", true);
+  xhttp.send();
+}		 
 		 
 window.onload = init;
 myInterval = setInterval(drown,200);
