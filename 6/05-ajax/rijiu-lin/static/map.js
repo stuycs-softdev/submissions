@@ -9,7 +9,8 @@ var mapinit = function mapinit(){
 	zoom: 2,
 	center: {lat: 0, lng: 0},
 	scrollwheel: false,
-	draggable: false
+	draggable: false,
+	disableDoubleClickZoom: true
     });
     time = 30;
     newRound();

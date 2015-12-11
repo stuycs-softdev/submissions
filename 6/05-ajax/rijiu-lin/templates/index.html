@@ -12,12 +12,16 @@
     height:20%;
     }
     #map-canvas{
-    width:100%;
+    display: inline;
+    width:50%;
     height:100%;
+    float: left
     }
     #street-view{
+    float: right
+    display: inline;
     height:100%;
-    width:auto;
+    width:50%;
     }
     #results{
     margin-left:-80px;
@@ -38,9 +42,9 @@
   <body>
     <!-- Displays the Map -->
     <div id="map-canvas"></div>
+    <img id="street-view"/>
   </body>
   <footer>
-    <img id="street-view"/>
     <div id="results"></div>
     <div id="time"></div>
   </footer>
