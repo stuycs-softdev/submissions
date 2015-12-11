@@ -10,23 +10,19 @@ var mapinit = function mapinit(){
 	center: {lat: 0, lng: 0} 
     });
 
-    time = 60;
-
     setInterval(newRound, 60000);
     setInterval(reduceTime, 1000);
 };
 
 var newRound = function newRound(){
+    console.log('a');
     google.maps.event.clearListeners(map, 'click');
     $.get("/getCoordinates",function (d){
-	d.stopPropogation();
 	document.getElementById("street-view").src = getStreetView(d.lat, d.lng);
 	map.addListener('click', function(e){
 	    checkAnswer(e,answer);
 	});
     });
-
-    time = 60;
 }
 
 var checkAnswer = function checkAnswer(e){
@@ -43,11 +39,4 @@ var getStreetView = function getStreetView(lat, lng){
     return STREET_VIEW_URL + size + "&" + location + "&" + key;
 }
 
-var reduceTime = function reduceTime(){
-    console.log(time);
-    time = time - 1;
-    console.log(time);
-    document.getElementById("time").innerHTML = time;
-}
-
-//window.addEventListener('load', mapinit);
+window.addEventListener('load', mapinit);

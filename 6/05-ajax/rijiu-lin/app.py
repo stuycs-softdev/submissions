@@ -3,6 +3,7 @@ import random, json, re
 from math import radians, cos, sin, asin, sqrt
 
 app = Flask(__name__)
+global cities
 
 @app.route("/")
 def index():
@@ -23,14 +24,13 @@ def distance():
 
 @app.route("/getCoordinates")
 def getPlace():
-    file = open("cities15000.txt","r")
-    text = file.read()
-    text = text.split()
-    file.close()
-    lat = random.randint(0,len(text)-1)
-    coord = {'lat':text[lat],'lng':text[lat+1]}
-    return jsonify(coord)
+    coords = cities[random.randint(0,len(cities)-1)].split('\t')
+    c = {'lat':coords[0],'lng':coords[1]}
+    return jsonify(c)
 
 if __name__ == "__main__":
+    f = open('cities15000.txt', 'r')
+    cities = f.read().split('\n')
+    f.close()
     app.debug = True
-    app.run(host="0.0.0.0", port=8000)
+    app.run(host = "0.0.0.0", port=8000)
