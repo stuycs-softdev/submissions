@@ -22,8 +22,16 @@
   <input type="text" id="query" class="search-bar">
   <button type="submit" id="search" class="search-button">Search</button>
 </div>
+<hr class="divider">
 <div class="auto-trend-container">
-  <div class="popular-list"></div>
+  <div class="popular-contain">
+    <h1 class="popular-title">Trending Searches</h1>
+    <ul id="popular-list">
+    {% for term in popular %}
+      <li class="popular-term">{{term}}</li>
+    {% endfor %}
+    </ul>
+  </div>
   <div class="auto-trend"></div>
 </div>
 
