@@ -6,6 +6,9 @@
 </head>
 
 <body>
+Search for a person: <input type="text" name="search" id="search">
+<button id="b">Go!</button>
+<p id="searched"></p>
 <p id="random"></p>
 <!--{% for u in info %}
  {{u}}
@@ -19,10 +22,41 @@ var getRandomInt = function(min, max) {
 
 var getRandomProfile = function() {
     var randomInt = getRandomInt(1,99)
-    document.getElementById("random").innerHTML = profiles[randomInt];
+    var raw = profiles[randomInt] + "";
+    var person = raw.split(",");
+    var profile = "Name: " + person[0] + " " + person[1] + "<br>" + 
+                  "Sex: " + person[2] + "<br>" + 
+                  "Location: " + person[3] + ", " + person[4] +
+                  ", " + person[5] + "<br>" +
+                  "Contact: " + person[6] + "<br>"
+
+    document.getElementById("random").innerHTML = profile;
 };
 
 setInterval(getRandomProfile, 3000);
+
+var buttonCallback = function() {
+    var raw = document.getElementById("search")
+    var text = raw.value;
+    var person = "";
+    var i = 0;
+    while (i<99){
+        var raw = profiles[i] + "";
+        var p = raw.split(",");
+        document.getElementById("searched").innerHTML = text + p[1]
+        if (p[1] == text) {
+             person = text;
+             document.getElementById("searched").innerHTML = profiles[i];
+        }
+        i++;
+    }
+    if (person == "") {
+        document.getElementById("searched").innerHTML = "Person not found";
+    }
+}
+
+var button = document.getElementById('b');
+b.addEventListener('click',buttonCallback);
 </script>
 </body>
 

@@ -1,22 +1,23 @@
 from flask import Flask, redirect, render_template, request, session
-import csv,random,json
+import time,json,read
 
 app = Flask(__name__)
 
-@app.route("/home")
+@app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/getProfile")
-def getProfile():
-    profileNum=random.randint(0,99)
-    profile=niceData[profileNum]
+@app.route("/random")
+def random():
+    profile = read.getProfile()
     return json.dumps(profile)
 
 @app.route("/search")
 def search():
-    return "stuff"
+    name = request.args.get("name")
+    profile = read.searchProfile(name)
+    return json.dumps(profile)
 
 if __name__ == "__main__":
-    app.secret_key = "SECRET"
+    app.secret_key = "eiERKI92340EROIG"
     app.run(host='0.0.0.0',port=8000)
