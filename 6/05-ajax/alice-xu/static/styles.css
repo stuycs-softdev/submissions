@@ -12,6 +12,10 @@ body {
 .form-title {
   font-size: 28px;
 }
+.form-error {
+  color: red;
+  font-size: 16px;
+}
 .form-label {
   font-size: 20px;
 }

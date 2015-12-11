@@ -25,7 +25,7 @@ for x in range(0, 100):
         print a
     elif (decision == 4):
         newElement = input('What do you want to add?')
-        a.append(newElement)
+        a.insert(0, newElement)
         print a
     elif (decision == 5):
         print 'Randomizing...'
