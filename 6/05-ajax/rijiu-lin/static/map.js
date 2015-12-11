@@ -1,4 +1,3 @@
-//google places:AIzaSyCtc4ULXKSocmcjjHzp-T78-xH53a0Sz2w
 var STREET_VIEW_URL = "https://maps.googleapis.com/maps/api/streetview?";
 var KEY = "AIzaSyCtc4ULXKSocmcjjHzp-T78-xH53a0Sz2w";
 var map;
@@ -16,6 +15,13 @@ var mapinit = function mapinit(){
 
 var checkAnswer = function checkAnswer(e){
     var guess = {lat: e.latLng.lat(), lng:e.latLng.lng()};
+    /*
+    start = new google.maps.LatLng({lat:answer[0], lng:answer[1]});
+    end = e.latLng;
+    var dist = $.get("/distance", {start:start, end:end}, function(distance){
+	console.log(distance);
+    });
+    */
 };
 
 var getStreetView = function getStreetView(lat, lng){
