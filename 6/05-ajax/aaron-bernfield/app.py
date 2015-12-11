@@ -25,14 +25,14 @@ def search(name):
         city = item.split(",")
         d[city[0]]=city[1:]
     if name in d.keys():
-        output = output + "City:" + name + ", "
-        output = output + "Current Temperature:" + d[name][0] + ", "
-        output = output + "Wind Speed:" + d[name][1] + ", "
-        output = output + "Weather:" + d[name][2] + ", "
-        output = output + "Chance of Rain:" + d[name][3] + ", "
+        output = output + "<b>City: </b>" + name + "<br>"
+        output = output + "<b>Current Temperature: </b>" + d[name][0] + " degrees Celcius <br> "
+        output = output + "<b>Wind Speed: </b>" + d[name][1] + "mph <br> "
+        output = output + "<b>Weather: </b>" + d[name][2] + "<br> "
+        output = output + "<b>Chance of Rain: </b>" + d[name][3] + "% <br> "
         return output
 
-    output = "Invalid City"
+    output = "<b>Invalid City<b>"
     return output
 
 #search('Nueva Requena')

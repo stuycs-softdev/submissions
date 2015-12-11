@@ -6,7 +6,7 @@
   <body>
     <h1> CITY WEATHER SEARCH </h1>
     <p> Possible cities to look up </p>
-    <p> {{d}} </p>
+    <p> {{d|safe}} </p>
     <div id="search">
       <input type="text" id="input">
       <button id="submitsearch"> Submit </button>
@@ -16,8 +16,8 @@
      
     </div>
     <hr>
+    <h1> CYCLING THROUGH MAJOR CITIES </h1>
     <div id="rotating">
-      shows rotating city weather
       <p id="rotatingresults">
 
       </p>
