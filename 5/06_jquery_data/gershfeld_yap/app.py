@@ -33,7 +33,11 @@ def index():
 @app.route("/profile")
 def profile():
     i = request.args.get("data")
-    result = profiles[int(i)]
+    print(int(i))
+    if int(i)>=0:
+        result = profiles[int(i)]
+    else:
+        result = profiles
     return json.dumps(result)
 
 
