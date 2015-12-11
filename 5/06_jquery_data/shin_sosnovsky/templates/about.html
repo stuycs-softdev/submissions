@@ -31,8 +31,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="#">About</a></li>
             <!--<li><a href="#contact">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -61,87 +61,12 @@
       <!-- Main component for a primary marketing message or call to action -->
       <div class="row">
         <h1 style="text-align: center">Creeper!</h1>
-        <h5 style="text-align: center">Creeper! is a new and innovative open-source hacking system that gathers every forms of private information for many purposes, including but not limited to: creeping, social engineering, and fraud.</h5>
 	<p>
-          <!--<a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a> -->
+          Developed by <b>Dong Shin</b> and <b>Alex Sosnovsky</b><br>
+	  We do not incur any responsibility for taking this website or data seriously.
         </p>
 	<hr></hr>
-	<h2>Info</h2>
-	<script>
-	  var update = function(){
-	  $.getJSON("/getdata",function(data){
-	  console.log(data.results.first);
-	  data = data.results;
-	  $("#oldtable tr").eq(0).find("td").eq(1).html(data.first);
-	  $("#oldtable tr").eq(1).find("td").eq(1).html(data.last);
-	  $("#oldtable tr").eq(2).find("td").eq(1).html(data.birth);
-	  $("#oldtable tr").eq(3).find("td").eq(1).html(data.email);
-	  $("#oldtable tr").eq(4).find("td").eq(1).html(data.phone);
-	  $("#oldtable tr").eq(5).find("td").eq(1).html(data.credit);
-	  $("#oldtable tr").eq(6).find("td").eq(1).html(data.pin);
-	  $("#oldtable tr").eq(7).find("td").eq(1).html(data.bank);
-	  $("#oldtable tr").eq(8).find("td").eq(1).html(data.address);
-	  
-	  });
-	  }
-
-	  setInterval(function(){
-	  update();
-	  console.log('called');
-	  }, 5000);
-	</script>
-	<table class="table" id = "oldtable">
-	  <tbody>
-	    <tr>
-	      <td class="col-md-3"><b>First Name</b></td>
-	      <td>{{firstname}}</td>
-	    </tr>
-	    <tr>
-	      <td class="col-md-3"><b>Last Name</b></td>
-	      <td>{{lastname}}</td>
-	    </tr>
-	    <tr>
-	      <td class="col-md-3"><b>Email</b></td>
-	      <td>{{email}}</td>
-	    </tr>
-	    <tr>
-	      <td class="col-md-3"><b>Date of Birth</b></td>
-	      <td>{{dob}}</td>
-	    </tr>
-	    <tr>
-	      <td class="col-md-3"><b>Phone Number</b></td>
-	      <td>{{phonenumber}}</td>
-	    </tr>
-	    <tr>
-	      <td class="col-md-3"><b>Credit Card Number</b></td>
-	      <td>{{creditcardnumber}}</td>
-	    </tr>
-	    <tr>
-	      <td class="col-md-3"><b>Credit Card PIN</b></td>
-	      <td>{{creditcardpin}}</td>
-	    </tr>
-	    <tr>
-	      <td class="col-md-3"><b>Bank Account Number</b></td>
-	      <td>{{bankaccountnumber}}</td>
-	    </tr>
-	    <tr>
-	      <td class="col-md-3"><b>Address</b></td>
-	      <td>{{address}}</td>
-	    </tr>
-	  </tbody>
-	</table>
-	<hr></hr>
-
-	<h2>Search</h2>
-	<form method="POST">
-	  <div class="form-group col-md-3">
-	    <input type="text" class="form-control" id="query" placeholder="First or last name">
-	  </div>
-	  <button id="search"  class="btn btn-default">Submit</button>
-	</form>
-
-	<div id="newtable">
-	</div>
+	<a href="https://github.com/stuycs-softdev/submissions/tree/master/5/06_jquery_data/shin_sosnovsky">Github</a>
 	
       </div>
     </div>
@@ -151,7 +76,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../static/bootstrap.min.js"></script>
-    <script src="../static/user.js"></script> 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   </body>
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+	var getall = function getall(){
+		$(document).ready(function(){
+    		$("button").click(function(){
+    			$("#div1").load("stats.csv");
+    		});
+		});
+	}
+	getall();
+	</script>
+</head>
+<body>
+
+	<div id="div1"><h2>Click to get list of all NBA team stats</h2></div>
+
+	<button>Get All Stats</button>
+
+	
+
+</body>
+</html>

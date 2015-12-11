@@ -28,8 +28,6 @@ interval = setInterval(getProfile, 2000);
 var searchProfile = function searchProfile(query){
 	$.getJSON("/profile",{data:-1},function(d){
 		result=[]		
-		//console.log(d);
-		//console.log(d.length);
 		for (i=0; i<d.length; i++){
 			query = query.toLowerCase();
 			if (d[i].first.toLowerCase().indexOf(query)!=-1 ||
@@ -44,7 +42,6 @@ var searchProfile = function searchProfile(query){
 				break;
 			}
 		}
-		//console.log(result);
 		displayResults(result);
 	});
 };
