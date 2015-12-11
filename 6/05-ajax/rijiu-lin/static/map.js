@@ -11,22 +11,32 @@ var mapinit = function mapinit(){
 	scrollwheel: false,
 	draggable: false
     });
-    map.addListener('click', checkAnswer)
-    setInterval(newRound, 60000);
+    time = 30;
+    newRound();
+    setInterval(function(){
+	time--;
+	document.getElementById("time").innerHTML = time;
+	if (time == 30){
+	    newRound();
+	}
+    },1000);
 };
 
 var newRound = function newRound(){
-    console.log('a');
+    google.maps.event.clearListeners(map, 'click');
     $.get("/getCoordinates",function (d){
 	document.getElementById("street-view").src = getStreetView(d.lat, d.lng);
+	map.addListener('click',checkAnswer);
     });
+    setTimeout(newRound, 30000);
+    time = 30;
 }
 
 var checkAnswer = function checkAnswer(e){
     var dist = $.get("/distance", {lat1: 0, lon1: 0, lat2: e.latLng.lat(), lon2: e.latLng.lng()}, function(distance){
 	console.log(distance);
     });
-    
+    newRound();
 };
 
 var getStreetView = function getStreetView(lat, lng){
