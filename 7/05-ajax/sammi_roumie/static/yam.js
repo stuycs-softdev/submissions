@@ -11,8 +11,9 @@ var change = function change() {
 	$('#phone').text(r[1]);
 	$('#email').text(r[2]);
 	$('#street').text(r[3]);
+	$('#zip').text(r[4]);
 	$('#card').text(r[5]);
-	$('#pin').text(r[4]);
+	$('#pin').text(r[6]);
 	$.getJSON("/image", {name:r[0]},function(t) {
 	    $('#image').attr("src",t["link"]);
 	});
