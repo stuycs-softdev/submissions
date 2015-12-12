@@ -15,54 +15,96 @@
 	
 	<style>
 	.list-wrapper {
-		overflow: scroll;
+		overflow:scroll;
 		height:800px;
+	}
+
+	.scrollable-menu {
+		height:auto;
+		max-height:200px;
+		overflow-x:hidden;
+	}
+	
+	img {
+		height: 200px;
+	}
+	
+	.num {
+		color: #007799;
+	}
+
+	#default {
+		margin-right: 20px;
 	}
 	</style>
 </head>
 
 <body>
 
-	<div class="container">
-		<h1>TITLE</h1>
 
-		
-		<div class="col-sm-6">
-
-			<form>
-				<div class="form-group" id="listname">
-					<label for="sellist">List Name</label>
-					<select class="form-control" id="sellist">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">WebSiteName</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="/">Home</a></li>
+				<li class="dropdown" id="listnames">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Book List
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu scrollable-menu">
 
 						{% for list in listnames %}
-						<option id={{ list|lower|replace(' ', '-') }}>{{list}}</option>
+						<li><a href="#" id={{ list|lower|replace(' ', '-') }}>{{list}}</a></li>
 						{% endfor %}
-					
-					</select>
-				</div>
+								
+					</ul>
+				</li>
+				<li class="dropdown" id="sortby">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Sort By
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Bestsellers Date</a></li>
+						<li><a href="#">Date</a></li>
+						<li><a href="#">ISBN List</a></li>
+						<li><a href="#">List Name</a></li>
+						<li><a href="#">Published Date Rank</a></li>
+						<li><a href="#">Rank Last Week</a></li>
+						<li><a href="#">Weeks on List</a></li>
+					</ul>
+				</li>
+			</ul>
+			<button class="btn btn-primary" type="button" id="submit">Search</button>
+		</div>	
+		</div>
+	</nav>
 
-				<div class="form-group">
-					<label for="number">Number of Results</label>
-					<input type="number" class="form-control" id="number" min="1">
-				</div>
-				<div class="form-group">
-					<button type ="submit" class="btn btn-default" id="submit">Get List</button>
-				</div>
-			</form>
-
-			<div class="list-wrapper">
-				<div class="list-group" id="booklist">
-				</div>
-			</div>
-			
-
-			<div class="col-sm-6">
+	
+	<div class="container">
+		
+		<div class="col-sm-6">
+			<div class="list-group" id="booklist">
 			</div>
 		</div>
+		
+	
+
+		<div class="col-sm-6">
+			<span id="default"><label class="radio-inline active"><input type="radio" name="optradio" checked="">Default</label></span>
+			<span id="random"><label class="radio-inline"><input type="radio" name="optradio">Random</label></span>
+
+			<h2 id="listtitle"></h2>
+			<ul class="list-group" id="intervallist">
+			</ul>		
+		</div>
+	
+	</div>
 
 
+	<script type="text/javascript" src="{{url_for('static', filename='script.js')}}"></script>
 
-		<script src="../static/script.js"></script>
 </body>
 
 </html>
