@@ -19,15 +19,15 @@ def get_listnames():
         
     return sorted(l)
 
-def get_list(name):
-     url = "http://api.nytimes.com/svc/books/v2/lists/%s.json?api-key=%s"
-     url = url % (name, key)
+def get_list(name="animals", sort_by=""):
+     url = "http://api.nytimes.com/svc/books/v2/lists/%s.json?api-key=%s&sort-by=%s"
+     url = url % (name, key, sort_by)
 
      request = urllib2.urlopen(url)
      result = request.read()
      r = json.loads(result)
 
-     return r["results"][0]["book_details"]
+     return r
 
      
 if __name__ == "__main__":
