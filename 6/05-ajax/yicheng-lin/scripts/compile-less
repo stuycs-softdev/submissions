@@ -1,0 +1,4 @@
+#!/bin/bash
+# This is used for error finding when Brackets fails me.
+
+lessc --compress $1

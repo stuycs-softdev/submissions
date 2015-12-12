@@ -1,1 +1,25 @@
-<doctype html>
+<!doctype html>
+<html>
+	<head>
+		<script src="jquery.js"></script>
+	</head>
+	<body>
+		<h1>Hello World</h1>
+		<script>
+		console.log("HELLO");
+		var getdata = function() {
+			$.get("stats.csv",function(f){
+				console.log(f);
+			});
+		
+			console.log("Found Team");
+		};
+		var getTeam = function() {
+			$.get("stats.csv", function(n){
+				console.log(n);
+			});
+		};
+		console.log("DONE");
+		</script>
+	</body>
+</html>

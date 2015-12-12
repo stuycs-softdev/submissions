@@ -1,0 +1,29 @@
+.image {
+  position: relative;
+  /* float: left; */
+  width:  220px;
+  height: 220px;
+  padding:1px;
+  border:15px solid #021a40;
+  left: 41%;
+
+}
+
+h1 {
+  text-align: center;
+}
+
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: gray;
+  color: white;
+}
+
+.info {
+  position: relative;
+  left: 43%;
+}
+
+input {
+  position: relative;
+left: 46%}

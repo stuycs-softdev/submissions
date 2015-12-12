@@ -1,0 +1,8 @@
+/env
+/static/bower
+/static/dist
+key.txt
+.*~
+.*.swp
+*~
+*.pyc

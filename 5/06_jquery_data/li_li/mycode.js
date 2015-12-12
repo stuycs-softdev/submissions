@@ -1,20 +1,10 @@
-console.log("java");
+console.log("javascript loaded");
+
 var displayData=function displayData(){
-    function(){
-	var d=$("#randData").val();
-	//$("#data").val("");
-	$.getJSON("/loop", function(d){
-	    console.log(this);
-	    
-	    //get a random line of data
-	    
-	    
-	    $("#randData").text(d.result);
-	    /*
-	    $("#thelist").append($("<li>"+d.result+"</li>"));
-	    */
-	});
-    }	
+    $.getJSON("/loop", function (d){
+	var s=document.getElementById("randData");
+	s.innerHTML="sas"
+    });
 }
 
-var myInterval = setInterval(displayData,1000);
+//var myInterval = setInterval(displayData,1000);

@@ -1,0 +1,58 @@
+html{
+  background-color: orange;
+  text-align: center;
+}
+
+div{
+  background-color: white;
+  padding:10px;
+}
+
+.container{
+  background-color: white;
+  font-size: 46;
+}
+
+ul{
+  padding:0;
+  list-style: none;
+  float:right;
+  width:20%;
+  margin-right:20%;
+  margin-top:05%;
+}
+
+li{
+  font-size:24px;
+  background-color:brown;
+  color:yellow;
+  border:3px solid black;
+  border-top:2px solid black;
+  border-bottom:2px solid black;
+}
+
+
+#fireplace{
+    margin-top:10%;
+    margin-left:20%;
+    float:left;
+    text-align: center;
+}
+
+#fire, #bellow{
+  background-color:orange;
+  color:red;
+  font-size:32px;
+  font-weight:bolder;
+}
+
+#favicon{
+  align:center;
+  width:100px;
+  height:100px;
+}
+
+.upgrade{
+  width:20%;
+  height:20%;
+}

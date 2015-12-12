@@ -80,6 +80,7 @@ var incI = function(e){
 	i++;
     } else {
 	i = 0;
+	changeColor(itmes[i]);
     };
 };
 
