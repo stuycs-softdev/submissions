@@ -13,6 +13,10 @@ th, td {
   padding: 5px;
 }
 
+div {
+  text-align: center;
+}
+
 /*Classes*/
 .error {
   color:red;
@@ -36,4 +40,8 @@ th, td {
 
 .blue {
   color:blue;
+}
+
+.delete {
+  background-color: red;
 }
