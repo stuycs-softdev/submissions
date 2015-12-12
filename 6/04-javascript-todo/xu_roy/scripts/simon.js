@@ -36,7 +36,7 @@ function updateStatus() {
 }
 function starting() {
   this.innerHTML = "Stop";
-  gameLoop = setInterval(game, 3000);
+  gameLoop = setInterval(game, 2000);
   level = 1;
   status = "Wait";
   updateLevel();
@@ -165,9 +165,11 @@ function blueClick() {
 function game() {
   var random;
   if (count < numberFlash) {
-    random = Math.floor((Math.random() * 4));
-    answer.push(random);
-    switch(random) {
+    if (answer[count] == undefined) {
+      random = Math.floor((Math.random() * 4));
+      answer.push(random);
+    }
+    switch(answer[count]) {
       case 0:
         green.style.opacity = 1;
         break;
@@ -193,7 +195,6 @@ function game() {
       updateLevel();
       updateStatus();
       count = 0;
-      answer = [];
       user = [];
       numberFlash++;
     } else {

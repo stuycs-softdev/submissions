@@ -6,8 +6,15 @@
   </head>
   <body>
     <center><h1>To-do List Thing</h1></center>
-    <button id="button_add">Add to list</button>
+    <p>To make a new todo item, type in the text box and click on the button. To mark an item as done, click on it. To remove an item from the done list, click on it. No backsies!</p>
+    <input type="text" id="new_todo" value="There's always more to put here.">
+    <br>
+    <button onclick="add_todo()">Add to list</button>
+    <h2>Todo:</h2>
     <ul id="list_todo">
+    </ul>
+    <h2>Done:</h2>
+    <ul id="list_done">
     </ul>
     <script src="thing.js"></script>
     <noscript>JavaScript disabled???</noscript>

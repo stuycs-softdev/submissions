@@ -17,7 +17,6 @@ h2 {
 }
 
 body {
-    text-align: center;
     color: white;                                                        
     font-family: "New Courier", courier, monospace;
     background-color: black;
@@ -25,7 +24,7 @@ body {
 
 #player1 {
     position: absolute;
-    left: 8%;
+    left: 85%;
     top: 50%;
     height: 100px;
 }
@@ -33,7 +32,24 @@ body {
 
 #player2 {
     position: absolute;
-    left: 92%;
+    left: 15%;
     top: 50%;
     height: 100px;
+}
+
+#ball {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 30px;
+}
+
+#score1 {
+    padding-left:5em;
+    font-size: 25px;
+}
+
+#score2 {
+    padding-left:30em;
+    font-size: 25px;
 }

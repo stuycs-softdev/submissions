@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <style>
+      body, html {
+      position: relative;
+      width: 100%;
+      height:100%;
+      }
+      #center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      }
+      #name {
+      position: absolute;
+      top: 25%
+      left: 50%
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>MAKE WINDOW FULLSCREEN!</h1>
+    
+    <div id="center">
+      <div id="splode" onclick="explode(this)">TEXT THAT EXPLODES ON CLICK</div>
+    </div>
+
+    <div id="name" onclick="getName()">Click here for names!</div>
+    
+    <script src="ajax.js"></script>
+    <script>
+      function explode(txt) {
+      $(txt).html($(txt).text().replace(/([\S])/g, "<span>$1</span>"));
+      $(txt).css("position", "relative");
+      $(txt).children().each(function() {
+      var topFinal = Math.floor(Math.random()*1000)-500;
+      var leftFinal = Math.floor(Math.random()*1000)-500;
+      $(this).css({position: "relative",
+      top: 0,
+      left: 0,
+      opacity: 1,
+      fontSize: 10
+      }).animate({
+      top: topFinal,
+      left: leftFinal,
+      opacity: 0,
+      fontSize: 50
+      },1000);
+      });
+      }
+
+      function getName(){
+      $.get("/names", function(n){
+      $("#name").append("<div>"+n+"</div>")
+      });
+      };
+    </script>
+  </body>
+
+</html>

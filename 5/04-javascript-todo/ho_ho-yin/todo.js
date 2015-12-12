@@ -5,15 +5,18 @@ var addToDo = function addToDo(){
     newListItem.innerHTML=newThing;
     newListItem.setAttribute("id", "newItem");
     todoList.appendChild(newListItem);
-    var todos = todoList.children;
+
+};
+
+
+var clickingStuff = function clickingStuff(){
+    console.log("here");
+    var todos = document.getElementById("todoList").children;
     todos[todos.length - 1].addEventListener("click", Callback);
     var listItems = document.getElementsByTagName("li");
     listItems[listItems.length - 1].addEventListener("mouseover",Highlight);
     listItems[listItems.length - 1].addEventListener("mouseout",Delight);
 };
-
-
-
 var Callback = function Callback(){
     var doneList = document.getElementById("doneList");
     console.log(this);
@@ -29,5 +32,11 @@ var Delight = function Delight(){
 
 var button = document.getElementById("add");
 button.addEventListener('click', addToDo);
-
+var listOfItems = document.getElementsByTagName("li");
+var i = 0;
+for (i = 0; i < listOfItems.length - 1; i++){
+    console.log(listOfItems[i]);
+    listOfItems[i].addEventListener("mouseover",clickingStuff);
+};
+//button.addEventListener('click', clickingStuff);
 

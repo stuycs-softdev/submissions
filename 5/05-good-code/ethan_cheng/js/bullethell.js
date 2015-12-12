@@ -1,11 +1,11 @@
 // Constants
-var projectile_timeout = 8;
+var projectile_timeout = 25;
 var player_hitbox = 15;
 
 // Globals
 var mouse_x;
 var mouse_y;
-var start_time = Math.floor(Date.now() / 1000);
+var start_time = Math.floor(Date.now() / 500);
 var score = 0;
 var player = document.getElementById("player");
 var player_style = document.querySelector(".player");
@@ -14,6 +14,15 @@ var player_updater;
 var projectile_spawner;
 var projectile_updater;
 var score_updater;
+
+var pos_neg_multiplier = function pos_neg_multiplier(i) {
+    if (isNaN(i)) {
+        console.log(i);
+        return 0;
+    }
+    if (i < 0) return -1;
+    if (i >= 0) return 1;
+};
 
 // Player Movement
 var update_mouse_loc = function update_mouse_loc(e) {
@@ -44,8 +53,11 @@ var spawn_new_projectile = function spawn_new_projectile() {
 
     // Get a speed
     var factor = 50 + (Math.floor(Math.random() * 100) % 10);
-    new_projectile.setAttribute("speed_x", 1 + (mouse_x - ($(window).width() / 2)) / factor);
-    new_projectile.setAttribute("speed_y", 1 + (mouse_y - ($(window).height() / 2)) / factor);
+    var constant = (1 + (Math.floor(Math.random() * 100) % 5)) * pos_neg_multiplier(mouse_x - ($(window).width() / 2));
+    new_projectile.setAttribute("speed_x", constant + (mouse_x - ($(window).width() / 2)) / factor);
+    factor = 50 + (Math.floor(Math.random() * 100) % 10);
+    constant = (1 + (Math.floor(Math.random() * 100) % 5)) * pos_neg_multiplier(mouse_y - ($(window).height() / 2));
+    new_projectile.setAttribute("speed_y", constant + (mouse_y - ($(window).height() / 2)) / factor);
 
     // Make a timestamp so we can kill it off past a certain time point
     new_projectile.setAttribute("timestamp", Math.floor(Date.now() / 1000));
@@ -55,12 +67,6 @@ var spawn_new_projectile = function spawn_new_projectile() {
 projectile_spawner = setInterval(spawn_new_projectile, 90);
 
 // Projectile Updating
-var pos_neg_multiplier = function pos_neg_multiplier(i) {
-    if (isNaN(i)) return 0;
-    if (i < 0) return -1;
-    if (i >= 0) return 1;
-};
-
 var update_projectiles = function update_projectiles() {
     var projectiles = document.getElementsByClassName("projectile");
     var deletions = new Array(projectiles.length).fill(false);
@@ -73,10 +79,16 @@ var update_projectiles = function update_projectiles() {
         curr_x = parseInt(curr_x);
         curr_y = parseInt(curr_y);
         if (Math.abs(curr_x - mouse_x) <= player_hitbox && Math.abs(curr_y - mouse_y) <= player_hitbox) {
+            $(".projectile").fadeOut(3000, function() { $(this).remove(); });
+            $(".player").fadeOut(4000, function() { $(this).remove(); });
+            $(".spawner").fadeOut(5000, function() { $(this).remove(); });
             window.clearTimeout(player_updater);
             window.clearTimeout(projectile_spawner);
             window.clearTimeout(projectile_updater);
             window.clearTimeout(score_updater);
+        }
+        if (curr_x < 0 || curr_x >= $(window).width() || curr_x < 0 || curr_y >= $(window).height()) {
+            deletions[i] = true;
         }
         curr_x += parseInt(projectiles[i].getAttribute("speed_x"));
         curr_y += parseInt(projectiles[i].getAttribute("speed_y"));
@@ -95,9 +107,9 @@ projectile_updater = setInterval(update_projectiles, 10);
 // Update the Scoreboard
 
 var update_score = function update_score() {
-    score = Math.floor(Date.now() / 1000) - start_time;
-    scoreboard.innerHTML = "Score: " + score;
+    score = Math.floor(Date.now() / 500) - start_time;
+    scoreboard.innerHTML = "Score: " + (score * 100);
 };
 
-score_updater = setInterval(update_score, 1000);
+score_updater = setInterval(update_score, 100);
 

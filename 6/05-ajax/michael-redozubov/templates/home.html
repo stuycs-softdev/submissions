@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  </head>
+  <body>
+    <center>
+      <h1>Recent NYC Emergency Report Data</h1>
+      <br>
+      <marquee id="rol" direction="left"></marquee>
+      <br>
+      <h2>Incident Search</h2>
+      <br>
+      Incident Type:<select id="plce">
+	<option>Administration</option>
+	<option>Aviation</option>
+	<option>Fire</option>
+	<option>HazMat</option>
+	<option>Law Enforcement</option>
+	<option>Marine</option>
+	<option>Medical</option>
+	<option>Other</option>
+	<option>Rescue</option>
+	<option>Structural</option>
+	<option>Transportation</option>
+	<option>Utility</option>
+	<option>Weather</option>
+      </select> 
+      Borough:<select id="boro">
+	<option>Manhattan</option>
+	<option>Brooklyn</option>
+	<option>Queens</option>
+	<option>Staten Island</option>
+	<option>Bronx</option>
+      </select><button id="b">Submit</button>
+      <br>
+      <table id="res">
+	<tr>
+	  <th>Incident</th><th>Borough</th>
+	</tr>
+      </table>
+    </center>
+    <script src="../static/crime.js"></script>
+  </body>
+</html>

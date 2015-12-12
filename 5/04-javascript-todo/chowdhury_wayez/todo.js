@@ -9,7 +9,7 @@ var additem = function additem(item, list){
     var test2 = document.getElementById("done");
     var out2 = test2.children[0];
     for (var x = 0; x < out.length;x++){
-	//console.log(out.getElement() + "edcwioucbho");
+	console.log(out.innerHTML + "edcwioucbho");
     }//console.log(out2);
 };
 

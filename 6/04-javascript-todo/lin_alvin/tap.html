@@ -1,0 +1,89 @@
+<!--
+  Author: Alvin Lin (alvin.lin@stuypulse.com)
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tap</title>
+    <link rel='stylesheet' type='text/css'
+          href='http://fonts.googleapis.com/css?family=Open+Sans' />
+    <link rel='stylesheet'
+          href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' />
+    <link rel='stylesheet' type='text/css' href='style/style.css' />
+    <link rel='stylesheet' type='text/css' href='style/animation.css' />
+    <link rel='stylesheet' type='text/css' href='tap/tap.css' />
+    <script type='text/javascript' src='bg/ltr_sine_dot_background.js'></script>
+    <script type='text/javascript' src='lib/base.js'></script>
+    <script type='text/javascript' src='lib/colors.js'></script>
+    <script type='text/javascript' src='lib/circle.js'></script>
+    <script type='text/javascript' src='lib/rect.js'></script>
+    <script type='text/javascript' src='tap/tap.js'></script>
+  </head>
+  <body>
+    <div id='navbar'>
+      <a href='index.html'>
+        Home
+      </a>
+      <a>
+        Tap
+      </a>
+      <a href='klick.html'>
+        Klick
+      </a>
+    </div>
+    <div id='tap-content'>
+      Tap
+      <div id='tap-content-text'>
+        Tap is a browser-based game made by me entirely with JavaScript and
+        SVG. To play, click the dot when it is on top of its corresponding
+        color. The game will end when you click a dot on the wrong color or if
+        you let a dot reach the other side. Currently, Tap is only supported
+        by Google Chrome and Chromium.
+        <b>
+          This game is also available for Android phones
+          <a href="https://play.google.com/store/apps/details?id=io.github.omgimanerd.tap">
+            here
+          </a>
+          .
+        </b>
+        <br />
+        <br />
+        <div id='tap-content-stats'>
+          <span id='tap-content-game-score'></span>
+          <span id='tap-content-game-highscore'></span>
+        </div>
+      </div>
+      <div id='tap-content-game'>
+        <div id='tap-content-game-overlay'>
+          Start
+        </div>
+        <svg id='tap-content-game-svg'>
+        <!--
+        All content inside will be generated with JavaScript.
+        -->
+        </svg>
+      </div>
+    </div>
+    <div id='copyright'>
+      Copyright &copy; Alvin Lin 2014
+    </div>
+    <script type='text/javascript'>
+      // Create the background object and apply the background.
+      var background = new LTRSineDotBackground();
+      background.buildLTRSineDotBackgroundAnimation();
+
+      // Create the Tap object.
+      var tapCanvas = document.getElementById(
+          'tap-content-game-svg');
+      var tapOverlay = document.getElementById(
+          'tap-content-game-overlay');
+      var tapScoreEl = document.getElementById(
+          'tap-content-game-score');
+      var tapHighScoreEl = document.getElementById(
+          'tap-content-game-highscore');
+      var tapObj = new Tap(
+          tapCanvas, tapOverlay, tapScoreEl, tapHighScoreEl);
+      tapObj.buildGameStart();
+    </script>
+  </body>
+</html>
