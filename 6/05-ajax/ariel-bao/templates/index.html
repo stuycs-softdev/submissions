@@ -18,6 +18,12 @@
 		overflow: scroll;
 		height:800px;
 	}
+	.num {
+		color: #007799;
+	}
+	#default {
+		margin-right: 20px;
+	}
 	</style>
 </head>
 
@@ -26,7 +32,6 @@
 	<div class="container">
 		<h1>TITLE</h1>
 
-		
 		<div class="col-sm-6">
 
 			<form>
@@ -54,15 +59,22 @@
 				<div class="list-group" id="booklist">
 				</div>
 			</div>
+
+		</div>
 			
 
-			<div class="col-sm-6">
-			</div>
+		<div class="col-sm-6">
+			<span id="default"><label class="radio-inline active"><input type="radio" name="optradio" checked="">Default</label></span>
+			<span id="random"><label class="radio-inline"><input type="radio" name="optradio">Random</label></span>
+
+			<h2 id="listtitle"></h2>
+			<ul class="list-group" id="intervallist">
+			</ul>		
 		</div>
+	
+	</div>
 
-
-
-		<script src="../static/script.js"></script>
+	<script src="../static/script.js"></script>
 </body>
 
 </html>

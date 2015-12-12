@@ -1,7 +1,6 @@
 import json
 import urllib2
 
-
 key = "c1317daa479302572934e2b3f702d523:1:73728355"
 
 def get_listnames():
@@ -28,8 +27,7 @@ def get_list(name):
      r = json.loads(result)
 
      return r["results"][0]["book_details"]
-
      
 if __name__ == "__main__":
-    #print get_listnames()
+	#print get_listnames()
     print get_list("hardcover-fiction")
