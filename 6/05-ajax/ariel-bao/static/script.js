@@ -18,7 +18,6 @@ var formatText = function formatText(text){
 		return text;
 };
 
-
 var findList = function findList(){
 		var list = document.getElementById("booklist"); 
 		var listname = document.getElementById("listnames").children[0].text;
@@ -35,7 +34,6 @@ var findList = function findList(){
 		
 };
 
-
 var updateList = function updateList(data){
 		console.log(data);
 		var results = data["results"];
@@ -43,8 +41,8 @@ var updateList = function updateList(data){
 
 		var list = document.getElementById("booklist");
 		$("#booklist").empty();
-
-		for (var i = 0 ; i < results.length ; i++){
+		
+		for (var i = 0 ; i < results.length; i++){
 				
 				var details = results[i]["book_details"][0];
 				var title = details["title"];
@@ -53,7 +51,7 @@ var updateList = function updateList(data){
 				var descript = details["description"];
 				
 				var item = "<a class='list-group-item'>";
-			  item += "<img src='"+pic+"' alt='No Image.'>";
+				item += "<img src='"+pic+"' alt='No Image.'>";
 				item += "<h5>"+title+"</h5>";
 				item += "<h6>"+author+"</h6>";
 				item += "<span>" + descript + "</span>";
