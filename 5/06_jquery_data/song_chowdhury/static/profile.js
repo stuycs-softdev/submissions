@@ -9,16 +9,17 @@ $.get("/getdata", function(d) {
 //console.log(csv);  this gets read before /getdata runs
 
 var getprofile = function getprofile(d) {
-    var data = JSON.parse(d);
+    //var data = JSON.parse(d);
     $.get("/getprofile", function(d) {
 	console.log("js getprofile started");
-	data.value = d;
+	var data = JSON.parse(d);
 	console.log("js getprofile ended");
-	console.log(data.value);
-	$("#first").text("HELLO" + d[1]);
-	$("#last").text(data.value[1]);
-	//firstname.value = data[1];
-	//lastname.value = data[2];
+	$("#first").text(data.first);
+	$("#last").text(data.last);
+	$("#age").text(data.age);
+	$("#email").text(data.email);
+	$("#country").text(data.country);
+	
     });
     //console.log(data.value)       //after /getprofile, data loses its value
     
