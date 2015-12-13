@@ -9,7 +9,7 @@ $.get("/getdata", function(d) {
 //console.log(csv);  this gets read before /getdata runs
 
 var getprofile = function getprofile(d) {
-    var data = [];
+    var data = JSON.parse(d);
     $.get("/getprofile", function(d) {
 	console.log("js getprofile started");
 	data.value = d;
