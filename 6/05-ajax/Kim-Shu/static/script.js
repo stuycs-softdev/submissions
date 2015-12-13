@@ -19,12 +19,13 @@ $.ajax({
     },
     success: function(data) {
 	rot = data;
-	/*var i;
-	for(i = 10;i < 20; i ++){
-	    snip[i] = rot.response.docs[i].snippet;
-	    author[i] = rot.response.docs[i].byline.original;
-	    url[i] = rot.response.docs[i].web_url;
-	}*/
+	var i = 10;
+	var temp = rot.response.docs;
+	for(i;i < 20; i ++){
+	    snip[i] = temp[i-10].snippet
+	    author[i] = temp[i-10].byline.original;
+	    url[i] = temp[i-10].web_url;
+	}
     }
 });
 
@@ -40,12 +41,15 @@ var getstuff = function(query){
 	},
 	success: function(data) {
 	    ajaxResult = data;
-	    /*var i;
-	    for(i = 0;i < 10; i ++){
-		snip[i] = ajaxResult.response.docs[i].snippet;
-		author[i] = ajaxResult.response.docs[i].byline.original;
-		url[i] = ajaxResult.response.docs[i].web_url;
-	    }*/
+	    var i = 0;
+	    var temp = ajaxResult.response.docs;
+	    for(i;i < 10; i ++){
+		snip[i] = temp[i].snippet;
+		if(temp[i].byline !== null){
+		    author[i] = temp[i].byline.original;
+		}
+		url[i] = temp[i].web_url;
+	    }
 	},
 	error: function(){
 	    alert('Call failed');
@@ -60,11 +64,6 @@ var rotate = function(){
     else{
 	rotnum ++;
     }
-    try{
-	return rot.response.docs[rotnum].abstract;
-    }catch(TypeError){
-	return "no abstract"
-    }
 };
 
 var right = function(){
@@ -73,11 +72,6 @@ var right = function(){
     }
     else{
 	artnum ++;
-    }
-    try{
-	return ajaxResult.response.docs[artnum].abstract;
-    }catch(TypeError){
-	return "no abstract"
     }
 };
 
