@@ -7,6 +7,7 @@ var url = new Array(20);
 var title = new Array(20);
 var artnum = 0;
 var rotnum = 10;
+var right = true;
 
 //sets up the rotation stuff
 $.ajax({
@@ -64,31 +65,45 @@ var getstuff = function(query){
 };
 
 var rotate = function(){
-    if (rotnum == 20){
+    if(right){
+	if (rotnum == 20){
 	    rotnum = 10;
 	}
 	else{
 	    rotnum ++;
 	}
-    };
-
-var right = function(){
-    if (artnum == 10){
-	artnum = 0;
-    }
-    else{
-	artnum ++;
-    }
-};
-
-var left = function(){
-    if (artnum == -1){
-	artnum = 9;
-    }
-    else{
-	artnum --;
+    }else{
+	if (rotnum == 9){
+	    rotnum = 19;
+	}
+	else{
+	    rotnum --;
+	}
     }
 };
+
+var move = function(){
+    if(right){
+	if (artnum == 10){
+	    artnum = 0;
+	}
+	else{
+	    artnum ++;
+	}
+    }
+    else{
+	if (artnum == -1){
+	    artnum = 9;
+	}
+	else{
+	    artnum --;
+	}
+    }    
+};
+
+var changedirection = function(){
+    right = !right;
+}
 
 var checktext = function() {
     console.log($("#form-input").val());
