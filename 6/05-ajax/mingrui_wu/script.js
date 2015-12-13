@@ -40,8 +40,10 @@ var change_row = function change_row() {
     setInterval(function() {
         var json_num = Math.floor(Math.random() * 1000); // gives int in set [0, 999]
         add_row(json_num, -1);
-    }, 1000);
+    }, 1500);
 }
+
+// mingrui, put your eventlisteners here
 
 load();
 change_row();
