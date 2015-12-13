@@ -36,14 +36,15 @@ def getprofile():
     dict["email"] = line[4]
     dict["country"] = line[5]
 
-    picture_url = """https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%s&userip=192.168.1.112"""
-    search = line[1] +" "+ line[2]
+    picture_url = """https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%s"""
+    search = line[1] +"%20"+ line[2]   #replace all spaces with %20
     print search
     picture_url = picture_url%(search)
     print picture_url
     request_picture_url = urllib2.urlopen(picture_url)
     picture_result = request_picture_url.read()
     picture_r = json.loads(picture_result)
+    print picture_r
     picture = picture_r['responseData']['results'][0]['url']
     dict["picture"] = picture
     print picture
