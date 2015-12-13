@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <title>mingrui-wu mock data</title>
     <script src="jquery-2.1.4.js"></script>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        text-align: left;
+        padding: 10px;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
   </head>
   <body>
-    <center><h1>MOCK DATAville. Population: 2.</h1></center>
-    <table id="table" border=0>
-      <tr id="header">
-        <th>Number</th>
+    <center><h1 id="h1">MOCK DATAville. Population: 1000.</h1></center>
+    <table id="table">
+      <tr id="table_header">
+        <th>ID</th>
         <th>Name</th>
         <th>Email</th>
         <th>Country</th>
@@ -17,26 +30,6 @@
         <th>Shirt Color</th>
         <th>Credit Card Number</th>
         <th>Famous Last Words</th>
-      </tr>
-      <tr id="chosen_row">
-        <td id="id"></td>
-        <td id="name"></td>
-        <td id="email"></td>
-        <td id="country"></td>
-        <td id="ip_address"></td>
-        <td id="shirt_color"></td>
-        <td id="credit_card_number"></td>
-        <td id="words"></td>
-      </tr>
-      <tr id="changing_row">
-        <td id="id"></td>
-        <td id="name"></td>
-        <td id="email"></td>
-        <td id="country"></td>
-        <td id="ip_address"></td>
-        <td id="shirt_color"></td>
-        <td id="credit_card_number"></td>
-        <td id="words"></td>
       </tr>
     </table>
     <script src="script.js"></script>
