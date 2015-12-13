@@ -19,7 +19,7 @@ var getprofile = function getprofile(d) {
 	$("#age").text(data.age);
 	$("#email").text(data.email);
 	$("#country").text(data.country);
-	$("#picture").html("<img src="+ data.picture +" width='300' height='267' alt=''>");
+	//$("#picture").html("<img src="+ data.picture +" width='300' height='267' alt=''>");
     });
     //console.log(data.value)       //after /getprofile, data loses its value
     
