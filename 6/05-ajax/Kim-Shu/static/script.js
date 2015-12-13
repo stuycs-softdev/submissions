@@ -9,6 +9,8 @@ var artnum = 0;
 var rotnum = 10;
 var right = true;
 
+var timeout; //used for the recursive callback
+
 //sets up the rotation stuff
 $.ajax({
     'type': 'GET',
@@ -72,6 +74,7 @@ var rotate = function(){
 	else{
 	    rotnum ++;
 	}
+<<<<<<< HEAD
     }else{
 	if (rotnum == 9){
 	    rotnum = 19;
@@ -79,6 +82,17 @@ var rotate = function(){
 	else{
 	    rotnum --;
 	}
+=======
+    };
+
+var right = function(){
+    console.log("RIGHT");
+    if (artnum == 10){
+	artnum = 0;
+    }
+    else{
+	artnum ++;
+>>>>>>> 64d6180603655524a436ea88da367e10986961b5
     }
 };
 
@@ -112,36 +126,57 @@ var checktext = function() {
     }
 };
 
-var nextNotice = function(e) {
+var nextNotice = function() {
     if (ajaxResult == undefined) {
-	var timeOut = setTimeout(nextNotice, 5000);
+	clearTimeout(timeout);
+	timeOut = setTimeout(nextNotice, 5000);
 
-	$("#title").text(title[rotnum]);
-	$("#author").html("<small>" + author[rotnum] + "</small>");
-	$("#summary").html("<big>" + snip[rotnum] + "</big>");
-	
-	$("#link").text("Link to Article");
+	$("#title").fadeOut(function() {
+	    $("#title").text(title[rotnum]);
+	}).fadeIn();
 
-	$("#link").attr({
-	    "href" : url[rotnum]
-	});
+	$("#author").fadeOut(function() {
+	    $("#author").html("<small>" + author[rotnum] + "</small>");
+	}).fadeIn();
+
+	$("#summary").fadeOut(function() {
+	    $("#summary").html("<big>" + snip[rotnum] + "</big>");
+	}).fadeIn();
+
+	$("#link").fadeOut(function() {
+
+	    $("#link").text("Link to Article");
+
+	    $("#link").attr({
+		"href" : url[rotnum]
+	    });
+	}).fadeIn();
 	
 	rotate();
     }
     else {
-	console.log("IN ELSE STATEMENT");
+	clearTimeout(timeout);
+	timeOut = setTimeout(nextNotice, 5000);
+	    
+	$("#title").fadeOut(function() {
+	    $("#title").text(title[artnum]);
+	}).fadeIn();
 
-	var timeOut = setTimeout(nextNotice, 5000);
+	$("#author").fadeOut(function() {
+	    $("#author").html("<small>" + author[artnum] + "</small>");
+	}).fadeIn();
 
-	$("#title").text(title[artnum]);
-	$("#author").html("<small>" + author[artnum] + "</small>");
-	$("#summary").html("<big>" + snip[artnum] + "</big>");
+	$("#summary").fadeOut(function() {
+	    $("#summary").html("<big>" + snip[artnum] + "</big>");
+	}).fadeIn();
 
-	$("#link").text("Link to Article");
+	$("#link").fadeOut(function() {
+	    $("#link").text("Link to Article");
 
-	$("#link").attr({
-	    "href" : url[artnum]
-	});
+	    $("#link").attr({
+		"href" : url[artnum]
+	    });
+	}).fadeIn();
 
 	right();
     }
@@ -149,5 +184,11 @@ var nextNotice = function(e) {
 
 var submit = document.getElementById("form-btn");
 submit.addEventListener('click', checktext);
+
+var goLeft = document.getElementById("left");
+goLeft.addEventListener('click', left);
+
+var goRight = document.getElementById("right");
+goRight.addEventListener('click', right);
 
 nextNotice();
