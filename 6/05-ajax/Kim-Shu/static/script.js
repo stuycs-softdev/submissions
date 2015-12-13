@@ -168,7 +168,7 @@ var nextNotice = function() {
 	    });
 	}).fadeIn();
 
-	right();
+	move();
     }
 };
 
