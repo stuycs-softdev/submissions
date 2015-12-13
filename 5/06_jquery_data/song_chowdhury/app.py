@@ -20,19 +20,30 @@ def index():
 def getdata():
     print "starting getdata"
     print "ending getdata"
-    return json.dumps(data)              ####you have to have json.dumps
+    return json.dumps
+    #return json.dumps(data)              ##json.dumps returns a string
 
 @app.route("/getprofile")      ######returns a line from global variable data
 def getprofile():
     print "starting getprofile"
     global counter
-    counter = 1
-    line = data[counter]     #for some reason, counter is a local variable
+    line = data[counter]
+    #print line[1]                  ##this is not a string, but a line
     counter += 1
+    print counter
+    print counter
+    print counter
+    print counter
+    dict = {}
+    dict["first"] = line[1]
+    dict["first"] = line[2]
+    dict["age"] = line[3]
+    dict["email"] = line[4]
+    dict["country"] = line[5]
     print "ending getprofile"
     if counter > 99:
         return "end"
-    return json.dumps(line)
+    return json.dumps(dict)
 
 
 if __name__ == "__main__":
