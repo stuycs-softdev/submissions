@@ -83,11 +83,21 @@ var checktext = function() {
 }
 ;
 var nextNotice = function(e) {
+    console.log("here");
+    console.log(url[rotnum]);
+    console.log(author[rotnum]);
+    
     var timeOut = setTimeout(nextNotice, 5000);
     
     $("#title").text(url[rotnum]);
-    $("#author").text(author[rotnum]);
-    $("#summary").text(snip[rotnum]);
+    $("#author").html("<small>" + author[rotnum] + "</small>");
+    $("#summary").html("<big>" + snip[rotnum] + "</big>");
+    
+    $("#link").text("Link to Article");
+
+    $("#link").attr({
+	"href" : url[rotnum]
+    });
     
     rotate();
 };
