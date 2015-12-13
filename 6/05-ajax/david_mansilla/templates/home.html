@@ -9,10 +9,10 @@
   <body>
   </center>Select an option</center><br><br>
   <form action='/home' method='POST' role='form'>
-  <button type="submit" name = "stat_type" value = "PPG"> PPG </button>
-  <button type="submit" name = "stat_type" value = "APG"> APG </button>
-  <button type="submit" name = "stat_type" value = "RPG"> RPG </button>
-  <button type="submit" name = "stat_type" value = "BPG"> BPG </button>
+  <button type="submit" name = "stat_type" id="PPG"> PPG </button>
+  <button type="submit" name = "stat_type" id="APG"> APG </button>
+  <button type="submit" name = "stat_type" id="RPG"> RPG </button>
+  <button type="submit" name = "stat_type" id="BPG"> BPG </button>
   </form>
   
   <br><br>
@@ -25,6 +25,9 @@
   {% endif %}  
   <br><br>
   Advanced stats:
+  <p id="advanced">
+  </p>
   </body>
+  <script src="util.js"></script>
 
 </html>
