@@ -8,10 +8,13 @@
 
   <body>
   </center>Select an option</center><br><br>
-  <center><button type="button" id="PPG"> Top 10 Points Per Game </button>
-  <button type="button" id="APG"> Top 10 Assists Per Game </button>
-  <button type="button" id="RPG"> Top 10 Rebounds Per Game </button>
-  <button type="button" id="BPG"> Top 10 Blocks Per Game </button></center>
+  <form action='/home' method='POST' role='form'>
+  <button type="button" name = "stat_type" value = "PPG"> PPG </button>
+  <button type="button" name = "stat_type" value = "APG"> APG </button>
+  <button type="button" name = "stat_type" value = "RPG"> RPG </button>
+  <button type="button" name = "stat_type" value = "BPG"> BPG </button>
+  </form>
+  
   <br><br>
   {% if top10 %}
   <ol>

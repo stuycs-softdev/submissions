@@ -8,8 +8,10 @@ app= Flask(__name__)
 
 @app.route("/",methods=["GET","POST"])
 @app.route("/home",methods=["GET","POST"])
-def home():    
-    top10 = niceify_top_10(get_top_10('PPG'), 'PPG')
+def home():
+    stat_type = request.form.get('stat_type', '')    
+    print stat_type
+    top10 = niceify_top_10(get_top_10(stat_type), stat_type)
     return render_template("home.html", top10 = top10)
 
 def get_top_10(key_stat):
@@ -43,10 +45,14 @@ if __name__ == "__main__":
     print "\nPPG\n"
     print niceify_top_10(get_top_10('PPG'), 'PPG')
     print "\nAPG\n"
-    print niceify_top_10(get_top_10('AST'), 'AST')
+    print niceify_top_10(get_top_10('APG'), 'APG')
     print "\nRPG\n"
-    print niceify_top_10(get_top_10('TRB'), 'TRB')
+    print niceify_top_10(get_top_10('RPG'), 'RPG')
     print "\nBPG\n"
-    print niceify_top_10(get_top_10('BLK'), 'BLK')
+    print niceify_top_10(get_top_10('BPG'), 'BPG')
+    print "\nDRPG\n"
+    print niceify_top_10(get_top_10('DRPG'), 'DRPG')
+    #print "\nFGP\n"
+    #print niceify_top_10(get_top_10('FGP'), 'FGP')
     app.debug = True
-    #app.run(host='0.0.0.0',port=8000)
+    app.run(host='0.0.0.0',port=8000)
