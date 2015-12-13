@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import utils
 import json
 
@@ -10,8 +10,16 @@ def index():
         return render_template("index.html", listnames = listnames)
 
 
+@app.route("/getlist")
+def getlist():
+        listname = request.args.get("lname")
+        sortby = request.args.get("sort")
+        searchby = request.args.get("search")
+        query = request.args.get("q")
         
+        l = utils.get_list(listname, sortby, searchby, query)
+        return json.dumps(l)
         
 if __name__ == "__main__":
-        app.debug = True
-        app.run(host='0.0.0.0',port=8000)
+	app.debug = True
+	app.run(host='0.0.0.0',port=8000)
