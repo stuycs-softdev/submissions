@@ -8,11 +8,17 @@ var load = function load() {
         dataType: 'text',
         success: function(data) {
             array = data.split("\n");
-            var i;
-            for(i = 0; i < 3; i++) {
-                var json = JSON.parse(array[i]);
-                alert(json.name);
-            }
     }});
 };
+
 load();
+
+var change_row = function change_row() {
+    setInterval(function() {
+        var n = Math.floor(Math.random() * 1000); // gives int in set [0, 999]
+        var json = JSON.parse(array[n]);
+        console.log(json.name);
+    }, 1000);
+}
+
+change_row();
