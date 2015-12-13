@@ -5,7 +5,11 @@ var load = function load() {
         type: 'POST',
         dataType: 'text',
         success: function(data) {
-            console.log(data);
-        }});
+            var array = data.split("\n");
+            var i;
+            for(i = 0; i < 3; i++) {
+                console.log(array[i]);
+            }
+    }});
 };
 load();
