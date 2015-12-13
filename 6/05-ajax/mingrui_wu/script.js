@@ -1,3 +1,5 @@
+var array;
+
 var load = function load() {
     $.ajax({
         mimeType: 'text/plain',
@@ -5,10 +7,11 @@ var load = function load() {
         type: 'POST',
         dataType: 'text',
         success: function(data) {
-            var array = data.split("\n");
+            array = data.split("\n");
             var i;
             for(i = 0; i < 3; i++) {
-                console.log(array[i]);
+                var json = JSON.parse(array[i]);
+                alert(json.name);
             }
     }});
 };
