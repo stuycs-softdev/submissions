@@ -19,7 +19,7 @@ $.ajax({
 	'callback': 'svc_search_v2_articlesearch'
     },
     success: function(data) {
-	rot = data;
+	rot = data; //JSON Object
 	var i = 10;
 	var temp = rot.response.docs;
 	for(i;i < 20; i ++){
@@ -86,6 +86,28 @@ var checktext = function() {
 	getstuff($("#form-input").val());
     }
 }
+;
+var nextNotice = function(e) {
+    console.log("here");
+    console.log(url[rotnum]);
+    console.log(author[rotnum]);
+    
+    var timeOut = setTimeout(nextNotice, 5000);
+    
+    $("#title").text(url[rotnum]);
+    $("#author").html("<small>" + author[rotnum] + "</small>");
+    $("#summary").html("<big>" + snip[rotnum] + "</big>");
+    
+    $("#link").text("Link to Article");
+
+    $("#link").attr({
+	"href" : url[rotnum]
+    });
+    
+    rotate();
+};
 
 var submit = document.getElementById("form-btn");
 submit.addEventListener('click', checktext);
+
+nextNotice();
