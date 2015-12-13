@@ -4,6 +4,7 @@ var rot;
 var snip = new Array(20);
 var author = new Array(20);
 var url = new Array(20);
+var title = new Array(20);
 var artnum = 0;
 var rotnum = 10;
 
@@ -23,8 +24,11 @@ $.ajax({
 	var temp = rot.response.docs;
 	for(i;i < 20; i ++){
 	    snip[i] = temp[i-10].snippet
-	    author[i] = temp[i-10].byline.original;
+	    if(temp[i-10].byline !== null){
+		author[i] = temp[i-10].byline.original;
+	    }
 	    url[i] = temp[i-10].web_url;
+	    title[i] = temp[i-10].headline.main;
 	}
     }
 });
@@ -49,6 +53,7 @@ var getstuff = function(query){
 		    author[i] = temp[i].byline.original;
 		}
 		url[i] = temp[i].web_url;
+		title[i] = temp[i].headline.main;
 	    }
 	},
 	error: function(){
