@@ -74,27 +74,17 @@ var rotate = function(){
 	else{
 	    rotnum ++;
 	}
-<<<<<<< HEAD
-    }else{
+    }
+    else{
 	if (rotnum == 9){
 	    rotnum = 19;
 	}
 	else{
 	    rotnum --;
 	}
-=======
-    };
-
-var right = function(){
-    console.log("RIGHT");
-    if (artnum == 10){
-	artnum = 0;
-    }
-    else{
-	artnum ++;
->>>>>>> 64d6180603655524a436ea88da367e10986961b5
     }
 };
+
 
 var move = function(){
     if(right){
