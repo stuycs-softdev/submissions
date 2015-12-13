@@ -32,7 +32,7 @@ var add_row = function add_row(json_num, table_num) {
     country.innerHTML = json.country;
     ip_address.innerHTML = json.ip_address;
     shirt_color.innerHTML = json.shirt_color
-//    shirt_color.style.color = json.shirt_color;
+    shirt_color.style.color = json.shirt_color;
     credit_card_number.innerHTML = json.credit_card_number;
     words.innerHTML = json.words;
 };
