@@ -81,6 +81,15 @@ var right = function(){
     }
 };
 
+var left = function(){
+    if (artnum == -1){
+	artnum = 9;
+    }
+    else{
+	artnum --;
+    }
+};
+
 var checktext = function() {
     console.log($("#form-input").val());
     if( $("#form-input").val() != "" ) {
