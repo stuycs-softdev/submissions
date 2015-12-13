@@ -39,7 +39,7 @@ def niceify_top_10(top10List, key_stat):
     return res
 
 if __name__ == "__main__":
-    #print get_top_10('PPG')
+    
     print "\nPPG\n"
     print niceify_top_10(get_top_10('PPG'), 'PPG')
     print "\nAPG\n"

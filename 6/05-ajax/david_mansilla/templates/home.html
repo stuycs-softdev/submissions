@@ -7,7 +7,12 @@
   </head>
 
   <body>
-
+  </center>Select an option</center><br><br>
+  <center><button type="button" id="PPG"> Top 10 Points Per Game </button>
+  <button type="button" id="APG"> Top 10 Assists Per Game </button>
+  <button type="button" id="RPG"> Top 10 Rebounds Per Game </button>
+  <button type="button" id="BPG"> Top 10 Blocks Per Game </button></center>
+  <br><br>
   {% if top10 %}
   <ol>
   {% for i in top10 %}
@@ -15,6 +20,8 @@
   {% endfor %}
   </ol>
   {% endif %}  
+  <br><br>
+  Advanced stats:
   </body>
 
 </html>
