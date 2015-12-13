@@ -7,6 +7,9 @@ var url = new Array(20);
 var title = new Array(20);
 var artnum = 0;
 var rotnum = 10;
+var right = true;
+
+var timeout; //used for the recursive callback
 
 //sets up the rotation stuff
 $.ajax({
@@ -34,6 +37,7 @@ $.ajax({
 });
 
 var getstuff = function(query){
+    console.log("QUERY: " + query);
     $.ajax({
 	'type': 'GET',
 	'url': 'http://api.nytimes.com/svc/search/v2/articlesearch.json',
@@ -63,51 +67,118 @@ var getstuff = function(query){
 };
 
 var rotate = function(){
-    if (rotnum == 20){
-	rotnum = 10;
+    if(right){
+	if (rotnum == 20){
+	    rotnum = 10;
+	}
+	else{
+	    rotnum ++;
+	}
     }
     else{
-	rotnum ++;
+	if (rotnum == 9){
+	    rotnum = 19;
+	}
+	else{
+	    rotnum --;
+	}
     }
 };
 
-var right = function(){
-    if (artnum == 10){
-	artnum = 0;
+
+var move = function(){
+    if(right){
+	if (artnum == 10){
+	    artnum = 0;
+	}
+	else{
+	    artnum ++;
+	}
     }
     else{
-	artnum ++;
-    }
+	if (artnum == -1){
+	    artnum = 9;
+	}
+	else{
+	    artnum --;
+	}
+    }    
 };
+
+var changedirection = function(){
+    right = !right;
+}
 
 var checktext = function() {
     console.log($("#form-input").val());
     if( $("#form-input").val() != "" ) {
 	getstuff($("#form-input").val());
     }
-}
-;
-var nextNotice = function(e) {
-    console.log("here");
-    console.log(url[rotnum]);
-    console.log(author[rotnum]);
-    
-    var timeOut = setTimeout(nextNotice, 5000);
-    
-    $("#title").text(url[rotnum]);
-    $("#author").html("<small>" + author[rotnum] + "</small>");
-    $("#summary").html("<big>" + snip[rotnum] + "</big>");
-    
-    $("#link").text("Link to Article");
+};
 
-    $("#link").attr({
-	"href" : url[rotnum]
-    });
-    
-    rotate();
+var nextNotice = function() {
+    if (ajaxResult == undefined) {
+	clearTimeout(timeout);
+	timeOut = setTimeout(nextNotice, 5000);
+
+	$("#title").fadeOut(function() {
+	    $("#title").text(title[rotnum]);
+	}).fadeIn();
+
+	$("#author").fadeOut(function() {
+	    $("#author").html("<small>" + author[rotnum] + "</small>");
+	}).fadeIn();
+
+	$("#summary").fadeOut(function() {
+	    $("#summary").html("<big>" + snip[rotnum] + "</big>");
+	}).fadeIn();
+
+	$("#link").fadeOut(function() {
+
+	    $("#link").text("Link to Article");
+
+	    $("#link").attr({
+		"href" : url[rotnum]
+	    });
+	}).fadeIn();
+	
+	rotate();
+    }
+    else {
+	clearTimeout(timeout);
+	timeOut = setTimeout(nextNotice, 5000);
+	    
+	$("#title").fadeOut(function() {
+	    $("#title").text(title[artnum]);
+	}).fadeIn();
+
+	$("#author").fadeOut(function() {
+	    $("#author").html("<small>" + author[artnum] + "</small>");
+	}).fadeIn();
+
+	$("#summary").fadeOut(function() {
+	    $("#summary").html("<big>" + snip[artnum] + "</big>");
+	}).fadeIn();
+
+	$("#link").fadeOut(function() {
+	    $("#link").text("Link to Article");
+
+	    $("#link").attr({
+		"href" : url[artnum]
+	    });
+	}).fadeIn();
+
+	right();
+    }
 };
 
 var submit = document.getElementById("form-btn");
 submit.addEventListener('click', checktext);
+
+var goLeft = document.getElementById("left");
+goLeft.addEventListener('click', left);
+
+var goRight = document.getElementById("right");
+goRight.addEventListener('click', right);
 
 nextNotice();

@@ -31,7 +31,8 @@ var add_row = function add_row(json_num, table_num) {
     email.innerHTML = json.email;
     country.innerHTML = json.country;
     ip_address.innerHTML = json.ip_address;
-    shirt_color.innerHTML = json.shirt_color;
+    shirt_color.innerHTML = json.shirt_color
+    shirt_color.style.color = json.shirt_color;
     credit_card_number.innerHTML = json.credit_card_number;
     words.innerHTML = json.words;
 };
@@ -44,6 +45,11 @@ var change_row = function change_row() {
 }
 
 // mingrui, put your eventlisteners here
+
+document.getElementById("button").addEventListener("click", function(){
+    add_row(document.getElementById("text").value - 1, 1);
+});
+
 
 load();
 change_row();
