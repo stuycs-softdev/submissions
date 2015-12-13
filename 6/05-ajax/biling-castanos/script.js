@@ -48,17 +48,37 @@ var replaceData = function replaceData(d, i){
 };
 var myInterval = setInterval(refresh,3000);
 
-//Some dropdown stuff
-//$('#dropDownId').val();
-
+/*********Populate DropDowns***********/
 var temp = [];
+for(var i = 0;i<lines.length;i++){
+    var item = lines[i][10].split("/", 1)[0].split("-",1);
+    //if(temp.indexOf(item) == -1){
+        temp.push(item);
+    //}
+}
+for (var i = 0;i<temp.length;i++){
+    var option = document.createElement('option');
+    option.text = option.value = i;
+    document.getElementById("crimeDD").add(option, 0);
+}
+
+for (var i = 30;i>0;i--){
+    var option = document.createElement('option');
+    option.text = option.value = i;
+    document.getElementById("dateDD").add(option, 0);
+}
+
+
+
+//$('#dropDownId').val();
+var results = [];
 var search = function Search(cr,dt){
     for(var i = 0;i<lines.length;i++){
         if(cr == lines[i][10].split("/", 1)[0].split("-",1)){
-            temp.push(lines[i]);
+            results.push(lines[i]);
         }
     }
-    replaceData(document.getElementById("search"),temp[0]);
+    replaceData(document.getElementById("search"),results[0]);
 };
 /*
 Loop through the crimes/dates and try to
