@@ -34,6 +34,7 @@ $.ajax({
 });
 
 var getstuff = function(query){
+    console.log("QUERY: " + query);
     $.ajax({
 	'type': 'GET',
 	'url': 'http://api.nytimes.com/svc/search/v2/articlesearch.json',
@@ -64,12 +65,12 @@ var getstuff = function(query){
 
 var rotate = function(){
     if (rotnum == 20){
-	rotnum = 10;
-    }
-    else{
-	rotnum ++;
-    }
-};
+	    rotnum = 10;
+	}
+	else{
+	    rotnum ++;
+	}
+    };
 
 var right = function(){
     if (artnum == 10){
@@ -85,26 +86,41 @@ var checktext = function() {
     if( $("#form-input").val() != "" ) {
 	getstuff($("#form-input").val());
     }
-}
-;
-var nextNotice = function(e) {
-    console.log("here");
-    console.log(url[rotnum]);
-    console.log(author[rotnum]);
-    
-    var timeOut = setTimeout(nextNotice, 5000);
-    
-    $("#title").text(url[rotnum]);
-    $("#author").html("<small>" + author[rotnum] + "</small>");
-    $("#summary").html("<big>" + snip[rotnum] + "</big>");
-    
-    $("#link").text("Link to Article");
+};
 
-    $("#link").attr({
-	"href" : url[rotnum]
-    });
-    
-    rotate();
+var nextNotice = function(e) {
+    if (ajaxResult == undefined) {
+	var timeOut = setTimeout(nextNotice, 5000);
+
+	$("#title").text(title[rotnum]);
+	$("#author").html("<small>" + author[rotnum] + "</small>");
+	$("#summary").html("<big>" + snip[rotnum] + "</big>");
+	
+	$("#link").text("Link to Article");
+
+	$("#link").attr({
+	    "href" : url[rotnum]
+	});
+	
+	rotate();
+    }
+    else {
+	console.log("IN ELSE STATEMENT");
+
+	var timeOut = setTimeout(nextNotice, 5000);
+
+	$("#title").text(title[artnum]);
+	$("#author").html("<small>" + author[artnum] + "</small>");
+	$("#summary").html("<big>" + snip[artnum] + "</big>");
+
+	$("#link").text("Link to Article");
+
+	$("#link").attr({
+	    "href" : url[artnum]
+	});
+
+	right();
+    }
 };
 
 var submit = document.getElementById("form-btn");
