@@ -1,27 +1,34 @@
 var api_key = "024b40b8c1e9ef1333054858a907a687:6:73721357";
-var ajaxResult = null;
-//test code
+var ajaxResult;
+var rot;
+var snip = new Array(20);
+var author = new Array(20);
+var url = new Array(20);
+var artnum = 0;
+var rotnum = 10;
 
+//sets up the rotation stuff
 $.ajax({
     'type': 'GET',
     'url': 'http://api.nytimes.com/svc/search/v2/articlesearch.json',
     data: {
-        'q': "hello",
-        'response-format': "jsonp",
-        'api-key': "024b40b8c1e9ef1333054858a907a687:6:73721357",
-        'callback': 'svc_search_v2_articlesearch'
+	'q': "Donald Trump",
+	'response-format': "jsonp",
+	'api-key': "024b40b8c1e9ef1333054858a907a687:6:73721357",
+	'callback': 'svc_search_v2_articlesearch'
     },
     success: function(data) {
-        console.log(data);
-    },
-    error: function(){
-	alert('Call failed');
+	rot = data;
+	/*var i;
+	for(i = 10;i < 20; i ++){
+	    snip[i] = rot.response.docs[i].snippet;
+	    author[i] = rot.response.docs[i].byline.original;
+	    url[i] = rot.response.docs[i].web_url;
+	}*/
     }
 });
 
-
 var getstuff = function(query){
-    console.log(query);
     $.ajax({
 	'type': 'GET',
 	'url': 'http://api.nytimes.com/svc/search/v2/articlesearch.json',
@@ -32,7 +39,13 @@ var getstuff = function(query){
 	    'callback': 'svc_search_v2_articlesearch'
 	},
 	success: function(data) {
-	    ajaxResult = JSON.stringify(data);
+	    ajaxResult = data;
+	    /*var i;
+	    for(i = 0;i < 10; i ++){
+		snip[i] = ajaxResult.response.docs[i].snippet;
+		author[i] = ajaxResult.response.docs[i].byline.original;
+		url[i] = ajaxResult.response.docs[i].web_url;
+	    }*/
 	},
 	error: function(){
 	    alert('Call failed');
@@ -40,24 +53,32 @@ var getstuff = function(query){
     });
 };
 
-var getdata = function(data){
-    return data;
-}
+var rotate = function(){
+    if (rotnum == 20){
+	rotnum = 10;
+    }
+    else{
+	rotnum ++;
+    }
+    try{
+	return rot.response.docs[rotnum].abstract;
+    }catch(TypeError){
+	return "no abstract"
+    }
+};
 
-var rotate = function(e){
-    $.ajax({
-	'type': 'GET',
-	'url': 'http://api.nytimes.com/svc/search/v2/articlesearch.json',
-	data: {
-	    'q': "trump",
-	    'response-format': "jsonp",
-	    'api-key': "024b40b8c1e9ef1333054858a907a687:6:73721357",
-	    'callback': 'svc_search_v2_articlesearch'
-	},
-	success: function(data) {
-	    ajaxResult = JSON.stringify(data);
-	}
-    });
+var right = function(){
+    if (artnum == 10){
+	artnum = 0;
+    }
+    else{
+	artnum ++;
+    }
+    try{
+	return ajaxResult.response.docs[artnum].abstract;
+    }catch(TypeError){
+	return "no abstract"
+    }
 };
 
 var checktext = function() {
