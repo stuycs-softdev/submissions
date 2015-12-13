@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<style>
+		.word-container{
+			text-align:center;
+		}
+		
+		.image{
+			visibility:hidden;
+			text-align:center;
+		}
+		</style>
+
+		<title>Scary Hangman</title>
+	</head>
+
+	<body>
+		<div class="word-container" id="word-container">
+			<h1 id="word"></h1>
+			<h3 id="def"></h3>
+		</div>
+
+		<br><br>
+	
+		<div class="image">
+			<img src="static/hangman1.jpeg" id="hangman">
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2 col-sm-offset-3">
+				<input type="text" id="guess">
+				<button type="submit" class="btn btn-primary" id="submit">Guess</button>
+			</div>
+		</div>
+
+		<br>
+	
+		<div class="row">
+			<div class="col-sm-2 col-sm-offset-3">
+				<div class="btn-group btn-group-justified ">
+					<a class="btn btn-primary" role="button" id="reveal">Reveal</a>
+					<a class="btn btn-primary" role="button" id="next">Next</a>
+				</div>
+			</div>
+		</div>
+
+	
+		<div class="row">
+			<div class="col-sm-2 col-sm-offset-3">
+				<div class="btn-group btn-group-justified btn-group-lg">
+					<a class="btn btn-default" role="button">A</a>
+					<a class="btn btn-default" role="button">B</a>
+					<a class="btn btn-default" role="button">C</a>
+					<a class="btn btn-default" role="button">D</a>
+					<a class="btn btn-default" role="button">E</a>
+					<a class="btn btn-default" role="button">F</a>
+				</div>
+			</div>
+		</div>
+	
+		<div class="row">
+			<div class="col-sm-2 col-sm-offset-3">
+				<div class="btn-group btn-group-justified btn-group-lg">
+					<a class="btn btn-default" role="button">G</a>
+					<a class="btn btn-default" role="button">H</a>
+					<a class="btn btn-default" role="button">I</a>
+					<a class="btn btn-default" role="button">J</a>
+					<a class="btn btn-default" role="button">K</a>
+					<a class="btn btn-default" role="button">L</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2 col-sm-offset-3">
+				<div class="btn-group btn-group-justified btn-group-lg">
+					<a class="btn btn-default" role="button">M</a>
+					<a class="btn btn-default" role="button">N</a>
+					<a class="btn btn-default" role="button">O</a>
+					<a class="btn btn-default" role="button">P</a>
+					<a class="btn btn-default" role="button">Q</a>
+					<a class="btn btn-default" role="button">R</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2 col-sm-offset-3">
+				<div class="btn-group btn-group-justified btn-group-lg">
+					<a class="btn btn-default" role="button">S</a>
+					<a class="btn btn-default" role="button">T</a>
+					<a class="btn btn-default" role="button">U</a>
+					<a class="btn btn-default" role="button">V</a>
+					<a class="btn btn-default" role="button">W</a>
+					<a class="btn btn-default" role="button">X</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2 col-sm-offset-3">
+				<div class="btn-group btn-group-justified btn-group-lg">
+					<a class="btn btn-default" role="button">Y</a>
+					<a class="btn btn-default" role="button">Z</a>
+					<a class="btn btn-default disabled" role="button"></a>
+					<a class="btn btn-default disabled" role="button"></a>
+					<a class="btn btn-default disabled" role="button"></a>
+					<a class="btn btn-default disabled" role="button"></a>
+				</div>
+			</div>
+		</div>
+
+	
+		<script src="../static/hangman.js"></script>
+	</body>
+</html>
