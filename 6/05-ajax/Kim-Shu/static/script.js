@@ -64,11 +64,6 @@ var rotate = function(){
     else{
 	rotnum ++;
     }
-    try{
-	return rot.response.docs[rotnum].abstract;
-    }catch(TypeError){
-	return "no abstract"
-    }
 };
 
 var right = function(){
@@ -77,11 +72,6 @@ var right = function(){
     }
     else{
 	artnum ++;
-    }
-    try{
-	return ajaxResult.response.docs[artnum].abstract;
-    }catch(TypeError){
-	return "no abstract"
     }
 };
 
