@@ -14,6 +14,8 @@ def home():
         top10 = niceify_top_10(get_top_10(stat_type), stat_type)
         return render_template("home.html", top10 = top10)
     return render_template("home.html")
+
+@app.route("/<key_stat>")
 def get_top_10(key_stat):
     # Finding top 10 players based on the key_stat of choice (must match a datapoint in the csv file)
     top10 = []
@@ -21,37 +23,42 @@ def get_top_10(key_stat):
         reader = csv.DictReader(stats)
         for row in reader:
             top10.append({'Player': row['Player'], key_stat : float(row[key_stat])})
-    result = sorted(top10, key=itemgetter(key_stat), reverse=True)
-    
-    # TOP 10 List Creation
-    counter = 1
-    while counter <= 10:
-        r = result[counter]
-        #print str(counter) + ". " + r['Player'] + ": " + r[key_stat] + " " + key_stat 
-        counter +=1 
-    return result
+    top10 = sorted(top10, key=itemgetter(key_stat), reverse=True)
 
-def niceify_top_10(top10List, key_stat):
-    res = []
+    res = ""
     counter = 1
     while counter <= 10:
-      r = top10List[counter]
-      res.append( r['Player'] + ": " + str(r[key_stat]) + " " + key_stat )
+      r = top10[counter]
+      res = res + r['Player'] + ": " + str(r[key_stat]) + " " + key_stat + "<br>"
       counter+= 1
     return res
 
+def get_player_stats(player):
+    with open('stats.csv') as stats:
+        reader = csv.DictReader(stats)
+        for row in reader:
+            if player == row['Player']:
+                return row
+    return "No Player"
+
 if __name__ == "__main__":
-    
+    print "Testing player thing"
+    print get_player_stats("Stephen Curry")
+    print "Testing player thing"
+    print get_player_stats("James Harden")
+    print "Testing player thing"
+    print get_player_stats("David Rothblatt")
+    print "\n\n\n"
     print "\nPPG\n"
-    print niceify_top_10(get_top_10('PPG'), 'PPG')
+    print get_top_10('PPG')
     print "\nAPG\n"
-    print niceify_top_10(get_top_10('APG'), 'APG')
+    print get_top_10('APG')
     print "\nRPG\n"
-    print niceify_top_10(get_top_10('RPG'), 'RPG')
+    print get_top_10('RPG')
     print "\nBPG\n"
-    print niceify_top_10(get_top_10('BPG'), 'BPG')
+    print get_top_10('BPG')
     print "\nDRPG\n"
-    print niceify_top_10(get_top_10('DRPG'), 'DRPG')
+    print get_top_10('DRPG')
     #print "\nFGP\n"
     #print niceify_top_10(get_top_10('FGP'), 'FGP')
     app.debug = True
