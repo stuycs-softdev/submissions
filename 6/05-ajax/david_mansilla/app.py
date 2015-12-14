@@ -15,6 +15,7 @@ def home():
         return render_template("home.html", top10 = top10)
     return render_template("home.html")
 
+
 def get_top_10(key_stat):
     # Finding top 10 players based on the key_stat of choice (must match a datapoint in the csv file)
     top10 = []
@@ -32,9 +33,11 @@ def get_top_10(key_stat):
         counter +=1 
     return result
 
-def niceify_top_10(top10List, key_stat):
+@app.route("/<key_stat>")
+def niceify_top_10(key_stat):
     res = []
     counter = 1
+    top10List = get_top_10(key_stat)
     while counter <= 10:
       r = top10List[counter]
       res.append( r['Player'] + ": " + str(r[key_stat]) + " " + key_stat )
@@ -44,15 +47,15 @@ def niceify_top_10(top10List, key_stat):
 if __name__ == "__main__":
     
     print "\nPPG\n"
-    print niceify_top_10(get_top_10('PPG'), 'PPG')
+    print niceify_top_10('PPG')
     print "\nAPG\n"
-    print niceify_top_10(get_top_10('APG'), 'APG')
+    print niceify_top_10('APG')
     print "\nRPG\n"
-    print niceify_top_10(get_top_10('RPG'), 'RPG')
+    print niceify_top_10('RPG')
     print "\nBPG\n"
-    print niceify_top_10(get_top_10('BPG'), 'BPG')
+    print niceify_top_10('BPG')
     print "\nDRPG\n"
-    print niceify_top_10(get_top_10('DRPG'), 'DRPG')
+    print niceify_top_10('DRPG')
     #print "\nFGP\n"
     #print niceify_top_10(get_top_10('FGP'), 'FGP')
     app.debug = True

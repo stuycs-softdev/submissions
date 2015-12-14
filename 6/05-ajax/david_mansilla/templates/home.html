@@ -8,16 +8,25 @@
 
   <body>
 
-  </center> Pick a top 10 list to look at: </center><br><br>
+  <h1><center> Pick a top 10 list to look at: </center></h1><br><br>
 
-  <form action='/home' method='POST' role='form'>
-    <button type="submit" name = "stat_type" value="PPG" id="PPG"> PPG </button>
-    <button type="submit" name = "stat_type" value="APG" id="APG"> APG </button>
-    <button type="submit" name = "stat_type" value="RPG" id="RPG"> RPG </button>
-    <button type="submit" name = "stat_type" value="BPG" id="BPG"> BPG </button>
-  </form>
-  
-  <br><br>
+  <div id="basketball">
+	<button id="PPG">Points Per Game</button>
+	<button id="APG">Assists Per Game</button>
+	<button id="RPG">Rebounds Per Game</button>
+	<button id="BPG">Blocks Per Game</button>
+	<p id="stats">
+	
+	</p>
+   </div>
+	  <!-- form action='/home' method='POST' role='form' -->
+	    <!--button type="submit" name = "stat_type" value="PPG" id="PPG"> PPG </button>
+	    <button type="submit" name = "stat_type" value="APG" id="APG"> APG </button>
+	    <button type="submit" name = "stat_type" value="RPG" id="RPG"> RPG </button>
+	    <button type="submit" name = "stat_type" value="BPG" id="BPG"> BPG </button-->
+	  <!--/form-->
+	  
+  <!--br><br>
   {% if top10 %}
   <ol>
   {% for i in top10 %}
@@ -25,9 +34,10 @@
   {% endfor %}
   </ol>
   {% endif %}  
-  <br><br>
+  <br><br-->
   Advanced stats:
   <p id="advanced">
+
   </p>
   </body>
 
