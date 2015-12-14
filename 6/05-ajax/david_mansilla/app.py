@@ -14,6 +14,7 @@ def home():
         top10 = niceify_top_10(get_top_10(stat_type), stat_type)
         return render_template("home.html", top10 = top10)
     return render_template("home.html")
+
 def get_top_10(key_stat):
     # Finding top 10 players based on the key_stat of choice (must match a datapoint in the csv file)
     top10 = []

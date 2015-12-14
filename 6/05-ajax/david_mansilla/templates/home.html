@@ -7,12 +7,14 @@
   </head>
 
   <body>
-  </center>Select an option</center><br><br>
+
+  </center> Pick a top 10 list to look at: </center><br><br>
+
   <form action='/home' method='POST' role='form'>
-  <button type="submit" name = "stat_type" id="PPG"> PPG </button>
-  <button type="submit" name = "stat_type" id="APG"> APG </button>
-  <button type="submit" name = "stat_type" id="RPG"> RPG </button>
-  <button type="submit" name = "stat_type" id="BPG"> BPG </button>
+    <button type="submit" name = "stat_type" value="PPG" id="PPG"> PPG </button>
+    <button type="submit" name = "stat_type" value="APG" id="APG"> APG </button>
+    <button type="submit" name = "stat_type" value="RPG" id="RPG"> RPG </button>
+    <button type="submit" name = "stat_type" value="BPG" id="BPG"> BPG </button>
   </form>
   
   <br><br>
@@ -28,6 +30,7 @@
   <p id="advanced">
   </p>
   </body>
-  <script src="static/util.js"></script>
 
+  <script src="/static/util.js"> </script>
+  
 </html>
