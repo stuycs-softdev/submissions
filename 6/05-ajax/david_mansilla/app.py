@@ -25,21 +25,39 @@ def get_top_10(key_stat):
             top10.append({'Player': row['Player'], key_stat : float(row[key_stat])})
     top10 = sorted(top10, key=itemgetter(key_stat), reverse=True)
 
-    res = ""
+    res = "<ul>"
     counter = 1
     while counter <= 10:
       r = top10[counter]
-      res = res + r['Player'] + ": " + str(r[key_stat]) + " " + key_stat + "<br>"
+      res += "<li>" + r['Player'] + ": " + str(r[key_stat]) + " " + key_stat + "</li>"
       counter+= 1
+    res += "</ul>"
     return res
 
 def get_player_stats(player):
+    gen_stats = ["Rk","Player","Pos","Age","Tm","G","GS","MP","FG","FGA","FGP","3P","3PA","3P%","2P",\
+             "2PA","2P","eFG%","FT","FTA","FTP","ORPG","DRPG","RPG","APG","SPG","BPG","TOV","PF","PPG"]
+
+    player_stats = []
     with open('stats.csv') as stats:
-        reader = csv.DictReader(stats)
+        reader = csv.reader(stats)
         for row in reader:
-            if player == row['Player']:
-                return row
-    return "No Player"
+            if player == row[1]:
+                player_stats = row
+
+    if len(player_stats) == 0:
+        return "No Player Found"
+
+    res = "<ul>"
+    counter = 1
+    while counter < len(gen_stats):
+        if counter == 1:
+            res += "<li><b><u>" + player_stats[counter] + "</u></b></li>"
+        else:
+            res += "<li>" +  gen_stats[counter] + ": " + player_stats[counter] + "</li>"
+        counter += 1
+    res += "</ul>"
+    return res
 
 if __name__ == "__main__":
     print "Testing player thing"
