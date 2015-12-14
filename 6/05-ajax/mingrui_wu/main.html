@@ -1,14 +1,41 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
     <title>mingrui-wu mock data</title>
+    <script src="jquery-2.1.4.js"></script>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        text-align: left;
+        padding: 10px;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
   </head>
   <body>
-    <center><h1>MOCK DATAville. Population: 1</h1></center>
-    <table>GHAN JBYQ
-      <tr>
+    <center>
+      <h1 id="h1">MOCK DATAville</h1>
+      <h2 id="h2">Population: 1000</h2>
+    </center>
+    Input ID: <input type="text" id="text">&nbsp;<button type="button" id="button">Enter</button>
+    <table id="table">
+      <tr id="table_header">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>IP Address</th>
+        <th>Shirt Color</th>
+        <th>Credit Card Number</th>
+        <th>Famous Last Words</th>
       </tr>
     </table>
-    <script>script.js</script>
+    <script src="script.js"></script>
   </body>
 </html>

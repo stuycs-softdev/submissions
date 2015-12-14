@@ -1,9 +1,7 @@
 console.log("loaded js");
 
-
+var definition;
 var word;
-var wordIndex;
-var wordlist;
 var mistakes = 0;
 var gameWon = false;
 var myInterval;
@@ -11,20 +9,20 @@ var myInterval;
 var reset = function reset(){
 		makeWord();
 		var letter = "A".charCodeAt(0);
-		var buttons = document.getElementsByClassName("btn-default");
-		for (var i = 0 ; i < buttons.length - 4 ; i++){
-				buttons[i].innerHTML = String.fromCharCode(letter);
-				buttons[i].classList.remove("btn-danger");
-				buttons[i].classList.remove("disabled");
-				letter += 1;
-		}
+
+		$(".btn-default").each(function(i, item){
+				$(item).removeClass("btn-danger disabled");
+				if (i < 26)
+						$(item).html(String.fromCharCode(65+i));
+		});
 		mistakes = 0;
 		gameWon = false;
 		clearInterval(myInterval);
 		document.getElementById("submit").classList.remove("disabled");
 		document.getElementById("hangman").style.visibility = "hidden";
 		document.getElementById("word").style.color = "black";
-		document.getElementById("def").innerHTML = "";
+		document.getElementById("def").style.visiblity = "hidden";
+		document.body.style.backgroundImage = "none";
 };
 
 
@@ -41,40 +39,27 @@ var gameStatus = function gameStatus(){
 				document.getElementById("def").innerHTML = "You have lost!";
 		}
 		else{
-				var container = document.getElementById("def");
-				var n = wordlist[wordIndex];
-				def.innerHTML = n.substring(n.indexOf(" "), n.length);
+				document.body.style.backgroundImage = 'url(http://i.stack.imgur.com/8IjyR.gif)';
 				myInterval = setInterval(flash, 500);
 		}
-		var buttons = document.getElementsByClassName("btn");
-		for (var i = 0 ; i < buttons.length ; i++){
-				if (buttons[i].id != "reveal" &&
-						buttons[i].id != "next"){
-						buttons[i].classList.add("disabled");
-				}
-		}
+		$(".btn-default, #submit").addClass("disabled");
+		document.getElementById("def").style.visibility = "visible";
 };
 
-
-var textFiletoArray = function textFiletoArray(){
-		var reader = new XMLHttpRequest();
-		reader.overrideMimeType("text/plain");
-		reader.open("GET", "static/wordlist.csv", false);
-		reader.send();
-		wordlist = reader.responseText.split("\n");
-};
 
 
 var makeWord = function makeWord(){
-		if (wordlist == undefined)
-				textFiletoArray();
-		
-		wordIndex = Math.floor(Math.random() * wordlist.length);
-		word = wordlist[wordIndex];
-		word = word.substring(0, word.indexOf(",")).toUpperCase();
-		//console.log("Word: " + word);
-		var n = document.getElementById("word");
-		n.innerHTML = word.replace(/[^\s]/g, "-");
+		$.get("/getlist", function(data){
+				word = data.substring(0, data.indexOf(", "));
+				word = word.toUpperCase();
+				definition = data.substring(data.indexOf(", ") + 1, data.length);
+				//console.log("Word: " + word);
+				var n = document.getElementById("word");
+				var m = document.getElementById("def");
+				n.innerHTML = word.replace(/[^\s]/g, "-");
+				m.innerHTML = definition;
+				m.style.visibility = "hidden";
+		});
 };
 
 
@@ -130,17 +115,15 @@ var checkAnswer = function(){
 
 
 var setButtons = function setButtons(){
-		var buttons = document.getElementsByClassName("btn-default");
-		for (var i = 0 ; i < buttons.length ; i++){
-				buttons[i].addEventListener('click', function(e){
-						var bool = addLetter(this.innerHTML);
-						this.classList.add("disabled");
-						if (bool == false)
-								this.classList.add("btn-danger");
-						else
-								this.innerHTML = "";
-				});
-		}
+
+		$(".btn-default").click(function(e){
+				var bool = addLetter(this.innerHTML);
+				$(this).addClass("disabled");
+				if (!bool)
+						$(this).addClass("btn-danger");
+				else
+						this.innerHTML = "";
+		});
 		document.getElementById("submit").addEventListener('click', checkAnswer);
 		document.getElementById("next").addEventListener('click', reset);
 		

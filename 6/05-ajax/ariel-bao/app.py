@@ -12,9 +12,12 @@ def index():
 
 @app.route("/getlist")
 def getlist():
-        listname = request.args.get("lname");
-        sortby = request.args.get("sort");
-        l = utils.get_list(listname, sortby);
+        listname = request.args.get("lname")
+        sortby = request.args.get("sort")
+        searchby = request.args.get("search")
+        query = request.args.get("q")
+        
+        l = utils.get_list(listname, sortby, searchby, query)
         return json.dumps(l)
         
 if __name__ == "__main__":
