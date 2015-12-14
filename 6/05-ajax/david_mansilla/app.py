@@ -15,7 +15,7 @@ def home():
         return render_template("home.html", top10 = top10)
     return render_template("home.html")
 
-
+@app.route("/<key_stat>")
 def get_top_10(key_stat):
     # Finding top 10 players based on the key_stat of choice (must match a datapoint in the csv file)
     top10 = []
@@ -23,32 +23,42 @@ def get_top_10(key_stat):
         reader = csv.DictReader(stats)
         for row in reader:
             top10.append({'Player': row['Player'], key_stat : float(row[key_stat])})
-    result = sorted(top10, key=itemgetter(key_stat), reverse=True)
-    return result
+    top10 = sorted(top10, key=itemgetter(key_stat), reverse=True)
 
-@app.route("/<key_stat>")
-def niceify_top_10(key_stat):
     res = ""
     counter = 1
-    top10List = get_top_10(key_stat)
     while counter <= 10:
-      r = top10List[counter]
+      r = top10[counter]
       res = res + r['Player'] + ": " + str(r[key_stat]) + " " + key_stat + "<br>"
       counter+= 1
     return res
 
+def get_player_stats(player):
+    with open('stats.csv') as stats:
+        reader = csv.DictReader(stats)
+        for row in reader:
+            if player == row['Player']:
+                return row
+    return "No Player"
+
 if __name__ == "__main__":
-    
+    print "Testing player thing"
+    print get_player_stats("Stephen Curry")
+    print "Testing player thing"
+    print get_player_stats("James Harden")
+    print "Testing player thing"
+    print get_player_stats("David Rothblatt")
+    print "\n\n\n"
     print "\nPPG\n"
-    print niceify_top_10('PPG')
+    print get_top_10('PPG')
     print "\nAPG\n"
-    print niceify_top_10('APG')
+    print get_top_10('APG')
     print "\nRPG\n"
-    print niceify_top_10('RPG')
+    print get_top_10('RPG')
     print "\nBPG\n"
-    print niceify_top_10('BPG')
+    print get_top_10('BPG')
     print "\nDRPG\n"
-    print niceify_top_10('DRPG')
+    print get_top_10('DRPG')
     #print "\nFGP\n"
     #print niceify_top_10(get_top_10('FGP'), 'FGP')
     app.debug = True
