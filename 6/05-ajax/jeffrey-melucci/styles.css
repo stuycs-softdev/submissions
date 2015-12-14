@@ -1,0 +1,41 @@
+html{
+  height: 100%;
+}
+
+#body{
+  height: 100%;
+  overflow: hidden;
+  background-color: #236F61;
+}
+
+#slideshow{
+  display: table-cell;
+  height: 50%;
+}
+
+#cell2{
+  display: table-cell;
+  height: 50%;
+  width: 50%;
+}
+
+#table-container{
+  height: 75%;
+  display: table;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto;
+  width: 75%;
+  border-collapse: separate;
+  border-spacing: 50px;
+}
+
+.input{
+  margin-top: 5%;
+}
+
+.shadowed{
+  -webkit-box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
+}
