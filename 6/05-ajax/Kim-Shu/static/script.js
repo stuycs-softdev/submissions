@@ -175,10 +175,6 @@ var nextNotice = function() {
 var submit = document.getElementById("form-btn");
 submit.addEventListener('click', checktext);
 
-var goLeft = document.getElementById("left");
-goLeft.addEventListener('click', left);
-
-var goRight = document.getElementById("right");
-goRight.addEventListener('click', right);
-
+var goLeft = document.getElementById("direction");
+goLeft.addEventListener('click',changedirection );
 nextNotice();
