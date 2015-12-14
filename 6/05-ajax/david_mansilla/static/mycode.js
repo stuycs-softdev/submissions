@@ -1,4 +1,6 @@
 console.log("loaded script");
+
+<!-- Make top 10 list -->
 var ppg = document.getElementById("PPG");
 var apg = document.getElementById("APG");
 var rpg = document.getElementById("RPG");
