@@ -1,5 +1,6 @@
 from flask import Flask, render_template, session, request, redirect, url_for
 import random
+
 app= Flask(__name__)
 
 f = open('Emergency_Response_Incidents.csv','r')
@@ -41,6 +42,6 @@ def ranIn():
 def contlod():
     return s
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0',port=8000)

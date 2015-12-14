@@ -1,25 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
+	<head>
+		<h1>NBA Team Stats</h1>
+		<hr>
+	</head>
+
+	<body>
+
+		<h2> Top ten lists </h2>
+		<button type="button" onclick="top10()" id="PTS">Total Points</button>
+		<button type="button" onclick="top10()" id="PTSG">Points Per Game</button>
+		<button type="button" onclick="top10()" id="FG%">Field Goal Percent</button>
+		<button type="button" onclick="top10()" id="3P%">Three Point Percent</button>
+		<button type="button" onclick="top10()" id="2P%">Two Point Percent</button>
+		
+
+		<p id="results"></p>
+	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script>
-	var getall = function getall(){
-		$(document).ready(function(){
-    		$("button").click(function(){
-    			$("#div1").load("stats.csv");
-    		});
-		});
-	}
-	getall();
-	</script>
-</head>
-<body>
+	<script src="static/ajaxstuff.js"></script>
 
-	<div id="div1"><h2>Click to get list of all NBA team stats</h2></div>
-
-	<button>Get All Stats</button>
-
-	
-
-</body>
 </html>
