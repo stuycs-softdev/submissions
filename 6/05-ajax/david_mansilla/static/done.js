@@ -36,7 +36,10 @@ bpg.addEventListener("click", function(e) {
     cyc = 4;
 });
 
-var counter = 0;
+var pcounter = 0;
+var acounter = 0;
+var rcounter = 0;
+var bcounter = 0;
 var more = document.getElementById("advanced");
 var list1 = ['James Harden', 'Kevin Durant', 'LeBron James', 'Anthony Davis', 'Carmelo Anthony', 'DeMarcus Cousins', 'Stephen Curry', 'LaMarcus Aldridge', 'Kobe Bryant', 'Blake Griffin'];
 var list2 = ['Chris Paul', 'John Wall', 'Ty Lawson', 'Reggie Jackson', 'Ricky Rubio', 'Russell Westbrook', 'Rajon Rondo', 'Stephen Curry', 'Michael Carter-Williams', 'LeBron James'];
@@ -45,39 +48,39 @@ var list4 = ['Hassan Whiteside', 'Serge Ibaka', 'Rudy Gobert', 'DeAndre Jordan',
 
 var cycle = function cycle() {
     if (cyc == 1) {
-	$.get("/home/" + list1[counter], function(e) {
+	$.get("/home/" + list1[pcounter], function(e) {
 	    more.innerHTML = e;
 	});
-	counter++;
-	if (counter == 10) {
-	    counter = 0;
+	pcounter++;
+	if (pcounter == 10) {
+	    pcounter = 0;
 	}
     }
     if (cyc == 2) {
-	$.get("/home/" + list2[counter], function(e) {
+	$.get("/home/" + list2[acounter], function(e) {
 	    more.innerHTML = e;
 	});
-	counter++;
-	if (counter == 10) {
-	    counter = 0;
+	acounter++;
+	if (acounter == 10) {
+	    acounter = 0;
 	}
     }
     if (cyc == 3) {
-	$.get("/home/" + list3[counter], function(e) {
+	$.get("/home/" + list3[rcounter], function(e) {
 	    more.innerHTML = e;
 	});
-	counter++;
-	if (counter == 10) {
-	    counter = 0;
+	rcounter++;
+	if (rcounter == 10) {
+	    rcounter = 0;
 	}
     }
     if (cyc == 4) {
-	$.get("/home/" + list4[counter], function(e) {
+	$.get("/home/" + list4[bcounter], function(e) {
 	    more.innerHTML = e;
 	});
-	counter++;
-	if (counter == 10) {
-	    counter = 0;
+	bcounter++;
+	if (bcounter == 10) {
+	    bcounter = 0;
 	}
     }
 };
