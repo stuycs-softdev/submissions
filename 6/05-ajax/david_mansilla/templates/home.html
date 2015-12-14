@@ -8,6 +8,15 @@
 
   <body>
 
+  <h1><center> Pick a top 10 list to look at: </center></h1><br><br>
+    <button type="button" onclick="top10()" id="PPG">Points Per Game</button>
+    <button type="button" onclick="top10()" id="APG">Assists Per Game</button>
+    <button type="button" onclick="top10()" id="RPG">Rebounds Per Game</button>
+    <button type="button" onclick="top10()" id="BPG">Bloacks Per Game</button>
+
+  <p id="results"></p>
+	  
+  <!--br><br>
   {% if top10 %}
   <ol>
   {% for i in top10 %}
@@ -15,6 +24,16 @@
   {% endfor %}
   </ol>
   {% endif %}  
+  <br><br-->
+ 
+  Advanced stats:
+  <p id="advanced">
+
+  </p>
   </body>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="static/done.js"></script>
+
+  
 </html>
