@@ -1,29 +1,29 @@
 console.log("loaded script");
-var points = document.getElementById("PPG");
-var assits = document.getElementById("APG");
-var rebounds = document.getElementById("RPG");
-var blocks = document.getElementById("BPG");
+var ppg = document.getElementById("PPG");
+var apg = document.getElementById("APG");
+var rpg = document.getElementById("RPG");
+var bpg = document.getElementById("BPG");
 var output = document.getElementById("results");
 
-points.addEventListener("click", function(e) {
+ppg.addEventListener("click", function(e) {
     $.get("/PPG", function(e) {
 	output.innerHTML = e;
     });
 });
 
-assits.addEventListener("click", function(e) {
+apg.addEventListener("click", function(e) {
     $.get("/APG", function(e) {
 	output.innerHTML = e;
     });
 });
 
-rebounds.addEventListener("click", function(e) {
+rpg.addEventListener("click", function(e) {
     $.get("/RPG", function(e) {
 	output.innerHTML = e;
     });
 });
 
-blocks.addEventListener("click", function(e) {
+bpg.addEventListener("click", function(e) {
     $.get("/BPG", function(e) {
 	output.innerHTML = e;
     });
