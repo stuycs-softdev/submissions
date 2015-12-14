@@ -15,6 +15,8 @@ def home():
         return render_template("home.html", top10 = top10)
     return render_template("home.html")
 
+the_list = ['a','b','c','d','e','f','g','h','i','j']
+
 @app.route("/<key_stat>")
 def get_top_10(key_stat):
     # Finding top 10 players based on the key_stat of choice (must match a datapoint in the csv file)
@@ -30,10 +32,16 @@ def get_top_10(key_stat):
     while counter <= 10:
       r = top10[counter]
       res += "<li>" + r['Player'] + ": " + str(r[key_stat]) + " " + key_stat + "</li>"
+      the_list[counter-1] = r['Player']
       counter+= 1
     res += "</ul>"
     return res
 
+@app.route("/list")
+def current_list():
+    return the_list
+
+@app.route("/home/<player>")
 def get_player_stats(player):
     gen_stats = ["Rk","Player","Pos","Age","Tm","G","GS","MP","FG","FGA","FGP","3P","3PA","3P%","2P",\
              "2PA","2P","eFG%","FT","FTA","FTP","ORPG","DRPG","RPG","APG","SPG","BPG","TOV","PF","PPG"]
@@ -60,23 +68,30 @@ def get_player_stats(player):
     return res
 
 if __name__ == "__main__":
-    print "Testing player thing"
-    print get_player_stats("Stephen Curry")
-    print "Testing player thing"
-    print get_player_stats("James Harden")
-    print "Testing player thing"
-    print get_player_stats("David Rothblatt")
-    print "\n\n\n"
+    #print "Testing player thing"
+    #print get_player_stats("Stephen Curry")
+    #print "Testing player thing"
+    #print get_player_stats("James Harden")
+    #print "Testing player thing"
+    #print get_player_stats("David Rothblatt")
+    #print "\n\n\n"
     print "\nPPG\n"
     print get_top_10('PPG')
+    print "\nlist:\n"
+    print current_list()
     print "\nAPG\n"
     print get_top_10('APG')
+    print "\nlist:\n"
+    print current_list()
     print "\nRPG\n"
     print get_top_10('RPG')
+    print "\nlist:\n"
+    print current_list()
     print "\nBPG\n"
     print get_top_10('BPG')
-    print "\nDRPG\n"
-    print get_top_10('DRPG')
+    print "\nlist:\n"
+    print current_list()
+    #print get_top_10('DRPG')
     #print "\nFGP\n"
     #print niceify_top_10(get_top_10('FGP'), 'FGP')
     app.debug = True
