@@ -12,8 +12,9 @@ Young Kim, Shi Shu
 
 The project utilizes the NY Times API to function as an "article search",
 taking in search queries and displaying one article at a time to the user, on a 5 second timer.
+If there's no search, it automatically displays articles about Donald Trump
 
-The user can also use the left / right buttons to navigate.
+The user can also use the reverse the displaying order
 
 ---
 
