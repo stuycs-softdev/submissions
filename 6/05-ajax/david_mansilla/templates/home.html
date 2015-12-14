@@ -9,22 +9,12 @@
   <body>
 
   <h1><center> Pick a top 10 list to look at: </center></h1><br><br>
-
-  <div id="basketball">
 	<button id="PPG">Points Per Game</button>
 	<button id="APG">Assists Per Game</button>
 	<button id="RPG">Rebounds Per Game</button>
 	<button id="BPG">Blocks Per Game</button>
-	<p id="stats">
-	
-	</p>
-   </div>
-	  <!-- form action='/home' method='POST' role='form' -->
-	    <!--button type="submit" name = "stat_type" value="PPG" id="PPG"> PPG </button>
-	    <button type="submit" name = "stat_type" value="APG" id="APG"> APG </button>
-	    <button type="submit" name = "stat_type" value="RPG" id="RPG"> RPG </button>
-	    <button type="submit" name = "stat_type" value="BPG" id="BPG"> BPG </button-->
-	  <!--/form-->
+
+	<p id="results"></p>
 	  
   <!--br><br>
   {% if top10 %}
@@ -40,7 +30,8 @@
 
   </p>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="static/mycode.js"></script>
 
-  <script src="/static/util.js"> </script>
   
 </html>

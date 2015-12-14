@@ -35,12 +35,12 @@ def get_top_10(key_stat):
 
 @app.route("/<key_stat>")
 def niceify_top_10(key_stat):
-    res = []
+    res = ""
     counter = 1
     top10List = get_top_10(key_stat)
     while counter <= 10:
       r = top10List[counter]
-      res.append( r['Player'] + ": " + str(r[key_stat]) + " " + key_stat )
+      res = res + r['Player'] + ": " + str(r[key_stat]) + " " + key_stat + "<br>"
       counter+= 1
     return res
 
