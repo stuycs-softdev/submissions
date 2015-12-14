@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import json, urllib2
+import string
 
 app = Flask(__name__)
 data = []
@@ -54,6 +55,23 @@ def getprofile():
     if counter > 99:
         counter = 1
     return json.dumps(dict)   ##returns a dictionary instead of string
+
+@app.route("/findprofile")
+def findprofile():
+	global counter
+	s = request.args.get("data")
+	for line in data:
+		if string.lower(s) in string.lower(line[1]) + " " + string.lower(line[2]) or s in line[4]:
+			dict = {}
+			dict["first"] = line[1]
+			dict["last"] = line[2]
+			dict["age"] = line[3]
+			dict["email"] = line[4]
+			dict["country"] = line[5]
+			counter = int(line[0]) + 1
+			return json.dumps(dict)
+	counter = counter - 1
+	return getprofile()
 
 
 if __name__ == "__main__":
