@@ -40,4 +40,5 @@ console.log("Testing2");
 var myInterval = setInterval(changeMar,1000);
 
 
-'''In the CVS, there was a row that had several ',' so the boro was NOT the 3rd split element. I made it take the last element in the array, it should work.'''
+'''In the CVS, there was a row that had several ',' so the boro was NOT the 3rd split element. I made it take the last element in the array, it should work. 
+For an example, look in LINE 21 of the CVS'''
