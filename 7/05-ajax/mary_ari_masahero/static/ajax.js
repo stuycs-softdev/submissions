@@ -8,33 +8,32 @@ var osis = document.getElementById("OSIS");
 var hr = document.getElementById("HR");
 var output = document.getElementById("results");
 
-pts.addEventListener("click", function(e) {
-    $.get("/PTS", function(e) {
+fnln.addEventListener("click", function(e) {
+    $.get("/FNLN", function(e) {
 	output.innerHTML = e;
     });
 });
 
-ptsg.addEventListener("click", function(e) {
-    $.get("/PTSG", function(e) {
+fn.addEventListener("click", function(e) {
+    $.get("/FN", function(e) {
 	output.innerHTML = e;
     });
 });
 
-fgp.addEventListener("click", function(e) {
-    $.get("/FG%", function(e) {
+id.addEventListener("click", function(e) {
+    $.get("/ID", function(e) {
 	output.innerHTML = e;
     });
 });
 
-thp.addEventListener("click", function(e) {
-    $.get("/3P%", function(e) {
+osis.addEventListener("click", function(e) {
+    $.get("/OSIS", function(e) {
 	output.innerHTML = e;
     });
 });
 
-
-twp.addEventListener("click", function(e) {
-    $.get("/2P%", function(e) {
+hr.addEventListener("click", function(e) {
+    $.get("/HR", function(e) {
 	output.innerHTML = e;
     });
 });
