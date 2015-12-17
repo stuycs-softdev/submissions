@@ -27,7 +27,10 @@ var myInterval = setInterval(displayRandomData,2000);
 //search results
 var displaySearchData=function displaySearchData(){
     //console.log("clicking clicking!");
-    $.getJSON("/search",function (d){
+    var dat = $("input");
+    var d = dat.val();
+    dat.val("");
+    $.getJSON("/search",{input:d},function (d){
 	//console.log("searching searching");
 	var info2="";
 	var ids2=["First Name", "Last Name", "Email","Address","Country"];
